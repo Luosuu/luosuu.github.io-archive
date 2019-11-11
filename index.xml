@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright 2019 Luosuu</copyright>
-    <lastBuildDate>Mon, 11 Nov 2019 19:07:48 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 11 Nov 2019 21:04:35 +0800</lastBuildDate>
     
 	<atom:link href="https://luosuu.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Linux Shell DIY</title>
+      <link>https://luosuu.github.io/posts/linux-shell-diy/</link>
+      <pubDate>Mon, 11 Nov 2019 21:04:35 +0800</pubDate>
+      
+      <guid>https://luosuu.github.io/posts/linux-shell-diy/</guid>
+      <description>Linux提供了非常高的自定义美化终端的空间。不搞的漂亮点，天天面对丑丑的终端，谁受得了啊！ 本文主要参考（搬运）于Powerlevel9k &amp;mdash; 一个美观而又实用的 ZSH 主题。</description>
+    </item>
     
     <item>
       <title>Overview of Computer Science</title>

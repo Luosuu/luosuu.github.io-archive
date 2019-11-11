@@ -3,17 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://luosuu.github.io/</loc>
-    <lastmod>2019-11-11T19:07:48+08:00</lastmod>
+    <loc>https://luosuu.github.io/posts/linux-shell-diy/</loc>
+    <lastmod>2019-11-11T21:04:35+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://luosuu.github.io/posts/overview-of-computer-science/</loc>
-    <lastmod>2019-11-11T19:07:48+08:00</lastmod>
+    <loc>https://luosuu.github.io/</loc>
+    <lastmod>2019-11-11T21:04:35+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://luosuu.github.io/posts/</loc>
+    <lastmod>2019-11-11T21:04:35+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://luosuu.github.io/posts/overview-of-computer-science/</loc>
     <lastmod>2019-11-11T19:07:48+08:00</lastmod>
   </url>
   
