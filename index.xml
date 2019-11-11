@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright 2019 Luosuu</copyright>
-    <lastBuildDate>Mon, 11 Nov 2019 21:04:35 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 11 Nov 2019 22:45:14 +0800</lastBuildDate>
     
 	<atom:link href="https://luosuu.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Overview_ComputerScience</title>
+      <link>https://luosuu.github.io/posts/overview_computerscience/</link>
+      <pubDate>Mon, 11 Nov 2019 22:45:14 +0800</pubDate>
+      
+      <guid>https://luosuu.github.io/posts/overview_computerscience/</guid>
+      <description>有的同学表示对计算机有什么方向比较迷茫。应一些小伙伴要求，我就班门弄斧得给大家稍微介绍和总结一下。</description>
+    </item>
     
     <item>
       <title>Linux Shell DIY</title>
@@ -19,15 +28,6 @@
       
       <guid>https://luosuu.github.io/posts/linux-shell-diy/</guid>
       <description>Linux提供了非常高的自定义美化终端的空间。不搞的漂亮点，天天面对丑丑的终端，谁受得了啊！ 本文主要参考（搬运）于Powerlevel9k &amp;mdash; 一个美观而又实用的 ZSH 主题。</description>
-    </item>
-    
-    <item>
-      <title>Overview of Computer Science</title>
-      <link>https://luosuu.github.io/posts/overview-of-computer-science/</link>
-      <pubDate>Mon, 11 Nov 2019 19:07:48 +0800</pubDate>
-      
-      <guid>https://luosuu.github.io/posts/overview-of-computer-science/</guid>
-      <description>有的同学表示对计算机有什么方向比较迷茫。应一些小伙伴要求，我就班门弄斧得给大家稍微介绍和总结一下。</description>
     </item>
     
     <item>
@@ -46,6 +46,15 @@
       
       <guid>https://luosuu.github.io/posts/foreword/</guid>
       <description>写在前面 本来无心写博客的，大部分笔记都放在了Github的repo里存着，结果发现自己也懒得打开repo复习，而且写的东西愈来愈多，索性建个简单的博客记录一下自己的笔记。甚为简陋请多包含，打算在第三学期读完SICP，如果我没有经常更新，欢迎发邮件到ZhLuosuu@outlook.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://luosuu.github.io/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://luosuu.github.io/about/</guid>
+      <description>关于我 电子科技大学计算机系学生</description>
     </item>
     
   </channel>
