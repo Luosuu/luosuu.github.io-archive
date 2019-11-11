@@ -3,17 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://example.com/posts/foreword/</loc>
-    <lastmod>2019-11-11T18:18:13+08:00</lastmod>
+    <loc>https://example.com/</loc>
+    <lastmod>2019-11-11T19:07:48+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/</loc>
-    <lastmod>2019-11-11T18:18:13+08:00</lastmod>
+    <loc>https://example.com/posts/overview-of-computer-science/</loc>
+    <lastmod>2019-11-11T19:07:48+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://example.com/posts/</loc>
+    <lastmod>2019-11-11T19:07:48+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E6%95%B0%E5%80%BC%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%AE%A1%E7%AE%97/</loc>
+    <lastmod>2019-11-11T19:06:16+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/posts/foreword/</loc>
     <lastmod>2019-11-11T18:18:13+08:00</lastmod>
   </url>
   
