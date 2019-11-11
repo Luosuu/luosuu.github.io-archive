@@ -1,130 +1,40 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en-us">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <title>计算机的数值表示和计算 - Luosuu的小站</title>
   <meta property="og:title" content="计算机的数值表示和计算 - Luosuu的小站" />
   <meta name="twitter:title" content="计算机的数值表示和计算 - Luosuu的小站" />
-  <meta name="description" content="简单记录一下在计算机中如何表示数值与简单运算的。
-进制转换 我们都知道计算机底层数值都是二进制的（由高低电平表示）。而我们生活中常用十进制，同时一些场合下也会用16进制。因此首先我们需要知道进制之间如何转换。
-二进制转十六进制 二进制数以小数点为界，整数部分从小数点从左到右数，每4位分为一组，不足四位的时候在左端补0；小数部分从小数点从右往左数，每四位为一组，不足四位则在右端补0。然后每组按照二进制数与十六进制数对应关系转换。因为2的四次方为16，所以十六进制的每单个数都可以用四位二进制数表示出来。
-十六进制转二进制 直接每位十六进制数都对应转换为四位二进制数即可。
-二进制转十进制 $$(101.01)_2=1*2^2&#43;0*2^1&#43;1*2^0&#43;0*2^-1&#43;1*2^-2$$
-十进制转二进制 十进制整数 十进制数不断除二，记录下每一次的余数，直到商为0。先得到的余数是二进制中的低位，后得到的是二进制整数中的高位。
-十进制小数 小数位不断乘二，记录下每一次结果的整数位（当然只有0或1），直到小数位为0。先得到的整数位是二进制中的高位，后得到的整数位是二进制中的低位。
-$$ 0.3125*2=0.625 0.625*2=1.25
-0.25*2=0.5
-0.5*2=1 $$
-因此记录下来的二进制数为0.0101。即
-$$0.3125 = (0.0101)_2$$
-当然存在无法达到小数位为0的情况。视精度进行取舍，假如要求五位精度，求到第六位看第六位是0还是1，如果是0直接舍去，如果是1则在第五位进位。
-补码制表示二进制数 上面我们讨论的二进制数都是无符号数，也就是无法用来表示这个数的正负。容易得知无符号数的表示范围是
-$$[0,2^n-1]$$
-我们思考一种简单的标志正负的方式，如果用n位来表示一个数，那么我们用最高位来标志这个数的正负，一般最高位为0代表正数，最高位为1代表负数。此时最高位我们称为符号位,剩余的n-1位称为数值位。带有符号的数我们称之为符号数。
-考虑此时的n位二进制数的表示范围，以四位为例，对正数而言最大为0111，负数的表示范围为1111（-8）到1001（-1），此时0有1000和0000两种表示方法。也就是表示范围为
-$$[-2^{n-1} , 2^{n-1}-1]$$
-但是这样做会增加运算逻辑的复杂程度，因为加法器要先检查操作，然后再检查二者的符号：符号相同则将二者数值位相加然后赋给结果相同的符号位；如果符号不同还需要比较二者数值部分的大小，用较大的减去较小的，然后赋给结果较大的操作数的符号。
-因此我们引进补码制来表示符号数。实际中的计算机符号数都是用补码制表示的。所以以后符号数就等同于补码制二进制数。
-补码运算 我们先来了解一下补码：一个n位二进制数D的补码为
-$$2^n-D_2$$
-求补码的运算我们称之为补码运算。
-补码运算可以变形
-$$ 2^n-D
-=(2^n-1-D)&#43;1 $$
-而$2^n-1-D$实际就是n位全1二进制数减去D，相当于对D取反。也就是说求D的补码的过程实际可以变成求D的补码然后再加一。这个运算过程对计算机硬件来说比减法容易得多。
-补码制表示规则和性质 在补码制下同样用最高位表示符号，且0为正，1为负。
-十进制数3的四位补码制二进制数同样为0011，而补码制下的负数为正数的补码。也就是-3表示为
-$$1100_2&#43;1=1101_2$$
-如果你对补码制下的负数再进行补码运算，会得到该数的相反数，也就是变回正数。
-$$0010_2&#43;1=0011_2$$
-这使得在补码制下正数与负数的相互转换非常方便，一对相反数互为对方的补码。
-考虑n位补码制二进制数的表示范围，以4位为例：
-正数最大为0111
-负数可以从 1000（-8）～1111（-1）注意和非补码制的区别
-0为0000，且0的补码仍为0000。
-也就是
-$$[-2^{n-1},2^{n-1}-1]$$
-补码制下的拓展 对于无符号数，由于没有符号，从4位二进制数拓展到8位只需要在左端加四个0。称这种拓展方式位零拓展
-对于符号数，我们需要考虑它的符号，拓展的规则是直接按照它的符号位进行拓展，也就是1101拓展到8位就表示为了11111101。
-我们可以求一下拓展前后的补码验证一下，前者的补码为0011，也就是3，后者为00000011，也是3。
-对符号数的位数拓展方式我们称为符号拓展
-运算 加减 补码制的提出是为了简化运算。在补码制下运算不需要考虑符号位，符号位直接参与运算即可。并且如果操作为减法，那么就对后面的操作数求补码然后按加法运算即可。而且如果最高位产生了进位直接舍去最高位进位即可。
-$$ 1110&#43;1010=1000 $$">
-  <meta property="og:description" content="简单记录一下在计算机中如何表示数值与简单运算的。
-进制转换 我们都知道计算机底层数值都是二进制的（由高低电平表示）。而我们生活中常用十进制，同时一些场合下也会用16进制。因此首先我们需要知道进制之间如何转换。
-二进制转十六进制 二进制数以小数点为界，整数部分从小数点从左到右数，每4位分为一组，不足四位的时候在左端补0；小数部分从小数点从右往左数，每四位为一组，不足四位则在右端补0。然后每组按照二进制数与十六进制数对应关系转换。因为2的四次方为16，所以十六进制的每单个数都可以用四位二进制数表示出来。
-十六进制转二进制 直接每位十六进制数都对应转换为四位二进制数即可。
-二进制转十进制 $$(101.01)_2=1*2^2&#43;0*2^1&#43;1*2^0&#43;0*2^-1&#43;1*2^-2$$
-十进制转二进制 十进制整数 十进制数不断除二，记录下每一次的余数，直到商为0。先得到的余数是二进制中的低位，后得到的是二进制整数中的高位。
-十进制小数 小数位不断乘二，记录下每一次结果的整数位（当然只有0或1），直到小数位为0。先得到的整数位是二进制中的高位，后得到的整数位是二进制中的低位。
-$$ 0.3125*2=0.625 0.625*2=1.25
-0.25*2=0.5
-0.5*2=1 $$
-因此记录下来的二进制数为0.0101。即
-$$0.3125 = (0.0101)_2$$
-当然存在无法达到小数位为0的情况。视精度进行取舍，假如要求五位精度，求到第六位看第六位是0还是1，如果是0直接舍去，如果是1则在第五位进位。
-补码制表示二进制数 上面我们讨论的二进制数都是无符号数，也就是无法用来表示这个数的正负。容易得知无符号数的表示范围是
-$$[0,2^n-1]$$
-我们思考一种简单的标志正负的方式，如果用n位来表示一个数，那么我们用最高位来标志这个数的正负，一般最高位为0代表正数，最高位为1代表负数。此时最高位我们称为符号位,剩余的n-1位称为数值位。带有符号的数我们称之为符号数。
-考虑此时的n位二进制数的表示范围，以四位为例，对正数而言最大为0111，负数的表示范围为1111（-8）到1001（-1），此时0有1000和0000两种表示方法。也就是表示范围为
-$$[-2^{n-1} , 2^{n-1}-1]$$
-但是这样做会增加运算逻辑的复杂程度，因为加法器要先检查操作，然后再检查二者的符号：符号相同则将二者数值位相加然后赋给结果相同的符号位；如果符号不同还需要比较二者数值部分的大小，用较大的减去较小的，然后赋给结果较大的操作数的符号。
-因此我们引进补码制来表示符号数。实际中的计算机符号数都是用补码制表示的。所以以后符号数就等同于补码制二进制数。
-补码运算 我们先来了解一下补码：一个n位二进制数D的补码为
-$$2^n-D_2$$
-求补码的运算我们称之为补码运算。
-补码运算可以变形
-$$ 2^n-D
-=(2^n-1-D)&#43;1 $$
-而$2^n-1-D$实际就是n位全1二进制数减去D，相当于对D取反。也就是说求D的补码的过程实际可以变成求D的补码然后再加一。这个运算过程对计算机硬件来说比减法容易得多。
-补码制表示规则和性质 在补码制下同样用最高位表示符号，且0为正，1为负。
-十进制数3的四位补码制二进制数同样为0011，而补码制下的负数为正数的补码。也就是-3表示为
-$$1100_2&#43;1=1101_2$$
-如果你对补码制下的负数再进行补码运算，会得到该数的相反数，也就是变回正数。
-$$0010_2&#43;1=0011_2$$
-这使得在补码制下正数与负数的相互转换非常方便，一对相反数互为对方的补码。
-考虑n位补码制二进制数的表示范围，以4位为例：
-正数最大为0111
-负数可以从 1000（-8）～1111（-1）注意和非补码制的区别
-0为0000，且0的补码仍为0000。
-也就是
-$$[-2^{n-1},2^{n-1}-1]$$
-补码制下的拓展 对于无符号数，由于没有符号，从4位二进制数拓展到8位只需要在左端加四个0。称这种拓展方式位零拓展
-对于符号数，我们需要考虑它的符号，拓展的规则是直接按照它的符号位进行拓展，也就是1101拓展到8位就表示为了11111101。
-我们可以求一下拓展前后的补码验证一下，前者的补码为0011，也就是3，后者为00000011，也是3。
-对符号数的位数拓展方式我们称为符号拓展
-运算 加减 补码制的提出是为了简化运算。在补码制下运算不需要考虑符号位，符号位直接参与运算即可。并且如果操作为减法，那么就对后面的操作数求补码然后按加法运算即可。而且如果最高位产生了进位直接舍去最高位进位即可。
-$$ 1110&#43;1010=1000 $$">
-  <meta name="twitter:description" content="简单记录一下在计算机中如何表示数值与简单运算的。
-进制转换 我们都知道计算机底层数值都是二进制的（由高低电平表示）。而我们生活中常用十进制，同时一些场合下也会用16进制。因此首先我们需要知道进制之间如何转换。
-二进制转十六进制 二进制数以小数点为界，整数部分从小数点从左到右数，每4位分为一组，不足四位的时候在左端补0；小数部分从小数点从右往左数，每四位为一组，不足四位则在右端补0。然后每组按照二进 …">
+  <meta name="description" content="简单记录一下在计算机中如何表示数值与简单运算的。">
+  <meta property="og:description" content="简单记录一下在计算机中如何表示数值与简单运算的。">
+  <meta name="twitter:description" content="简单记录一下在计算机中如何表示数值与简单运算的。">
   <meta name="author" content="Luosuu"/>
   <meta property="og:site_name" content="Luosuu的小站" />
-  <meta property="og:url" content="https://example.com/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E6%95%B0%E5%80%BC%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%AE%A1%E7%AE%97/" />
+  <meta property="og:url" content="https://luosuu.github.io/luosuu/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E6%95%B0%E5%80%BC%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%AE%A1%E7%AE%97/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
   <meta name="generator" content="Hugo 0.58.3" />
 
-  <link rel="stylesheet" href="/css/style.css" media="all" />
-  <link rel="stylesheet" href="/css/syntax.css" media="all" />
-  <link rel="stylesheet" href="/css/custom.css" media="all" />
+  <link rel="stylesheet" href="/luosuu/css/style.css" media="all" />
+  <link rel="stylesheet" href="/luosuu/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/luosuu/css/custom.css" media="all" />
 
-  <script src="/js/script.js"></script>
-  <script src="/js/custom.js"></script>
-  <script defer src="/js/fontawesome.js"></script>
+  <script src="/luosuu/js/script.js"></script>
+  <script src="/luosuu/js/custom.js"></script>
+  <script defer src="/luosuu/js/fontawesome.js"></script>
 </head>
 
 <body>
 
 <header class="site-header">
   <nav class="site-navi">
-    <h1 class="site-title"><a href="/">Luosuu的小站</a></h1>
+    <h1 class="site-title"><a href="/luosuu/">Luosuu的小站</a></h1>
     <ul class="site-navi-items">
-      <li class="site-navi-item-categories"><a href="/categories/" title="Categories">Categories</a></li>
-      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
-      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
-      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
+      <li class="site-navi-item-categories"><a href="/luosuu/categories/" title="Categories">Categories</a></li>
+      <li class="site-navi-item-tags"><a href="/luosuu/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/luosuu/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/luosuu/about/" title="About">About</a></li>
     </ul>
   </nav>
 </header>
@@ -378,10 +288,10 @@ $$</p>
 
     <ul class="pager article-pager">
       <li class="pager-newer">
-          <a href="/posts/overview-of-computer-science/" data-toggle="tooltip" data-placement="top" title="Overview of Computer Science">&lt; Newer</a>
+          <a href="/luosuu/posts/overview-of-computer-science/" data-toggle="tooltip" data-placement="top" title="Overview of Computer Science">&lt; Newer</a>
       </li>
       <li class="pager-older">
-        <a href="/posts/foreword/" data-toggle="tooltip" data-placement="top" title="Foreword">Older &gt;</a>
+        <a href="/luosuu/posts/foreword/" data-toggle="tooltip" data-placement="top" title="Foreword">Older &gt;</a>
       </li>
     </ul>
   </div>
@@ -390,7 +300,7 @@ $$</p>
 <div class="site-footer">
   <div class="copyright">&copy; Copyright 2019 Luosuu</div>
   <ul class="site-footer-items">
-    <li class="site-footer-item-about"><a href="/about/" title="About">About</a></li>
+    <li class="site-footer-item-about"><a href="/luosuu/about/" title="About">About</a></li>
   </ul>
   <div class="powerdby">
     Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
