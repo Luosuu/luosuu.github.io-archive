@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Luosuu的小站</title>
+    <link>https://example.com/posts/</link>
+    <description>Recent content in Posts on Luosuu的小站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>&amp;copy; Copyright 2017 Your name</copyright>
+    <lastBuildDate>Mon, 11 Nov 2019 18:18:13 +0800</lastBuildDate>
+    
+	<atom:link href="https://example.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Foreword</title>
+      <link>https://example.com/posts/foreword/</link>
+      <pubDate>Mon, 11 Nov 2019 18:18:13 +0800</pubDate>
+      
+      <guid>https://example.com/posts/foreword/</guid>
+      <description>写在前面 本来无心写博客的，大部分笔记都放在了Github的repo里存着，结果发现自己也懒得打开repo复习，而且写的东西愈来愈多，索性建个简单的博客记录一下自己的笔记。甚为简陋请多包含，打算在第三学期读完SICP，如果我没有经常更新，欢迎发邮件到ZhLuosuu@outlook.com捶打我。最后希望大家能有所收获。</description>
+    </item>
+    
+  </channel>
+</rss>
