@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright 2019 Luosuu</copyright>
-    <lastBuildDate>Tue, 12 Nov 2019 10:30:46 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 12 Nov 2019 22:29:40 +0800</lastBuildDate>
     
 	<atom:link href="https://luosuu.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -19,6 +19,87 @@
       
       <guid>https://luosuu.github.io/posts/start-plt/</guid>
       <description>研究事物的原理和构造，掌握基本方法。</description>
+    </item>
+    
+    <item>
+      <title>Notes of Graphic Understanding Etheruem</title>
+      <link>https://luosuu.github.io/posts/graphic-etheruem/</link>
+      <pubDate>Tue, 12 Nov 2019 22:29:40 +0800</pubDate>
+      
+      <guid>https://luosuu.github.io/posts/graphic-etheruem/</guid>
+      <description>Paper Notes</description>
+    </item>
+    
+    <item>
+      <title>A Survey on the Security of Blockchain systems Notes</title>
+      <link>https://luosuu.github.io/posts/survey-notes/</link>
+      <pubDate>Tue, 12 Nov 2019 22:28:04 +0800</pubDate>
+      
+      <guid>https://luosuu.github.io/posts/survey-notes/</guid>
+      <description>All the content are from:</description>
+    </item>
+    
+    <item>
+      <title>简单理解智能合约</title>
+      <link>https://luosuu.github.io/posts/%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/</link>
+      <pubDate>Tue, 12 Nov 2019 22:24:52 +0800</pubDate>
+      
+      <guid>https://luosuu.github.io/posts/%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/</guid>
+      <description>本文主要参考于Solidity develop文档。作为本人的学习笔记和再理解。</description>
+    </item>
+    
+    <item>
+      <title>Use Ssh to Login Your Server</title>
+      <link>https://luosuu.github.io/posts/use-ssh-to-login-your-server/</link>
+      <pubDate>Tue, 12 Nov 2019 22:23:07 +0800</pubDate>
+      
+      <guid>https://luosuu.github.io/posts/use-ssh-to-login-your-server/</guid>
+      <description>用ssh密钥文件登陆服务器</description>
+    </item>
+    
+    <item>
+      <title>Manage Your Node and Npm</title>
+      <link>https://luosuu.github.io/posts/your-node-and-npm/</link>
+      <pubDate>Tue, 12 Nov 2019 22:20:48 +0800</pubDate>
+      
+      <guid>https://luosuu.github.io/posts/your-node-and-npm/</guid>
+      <description>用nvm管理你的node和npm</description>
+    </item>
+    
+    <item>
+      <title>Zsh Highlight</title>
+      <link>https://luosuu.github.io/posts/zsh-highlight/</link>
+      <pubDate>Tue, 12 Nov 2019 22:18:40 +0800</pubDate>
+      
+      <guid>https://luosuu.github.io/posts/zsh-highlight/</guid>
+      <description>为你的zsh终端添加语法高亮</description>
+    </item>
+    
+    <item>
+      <title>Pycon2019 成都站记录</title>
+      <link>https://luosuu.github.io/posts/pycon2019-%E6%88%90%E9%83%BD%E7%AB%99%E8%AE%B0%E5%BD%95/</link>
+      <pubDate>Tue, 12 Nov 2019 22:12:31 +0800</pubDate>
+      
+      <guid>https://luosuu.github.io/posts/pycon2019-%E6%88%90%E9%83%BD%E7%AB%99%E8%AE%B0%E5%BD%95/</guid>
+      <description>这里记录一下我参加pycon2019成都站的笔记和体会。</description>
+    </item>
+    
+    <item>
+      <title>C:struct Pointers</title>
+      <link>https://luosuu.github.io/posts/cstruct-pointers/</link>
+      <pubDate>Tue, 12 Nov 2019 22:09:31 +0800</pubDate>
+      
+      <guid>https://luosuu.github.io/posts/cstruct-pointers/</guid>
+      <description>C语言中的结构体指针，曾在第一学期坑过我</description>
+    </item>
+    
+    <item>
+      <title>Qt Windows Navigation</title>
+      <link>https://luosuu.github.io/posts/qt-windows-navigation/</link>
+      <pubDate>Tue, 12 Nov 2019 22:06:54 +0800</pubDate>
+      
+      <guid>https://luosuu.github.io/posts/qt-windows-navigation/</guid>
+      <description>记录一下上学期写的Qt功能，窗口跳转，虽然感觉以后不会再写Qt了。</description>
     </item>
     
     <item>
