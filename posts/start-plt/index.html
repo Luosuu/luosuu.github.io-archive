@@ -78,6 +78,42 @@
 <li><a href="http://www.pl-enthusiast.net/2015/05/27/what-is-pl-research-and-how-is-it-useful/">What is PL research and how is it useful</a></li>
 </ul>
 
+<h2 id="准备工作">准备工作</h2>
+
+<p>我推荐开始之前先看看上面的链接里第二个和最后一个，了解一下大概的情况以及这个领域关心的问题。</p>
+
+<p>然后这里搬运一下macOS如何安装MIT-scheme，因为SICP的代码都是基于MIT-scheme的，不过只要是符合IEEE-1990的scheme标准的lisp方言，都可以运行SICP第二版的代码（第二版前言述）。</p>
+
+<p>首先下载MIT-Scheme的 .dmg文件。</p>
+
+<p><a href="http://ftp.gnu.org/gnu/mit-scheme/stable.pkg/9.2/mit-scheme-9.2-x86-64.dmg">64-bit</a></p>
+
+<p>由于macOS Catalina只支持64位的软件了，所以我推荐下载64位的。下面的是32位的下载链接:</p>
+
+<p><a href="http://ftp.gnu.org/gnu/mit-scheme/stable.pkg/9.2/mit-scheme-9.2-i386.dmg">32-bit</a></p>
+
+<p>下载完成后，打开dmg文件把app拖进Application文件夹。</p>
+
+<p>64位请打开terminal运行</p>
+
+<pre><code class="language-shell">sudo ln -s /Applications/MIT\:GNU\ Scheme.app/Contents/Resources /usr/local/lib/mit-scheme-x86-64
+</code></pre>
+
+<p>一般会要求你输入密码</p>
+
+<p>然后运行</p>
+
+<pre><code class="language-shell">sudo ln -s /usr/local/lib/mit-scheme-x86-64/mit-scheme /usr/bin/scheme
+</code></pre>
+
+<p>如果不行，把 <code>/usr/bin/scheme</code>换成<code>/usr/local/bin/scheme</code></p>
+
+<p>现在你可以在terminal里直接输入 <code>scheme</code> 启动了，启动后输入<code>(+ 1 1)</code>看看是不是运行正常。</p>
+
+<p><em>上述方法搬自<a href="https://jacksonisaac.wordpress.com/2014/03/25/installing-scheme-on-mac-os-x/">JACKSON&rsquo;S BLOG</a></em></p>
+
+<p>之后你就可以开始草书了。</p>
+
     </article>
 
     
