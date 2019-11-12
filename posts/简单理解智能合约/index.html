@@ -55,6 +55,74 @@
 
 <p>本文主要参考于<a href="https://solidity-cn.readthedocs.io/zh/develop/introduction-to-smart-contracts.html">Solidity develop文档</a>。作为本人的学习笔记和再理解。</p>
 
+<h2 id="对solidity的初步了解">对solidity的初步了解</h2>
+
+<p>Solidity是针对以太坊的编程语言，受到C++，Python，JavaScript等语言的影响。它的设计目的就是为了在以太坊上运行。</p>
+
+<p>它是一种静态语言。solidity支持一部分类的特性。solidity同样支持继承，和复杂的由用户自定义的特殊类型。因此我们可以说solidity是一种OOP（面对对象）的语言。我们在编写solidity代码时，应该以面对对象的编程方式定义变量（状态）和函数。并在solidity中，是大小写敏感的。</p>
+
+<p>我们知道以太坊上的每个节点实际上一般都是EVM，就算是矿工节点，一般也承担EVM的职责。以太坊区块链通过编写和执行智能合约来帮助拓展它的功能。EVM支持的语言很多，solidity是其中最流行也是最适合的。</p>
+
+<h2 id="evm和solidity">EVM和solidity</h2>
+
+<p>EVM是最终执行智能合约代码的地方，但是它不能直接理解solidity里面的高级的结构。EVM能理解的是一种被称为<strong>字节码</strong>的一种低级指令。这种指令非常精简。深入了解EVM，你会发现EVM在实际运行代码时不能联网，权限也非常有限。包括使用精简的指令在内的这些特性，都是为了保证EVM的安全性。</p>
+
+<p>要把我们编写的solidity代码转换成字节码，需要编译器。solidity附带的编译器成为solidity编译器或者<strong>solc</strong>。</p>
+
+<p>那么这个工作流程就和普通的编译代码并运行它没有什么太大的区别了。</p>
+
+<p>solidity代码 -&gt; solc -&gt; 字节码 -&gt; 部署并在EVM上运行。</p>
+
+<h2 id="solidity文件">solidity文件</h2>
+
+<p>储存solidity代码的solidity文件的拓展名是<code>.sol</code>。solidity文件是人类可读的文件，可以在任何编辑器，甚至可以在记事本里打开。</p>
+
+<p>solidity文件由以下四个高级结构组成</p>
+
+<ul>
+<li>预编译指令 - pragma</li>
+<li>注释</li>
+<li>导入(import)</li>
+<li>合约/库/接口 - contract/library/interface</li>
+</ul>
+
+<p>其中solidity的注释是和C++是一样的，<code>\\</code>是单行注释，<code>\*   *\</code>是多行注释。</p>
+
+<p>它们整体看起来像是这个样子的</p>
+
+<pre><code class="language-solidity">pragma solidity 0.4.19;
+
+contract a{
+    //***
+}
+library b{
+    //***
+}
+interface c{
+    //***
+}
+</code></pre>
+
+<h3 id="import语句">import语句</h3>
+
+<p>帮助我们导入其他solidity文件，使得当前的solidity文件可以访问其中的代码。这有助于我们编写模块化的代码。如：</p>
+
+<pre><code class="language-solidity">import 'commonLibrary.sol';
+</code></pre>
+
+<h3 id="预编译指令">预编译指令</h3>
+
+<p>通常指solidity文件的第一行代码，其形式一般为</p>
+
+<pre><code class="language-solidity">pragma solidity &lt;&lt;version number&gt;&gt;;
+</code></pre>
+
+<p>注意是有分号作为结束的。</p>
+
+<p>在<code>pragma</code>指令的帮助下，你可以为你的代码选择合适的编译器。这是一种很好的习惯。</p>
+
+<p>其中版本号<code>^0.4.0</code>代表版本号为4的最新的版本。</p>
+
 <h2 id="hello-world">Hello world</h2>
 
 <pre><code class="language-solidity">pragma solidity ^0.4.18
@@ -218,10 +286,10 @@ contract Coin {
 
     <ul class="pager article-pager">
       <li class="pager-newer">
-          <a href="/posts/survey-notes/" data-toggle="tooltip" data-placement="top" title="A Survey on the Security of Blockchain systems Notes">&lt; Newer</a>
+          <a href="/posts/basic-etheruem/" data-toggle="tooltip" data-placement="top" title="Basic Etheruem">&lt; Newer</a>
       </li>
       <li class="pager-older">
-        <a href="/posts/use-ssh-to-login-your-server/" data-toggle="tooltip" data-placement="top" title="Use Ssh to Login Your Server">Older &gt;</a>
+        <a href="/posts/use-ssh-to-login-your-server/" data-toggle="tooltip" data-placement="top" title="Use ssh to Login Your Server">Older &gt;</a>
       </li>
     </ul>
   </div>

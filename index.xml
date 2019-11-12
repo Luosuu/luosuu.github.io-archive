@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright 2019 Luosuu</copyright>
-    <lastBuildDate>Tue, 12 Nov 2019 22:29:40 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 12 Nov 2019 22:48:38 +0800</lastBuildDate>
     
 	<atom:link href="https://luosuu.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -22,21 +22,30 @@
     </item>
     
     <item>
-      <title>Notes of Graphic Understanding Etheruem</title>
-      <link>https://luosuu.github.io/posts/graphic-etheruem/</link>
-      <pubDate>Tue, 12 Nov 2019 22:29:40 +0800</pubDate>
+      <title>Foreword</title>
+      <link>https://luosuu.github.io/posts/foreword/</link>
+      <pubDate>Mon, 11 Nov 2019 18:18:13 +0800</pubDate>
       
-      <guid>https://luosuu.github.io/posts/graphic-etheruem/</guid>
-      <description>Paper Notes</description>
+      <guid>https://luosuu.github.io/posts/foreword/</guid>
+      <description>写在前面 本来无心写博客的，大部分笔记都放在了Github的repo里存着，结果发现自己也懒得打开repo复习，而且写的东西愈来愈多，索性建个简单的博客记录一下自己的笔记。甚为简陋请多包含，打算在第三学期读完SICP，如果我没有经常更新，欢迎发邮件到ZhLuosuu@outlook.</description>
     </item>
     
     <item>
-      <title>A Survey on the Security of Blockchain systems Notes</title>
-      <link>https://luosuu.github.io/posts/survey-notes/</link>
-      <pubDate>Tue, 12 Nov 2019 22:28:04 +0800</pubDate>
+      <title>Console Game</title>
+      <link>https://luosuu.github.io/posts/console-game/</link>
+      <pubDate>Tue, 12 Nov 2019 22:48:38 +0800</pubDate>
       
-      <guid>https://luosuu.github.io/posts/survey-notes/</guid>
-      <description>All the content are from:</description>
+      <guid>https://luosuu.github.io/posts/console-game/</guid>
+      <description>记录一下第一学期假期时跟着Github@guyaqi学长写的控制台小玩意</description>
+    </item>
+    
+    <item>
+      <title>Basic Etheruem</title>
+      <link>https://luosuu.github.io/posts/basic-etheruem/</link>
+      <pubDate>Tue, 12 Nov 2019 22:40:06 +0800</pubDate>
+      
+      <guid>https://luosuu.github.io/posts/basic-etheruem/</guid>
+      <description>一些以太坊基础知识</description>
     </item>
     
     <item>
@@ -49,7 +58,7 @@
     </item>
     
     <item>
-      <title>Use Ssh to Login Your Server</title>
+      <title>Use ssh to Login Your Server</title>
       <link>https://luosuu.github.io/posts/use-ssh-to-login-your-server/</link>
       <pubDate>Tue, 12 Nov 2019 22:23:07 +0800</pubDate>
       
@@ -130,12 +139,21 @@
     </item>
     
     <item>
-      <title>Foreword</title>
-      <link>https://luosuu.github.io/posts/foreword/</link>
-      <pubDate>Mon, 11 Nov 2019 18:18:13 +0800</pubDate>
+      <title>Notes of Graphic Understanding Etheruem</title>
+      <link>https://luosuu.github.io/posts/graphic-etheruem/</link>
+      <pubDate>Sun, 10 Nov 2019 22:29:40 +0800</pubDate>
       
-      <guid>https://luosuu.github.io/posts/foreword/</guid>
-      <description>写在前面 本来无心写博客的，大部分笔记都放在了Github的repo里存着，结果发现自己也懒得打开repo复习，而且写的东西愈来愈多，索性建个简单的博客记录一下自己的笔记。甚为简陋请多包含，打算在第三学期读完SICP，如果我没有经常更新，欢迎发邮件到ZhLuosuu@outlook.</description>
+      <guid>https://luosuu.github.io/posts/graphic-etheruem/</guid>
+      <description>Paper Notes</description>
+    </item>
+    
+    <item>
+      <title>A Survey on the Security of Blockchain systems Notes</title>
+      <link>https://luosuu.github.io/posts/survey-notes/</link>
+      <pubDate>Sun, 10 Nov 2019 22:28:04 +0800</pubDate>
+      
+      <guid>https://luosuu.github.io/posts/survey-notes/</guid>
+      <description>All the content are from:</description>
     </item>
     
     <item>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Console Game - Luosuu的小站</title>
+  <meta property="og:title" content="Console Game - Luosuu的小站" />
+  <meta name="twitter:title" content="Console Game - Luosuu的小站" />
+  <meta name="description" content="记录一下第一学期假期时跟着Github@guyaqi学长写的控制台小玩意">
+  <meta property="og:description" content="记录一下第一学期假期时跟着Github@guyaqi学长写的控制台小玩意">
+  <meta name="twitter:description" content="记录一下第一学期假期时跟着Github@guyaqi学长写的控制台小玩意">
+  <meta name="author" content="Your name"/>
+  <meta property="og:site_name" content="Luosuu的小站" />
+  <meta property="og:url" content="https://luosuu.github.io/posts/console-game/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.58.3" />
+
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
+
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">Luosuu的小站</a></h1>
+    <ul class="site-navi-items">
+      <li class="site-navi-item-categories"><a href="/categories/" title="Categories">Categories</a></li>
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
+
+  <div class="main" role="main">
+    <article class="article">
+      
+      
+      <h1 class="article-title">Console Game</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>November 12, 2019</time></li>
+      </ul>
+      
+      
+
+<p>记录一下第一学期假期时跟着Github@guyaqi学长写的控制台小玩意</p>
+
+<h2 id="代码">代码</h2>
+
+<pre><code class="language-C">#include &lt;stdio.h&gt;
+#include &lt;windows.h&gt;
+#include &lt;string.h&gt;
+void putFrame(WORD wAttributes,char *a);
+void changeFrame(int a, WORD wAttributes);
+
+int main()
+{
+	HANDLE handle;
+	handle = GetStdHandle(STD_OUTPUT_HANDLE);
+	CONSOLE_CURSOR_INFO cursor = { 100,FALSE };//隐藏光标
+	SetConsoleCursorInfo(handle, &amp;cursor);
+	int position = 1;
+	int state = 0;
+	char a[][128] =
+	{
+		&quot;1. White &amp; Green&quot;,
+		&quot;2. Red &amp; Grey&quot;,
+		&quot;3. White &amp; Black&quot;,
+		&quot;4. White &amp; Blue&quot;
+	};
+
+	printf(&quot;----------------------------------\n\n\n&quot;);
+	printf(&quot;            Colors\n\n&quot;);
+	putFrame(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_INTENSITY, *a);
+	putFrame(FOREGROUND_INTENSITY | FOREGROUND_RED | BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_RED,*(a+1));
+	putFrame(FOREGROUND_INTENSITY| FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE,*(a+2));
+	putFrame(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | BACKGROUND_BLUE,*(a+3));
+
+	SetConsoleTextAttribute(handle, 0);
+	printf(&quot;\n\n&quot;);
+	printf(&quot;       &quot;);
+	SetConsoleTextAttribute(handle, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_INTENSITY);
+	printf(&quot;This is a test text.&quot;);
+
+	//交互
+	while (true)
+	{
+		if (::GetAsyncKeyState(VK_UP) &amp; 0x8000 &amp;&amp; position &gt; 1 &amp;&amp; state == 0)
+		{
+			position--;
+			state = 1;
+		}
+		if (::GetAsyncKeyState(VK_DOWN) &amp; 0x8000 &amp;&amp; position &lt; 4 &amp;&amp; state == 0)
+		{
+			position++;
+			state = 1;
+		}
+		if (!(::GetAsyncKeyState(VK_UP) &amp; 0x8000 &amp;&amp; position) &amp;&amp; !(::GetAsyncKeyState(VK_DOWN) &amp; 0x8000))
+		{
+			state = 0;
+		}
+		if (position == 1 &amp;&amp; state == 0) changeFrame(5,FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_INTENSITY);
+		else if (position == 2 &amp;&amp; state == 0) changeFrame(6, FOREGROUND_INTENSITY | FOREGROUND_RED | BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_RED);
+		else if (position == 3 &amp;&amp; state == 0) changeFrame(7, FOREGROUND_INTENSITY
+			| FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+		else if (position == 4 &amp;&amp; state == 0)changeFrame(8, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | BACKGROUND_BLUE);
+	}
+	system(&quot;pause&quot;);
+}
+
+void putFrame(WORD wAttributes, char a[])
+{
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 0);
+	printf(&quot;        &quot;);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), wAttributes);
+	printf(&quot;%s\n&quot;,a);
+}
+
+void changeFrame(int a, WORD wAttributes)
+{
+	COORD coord;
+	coord.X = 6;
+	coord.Y = 4;
+	for (int i = 0; i &lt; 4; i++)
+	{
+		coord.Y += 1;
+		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 0);
+		printf(&quot;  &quot;);
+	}
+	coord.X = 6;
+	coord.Y = a;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY
+		| FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+	printf(&quot;-&gt;&quot;);
+
+
+	coord.X = 7;
+	coord.Y = 11;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), wAttributes);
+	printf(&quot;This is a test text.&quot;);
+}
+
+</code></pre>
+
+    </article>
+
+    
+
+    <div class="disqus-comments">
+      <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "Shortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+
+    <ul class="pager article-pager">
+      <li class="pager-newer">
+          <a href="/posts/foreword/" data-toggle="tooltip" data-placement="top" title="Foreword">&lt; Newer</a>
+      </li>
+      <li class="pager-older">
+        <a href="/posts/basic-etheruem/" data-toggle="tooltip" data-placement="top" title="Basic Etheruem">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
+
+
+<div class="site-footer">
+  <div class="copyright">&copy; Copyright 2019 Luosuu</div>
+  <ul class="site-footer-items">
+    <li class="site-footer-item-about"><a href="/about/" title="About">About</a></li>
+  </ul>
+  <div class="powerdby">
+    Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
+  </div>
+</div>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'Toracking ID', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+</body>
+</html>
