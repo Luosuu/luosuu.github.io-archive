@@ -78,6 +78,16 @@
   </url>
   
   <url>
+    <loc>https://example.com/categories/</loc>
+    <lastmod>2019-11-12T10:30:46+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/categories/diary/</loc>
+    <lastmod>2019-11-12T10:30:46+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://example.com/posts/diary-2019-11-13/</loc>
     <lastmod>2019-11-12T10:30:46+08:00</lastmod>
   </url>
@@ -94,6 +104,11 @@
   
   <url>
     <loc>https://example.com/tags/sicp/</loc>
+    <lastmod>2019-11-12T10:30:46+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/categories/sicp-notes/</loc>
     <lastmod>2019-11-12T10:30:46+08:00</lastmod>
   </url>
   
@@ -118,6 +133,11 @@
   </url>
   
   <url>
+    <loc>https://example.com/about/</loc>
+    <lastmod>2019-11-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://example.com/posts/graphic-etheruem/</loc>
     <lastmod>2019-11-10T22:29:40+08:00</lastmod>
   </url>
@@ -128,17 +148,12 @@
   </url>
   
   <url>
-    <loc>https://example.com/about/</loc>
-    <lastmod>2014-04-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://example.com/archives/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://example.com/categories/</loc>
+    <loc>https://example.com/posts/test/</loc>
   </url>
   
   <url>
