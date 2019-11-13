@@ -119,6 +119,11 @@
   
   <url>
     <loc>https://example.com/about/</loc>
+    <lastmod>2014-04-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/archives/</loc>
     <priority>0</priority>
   </url>
   
