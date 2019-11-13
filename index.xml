@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright 2019 Luosuu</copyright>
-    <lastBuildDate>Tue, 12 Nov 2019 22:48:38 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 13 Nov 2019 09:33:01 +0800</lastBuildDate>
     
 	<atom:link href="https://luosuu.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -28,6 +28,15 @@
       
       <guid>https://luosuu.github.io/posts/foreword/</guid>
       <description>写在前面 本来无心写博客的，大部分笔记都放在了Github的repo里存着，结果发现自己也懒得打开repo复习，而且写的东西愈来愈多，索性建个简单的博客记录一下自己的笔记。甚为简陋请多包含，打算在第三学期读完SICP，如果我没有经常更新，欢迎发邮件到ZhLuosuu@outlook.</description>
+    </item>
+    
+    <item>
+      <title>UWP 速成笔记</title>
+      <link>https://luosuu.github.io/posts/uwp-fast/</link>
+      <pubDate>Wed, 13 Nov 2019 09:33:01 +0800</pubDate>
+      
+      <guid>https://luosuu.github.io/posts/uwp-fast/</guid>
+      <description>第二学期假期时去MSRA时速成了一下UWP</description>
     </item>
     
     <item>
