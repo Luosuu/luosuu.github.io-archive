@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <title>C:struct Pointers - Luosuu的小站</title>
-  <meta property="og:title" content="C:struct Pointers - Luosuu的小站" />
-  <meta name="twitter:title" content="C:struct Pointers - Luosuu的小站" />
-  <meta name="description" content="C语言中的结构体指针，曾在第一学期坑过我">
-  <meta property="og:description" content="C语言中的结构体指针，曾在第一学期坑过我">
-  <meta name="twitter:description" content="C语言中的结构体指针，曾在第一学期坑过我">
+  <title>diary-2019-11-13 - Luosuu的小站</title>
+  <meta property="og:title" content="diary-2019-11-13 - Luosuu的小站" />
+  <meta name="twitter:title" content="diary-2019-11-13 - Luosuu的小站" />
+  <meta name="description" content="我能跑多快？">
+  <meta property="og:description" content="我能跑多快？">
+  <meta name="twitter:description" content="我能跑多快？">
   <meta name="author" content="Luosuu"/>
   <meta property="og:site_name" content="Luosuu的小站" />
-  <meta property="og:url" content="https://example.com/posts/cstruct-pointers/" />
+  <meta property="og:url" content="https://example.com/posts/diary-2019-11-13/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
   <meta name="generator" content="Hugo 0.58.3" />
@@ -44,39 +44,40 @@
     <article class="article">
       
       
-      <h1 class="article-title">C:struct Pointers</h1>
+      <h1 class="article-title">diary-2019-11-13</h1>
       
       <hr class="article-title-bottom">
       <ul class="article-meta">
         <li class="article-meta-date"><time>November 12, 2019</time></li>
+        <li class="article-meta-tags">
+          <a href="/tags/life/">
+            <i class="fas fa-tag"></i>
+            life
+          </a>&nbsp;
+        </li>
       </ul>
       
+<aside class="toc">
+  <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#焦虑没有任何产出">焦虑没有任何产出</a></li>
+</ul></li>
+</ul>
+</nav>
+</aside>
       
 
-<p>C语言中的结构体指针，曾在第一学期坑过我</p>
+<p>我能跑多快？</p>
 
-<h2 id="代码">代码</h2>
+<h2 id="焦虑没有任何产出">焦虑没有任何产出</h2>
 
-<pre><code class="language-C">typedef struct student
-{
-	int id;
-	char name[50];
-	float chinese;
-	float math;
-	float english;
-	float sum;
-}student;
+<p>找到自己真正喜欢的事情去做，发自内心的想去了解的好奇心才是动力源泉，在发现问题和解决问题的过程中才会得到成长。</p>
 
-//就像一个普通的变量一样，直接传指针就可以进行相应的操作，指针存储的是结构体首地址
-void swap(struct student*a, struct student*b)
-{
-    struct student temp = *a;
-    *a = *b;
-    *b = temp;
-};
-</code></pre>
+<p>一味的被焦虑驱赶着想要找个方向或者事情给自己做，以求得心安的做法，不能说毫无收获，只能说效率极低，这是我假期时得到的惨痛教训。</p>
 
-<p>结构体的操作一般都是以指针的方式进行，有的结构体会很大，直接进行拷贝操作代价太高，因此在函数的传参中，结构体一般也是通过指针的形式传经函数。</p>
+<p>当然世界上应该有很多能逼迫自己做好自己不喜欢做的事情的人，只是我正好做不来这样的。</p>
 
     </article>
 
@@ -85,10 +86,10 @@ void swap(struct student*a, struct student*b)
 
     <ul class="pager article-pager">
       <li class="pager-newer">
-          <a href="/posts/pycon2019-%E6%88%90%E9%83%BD%E7%AB%99%E8%AE%B0%E5%BD%95/" data-toggle="tooltip" data-placement="top" title="Pycon2019 成都站记录">&lt; Newer</a>
+          <a href="/posts/qt-windows-navigation/" data-toggle="tooltip" data-placement="top" title="Qt Windows Navigation">&lt; Newer</a>
       </li>
       <li class="pager-older">
-        <a href="/posts/qt-windows-navigation/" data-toggle="tooltip" data-placement="top" title="Qt Windows Navigation">Older &gt;</a>
+        <a href="/posts/overview_computerscience/" data-toggle="tooltip" data-placement="top" title="Overview_ComputerScience">Older &gt;</a>
       </li>
     </ul>
   </div>

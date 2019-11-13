@@ -78,7 +78,17 @@
   </url>
   
   <url>
+    <loc>https://example.com/posts/diary-2019-11-13/</loc>
+    <lastmod>2019-11-12T10:30:46+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://example.com/tags/interpreter/</loc>
+    <lastmod>2019-11-12T10:30:46+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/tags/life/</loc>
     <lastmod>2019-11-12T10:30:46+08:00</lastmod>
   </url>
   

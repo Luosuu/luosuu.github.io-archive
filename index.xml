@@ -6,6 +6,7 @@
     <description>Recent content on Luosuu的小站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
+    <copyright>&amp;copy; Copyright 2019 Luosuu</copyright>
     <lastBuildDate>Wed, 13 Nov 2019 12:20:54 +0800</lastBuildDate>
     
 	<atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
@@ -126,6 +127,15 @@
       
       <guid>https://example.com/posts/qt-windows-navigation/</guid>
       <description>记录一下上学期写的Qt功能，窗口跳转，虽然感觉以后不会再写Qt了。</description>
+    </item>
+    
+    <item>
+      <title>diary-2019-11-13</title>
+      <link>https://example.com/posts/diary-2019-11-13/</link>
+      <pubDate>Tue, 12 Nov 2019 10:30:46 +0800</pubDate>
+      
+      <guid>https://example.com/posts/diary-2019-11-13/</guid>
+      <description>我能跑多快？</description>
     </item>
     
     <item>

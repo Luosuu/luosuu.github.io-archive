@@ -6,6 +6,7 @@
     <description>Recent content in Tags on Luosuu的小站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
+    <copyright>&amp;copy; Copyright 2019 Luosuu</copyright>
     <lastBuildDate>Tue, 12 Nov 2019 10:30:46 +0800</lastBuildDate>
     
 	<atom:link href="https://example.com/tags/index.xml" rel="self" type="application/rss+xml" />
@@ -17,6 +18,15 @@
       <pubDate>Tue, 12 Nov 2019 10:30:46 +0800</pubDate>
       
       <guid>https://example.com/tags/interpreter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>life</title>
+      <link>https://example.com/tags/life/</link>
+      <pubDate>Tue, 12 Nov 2019 10:30:46 +0800</pubDate>
+      
+      <guid>https://example.com/tags/life/</guid>
       <description></description>
     </item>
     
