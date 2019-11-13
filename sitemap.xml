@@ -3,120 +3,131 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://luosuu.github.io/posts/start-plt/</loc>
+    <loc>https://example.com/posts/start-plt/</loc>
     <lastmod>2019-11-12T10:30:46+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://luosuu.github.io/posts/foreword/</loc>
+    <loc>https://example.com/posts/foreword/</loc>
     <lastmod>2019-11-11T18:18:13+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://luosuu.github.io/</loc>
+    <loc>https://example.com/</loc>
     <lastmod>2019-11-13T12:20:54+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://luosuu.github.io/posts/msra-summercamp/</loc>
+    <loc>https://example.com/posts/msra-summercamp/</loc>
     <lastmod>2019-11-13T12:20:54+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://luosuu.github.io/posts/</loc>
+    <loc>https://example.com/posts/</loc>
     <lastmod>2019-11-13T12:20:54+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://luosuu.github.io/posts/uwp-fast/</loc>
+    <loc>https://example.com/posts/uwp-fast/</loc>
     <lastmod>2019-11-13T09:33:01+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://luosuu.github.io/posts/console-game/</loc>
+    <loc>https://example.com/posts/console-game/</loc>
     <lastmod>2019-11-12T22:48:38+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://luosuu.github.io/posts/basic-etheruem/</loc>
+    <loc>https://example.com/posts/basic-etheruem/</loc>
     <lastmod>2019-11-12T22:40:06+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://luosuu.github.io/posts/%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/</loc>
+    <loc>https://example.com/posts/%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/</loc>
     <lastmod>2019-11-12T22:24:52+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://luosuu.github.io/posts/use-ssh-to-login-your-server/</loc>
+    <loc>https://example.com/posts/use-ssh-to-login-your-server/</loc>
     <lastmod>2019-11-12T22:23:07+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://luosuu.github.io/posts/your-node-and-npm/</loc>
+    <loc>https://example.com/posts/your-node-and-npm/</loc>
     <lastmod>2019-11-12T22:20:48+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://luosuu.github.io/posts/zsh-highlight/</loc>
+    <loc>https://example.com/posts/zsh-highlight/</loc>
     <lastmod>2019-11-12T22:18:40+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://luosuu.github.io/posts/pycon2019-%E6%88%90%E9%83%BD%E7%AB%99%E8%AE%B0%E5%BD%95/</loc>
+    <loc>https://example.com/posts/pycon2019-%E6%88%90%E9%83%BD%E7%AB%99%E8%AE%B0%E5%BD%95/</loc>
     <lastmod>2019-11-12T22:12:31+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://luosuu.github.io/posts/cstruct-pointers/</loc>
+    <loc>https://example.com/posts/cstruct-pointers/</loc>
     <lastmod>2019-11-12T22:09:31+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://luosuu.github.io/posts/qt-windows-navigation/</loc>
+    <loc>https://example.com/posts/qt-windows-navigation/</loc>
     <lastmod>2019-11-12T22:06:54+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://luosuu.github.io/posts/overview_computerscience/</loc>
+    <loc>https://example.com/tags/interpreter/</loc>
+    <lastmod>2019-11-12T10:30:46+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/tags/sicp/</loc>
+    <lastmod>2019-11-12T10:30:46+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/tags/</loc>
+    <lastmod>2019-11-12T10:30:46+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/posts/overview_computerscience/</loc>
     <lastmod>2019-11-11T22:45:14+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://luosuu.github.io/posts/linux-shell-diy/</loc>
+    <loc>https://example.com/posts/linux-shell-diy/</loc>
     <lastmod>2019-11-11T21:04:35+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://luosuu.github.io/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E6%95%B0%E5%80%BC%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%AE%A1%E7%AE%97/</loc>
+    <loc>https://example.com/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E6%95%B0%E5%80%BC%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%AE%A1%E7%AE%97/</loc>
     <lastmod>2019-11-11T19:06:16+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://luosuu.github.io/posts/graphic-etheruem/</loc>
+    <loc>https://example.com/posts/graphic-etheruem/</loc>
     <lastmod>2019-11-10T22:29:40+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://luosuu.github.io/posts/survey-notes/</loc>
+    <loc>https://example.com/posts/survey-notes/</loc>
     <lastmod>2019-11-10T22:28:04+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://luosuu.github.io/about/</loc>
+    <loc>https://example.com/about/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://luosuu.github.io/categories/</loc>
+    <loc>https://example.com/categories/</loc>
   </url>
   
   <url>
-    <loc>https://luosuu.github.io/series/</loc>
-  </url>
-  
-  <url>
-    <loc>https://luosuu.github.io/tags/</loc>
+    <loc>https://example.com/series/</loc>
   </url>
   
 </urlset>

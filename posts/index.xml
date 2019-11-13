@@ -2,174 +2,174 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Luosuu的小站</title>
-    <link>https://luosuu.github.io/posts/</link>
+    <link>https://example.com/posts/</link>
     <description>Recent content in Posts on Luosuu的小站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 13 Nov 2019 12:20:54 +0800</lastBuildDate>
     
-	<atom:link href="https://luosuu.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://example.com/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Start PLT</title>
-      <link>https://luosuu.github.io/posts/start-plt/</link>
+      <link>https://example.com/posts/start-plt/</link>
       <pubDate>Tue, 12 Nov 2019 10:30:46 +0800</pubDate>
       
-      <guid>https://luosuu.github.io/posts/start-plt/</guid>
+      <guid>https://example.com/posts/start-plt/</guid>
       <description>研究事物的原理和构造，掌握基本方法。</description>
     </item>
     
     <item>
       <title>Foreword</title>
-      <link>https://luosuu.github.io/posts/foreword/</link>
+      <link>https://example.com/posts/foreword/</link>
       <pubDate>Mon, 11 Nov 2019 18:18:13 +0800</pubDate>
       
-      <guid>https://luosuu.github.io/posts/foreword/</guid>
+      <guid>https://example.com/posts/foreword/</guid>
       <description>写在前面 本来无心写博客的，大部分笔记都放在了Github的repo里存着，结果发现自己也懒得打开repo复习，而且写的东西愈来愈多，索性建个简单的博客记录一下自己的笔记。甚为简陋请多包含，打算在第三学期读完SICP，如果我没有经常更新，欢迎发邮件到ZhLuosuu@outlook.</description>
     </item>
     
     <item>
       <title>Msra Summercamp</title>
-      <link>https://luosuu.github.io/posts/msra-summercamp/</link>
+      <link>https://example.com/posts/msra-summercamp/</link>
       <pubDate>Wed, 13 Nov 2019 12:20:54 +0800</pubDate>
       
-      <guid>https://luosuu.github.io/posts/msra-summercamp/</guid>
+      <guid>https://example.com/posts/msra-summercamp/</guid>
       <description>微软学生夏令营记录</description>
     </item>
     
     <item>
       <title>UWP 速成笔记</title>
-      <link>https://luosuu.github.io/posts/uwp-fast/</link>
+      <link>https://example.com/posts/uwp-fast/</link>
       <pubDate>Wed, 13 Nov 2019 09:33:01 +0800</pubDate>
       
-      <guid>https://luosuu.github.io/posts/uwp-fast/</guid>
+      <guid>https://example.com/posts/uwp-fast/</guid>
       <description>第二学期假期时去MSRA时速成了一下UWP</description>
     </item>
     
     <item>
       <title>Console Game</title>
-      <link>https://luosuu.github.io/posts/console-game/</link>
+      <link>https://example.com/posts/console-game/</link>
       <pubDate>Tue, 12 Nov 2019 22:48:38 +0800</pubDate>
       
-      <guid>https://luosuu.github.io/posts/console-game/</guid>
+      <guid>https://example.com/posts/console-game/</guid>
       <description>记录一下第一学期假期时跟着Github@guyaqi学长写的控制台小玩意</description>
     </item>
     
     <item>
       <title>Basic Etheruem</title>
-      <link>https://luosuu.github.io/posts/basic-etheruem/</link>
+      <link>https://example.com/posts/basic-etheruem/</link>
       <pubDate>Tue, 12 Nov 2019 22:40:06 +0800</pubDate>
       
-      <guid>https://luosuu.github.io/posts/basic-etheruem/</guid>
+      <guid>https://example.com/posts/basic-etheruem/</guid>
       <description>一些以太坊基础知识</description>
     </item>
     
     <item>
       <title>简单理解智能合约</title>
-      <link>https://luosuu.github.io/posts/%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/</link>
+      <link>https://example.com/posts/%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/</link>
       <pubDate>Tue, 12 Nov 2019 22:24:52 +0800</pubDate>
       
-      <guid>https://luosuu.github.io/posts/%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/</guid>
+      <guid>https://example.com/posts/%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/</guid>
       <description>本文主要参考于Solidity develop文档。作为本人的学习笔记和再理解。</description>
     </item>
     
     <item>
       <title>Use ssh to Login Your Server</title>
-      <link>https://luosuu.github.io/posts/use-ssh-to-login-your-server/</link>
+      <link>https://example.com/posts/use-ssh-to-login-your-server/</link>
       <pubDate>Tue, 12 Nov 2019 22:23:07 +0800</pubDate>
       
-      <guid>https://luosuu.github.io/posts/use-ssh-to-login-your-server/</guid>
+      <guid>https://example.com/posts/use-ssh-to-login-your-server/</guid>
       <description>用ssh密钥文件登陆服务器</description>
     </item>
     
     <item>
       <title>Manage Your Node and Npm</title>
-      <link>https://luosuu.github.io/posts/your-node-and-npm/</link>
+      <link>https://example.com/posts/your-node-and-npm/</link>
       <pubDate>Tue, 12 Nov 2019 22:20:48 +0800</pubDate>
       
-      <guid>https://luosuu.github.io/posts/your-node-and-npm/</guid>
+      <guid>https://example.com/posts/your-node-and-npm/</guid>
       <description>用nvm管理你的node和npm</description>
     </item>
     
     <item>
       <title>Zsh Highlight</title>
-      <link>https://luosuu.github.io/posts/zsh-highlight/</link>
+      <link>https://example.com/posts/zsh-highlight/</link>
       <pubDate>Tue, 12 Nov 2019 22:18:40 +0800</pubDate>
       
-      <guid>https://luosuu.github.io/posts/zsh-highlight/</guid>
+      <guid>https://example.com/posts/zsh-highlight/</guid>
       <description>为你的zsh终端添加语法高亮</description>
     </item>
     
     <item>
       <title>Pycon2019 成都站记录</title>
-      <link>https://luosuu.github.io/posts/pycon2019-%E6%88%90%E9%83%BD%E7%AB%99%E8%AE%B0%E5%BD%95/</link>
+      <link>https://example.com/posts/pycon2019-%E6%88%90%E9%83%BD%E7%AB%99%E8%AE%B0%E5%BD%95/</link>
       <pubDate>Tue, 12 Nov 2019 22:12:31 +0800</pubDate>
       
-      <guid>https://luosuu.github.io/posts/pycon2019-%E6%88%90%E9%83%BD%E7%AB%99%E8%AE%B0%E5%BD%95/</guid>
+      <guid>https://example.com/posts/pycon2019-%E6%88%90%E9%83%BD%E7%AB%99%E8%AE%B0%E5%BD%95/</guid>
       <description>这里记录一下我参加pycon2019成都站的笔记和体会。</description>
     </item>
     
     <item>
       <title>C:struct Pointers</title>
-      <link>https://luosuu.github.io/posts/cstruct-pointers/</link>
+      <link>https://example.com/posts/cstruct-pointers/</link>
       <pubDate>Tue, 12 Nov 2019 22:09:31 +0800</pubDate>
       
-      <guid>https://luosuu.github.io/posts/cstruct-pointers/</guid>
+      <guid>https://example.com/posts/cstruct-pointers/</guid>
       <description>C语言中的结构体指针，曾在第一学期坑过我</description>
     </item>
     
     <item>
       <title>Qt Windows Navigation</title>
-      <link>https://luosuu.github.io/posts/qt-windows-navigation/</link>
+      <link>https://example.com/posts/qt-windows-navigation/</link>
       <pubDate>Tue, 12 Nov 2019 22:06:54 +0800</pubDate>
       
-      <guid>https://luosuu.github.io/posts/qt-windows-navigation/</guid>
+      <guid>https://example.com/posts/qt-windows-navigation/</guid>
       <description>记录一下上学期写的Qt功能，窗口跳转，虽然感觉以后不会再写Qt了。</description>
     </item>
     
     <item>
       <title>Overview_ComputerScience</title>
-      <link>https://luosuu.github.io/posts/overview_computerscience/</link>
+      <link>https://example.com/posts/overview_computerscience/</link>
       <pubDate>Mon, 11 Nov 2019 22:45:14 +0800</pubDate>
       
-      <guid>https://luosuu.github.io/posts/overview_computerscience/</guid>
+      <guid>https://example.com/posts/overview_computerscience/</guid>
       <description>有的同学表示对计算机有什么方向比较迷茫。应一些小伙伴要求，我就班门弄斧得给大家稍微介绍和总结一下。</description>
     </item>
     
     <item>
       <title>Linux Shell DIY</title>
-      <link>https://luosuu.github.io/posts/linux-shell-diy/</link>
+      <link>https://example.com/posts/linux-shell-diy/</link>
       <pubDate>Mon, 11 Nov 2019 21:04:35 +0800</pubDate>
       
-      <guid>https://luosuu.github.io/posts/linux-shell-diy/</guid>
+      <guid>https://example.com/posts/linux-shell-diy/</guid>
       <description>Linux提供了非常高的自定义美化终端的空间。不搞的漂亮点，天天面对丑丑的终端，谁受得了啊！ 本文主要参考（搬运）于Powerlevel9k &amp;mdash; 一个美观而又实用的 ZSH 主题。</description>
     </item>
     
     <item>
       <title>计算机的数值表示和计算</title>
-      <link>https://luosuu.github.io/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E6%95%B0%E5%80%BC%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%AE%A1%E7%AE%97/</link>
+      <link>https://example.com/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E6%95%B0%E5%80%BC%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%AE%A1%E7%AE%97/</link>
       <pubDate>Mon, 11 Nov 2019 19:06:16 +0800</pubDate>
       
-      <guid>https://luosuu.github.io/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E6%95%B0%E5%80%BC%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%AE%A1%E7%AE%97/</guid>
+      <guid>https://example.com/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E6%95%B0%E5%80%BC%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%AE%A1%E7%AE%97/</guid>
       <description>简单记录一下在计算机中如何表示数值与简单运算的。</description>
     </item>
     
     <item>
       <title>Notes of Graphic Understanding Etheruem</title>
-      <link>https://luosuu.github.io/posts/graphic-etheruem/</link>
+      <link>https://example.com/posts/graphic-etheruem/</link>
       <pubDate>Sun, 10 Nov 2019 22:29:40 +0800</pubDate>
       
-      <guid>https://luosuu.github.io/posts/graphic-etheruem/</guid>
+      <guid>https://example.com/posts/graphic-etheruem/</guid>
       <description>Paper Notes</description>
     </item>
     
     <item>
       <title>A Survey on the Security of Blockchain systems Notes</title>
-      <link>https://luosuu.github.io/posts/survey-notes/</link>
+      <link>https://example.com/posts/survey-notes/</link>
       <pubDate>Sun, 10 Nov 2019 22:28:04 +0800</pubDate>
       
-      <guid>https://luosuu.github.io/posts/survey-notes/</guid>
+      <guid>https://example.com/posts/survey-notes/</guid>
       <description>All the content are from:</description>
     </item>
     
