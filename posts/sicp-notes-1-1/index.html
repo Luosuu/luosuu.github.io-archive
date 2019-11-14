@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title> - Luosuu的小站</title>
+  <meta property="og:title" content=" - Luosuu的小站" />
+  <meta name="twitter:title" content=" - Luosuu的小站" />
+  <meta name="description" content="sicp的1-1主要内容是程序设计的基本元素">
+  <meta property="og:description" content="sicp的1-1主要内容是程序设计的基本元素">
+  <meta name="twitter:description" content="sicp的1-1主要内容是程序设计的基本元素">
+  <meta name="author" content="Luosuu"/>
+  <meta property="og:site_name" content="Luosuu的小站" />
+  <meta property="og:url" content="https://example.com/posts/sicp-notes-1-1/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.58.3" />
+
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
+
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">Luosuu的小站</a></h1>
+    <ul class="site-navi-items">
+      <li class="site-navi-item-categories"><a href="/categories/" title="Categories">Categories</a></li>
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
+
+  <div class="main" role="main">
+    <article class="article">
+      
+      
+      <h1 class="article-title"></h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>January 1, 0001</time></li>
+        <li class="article-meta-tags">
+          <a href="/tags/sicp/">
+            <i class="fas fa-tag"></i>
+            sicp
+          </a>&nbsp;
+        </li>
+        <li class="article-meta-tags">
+          <a href="/tags/plt/">
+            <i class="fas fa-tag"></i>
+            PLT
+          </a>&nbsp;
+        </li>
+        <li class="article-meta-tags">
+          <a href="/tags/notes/">
+            <i class="fas fa-tag"></i>
+            notes
+          </a>&nbsp;
+        </li>
+      </ul>
+      
+<aside class="toc">
+  <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#基本元素">基本元素</a></li>
+<li><a href="#表达式式的求值">表达式式的求值</a>
+<ul>
+<li><a href="#基本表达式">基本表达式</a></li>
+<li><a href="#组合表达式">组合表达式</a></li>
+</ul></li>
+<li><a href="#环境">环境</a></li>
+<li><a href="#解释的顺序-application-order与normal-order">解释的顺序：application-order与normal-order</a></li>
+</ul></li>
+</ul>
+</nav>
+</aside>
+      
+
+<p>sicp的1-1主要内容是程序设计的基本元素</p>
+
+<h2 id="基本元素">基本元素</h2>
+
+<ul>
+<li>基本表达形式：对最简单的元素操作</li>
+<li>组合的方法：将基本的表达组合起来形成一块复合的对象</li>
+<li>抽象的方法：命名复合对象，使得他们能够封装成一个黑箱</li>
+</ul>
+
+<h2 id="表达式式的求值">表达式式的求值</h2>
+
+<h3 id="基本表达式">基本表达式</h3>
+
+<p>规则如下：</p>
+
+<ul>
+<li>数的值就是它表示的数值大小</li>
+<li>运算符指能运行的操作的机器指令序列</li>
+<li>其他名字是在该环境下关联于这个名字的对象</li>
+</ul>
+
+<h3 id="组合表达式">组合表达式</h3>
+
+<p>由表达式组合而成的组合式，组成这个组合式的表达式称为该组合式的子表达式（不排除该子表达式也是组合式），它的求值规则如下</p>
+
+<ol>
+<li>求值该组合式的子表达式</li>
+<li>运用该组合式的运算符号，应用于其实际参数（也就是实际的值而不是表达式，此时子表达式应该都已经计算为实际的数值）</li>
+</ol>
+
+<p>考虑到子表达式也可能是个组合式，那么就需要不断进行第一步，直到我们运算的对象是基本元素，也就是求组合式的过程需要调用自己，也就是这个过程就是*递归*的。</p>
+
+<p>此时我们可以用树的方法来表示它。</p>
+
+<p><img src="/方法树.png" alt="tree" /></p>
+
+<p>递归这种方法是处理层次性结构（比如树）的一种强有力的技术。</p>
+
+<p>在表达式的树里，数值从树的最末端不断向上移动，这种过程我们一般称为<em>树形积累</em></p>
+
+<h2 id="环境">环境</h2>
+
+<p>环境是极其重要的，在我们定义的一个过程中（也就是我们抽象出来的一个过程），形式参数的命名应该是无关紧要的，这个过程中的同一个形式参数统一换成另外一个名字，应该是不对这个过程产生任何影响的。</p>
+
+<p>这对于我们封装一个过程极其重要，它可以依赖于外部的一些过程（和在这个过程在同一个环境的其他过程），但是它自己约束的变量，也就是它的形式参数不应该受到外界的控制。</p>
+
+<p>同时这有利于我们定义*块结构*，所谓块结构，就是我们在抽象一个过程时，发现它可以用多个子过程实现，我们不选择在这个过程外抽象它的子过程，而选择在这个过程内部抽象它的子过程。</p>
+
+<p>在块结构中，我们抽象的子过程只能在这个块内使用，且对于子过程来说，该过程的形式参数是可以依赖和修改的。</p>
+
+<p>本来我们求立方根的过程是</p>
+
+<pre><code class="language-scheme">(define (sqrt x)
+    (sqrt-iter 1.0 x))
+(define (sqrt-iter guess x)
+    (if (good-enough? guess x)
+    guess
+    (sqrt-iter (improve guess x) x)))
+(define (good-enough? guess x)
+    (&lt; (abs (- (square guess) x)) 0.001))
+(define (improve guess x)
+    (average guess (/ x guess)))
+</code></pre>
+
+<p><code>sqrt</code>依赖的子过程全部改到它的内部后</p>
+
+<pre><code class="language-scheme">(define (sqrt x)
+    (define (good-enough? guess x)
+        (&lt; (abs (- (square guess) x)) 0.001))
+    (define (improve guess x)
+        (average guess (/ x guess)))
+    (define (sqrt-iter guess x)
+        (if (good-enough? guess x)
+            guess
+            (sqrt-iter (improve guess x) x)))
+    (sqrt-iter 1.0 x))
+</code></pre>
+
+<p>然后我们发现在子过程中将x的值传来传去没啥意义，他们可以直接访问并且修改x</p>
+
+<pre><code class="language-scheme">(define (sqrt x)
+    (define (good-enough? guess)
+        (&lt; (abs (- (square guess) x)) 0.001))
+    (define (improve guess)
+        (average guess (/ x guess)))
+    (define (sqrt-iter guess)
+        (if (good-enough? guess)
+            guess
+            (sqrt-iter (improve guess))))
+    (sqrt-iter 1.0))
+</code></pre>
+
+<h2 id="解释的顺序-application-order与normal-order">解释的顺序：application-order与normal-order</h2>
+
+<p>application-order就是将基本表达式求值，从基本的单元解释命名空间里的所有变量，然后一层层推上去，也就是上文组合式的表达方式。</p>
+
+<p>normal-order则是先不去算表达式的值，先从外不断按照它的解释去展开定义，直到无法展开，只有计算基本表达式的时候才能往下推进时才计算基本表达式。</p>
+
+<p>可以证明，那些可以通过替换去模拟，并且产生合法值的所有过程，他们采用这两种方式输出的结果应该是一样的。</p>
+
+<p>一般而言，都是采用application-order,这样可以避免重复计算表达式。</p>
+
+<p>这里想要说明的是解释的顺序的重要性，比如SICP例题1-5和1-6就明显的说明了这个问题。</p>
+
+<p>对于1-5</p>
+
+<pre><code class="language-scheme">(define (p) (p))
+(define (test x y)
+    (if (= x 0)
+        0
+        y))
+
+(test 0 (p))
+</code></pre>
+
+<p>上面是一个用来测试过程是应用application-order还是norma-order的样例。</p>
+
+<p>如果采用前者，那么解释器会先尝试解释(p),然后再往上运行test的内容，然而(p)用自己解释自己，这样只会陷入死循环，不断输出它解释出来的内容，也就是</p>
+
+<pre><code class="language-scheme">(test 0 (p))
+</code></pre>
+
+<p>如果采用normal-order，那么解释器就会先从test的内容开始，过程如下</p>
+
+<pre><code class="language-scheme">(test 0 (p))
+  
+(if (= 0 0) 0 (p))
+  
+(if #t 0 (p))
+  
+0
+</code></pre>
+
+<p>对于1-6</p>
+
+<p>这位同学自己新定义的new-if的差距在于与if的解释顺序不同。</p>
+
+<p>new-if在解释器看来就是一个普通的过程，所以解释器会去先尝试去解释那三个参数，如果这三个参数参与了递归过程，那么就是自解释了，陷入死循环。</p>
+
+<p>而if会先解释判别式，然后在去选择后面的值进行解释，不会陷入死循环。</p>
+
+    </article>
+
+    
+
+
+    <ul class="pager article-pager">
+      <li class="pager-newer">
+          <a href="/posts/survey-notes/" data-toggle="tooltip" data-placement="top" title="A Survey on the Security of Blockchain systems Notes">&lt; Newer</a>
+      </li>
+      <li class="pager-older pager-noitem">Older &gt;</li>
+    </ul>
+  </div>
+
+
+<div class="site-footer">
+  <div class="copyright">&copy; Copyright 2019 Luosuu</div>
+  <ul class="site-footer-items">
+    <li class="site-footer-item-about"><a href="/about/" title="About">About</a></li>
+  </ul>
+  <div class="powerdby">
+    Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
+  </div>
+</div>
+
+
+</body>
+</html>

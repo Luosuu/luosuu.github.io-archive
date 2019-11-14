@@ -153,7 +153,15 @@
   </url>
   
   <url>
-    <loc>https://example.com/posts/test/</loc>
+    <loc>https://example.com/posts/sicp-notes-1-1/</loc>
+  </url>
+  
+  <url>
+    <loc>https://example.com/tags/notes/</loc>
+  </url>
+  
+  <url>
+    <loc>https://example.com/tags/plt/</loc>
   </url>
   
   <url>

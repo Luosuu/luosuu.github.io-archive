@@ -185,11 +185,11 @@
     
     <item>
       <title></title>
-      <link>https://example.com/posts/test/</link>
+      <link>https://example.com/posts/sicp-notes-1-1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/posts/test/</guid>
-      <description></description>
+      <guid>https://example.com/posts/sicp-notes-1-1/</guid>
+      <description>sicp的1-1主要内容是程序设计的基本元素</description>
     </item>
     
   </channel>
