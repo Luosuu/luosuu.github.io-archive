@@ -21,5 +21,14 @@
       <description>研究事物的原理和构造，掌握基本方法。</description>
     </item>
     
+    <item>
+      <title>Element and Expressions</title>
+      <link>https://example.com/posts/sicp-notes-1-1/</link>
+      <pubDate>Tue, 12 Nov 2019 10:30:46 +0800</pubDate>
+      
+      <guid>https://example.com/posts/sicp-notes-1-1/</guid>
+      <description>sicp的1-1主要内容是程序设计的基本元素</description>
+    </item>
+    
   </channel>
 </rss>
