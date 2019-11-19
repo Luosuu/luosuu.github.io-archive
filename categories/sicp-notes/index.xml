@@ -30,5 +30,14 @@
       <description>sicp的1-1主要内容是程序设计的基本元素</description>
     </item>
     
+    <item>
+      <title>Linear Recursion and Iteration</title>
+      <link>https://example.com/posts/linear-recursion-and-iteration/</link>
+      <pubDate>Tue, 12 Nov 2019 10:30:46 +0800</pubDate>
+      
+      <guid>https://example.com/posts/linear-recursion-and-iteration/</guid>
+      <description>迭代语法的解释/计算过程</description>
+    </item>
+    
   </channel>
 </rss>

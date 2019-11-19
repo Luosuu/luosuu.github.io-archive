@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Linear Recursion and Iteration - Luosuu的小站</title>
+  <meta property="og:title" content="Linear Recursion and Iteration - Luosuu的小站" />
+  <meta name="twitter:title" content="Linear Recursion and Iteration - Luosuu的小站" />
+  <meta name="description" content="迭代语法的解释/计算过程">
+  <meta property="og:description" content="迭代语法的解释/计算过程">
+  <meta name="twitter:description" content="迭代语法的解释/计算过程">
+  <meta name="author" content="Luosuu"/>
+  <meta property="og:site_name" content="Luosuu的小站" />
+  <meta property="og:url" content="https://example.com/posts/linear-recursion-and-iteration/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.58.3" />
+
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
+
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">Luosuu的小站</a></h1>
+    <ul class="site-navi-items">
+      <li class="site-navi-item-categories"><a href="/categories/" title="Categories">Categories</a></li>
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
+
+  <div class="main" role="main">
+    <article class="article">
+      
+      
+      <h1 class="article-title">Linear Recursion and Iteration</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>November 12, 2019</time></li>
+        <li class="article-meta-categories">
+          <a href="/categories/sicp-notes/">
+            <i class="fas fa-folder"></i>
+            sicp notes
+          </a>&nbsp;
+        </li>
+        <li class="article-meta-tags">
+          <a href="/tags/interpreter/">
+            <i class="fas fa-tag"></i>
+            interpreter
+          </a>&nbsp;
+        </li>
+        <li class="article-meta-tags">
+          <a href="/tags/sicp/">
+            <i class="fas fa-tag"></i>
+            SICP
+          </a>&nbsp;
+        </li>
+      </ul>
+      
+<aside class="toc">
+  <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#过程的产生">过程的产生</a></li>
+<li><a href="#递归计算过程-线性递归过程">递归计算过程（线性递归过程）</a></li>
+<li><a href="#迭代计算过程-线性迭代过程">迭代计算过程（线性迭代过程）</a></li>
+</ul></li>
+</ul>
+</nav>
+</aside>
+      
+
+<p>迭代语法的解释/计算过程</p>
+
+<h2 id="过程的产生">过程的产生</h2>
+
+<p>我们在<a href="sicp-notes-1-1.md">elements and expression</a>里，已经讨论了程序的基本元素与表达式。</p>
+
+<p>现在的我们已经可以进行基本的算术操作，对操作进行组合然后抽象、定义为一个复合过程。但是我们还不能说我们已经了解了编程这件事，因为我们现在就像知道了手里的卡牌的使用方法，但是不清楚游戏常见的战术一样，也就是说我们现在缺乏经验，无法预知我们采取的每个动作的后果（执行一个过程的效果）。</p>
+
+<pre><code class="language-en">The ability to visualize the consequences of the actions under consideration is crucial to becoming an expert programmer, just as it is in any synthetic, creative activity. --sicp 1.2
+</code></pre>
+
+<p>也就是说，我们需要对我们执行的过程有足够的了解，了解他们运作的模式，还要研究这些计算过程消耗的资源（时间和空间）</p>
+
+<p>在1.2.1，我们主要关注递归语法的两种计算过程。</p>
+
+<p>在开始之前，我们要搞清楚一个事情，那就是 <em>递归过程</em> 和 <em>递归计算过程</em> 是两回事，前者指语法的结构的事实，也就是它的定义需要调用它自己，后者是解释递归语法的一种计算方式。</p>
+
+<h2 id="递归计算过程-线性递归过程">递归计算过程（线性递归过程）</h2>
+
+<p>考虑一个递归，计算阶乘</p>
+
+<pre><code class="language-scheme">(define (factorial n)
+    (if (= n 1)
+        1
+        (* n (factorial (- n 1)))))
+</code></pre>
+
+<p>我们观察它的过程</p>
+
+<pre><code class="language-scheme">(factorial 6)
+(* 6 (factorial 5))
+(* 6 (* 5 (factorial 4)))
+...
+(* 6 (* 5 (* 4 (* 3 (* 2 (factorial 1))))))
+(* 6 (* 5 (* 4 (* 3 (* 2 1)))))
+...
+(* 6 120)
+720
+</code></pre>
+
+<p>从“形状”上来看，它先不断展开，越来越长，这是因为它必须不断延后它需要实施的运算，然后他会不断收缩，这是实际运算不断实施的体现。</p>
+
+<p>这类“不断推延运算，需要解释器维护一个运算链条”的过程，我们称为 <em>递归计算过程</em></p>
+
+<h2 id="迭代计算过程-线性迭代过程">迭代计算过程（线性迭代过程）</h2>
+
+<p>然后我们考虑另外一个计算阶乘的过程，刚才我们是从大的数不断计算到小的数，现在我们反过来，从小的数的阶乘开始算，算到大头的数的阶乘。</p>
+
+<pre><code class="language-scheme">(define (factorial n)
+    (fact-iter 1 1 n))
+(define (fact-iter product counter max-count)
+    (if (&gt; counter max-count)
+        product
+        (fact-iter (* counter product)
+                    (+ counter 1)
+                    max-count)))
+</code></pre>
+
+<p>如果我们用到上一节的块结构，可以把<code>fact-iter</code>隐藏到函数内部</p>
+
+<pre><code class="language-scheme">(define (factorial n)
+    (define (iter product counter)
+        (if (&gt; counter n)
+            product
+            (iter (* counter product)
+                    (+ counter 1))))
+    (iter 1 1))
+</code></pre>
+
+<p>然后我们考虑它的计算过程</p>
+
+<pre><code class="language-scheme">(factorial 6)
+(fact-iter 1 1 6)
+(fact-iter 1 2 6)
+(fact-iter 2 3 6)
+(fact-iter 6 4 6)
+(fact-iter 24 5 6)
+(fact-iter 120 6 6)
+(fact-iter 720 7 6)
+</code></pre>
+
+<p>我们会发现它有如下重要的性质：</p>
+
+<p>首先它用的每一步的运算过程都可以独立出来，不需要维持上一步的运算，也就是它用三个 <em>状态变量</em> 完整的描述了这个计算过程，同时它又规定了变量如何向下一个状态转换的计算规则，还有一个（可能会有）的结束检测。</p>
+
+<p>也就是我们只需要提供这三个状态变量，解释器就可以计算下去，而对比上面说过的递归计算过程，除了变量以外，它还要维持一些隐形的信息（在这里就是外面有多少套嵌的乘法），其实二者的差别根本在于是否明示了 <em>当前计算在这个过程的哪一处</em></p>
+
+<p>我们称这种计算方式为 <em>迭代计算过程（线性迭代过程）</em></p>
+
+<p>注意，我们在这里我们并没有使用其他语言里常见的 <em>特殊的循环结构</em> ，譬如 <code>do while</code>，<code>for</code>等等。scheme里的实现没有这一环，scheme总能 <em>在常量空间里执行迭代计算过程，即使这个过程是用递归描述的</em> ，具有这一特性的实现，我们称其为 <em>尾递归</em> 的。</p>
+
+<p>有了尾递归的实现，我们就不需要一些特殊的专用迭代结构，可以用常规的过程调用来实表述迭代。</p>
+
+    </article>
+
+    
+
+
+    <ul class="pager article-pager">
+      <li class="pager-newer">
+          <a href="/posts/sicp-notes-1-1/" data-toggle="tooltip" data-placement="top" title="Element and Expressions">&lt; Newer</a>
+      </li>
+      <li class="pager-older">
+        <a href="/posts/msra-summercamp/" data-toggle="tooltip" data-placement="top" title="Msra Summercamp">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
+
+
+<div class="site-footer">
+  <div class="copyright">&copy; Copyright 2019 Luosuu</div>
+  <ul class="site-footer-items">
+    <li class="site-footer-item-about"><a href="/about/" title="About">About</a></li>
+  </ul>
+  <div class="powerdby">
+    Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
+  </div>
+</div>
+
+
+</body>
+</html>

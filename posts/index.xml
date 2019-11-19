@@ -40,6 +40,15 @@
     </item>
     
     <item>
+      <title>Linear Recursion and Iteration</title>
+      <link>https://example.com/posts/linear-recursion-and-iteration/</link>
+      <pubDate>Tue, 12 Nov 2019 10:30:46 +0800</pubDate>
+      
+      <guid>https://example.com/posts/linear-recursion-and-iteration/</guid>
+      <description>迭代语法的解释/计算过程</description>
+    </item>
+    
+    <item>
       <title>Msra Summercamp</title>
       <link>https://example.com/posts/msra-summercamp/</link>
       <pubDate>Wed, 13 Nov 2019 12:20:54 +0800</pubDate>

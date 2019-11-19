@@ -18,6 +18,11 @@
   </url>
   
   <url>
+    <loc>https://example.com/posts/linear-recursion-and-iteration/</loc>
+    <lastmod>2019-11-12T10:30:46+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://example.com/</loc>
     <lastmod>2019-11-13T12:20:54+08:00</lastmod>
   </url>
