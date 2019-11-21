@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>&amp;copy; Copyright 2019 Luosuu</copyright>
-    <lastBuildDate>Tue, 12 Nov 2019 10:30:46 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 20 Nov 2019 10:30:46 +0800</lastBuildDate>
     
 	<atom:link href="https://example.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>diary</title>
       <link>https://example.com/categories/diary/</link>
-      <pubDate>Tue, 12 Nov 2019 10:30:46 +0800</pubDate>
+      <pubDate>Wed, 20 Nov 2019 10:30:46 +0800</pubDate>
       
       <guid>https://example.com/categories/diary/</guid>
       <description></description>
@@ -24,7 +24,7 @@
     <item>
       <title>sicp notes</title>
       <link>https://example.com/categories/sicp-notes/</link>
-      <pubDate>Tue, 12 Nov 2019 10:30:46 +0800</pubDate>
+      <pubDate>Wed, 20 Nov 2019 10:30:46 +0800</pubDate>
       
       <guid>https://example.com/categories/sicp-notes/</guid>
       <description></description>

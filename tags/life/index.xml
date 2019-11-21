@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>&amp;copy; Copyright 2019 Luosuu</copyright>
-    <lastBuildDate>Tue, 12 Nov 2019 10:30:46 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 20 Nov 2019 10:30:46 +0800</lastBuildDate>
     
 	<atom:link href="https://example.com/tags/life/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>计算机是一门实践科学</title>
       <link>https://example.com/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%98%AF%E4%B8%80%E9%97%A8%E5%AE%9E%E8%B7%B5%E7%A7%91%E5%AD%A6/</link>
-      <pubDate>Tue, 12 Nov 2019 10:30:46 +0800</pubDate>
+      <pubDate>Wed, 20 Nov 2019 10:30:46 +0800</pubDate>
       
       <guid>https://example.com/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%98%AF%E4%B8%80%E9%97%A8%E5%AE%9E%E8%B7%B5%E7%A7%91%E5%AD%A6/</guid>
       <description>2019年11月20日有感</description>
