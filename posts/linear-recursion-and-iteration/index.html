@@ -77,6 +77,7 @@
 <li><a href="#过程的产生">过程的产生</a></li>
 <li><a href="#递归计算过程-线性递归过程">递归计算过程（线性递归过程）</a></li>
 <li><a href="#迭代计算过程-线性迭代过程">迭代计算过程（线性迭代过程）</a></li>
+<li><a href="#对比">对比</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -87,12 +88,13 @@
 
 <h2 id="过程的产生">过程的产生</h2>
 
-<p>我们在<a href="sicp-notes-1-1.md">elements and expression</a>里，已经讨论了程序的基本元素与表达式。</p>
+<p>我们在<a href="./sicp-notes-1-1">elements and expression</a>里，已经讨论了程序的基本元素与表达式。</p>
 
 <p>现在的我们已经可以进行基本的算术操作，对操作进行组合然后抽象、定义为一个复合过程。但是我们还不能说我们已经了解了编程这件事，因为我们现在就像知道了手里的卡牌的使用方法，但是不清楚游戏常见的战术一样，也就是说我们现在缺乏经验，无法预知我们采取的每个动作的后果（执行一个过程的效果）。</p>
 
-<pre><code class="language-en">The ability to visualize the consequences of the actions under consideration is crucial to becoming an expert programmer, just as it is in any synthetic, creative activity. --sicp 1.2
-</code></pre>
+<blockquote>
+<p>The ability to visualize the consequences of the actions under consideration is crucial to becoming an expert programmer, just as it is in any synthetic, creative activity. &ndash;sicp 1.2</p>
+</blockquote>
 
 <p>也就是说，我们需要对我们执行的过程有足够的了解，了解他们运作的模式，还要研究这些计算过程消耗的资源（时间和空间）</p>
 
@@ -176,6 +178,14 @@
 
 <p>有了尾递归的实现，我们就不需要一些特殊的专用迭代结构，可以用常规的过程调用来实表述迭代。</p>
 
+<h2 id="对比">对比</h2>
+
+<p>虽然在这里我们发现树形递归比线性递归要低效的多，但是我们要注意到树形递归的表达能力很好，它很直接了当，对于我们理解和设计程序非常有帮助。</p>
+
+<p>另外，当我们考虑一种层次结构性的数据上操作时，而不是对数操作时，我们会发现树形递归计算是一种自然、威力强大的工具。</p>
+
+<p>在<a href="./sicp-notes-1-1">Elements and Expression</a>里，对于求值表达式，解释器采用的策略就是树形递归计算过程。</p>
+
     </article>
 
     
@@ -183,7 +193,7 @@
 
     <ul class="pager article-pager">
       <li class="pager-newer">
-          <a href="/posts/foreword/" data-toggle="tooltip" data-placement="top" title="Foreword">&lt; Newer</a>
+          <a href="/posts/sicp-rank/" data-toggle="tooltip" data-placement="top" title="Orders of Growth">&lt; Newer</a>
       </li>
       <li class="pager-older">
         <a href="/posts/sicp-notes-1-1/" data-toggle="tooltip" data-placement="top" title="Element and Expressions">Older &gt;</a>

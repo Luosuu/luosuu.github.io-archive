@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>&amp;copy; Copyright 2019 Luosuu</copyright>
-    <lastBuildDate>Wed, 20 Nov 2019 10:30:46 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 29 Nov 2019 16:11:32 +0800</lastBuildDate>
     
 	<atom:link href="https://example.com/categories/sicp-notes/index.xml" rel="self" type="application/rss+xml" />
     
@@ -19,6 +19,15 @@
       
       <guid>https://example.com/posts/start-plt/</guid>
       <description>研究事物的原理和构造，掌握基本方法。</description>
+    </item>
+    
+    <item>
+      <title>Orders of Growth</title>
+      <link>https://example.com/posts/sicp-rank/</link>
+      <pubDate>Fri, 29 Nov 2019 16:11:32 +0800</pubDate>
+      
+      <guid>https://example.com/posts/sicp-rank/</guid>
+      <description>作为讨论线性迭代与递归的延续，我们来讨论计算过程的阶数。</description>
     </item>
     
     <item>

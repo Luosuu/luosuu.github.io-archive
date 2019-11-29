@@ -13,6 +13,11 @@
   </url>
   
   <url>
+    <loc>https://example.com/posts/sicp-rank/</loc>
+    <lastmod>2019-11-29T16:11:32+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://example.com/posts/linear-recursion-and-iteration/</loc>
     <lastmod>2019-11-20T10:30:46+08:00</lastmod>
   </url>
@@ -29,7 +34,37 @@
   
   <url>
     <loc>https://example.com/categories/</loc>
-    <lastmod>2019-11-20T10:30:46+08:00</lastmod>
+    <lastmod>2019-11-29T16:11:32+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/tags/interpreter/</loc>
+    <lastmod>2019-11-29T16:11:32+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/</loc>
+    <lastmod>2019-11-29T16:11:32+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/posts/</loc>
+    <lastmod>2019-11-29T16:11:32+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/tags/sicp/</loc>
+    <lastmod>2019-11-29T16:11:32+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/categories/sicp-notes/</loc>
+    <lastmod>2019-11-29T16:11:32+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/tags/</loc>
+    <lastmod>2019-11-29T16:11:32+08:00</lastmod>
   </url>
   
   <url>
@@ -38,37 +73,7 @@
   </url>
   
   <url>
-    <loc>https://example.com/tags/interpreter/</loc>
-    <lastmod>2019-11-20T10:30:46+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://example.com/tags/life/</loc>
-    <lastmod>2019-11-20T10:30:46+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/</loc>
-    <lastmod>2019-11-20T10:30:46+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/posts/</loc>
-    <lastmod>2019-11-20T10:30:46+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/tags/sicp/</loc>
-    <lastmod>2019-11-20T10:30:46+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/categories/sicp-notes/</loc>
-    <lastmod>2019-11-20T10:30:46+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/tags/</loc>
     <lastmod>2019-11-20T10:30:46+08:00</lastmod>
   </url>
   
