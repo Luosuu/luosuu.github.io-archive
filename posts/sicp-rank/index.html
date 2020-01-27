@@ -14,7 +14,7 @@
   <meta property="og:url" content="https://example.com/posts/sicp-rank/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.60.1" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -71,71 +71,39 @@
       
 <aside class="toc">
   <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#计算过程的阶数">计算过程的阶数</a></li>
-<li><a href="#增长阶的价值">增长阶的价值</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#heading">计算过程的阶数</a></li>
+    <li><a href="#heading1">增长阶的价值</a></li>
+  </ul>
 </nav>
 </aside>
-      
-
-<p>作为讨论线性迭代与递归的延续，我们来讨论计算过程的阶数。</p>
-
-<h2 id="计算过程的阶数">计算过程的阶数</h2>
-
+      <p>作为讨论线性迭代与递归的延续，我们来讨论计算过程的阶数。</p>
+<h2 id="heading">计算过程的阶数</h2>
 <p>经过<a href="https://luosuu.github.io/posts/linear-recursion-and-iteration/">Linear Recursion and Iteration</a>我们大概知道了不同的计算过程的代价是不同的，为了实现同样的目标，不同的计算过程消耗的时空资源差距很大。</p>
-
 <p>因此我们需要提供一种评估不同计算过程消耗资源的情况的方法。</p>
-
 <p>我们用n来代表问题规模的大小，也就是某个模式下问题的输入。我们需要衡量的是当输入变大时（问题规模变大时），某一计算过程所需资源粗略的增长的情况。</p>
-
 <p>对于不同的问题我们取的n很可能是不一样的，但是确定的是n肯定是和计算过程的难度/步数紧密相关的，让我们可以根据它来分析计算过程。例如计算平方根的过程这个n我们可以取要精确的小数点后多少位，矩阵乘法可以取矩阵的行数。</p>
-
 <p>然后我们记R(n)为处理规模为n的问题时所需要的资源量，称之为 <em>增长阶</em> 。总之它是一个用n表达的函数。</p>
-
 <p>$$R(n)=\Theta(f(n)) $$</p>
-
 <p>且对于任意大的n，存在与n无关的k1和k2，使得</p>
-
 <p>$$k_1f(n)\leq R(n)\leq k_2f(n)$$</p>
-
 <p>对于斐波那契计算，树形递归需要的步数是</p>
-
 <p>$$\Theta(\phi^n)$$</p>
-
 <p>其中</p>
-
 <p>$$\phi^2=\phi+1$$</p>
-
 <p>空间为</p>
-
 <p>$$\Theta(n)$$</p>
-
 <p>而对于线性迭代过程，步数和空间为</p>
-
 <p>$$\Theta(n), \Theta(1)$$</p>
-
 <p>也就是代表线性迭代过程的步数增长正比于n，而空间需求是个常数。</p>
-
-<h2 id="增长阶的价值">增长阶的价值</h2>
-
+<h2 id="heading1">增长阶的价值</h2>
 <p>注意这里的度量是一个很粗略的过程，比如一个计算过程的步数为</p>
-
 <p>$$3n^2+10n+17$$</p>
-
 <p>另外一个计算过程的步数为</p>
-
 <p>$$1000n^2$$</p>
-
 <p>那么这两个计算过程的增长的阶都是</p>
-
 <p>$$\Theta(n^2)$$</p>
-
 <p>但是从外一个角度来看，我们可以通过增长阶窥见一个计算过程的增长变化。</p>
-
 <p>对于线性过程，规模增长一倍代表计算资源的需求也增长一倍；对于一个指数计算过程，问题规模每增长1都将导致所用资源按照某个常数倍增长；对于对数型增长的计算过程，但问题规模扩大一倍，所需资源量都只增加一个常数。</p>
 
     </article>
@@ -145,7 +113,7 @@
 
     <ul class="pager article-pager">
       <li class="pager-newer">
-          <a href="/posts/foreword/" data-toggle="tooltip" data-placement="top" title="Foreword">&lt; Newer</a>
+          <a href="/posts/qemu-on-mac/" data-toggle="tooltip" data-placement="top" title="Qemu on Mac">&lt; Newer</a>
       </li>
       <li class="pager-older">
         <a href="/posts/linear-recursion-and-iteration/" data-toggle="tooltip" data-placement="top" title="Linear Recursion and Iteration">Older &gt;</a>

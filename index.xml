@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Luosuu的小站</title>
@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>&amp;copy; Copyright 2019 Luosuu</copyright>
-    <lastBuildDate>Fri, 29 Nov 2019 16:11:32 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 27 Jan 2020 11:04:48 +0800</lastBuildDate>
     
 	<atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>To Do List WinterVacation</title>
+      <link>https://example.com/posts/to-do-list-wintervacation/</link>
+      <pubDate>Mon, 27 Jan 2020 11:04:48 +0800</pubDate>
+      
+      <guid>https://example.com/posts/to-do-list-wintervacation/</guid>
+      <description>寒假ToDoList，用来公开处刑，完不成请私信我让我女装</description>
+    </item>
     
     <item>
       <title>Start PLT</title>
@@ -28,6 +37,15 @@
       
       <guid>https://example.com/posts/foreword/</guid>
       <description>写在前面 本来无心写博客的，大部分笔记都放在了Github的repo里存着，结果发现自己也懒得打开repo复习，而且写的东西愈来愈多，索性建个简单的博客记录一下自己的笔记。甚为简陋请多包含，打算在第三学期读完SICP，如果我没有经常更新，欢迎发邮件到ZhLuosuu@outlook.</description>
+    </item>
+    
+    <item>
+      <title>Qemu on Mac</title>
+      <link>https://example.com/posts/qemu-on-mac/</link>
+      <pubDate>Wed, 04 Dec 2019 11:01:01 +0800</pubDate>
+      
+      <guid>https://example.com/posts/qemu-on-mac/</guid>
+      <description>how to use Qemu on macOS</description>
     </item>
     
     <item>

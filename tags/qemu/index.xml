@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Qemu on Luosuu的小站</title>
+    <link>https://example.com/tags/qemu/</link>
+    <description>Recent content in Qemu on Luosuu的小站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>&amp;copy; Copyright 2019 Luosuu</copyright>
+    <lastBuildDate>Wed, 04 Dec 2019 11:01:01 +0800</lastBuildDate>
+    
+	<atom:link href="https://example.com/tags/qemu/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Qemu on Mac</title>
+      <link>https://example.com/posts/qemu-on-mac/</link>
+      <pubDate>Wed, 04 Dec 2019 11:01:01 +0800</pubDate>
+      
+      <guid>https://example.com/posts/qemu-on-mac/</guid>
+      <description>how to use Qemu on macOS</description>
+    </item>
+    
+  </channel>
+</rss>

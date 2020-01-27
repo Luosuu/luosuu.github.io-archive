@@ -14,7 +14,7 @@
   <meta property="og:url" content="https://example.com/posts/use-ssh-to-login-your-server/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.60.1" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -51,104 +51,52 @@
         <li class="article-meta-date"><time>November 12, 2019</time></li>
       </ul>
       
-      
-
-<p>用ssh密钥文件登陆服务器</p>
-
-<h2 id="用腾讯云自己生成的密钥文件">用腾讯云自己生成的密钥文件</h2>
-
+      <p>用ssh密钥文件登陆服务器</p>
+<h2 id="heading">用腾讯云自己生成的密钥文件</h2>
 <p>如果你购买了一个服务器，那么你肯定是需要远程登陆它的。</p>
-
 <p>ssh密钥登陆就是受推崇的一种方式。它在安全性和便捷性间作出了非常好的折中。</p>
-
 <p>以腾讯云为例。你在购买腾讯云的服务器后，如果你想登陆服务器，那么就需要开放ssh端口。</p>
-
 <p>你可以通过它自带的方式生成一个密钥文件。腾讯云会为你保存名称和公钥，私钥文件需要自己下载保存。</p>
-
 <p>你下载下来的密钥文件的文件名应该是和你所起的名称是一致的。</p>
-
 <p>你可以直接使用这个密钥文件。</p>
-
 <p>使用之前你可能需要先更改这个文件的权限</p>
-
-<pre><code class="language-shell">chmod 400 &lt;文件路径&gt;
-</code></pre>
-
-<p>修改以后你就可以直接使用以下命令来登陆服务器了。</p>
-
-<pre><code class="language-shell">ssh -i &lt;文件路径&gt; &lt;服务器用户名&gt;@&lt;公网ip&gt;
-</code></pre>
-
-<p>注意，如果你使用以上方法，那么你的文件名不能改，改了就不行了。</p>
-
-<h2 id="更通常的做法">更通常的做法</h2>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">chmod <span style="color:#ae81ff">400</span> &lt;文件路径&gt;
+</code></pre></div><p>修改以后你就可以直接使用以下命令来登陆服务器了。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">ssh -i &lt;文件路径&gt; &lt;服务器用户名&gt;@&lt;公网ip&gt;
+</code></pre></div><p>注意，如果你使用以上方法，那么你的文件名不能改，改了就不行了。</p>
+<h2 id="heading1">更通常的做法</h2>
 <p>然而这个方式不优雅，也不是我们推崇的。</p>
-
 <p>一般操作系统都会自带<code>~/.ssh</code>文件夹，如果没有，你可以自己创建一个。</p>
-
 <p>进去后应该会有两个文件，一个是<code>id_rsa</code>，另外一个是<code>id_rsa.pub</code>。</p>
-
 <p>这是我们电脑默认的ssh加密文件。如果你曾经使用过git，那么不应该对他们很陌生。</p>
-
 <p>这两个文件各有用处，<code>id_rsa</code>负责储存私钥，<code>id_rsa.pub</code>负责储存公钥。</p>
-
 <p>如果你想使用腾讯云给你生成的密钥文件的内容。那么你可以将你之前下载的密钥文件重命名为<code>id_rsa</code>然后覆盖掉默认的。</p>
-
 <p>然后去腾讯云将公钥复制下来，创建一个<code>id_rsa.pub</code>的文件，将公钥内容复制进去。然后用你创建的<code>id_rsa.pub</code>文件覆盖掉默认的。</p>
-
 <p>然后你可能需要更改文件权限</p>
-
-<pre><code class="language-shell">chmod 400 ~/.ssh/id_rsa
-</code></pre>
-
-<p>这样你就可以使用以下命令登陆服务器了</p>
-
-<pre><code class="language-shell">ssh &lt;服务器用户名&gt;@&lt;公网ip&gt;
-</code></pre>
-
-<p>如果你不想用腾讯云给你的密钥文件内容。我假设你之前没有密钥文件（因为有密钥文件的操作是包含在没有密钥文件的操作之中的）。</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">chmod <span style="color:#ae81ff">400</span> ~/.ssh/id_rsa
+</code></pre></div><p>这样你就可以使用以下命令登陆服务器了</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">ssh &lt;服务器用户名&gt;@&lt;公网ip&gt;
+</code></pre></div><p>如果你不想用腾讯云给你的密钥文件内容。我假设你之前没有密钥文件（因为有密钥文件的操作是包含在没有密钥文件的操作之中的）。</p>
 <p>在shell中输入以下命令</p>
-
-<pre><code class="language-shell"># 这是在生成密钥对
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 这是在生成密钥对</span>
 ssh-keygen
-</code></pre>
-
+</code></pre></div><p>然后会出现以下提示</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">Generating public/private rsa key pair.
+Enter file in which to save the key ～/.ssh/id_rsa<span style="color:#f92672">)</span>:
+</code></pre></div><p>这是让你在选择ssh密钥内容的保存位置。而这个文件位置一般就是<code>~/.ssh/id_rsa</code>，也就是我们期望的默认位置。直接回车。</p>
 <p>然后会出现以下提示</p>
-
-<pre><code class="language-shell">Generating public/private rsa key pair.
-Enter file in which to save the key ～/.ssh/id_rsa):
-</code></pre>
-
-<p>这是让你在选择ssh密钥内容的保存位置。而这个文件位置一般就是<code>~/.ssh/id_rsa</code>，也就是我们期望的默认位置。直接回车。</p>
-
-<p>然后会出现以下提示</p>
-
-<pre><code class="language-shell">Enter passphrase (empty for no passphrase):
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">Enter passphrase <span style="color:#f92672">(</span>empty <span style="color:#66d9ef">for</span> no passphrase<span style="color:#f92672">)</span>:
 Enter same passphrase again:
-</code></pre>
-
-<p>然后会让你输入两次一个叫做<code>passphrase</code>的东西，你可以理解是对密钥文件的加密，也就是密钥文件的密码。一般来说直接回车两次就行了，这代表不设置<code>passphrase</code>。</p>
-
+</code></pre></div><p>然后会让你输入两次一个叫做<code>passphrase</code>的东西，你可以理解是对密钥文件的加密，也就是密钥文件的密码。一般来说直接回车两次就行了，这代表不设置<code>passphrase</code>。</p>
 <p>然后登陆服务器。进入服务器的<code>~/.ssh</code>目录，使用<code>ls</code>命令查看其中的文件。里面应该有一个叫做<code>authorized_keys</code>的文件。这个文件里面存有所有得到登陆授权的公钥。储存格式是每行一个公钥。</p>
-
 <p>我们可以编辑<code>authorized_keys</code>，然后将自己生成的公钥内容复制进去（记得保存）。</p>
-
 <p>然后我们就可以通过本地的ssh密钥对登陆了。</p>
-
 <p>从这里我们可以看出ssh密钥对的优势和好处。我们可以在服务器的<code>authorized_keys</code>储存多台电脑的ssh文件的公钥，就可以实现服务器的安全共享。</p>
-
-<h2 id="ssh文件的使用">ssh文件的使用</h2>
-
+<h2 id="ssh">ssh文件的使用</h2>
 <p>为了方便，我们每个计算机都只保存一个ssh文件密钥对，也就是<code>id_rsa</code>与<code>id_rsa.pub</code>。然后任何需要使用ssh文件的地方都用这个密钥对。这样我们就免去了命令上的麻烦。</p>
-
 <p>ssh命令中的<code>-i</code>实际上就是使用密钥文件的意思。以后我们登陆任何需要ssh文件的服务器，都直接使用</p>
-
-<pre><code class="language-shell">ssh &lt;服务器用户名&gt;@&lt;公网ip&gt;
-</code></pre>
-
-<p>就可以了。非常方便。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">ssh &lt;服务器用户名&gt;@&lt;公网ip&gt;
+</code></pre></div><p>就可以了。非常方便。</p>
 
     </article>
 

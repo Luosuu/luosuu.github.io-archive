@@ -14,7 +14,7 @@
   <meta property="og:url" content="https://example.com/posts/graphic-etheruem/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.60.1" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -53,51 +53,35 @@
       
 <aside class="toc">
   <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#content">content</a></li>
-<li><a href="#construction">Construction</a>
-<ul>
-<li><a href="#mfg">MFG</a></li>
-<li><a href="#ccg">CCG</a>
-<ul>
-<li><a href="#properties-of-ccg">Properties of CCG</a></li>
-</ul></li>
-<li><a href="#cig">CIG</a></li>
-<li><a href="#insights">Insights</a></li>
-</ul></li>
-<li><a href="#analysis">Analysis</a></li>
-<li><a href="#attack-forensics">Attack forensics</a></li>
-<li><a href="#anomaly-detection">Anomaly detection</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#content">content</a></li>
+    <li><a href="#construction">Construction</a>
+      <ul>
+        <li><a href="#mfg">MFG</a></li>
+        <li><a href="#ccg">CCG</a></li>
+        <li><a href="#cig">CIG</a></li>
+        <li><a href="#insights">Insights</a></li>
+      </ul>
+    </li>
+    <li><a href="#analysis">Analysis</a></li>
+    <li><a href="#attack-forensics">Attack forensics</a></li>
+    <li><a href="#anomaly-detection">Anomaly detection</a></li>
+  </ul>
 </nav>
 </aside>
-      
-
-<p>Paper Notes</p>
-
+      <p>Paper Notes</p>
 <h2 id="content">content</h2>
-
 <p>characterize three main major activities:</p>
-
 <ol>
 <li>money transfer</li>
 <li>smart contract creation</li>
 <li>smart contract invocation</li>
 </ol>
-
 <p>market capitalization: 20 billion USD</p>
-
-<p>A transaction can be an internal one thar resultes from executing a smart contract due to an external transaction, and therefore an internal transaction&rsquo;s sender is the smart contract.</p>
-
+<p>A transaction can be an internal one thar resultes from executing a smart contract due to an external transaction, and therefore an internal transaction's sender is the smart contract.</p>
 <p>Note that an external transaction may lead to many internal transcations.</p>
-
 <p>replay all external transactions in a customized Ethereum client.</p>
-
 <p>Various graph analysis on Money Flow Graph, Contract Creation Graph, Contract Invocation Graph:</p>
-
 <ol>
 <li>degree distribution</li>
 <li>clusters</li>
@@ -106,22 +90,15 @@
 <li>assortativity</li>
 <li>strongly/weakly connected component</li>
 </ol>
-
 <p>new approaches based on cross-graph analysis(交叉图分析) to address two security issues:</p>
-
 <ol>
 <li>attack forensics(攻击取证) for finding accounts controlled by the attackers</li>
 <li>anomaly detection(异常检测) for discovering potential attacks through smart contracts.</li>
 </ol>
-
 <p>recent studies of graph-based analysis on Bitcon cannot be applied on Ethereum directly because of the differences in functionalities and protocols(协议)</p>
-
 <p>130 operations for EVM, and bytecode of a smart contract can be considered as a sequence of such operations.</p>
-
 <p>EVM provides 61 handlers to interpreting 61 operations, individually, and 4 special handlers to execute PUSHx, DUPx, SWAPx, LOGx.</p>
-
 <p>five operations can lead to internal transactions:</p>
-
 <ol>
 <li>Creat</li>
 <li>Call</li>
@@ -129,118 +106,64 @@
 <li>Delegate-call</li>
 <li>Self-destruct</li>
 </ol>
-
 <p>CREAT and CAll creat and invoke a smart contract.</p>
-
-<p>CALLCODE and DELEGATECALL also invoke a smart contract, but the callee runs in caller&rsquo;s context.</p>
-
+<p>CALLCODE and DELEGATECALL also invoke a smart contract, but the callee runs in caller's context.</p>
 <p>exclude four types of transactions that are not related to the aforementioned activities:</p>
-
 <ol>
 <li>send Ether but amount is 0</li>
 <li>self-destruct a smart contracts which has no Ether remaining</li>
 <li>unsuccessful transactions among EOAs because they do not lead to money transfer</li>
 <li>unsuccessful transactions for smart contract creation.</li>
 </ol>
-
 <p>Since the code of the construction functiom will be discarded after smart contract creation and thus no users can invoke it again, the transactions for smart contracts creation are not considered when building CIG.</p>
-
 <p>Only 0.8% of EOAs do not transfer Ether.</p>
-
-<p>more than <sup>2</sup>&frasl;<sub>3</sub> smart contracts do not transfer Ether.</p>
-
+<p>more than 2/3 smart contracts do not transfer Ether.</p>
 <p>81% of accounts(96% sc and 77% EOAs) are involved in no more than 5 transactions which means that most accounts are infrequnet in transferring money</p>
-
 <p>the proportion of developers is just 1% of total users.</p>
-
 <p>99.5% of sc are involved in only 1 transaction. Hence, almost all contracts do not creat contracts possiblly beacuse developers rarely exploit this advanced funtionality.</p>
-
 <p>73% EOASs do not invoke sc and 81% sc are not invoked.</p>
-
 <p>96% EOAs call sc no more than 5 times.</p>
-
 <h2 id="construction">Construction</h2>
-
 <h3 id="mfg">MFG</h3>
-
 <p>MFG = (V,E,w)</p>
-
 <p>V is a set of nodes</p>
-
 <p>E is a set of ordered pairs of nodes, where the order of an edge indicates the direction of transferred money.</p>
-
 <p>w is a function mapping edges to their weights.</p>
-
 <h3 id="ccg">CCG</h3>
-
 <p>CCG = (V,E)</p>
-
 <p>V is a set of nodes, same as MFG</p>
-
 <p>E is a set of ordered edges, in which $(V_i,V_j)$ which means $V_i$ created $V_j$.</p>
-
 <h4 id="properties-of-ccg">Properties of CCG</h4>
-
 <p>A forest consisting of multiple tress.</p>
-
 <p>The root of each tree is an EOA, the other nodes of the tree are smart contracts directly or indirectly created by the root.</p>
-
 <p>Smart contracts obviously outnumber the EOAs which creat contracts.</p>
-
 <h3 id="cig">CIG</h3>
-
 <p>CIG = (V,E,w)</p>
-
 <p>w is a function which associates each edge with a weight, which is the total number of invokations along the edge by one or more transactions.</p>
-
 <h3 id="insights">Insights</h3>
-
 <p>sc not widely used</p>
-
 <p>not all users frequently ues Ethereum</p>
-
 <p>Users prefer to transferring money instead of using smart contracts</p>
-
 <p>indegree(入度)</p>
-
 <p>outdegree(出度)</p>
-
 <h2 id="analysis">Analysis</h2>
-
 <p>global clustering coefficent(全局聚类系数) to evaluate the extent(程度) to which nodes in a graph tend to cluster together.</p>
-
-<p>Pearson coefficent(皮尔逊相关系数，统计学名词) to evaluate the correlation(相关度) between the indegree and the outdegree of nodes, compute the assortativity coefficent(相似性系数) to study the preference for nodes to attach to others, and evaluate node&rsquo;s importance using the PageRank algorithm.</p>
-
+<p>Pearson coefficent(皮尔逊相关系数，统计学名词) to evaluate the correlation(相关度) between the indegree and the outdegree of nodes, compute the assortativity coefficent(相似性系数) to study the preference for nodes to attach to others, and evaluate node's importance using the PageRank algorithm.</p>
 <p>皮尔逊相关系数，可以用于(x,y)的点集，度量x和y的相关程度。</p>
-
 <p>Exchange markets are the hub nodes(枢纽节点) connecting yo other nodes bidirectionally(双向), resulting in the huge SCC.</p>
-
 <p><em>ReplaySafeSplit</em> is an important sc and used to prevent the attacks that replay transactions between the old chain and new forked chain.</p>
-
 <p>Attacks on Ethereum can be detected by inspecting the activities of contract creation.</p>
-
 <p>synchronization(同步)</p>
-
 <p>A small number of developers created lots of smart contracts.</p>
-
 <p>only 6% of contracts are <em>unique</em></p>
-
 <h2 id="attack-forensics">Attack forensics</h2>
-
 <p>给定一个恶意智能合约，攻击取证一般尝试获得所有被攻击者控制的账号。</p>
-
 <p>我们需要在CCG和CIG间建立关系，来得到攻击者创造的所有智能合约和所有调用了这些智能合约的账户。</p>
-
 <p>先从CCG中计算出含有恶意智能合约的弱链接图，来得到所有被root（指攻击者）直接或间接创造的所有合约。</p>
-
 <p>对在弱链接图中的所有节点，我们从CIG中定位它的所有调用者。如果这个调用者是智能合约，那么就从CIG中继续回溯，直到找到EOA。</p>
-
 <p>最终弱链接图中的所有结点和所有调用（无论直接还是间接）这些节点的账户都被探知。</p>
-
 <h2 id="anomaly-detection">Anomaly detection</h2>
-
 <p>一种直觉的办法是检测合约的大量被创造。然而exchange markets也会创造大量合约。</p>
-
 <p>于是可以添加附加条件，如果一个账号创建了大量合约并且很少被用于money transfer或者很少被调用，那么就认定它是异常账号。</p>
 
     </article>

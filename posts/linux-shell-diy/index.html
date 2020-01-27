@@ -14,7 +14,7 @@
   <meta property="og:url" content="https://example.com/posts/linux-shell-diy/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.60.1" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -51,63 +51,34 @@
         <li class="article-meta-date"><time>November 11, 2019</time></li>
       </ul>
       
-      
-
-<p>Linux提供了非常高的自定义美化终端的空间。不搞的漂亮点，天天面对丑丑的终端，谁受得了啊！
+      <p>Linux提供了非常高的自定义美化终端的空间。不搞的漂亮点，天天面对丑丑的终端，谁受得了啊！
 本文主要参考（<del>搬运</del>）于<a href="https://www.jianshu.com/p/f84cf6132d1e">Powerlevel9k &mdash; 一个美观而又实用的 ZSH 主题</a>。</p>
-
-<h2 id="安装zsh">安装zsh</h2>
-
+<h2 id="zsh">安装zsh</h2>
 <p>我们目标的主题是oh my zsh里面的一个主题，而安装oh my zsh需要安装zsh。</p>
-
-<pre><code class="language-shell">sudo apt install zsh
-</code></pre>
-
-<h2 id="安装字体">安装字体</h2>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt install zsh
+</code></pre></div><h2 id="heading">安装字体</h2>
 <p>然后你可能需要安装一下字体</p>
-
-<pre><code class="language-shell"># clone
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># clone</span>
 git clone https://github.com/powerline/fonts.git
-# install
+<span style="color:#75715e"># install</span>
 cd fonts
 ./install.sh
-</code></pre>
-
-<h2 id="安装omz">安装omz</h2>
-
-<pre><code class="language-shell">sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;
-</code></pre>
-
-<p>如果你没安装curl会提醒你安装</p>
-
-<pre><code class="language-shell">sudo apt install curl
-</code></pre>
-
-<h2 id="更改主题">更改主题</h2>
-
-<pre><code class="language-shell">vim ~./zshrc
-</code></pre>
-
-<p>然后修改里面的<code>ZSH_THEME= ···</code>为
+</code></pre></div><h2 id="omz">安装omz</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sh -c <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</code></pre></div><p>如果你没安装curl会提醒你安装</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt install curl
+</code></pre></div><h2 id="heading1">更改主题</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">vim ~./zshrc
+</code></pre></div><p>然后修改里面的<code>ZSH_THEME= ···</code>为
 <code>ZSH_THEME=&quot;powerlevel9k/powerlevel9k&quot;</code>
 然后重新打开终端，康康你的终端有没有发生令人惊喜的变化。</p>
-
-<h3 id="涉及的vim操作">涉及的vim操作</h3>
-
+<h3 id="vim">涉及的vim操作</h3>
 <p>进去后按i进入编辑模式，编辑完了之后先按<code>esc</code>退出编辑模式，然后输入<code>:wq</code>退出vim，这样退出才会保存你做到更改。</p>
-
-<h2 id="如果出现了问题">如果出现了问题</h2>
-
+<h2 id="heading2">如果出现了问题</h2>
 <p>那可能是你的默认终端出现了问题。你可以进入终端后尝试<code>zsh</code>，康康你的终端变化没有，如果成功变化了，说明你安装成功了，但是默认的终端没有换成zsh。你可以尝试</p>
-
-<pre><code class="language-shell">chsh -s /bin/zsh
-</code></pre>
-
-<p>然后重启终端。关于chsh可以自己谷歌具体作用（change shell的缩写）。</p>
-
-<h2 id="如果不是上面这个问题">如果不是上面这个问题</h2>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">chsh -s /bin/zsh
+</code></pre></div><p>然后重启终端。关于chsh可以自己谷歌具体作用（change shell的缩写）。</p>
+<h2 id="heading3">如果不是上面这个问题</h2>
 <p>你进去了之后发现是乱码，那么就是你的字体虽然安装了但是没有启用。你可以在外面的设置里将终端的默认字体改成<code>powerline</code>系的字体。理论上来说只要包含powerline字体即可，现在很流行的<code>nerd-fonts</code>也包含powerline字体。</p>
 
     </article>

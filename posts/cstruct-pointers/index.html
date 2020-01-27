@@ -14,7 +14,7 @@
   <meta property="og:url" content="https://example.com/posts/cstruct-pointers/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.60.1" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -51,32 +51,26 @@
         <li class="article-meta-date"><time>November 12, 2019</time></li>
       </ul>
       
-      
-
-<p>C语言中的结构体指针，曾在第一学期坑过我</p>
-
-<h2 id="代码">代码</h2>
-
-<pre><code class="language-C">typedef struct student
+      <p>C语言中的结构体指针，曾在第一学期坑过我</p>
+<h2 id="heading">代码</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> student
 {
-	int id;
-	char name[50];
-	float chinese;
-	float math;
-	float english;
-	float sum;
+	<span style="color:#66d9ef">int</span> id;
+	<span style="color:#66d9ef">char</span> name[<span style="color:#ae81ff">50</span>];
+	<span style="color:#66d9ef">float</span> chinese;
+	<span style="color:#66d9ef">float</span> math;
+	<span style="color:#66d9ef">float</span> english;
+	<span style="color:#66d9ef">float</span> sum;
 }student;
 
-//就像一个普通的变量一样，直接传指针就可以进行相应的操作，指针存储的是结构体首地址
-void swap(struct student*a, struct student*b)
+<span style="color:#75715e">//就像一个普通的变量一样，直接传指针就可以进行相应的操作，指针存储的是结构体首地址
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">swap</span>(<span style="color:#66d9ef">struct</span> student<span style="color:#f92672">*</span>a, <span style="color:#66d9ef">struct</span> student<span style="color:#f92672">*</span>b)
 {
-    struct student temp = *a;
-    *a = *b;
-    *b = temp;
+    <span style="color:#66d9ef">struct</span> student temp <span style="color:#f92672">=</span> <span style="color:#f92672">*</span>a;
+    <span style="color:#f92672">*</span>a <span style="color:#f92672">=</span> <span style="color:#f92672">*</span>b;
+    <span style="color:#f92672">*</span>b <span style="color:#f92672">=</span> temp;
 };
-</code></pre>
-
-<p>结构体的操作一般都是以指针的方式进行，有的结构体会很大，直接进行拷贝操作代价太高，因此在函数的传参中，结构体一般也是通过指针的形式传经函数。</p>
+</code></pre></div><p>结构体的操作一般都是以指针的方式进行，有的结构体会很大，直接进行拷贝操作代价太高，因此在函数的传参中，结构体一般也是通过指针的形式传经函数。</p>
 
     </article>
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>diary on Luosuu的小站</title>
@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>&amp;copy; Copyright 2019 Luosuu</copyright>
-    <lastBuildDate>Wed, 20 Nov 2019 10:30:46 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 27 Jan 2020 11:04:48 +0800</lastBuildDate>
     
 	<atom:link href="https://example.com/categories/diary/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>To Do List WinterVacation</title>
+      <link>https://example.com/posts/to-do-list-wintervacation/</link>
+      <pubDate>Mon, 27 Jan 2020 11:04:48 +0800</pubDate>
+      
+      <guid>https://example.com/posts/to-do-list-wintervacation/</guid>
+      <description>寒假ToDoList，用来公开处刑，完不成请私信我让我女装</description>
+    </item>
     
     <item>
       <title>计算机是一门实践科学</title>

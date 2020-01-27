@@ -14,7 +14,7 @@
   <meta property="og:url" content="https://example.com/posts/qt-windows-navigation/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.60.1" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -51,66 +51,61 @@
         <li class="article-meta-date"><time>November 12, 2019</time></li>
       </ul>
       
-      
-
-<p>记录一下上学期写的Qt功能，窗口跳转，虽然感觉以后不会再写Qt了。</p>
-
-<h2 id="代码">代码</h2>
-
-<pre><code class="language-C++">#include &quot;mainwindow.h&quot;
-#include &lt;QMainWindow&gt;
-#include &lt;QPushButton&gt;
-#include &lt;QPixmap&gt;
-#include &lt;QSize&gt;
-#include &lt;QMouseEvent&gt;
-#include &lt;QMessageBox&gt;
-
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
+      <p>记录一下上学期写的Qt功能，窗口跳转，虽然感觉以后不会再写Qt了。</p>
+<h2 id="heading">代码</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++"><span style="color:#75715e">#</span><span style="color:#75715e">include</span> <span style="color:#75715e">&#34;mainwindow.h&#34;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#75715e">#</span><span style="color:#75715e">include</span> <span style="color:#75715e">&lt;QMainWindow&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#75715e">#</span><span style="color:#75715e">include</span> <span style="color:#75715e">&lt;QPushButton&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#75715e">#</span><span style="color:#75715e">include</span> <span style="color:#75715e">&lt;QPixmap&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#75715e">#</span><span style="color:#75715e">include</span> <span style="color:#75715e">&lt;QSize&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#75715e">#</span><span style="color:#75715e">include</span> <span style="color:#75715e">&lt;QMouseEvent&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#75715e">#</span><span style="color:#75715e">include</span> <span style="color:#75715e">&lt;QMessageBox&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+MainWindow<span style="color:#f92672">:</span><span style="color:#f92672">:</span>MainWindow(QWidget <span style="color:#f92672">*</span>parent)
+    <span style="color:#f92672">:</span> QMainWindow(parent)
 {
-    QMainWindow *new_window = new QMainWindow; //创建一个新的窗口，这是我们接下来要跳转的目标。
-    QPushButton *toNewWindow = new QPushButton;//这是在this窗口里的按钮，我们要通过触发这个按钮跳转到新窗口
-    QPushButton *ReturnthisWindow = new QPushButton;
-    QPixmap *newButtonIcon = new QPixmap(&quot;:/SchoolGirls.jpg&quot;);//创建一个QPixmap类型的对象，用作button的图标，括号里的是资源文件
-    QPixmap *returnButtonIcon = new QPixmap(&quot;:/LeiMuu&quot;);
-    QSize *newButtonIconsize = new QSize(200,500);//括号里是像素的大小
-    QSize *reButtonIconsize = new QSize(300,300);
-    QMessageBox *nihao = new QMessageBox;
+    QMainWindow <span style="color:#f92672">*</span>new_window <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> QMainWindow; <span style="color:#75715e">//创建一个新的窗口，这是我们接下来要跳转的目标。
+</span><span style="color:#75715e"></span>    QPushButton <span style="color:#f92672">*</span>toNewWindow <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> QPushButton;<span style="color:#75715e">//这是在this窗口里的按钮，我们要通过触发这个按钮跳转到新窗口
+</span><span style="color:#75715e"></span>    QPushButton <span style="color:#f92672">*</span>ReturnthisWindow <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> QPushButton;
+    QPixmap <span style="color:#f92672">*</span>newButtonIcon <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> QPixmap(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">:/SchoolGirls.jpg</span><span style="color:#e6db74">&#34;</span>);<span style="color:#75715e">//创建一个QPixmap类型的对象，用作button的图标，括号里的是资源文件
+</span><span style="color:#75715e"></span>    QPixmap <span style="color:#f92672">*</span>returnButtonIcon <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> QPixmap(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">:/LeiMuu</span><span style="color:#e6db74">&#34;</span>);
+    QSize <span style="color:#f92672">*</span>newButtonIconsize <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> QSize(<span style="color:#ae81ff">200</span>,<span style="color:#ae81ff">500</span>);<span style="color:#75715e">//括号里是像素的大小
+</span><span style="color:#75715e"></span>    QSize <span style="color:#f92672">*</span>reButtonIconsize <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> QSize(<span style="color:#ae81ff">300</span>,<span style="color:#ae81ff">300</span>);
+    QMessageBox <span style="color:#f92672">*</span>nihao <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> QMessageBox;
 
-    nihao-&gt;setText(&quot;helloworld&quot;);
-    nihao-&gt;setParent(this);
-    nihao-&gt;move(200,200);
+    nihao<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>setText(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">helloworld</span><span style="color:#e6db74">&#34;</span>);
+    nihao<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>setParent(<span style="color:#66d9ef">this</span>);
+    nihao<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>move(<span style="color:#ae81ff">200</span>,<span style="color:#ae81ff">200</span>);
 
-    this-&gt;setFixedSize(400,400);
-    new_window-&gt;setFixedSize(400,400);
+    <span style="color:#66d9ef">this</span><span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>setFixedSize(<span style="color:#ae81ff">400</span>,<span style="color:#ae81ff">400</span>);
+    new_window<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>setFixedSize(<span style="color:#ae81ff">400</span>,<span style="color:#ae81ff">400</span>);
 
-    toNewWindow-&gt;setParent(this);//把按钮设置在this窗口上
-    toNewWindow-&gt;setIcon(*newButtonIcon);//把按钮的图标加上
-    toNewWindow-&gt;setIconSize(*newButtonIconsize);//调整图标的大小
-    toNewWindow-&gt;setFixedSize(300,100);//调整Button的大小
-    toNewWindow-&gt;move(50,120);
+    toNewWindow<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>setParent(<span style="color:#66d9ef">this</span>);<span style="color:#75715e">//把按钮设置在this窗口上
+</span><span style="color:#75715e"></span>    toNewWindow<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>setIcon(<span style="color:#f92672">*</span>newButtonIcon);<span style="color:#75715e">//把按钮的图标加上
+</span><span style="color:#75715e"></span>    toNewWindow<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>setIconSize(<span style="color:#f92672">*</span>newButtonIconsize);<span style="color:#75715e">//调整图标的大小
+</span><span style="color:#75715e"></span>    toNewWindow<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>setFixedSize(<span style="color:#ae81ff">300</span>,<span style="color:#ae81ff">100</span>);<span style="color:#75715e">//调整Button的大小
+</span><span style="color:#75715e"></span>    toNewWindow<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>move(<span style="color:#ae81ff">50</span>,<span style="color:#ae81ff">120</span>);
 
-    ReturnthisWindow-&gt;setParent(new_window);
-    ReturnthisWindow-&gt;setIcon(*returnButtonIcon);
-    ReturnthisWindow-&gt;setIconSize(*reButtonIconsize);
-    ReturnthisWindow-&gt;setFixedSize(*reButtonIconsize);
-    ReturnthisWindow-&gt;move(50,50);
+    ReturnthisWindow<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>setParent(new_window);
+    ReturnthisWindow<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>setIcon(<span style="color:#f92672">*</span>returnButtonIcon);
+    ReturnthisWindow<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>setIconSize(<span style="color:#f92672">*</span>reButtonIconsize);
+    ReturnthisWindow<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>setFixedSize(<span style="color:#f92672">*</span>reButtonIconsize);
+    ReturnthisWindow<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>move(<span style="color:#ae81ff">50</span>,<span style="color:#ae81ff">50</span>);
 
-    connect(toNewWindow,&amp;QPushButton::clicked,new_window,&amp;QMainWindow::show);
-    connect(toNewWindow,&amp;QPushButton::clicked,this,&amp;QMainWindow::hide);
+    connect(toNewWindow,<span style="color:#f92672">&amp;</span>QPushButton<span style="color:#f92672">:</span><span style="color:#f92672">:</span>clicked,new_window,<span style="color:#f92672">&amp;</span>QMainWindow<span style="color:#f92672">:</span><span style="color:#f92672">:</span>show);
+    connect(toNewWindow,<span style="color:#f92672">&amp;</span>QPushButton<span style="color:#f92672">:</span><span style="color:#f92672">:</span>clicked,<span style="color:#66d9ef">this</span>,<span style="color:#f92672">&amp;</span>QMainWindow<span style="color:#f92672">:</span><span style="color:#f92672">:</span>hide);
 
-    connect(ReturnthisWindow,&amp;QPushButton::clicked,this,&amp;QMainWindow::show);
-    connect(ReturnthisWindow,&amp;QPushButton::clicked,new_window,&amp;QMainWindow::hide);
+    connect(ReturnthisWindow,<span style="color:#f92672">&amp;</span>QPushButton<span style="color:#f92672">:</span><span style="color:#f92672">:</span>clicked,<span style="color:#66d9ef">this</span>,<span style="color:#f92672">&amp;</span>QMainWindow<span style="color:#f92672">:</span><span style="color:#f92672">:</span>show);
+    connect(ReturnthisWindow,<span style="color:#f92672">&amp;</span>QPushButton<span style="color:#f92672">:</span><span style="color:#f92672">:</span>clicked,new_window,<span style="color:#f92672">&amp;</span>QMainWindow<span style="color:#f92672">:</span><span style="color:#f92672">:</span>hide);
 
 
 }
 
-MainWindow::~MainWindow()
+MainWindow<span style="color:#f92672">:</span><span style="color:#f92672">:</span><span style="color:#f92672">~</span>MainWindow()
 {
 
 }
-</code></pre>
-
+</code></pre></div>
     </article>
 
     

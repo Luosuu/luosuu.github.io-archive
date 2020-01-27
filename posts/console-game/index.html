@@ -14,7 +14,7 @@
   <meta property="og:url" content="https://example.com/posts/console-game/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.60.1" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -51,110 +51,105 @@
         <li class="article-meta-date"><time>November 12, 2019</time></li>
       </ul>
       
-      
+      <p>记录一下第一学期假期时跟着Github@guyaqi学长写的控制台小玩意</p>
+<h2 id="heading">代码</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#</span><span style="color:#75715e">include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#75715e">#</span><span style="color:#75715e">include</span> <span style="color:#75715e">&lt;windows.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#75715e">#</span><span style="color:#75715e">include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">putFrame</span>(WORD wAttributes,<span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>a);
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">changeFrame</span>(<span style="color:#66d9ef">int</span> a, WORD wAttributes);
 
-<p>记录一下第一学期假期时跟着Github@guyaqi学长写的控制台小玩意</p>
-
-<h2 id="代码">代码</h2>
-
-<pre><code class="language-C">#include &lt;stdio.h&gt;
-#include &lt;windows.h&gt;
-#include &lt;string.h&gt;
-void putFrame(WORD wAttributes,char *a);
-void changeFrame(int a, WORD wAttributes);
-
-int main()
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
 {
 	HANDLE handle;
-	handle = GetStdHandle(STD_OUTPUT_HANDLE);
-	CONSOLE_CURSOR_INFO cursor = { 100,FALSE };//隐藏光标
-	SetConsoleCursorInfo(handle, &amp;cursor);
-	int position = 1;
-	int state = 0;
-	char a[][128] =
+	handle <span style="color:#f92672">=</span> GetStdHandle(STD_OUTPUT_HANDLE);
+	CONSOLE_CURSOR_INFO cursor <span style="color:#f92672">=</span> { <span style="color:#ae81ff">100</span>,FALSE };<span style="color:#75715e">//隐藏光标
+</span><span style="color:#75715e"></span>	SetConsoleCursorInfo(handle, <span style="color:#f92672">&amp;</span>cursor);
+	<span style="color:#66d9ef">int</span> position <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+	<span style="color:#66d9ef">int</span> state <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+	<span style="color:#66d9ef">char</span> a[][<span style="color:#ae81ff">128</span>] <span style="color:#f92672">=</span>
 	{
-		&quot;1. White &amp; Green&quot;,
-		&quot;2. Red &amp; Grey&quot;,
-		&quot;3. White &amp; Black&quot;,
-		&quot;4. White &amp; Blue&quot;
+		<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">1. White &amp; Green</span><span style="color:#e6db74">&#34;</span>,
+		<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">2. Red &amp; Grey</span><span style="color:#e6db74">&#34;</span>,
+		<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">3. White &amp; Black</span><span style="color:#e6db74">&#34;</span>,
+		<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">4. White &amp; Blue</span><span style="color:#e6db74">&#34;</span>
 	};
 
-	printf(&quot;----------------------------------\n\n\n&quot;);
-	printf(&quot;            Colors\n\n&quot;);
-	putFrame(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_INTENSITY, *a);
-	putFrame(FOREGROUND_INTENSITY | FOREGROUND_RED | BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_RED,*(a+1));
-	putFrame(FOREGROUND_INTENSITY| FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE,*(a+2));
-	putFrame(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | BACKGROUND_BLUE,*(a+3));
+	printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">----------------------------------</span><span style="color:#ae81ff">\n</span><span style="color:#ae81ff">\n</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+	printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">            Colors</span><span style="color:#ae81ff">\n</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+	putFrame(FOREGROUND_RED <span style="color:#f92672">|</span> FOREGROUND_GREEN <span style="color:#f92672">|</span> FOREGROUND_BLUE <span style="color:#f92672">|</span> BACKGROUND_GREEN <span style="color:#f92672">|</span> BACKGROUND_INTENSITY, <span style="color:#f92672">*</span>a);
+	putFrame(FOREGROUND_INTENSITY <span style="color:#f92672">|</span> FOREGROUND_RED <span style="color:#f92672">|</span> BACKGROUND_BLUE <span style="color:#f92672">|</span> BACKGROUND_GREEN <span style="color:#f92672">|</span> BACKGROUND_RED <span style="color:#f92672">|</span> BACKGROUND_GREEN <span style="color:#f92672">|</span> BACKGROUND_RED,<span style="color:#f92672">*</span>(a<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>));
+	putFrame(FOREGROUND_INTENSITY<span style="color:#f92672">|</span> FOREGROUND_RED <span style="color:#f92672">|</span> FOREGROUND_GREEN <span style="color:#f92672">|</span> FOREGROUND_BLUE,<span style="color:#f92672">*</span>(a<span style="color:#f92672">+</span><span style="color:#ae81ff">2</span>));
+	putFrame(FOREGROUND_RED <span style="color:#f92672">|</span> FOREGROUND_GREEN <span style="color:#f92672">|</span> FOREGROUND_BLUE <span style="color:#f92672">|</span> BACKGROUND_BLUE,<span style="color:#f92672">*</span>(a<span style="color:#f92672">+</span><span style="color:#ae81ff">3</span>));
 
-	SetConsoleTextAttribute(handle, 0);
-	printf(&quot;\n\n&quot;);
-	printf(&quot;       &quot;);
-	SetConsoleTextAttribute(handle, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_INTENSITY);
-	printf(&quot;This is a test text.&quot;);
+	SetConsoleTextAttribute(handle, <span style="color:#ae81ff">0</span>);
+	printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+	printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">       </span><span style="color:#e6db74">&#34;</span>);
+	SetConsoleTextAttribute(handle, FOREGROUND_RED <span style="color:#f92672">|</span> FOREGROUND_GREEN <span style="color:#f92672">|</span> FOREGROUND_BLUE <span style="color:#f92672">|</span> BACKGROUND_GREEN <span style="color:#f92672">|</span> BACKGROUND_INTENSITY);
+	printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">This is a test text.</span><span style="color:#e6db74">&#34;</span>);
 
-	//交互
-	while (true)
+	<span style="color:#75715e">//交互
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">while</span> (true)
 	{
-		if (::GetAsyncKeyState(VK_UP) &amp; 0x8000 &amp;&amp; position &gt; 1 &amp;&amp; state == 0)
+		<span style="color:#66d9ef">if</span> (<span style="color:#f92672">:</span><span style="color:#f92672">:</span>GetAsyncKeyState(VK_UP) <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">0x8000</span> <span style="color:#f92672">&amp;</span><span style="color:#f92672">&amp;</span> position <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;</span><span style="color:#f92672">&amp;</span> state <span style="color:#f92672">=</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>)
 		{
-			position--;
-			state = 1;
+			position<span style="color:#f92672">-</span><span style="color:#f92672">-</span>;
+			state <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
 		}
-		if (::GetAsyncKeyState(VK_DOWN) &amp; 0x8000 &amp;&amp; position &lt; 4 &amp;&amp; state == 0)
+		<span style="color:#66d9ef">if</span> (<span style="color:#f92672">:</span><span style="color:#f92672">:</span>GetAsyncKeyState(VK_DOWN) <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">0x8000</span> <span style="color:#f92672">&amp;</span><span style="color:#f92672">&amp;</span> position <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">4</span> <span style="color:#f92672">&amp;</span><span style="color:#f92672">&amp;</span> state <span style="color:#f92672">=</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>)
 		{
-			position++;
-			state = 1;
+			position<span style="color:#f92672">+</span><span style="color:#f92672">+</span>;
+			state <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
 		}
-		if (!(::GetAsyncKeyState(VK_UP) &amp; 0x8000 &amp;&amp; position) &amp;&amp; !(::GetAsyncKeyState(VK_DOWN) &amp; 0x8000))
+		<span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>(<span style="color:#f92672">:</span><span style="color:#f92672">:</span>GetAsyncKeyState(VK_UP) <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">0x8000</span> <span style="color:#f92672">&amp;</span><span style="color:#f92672">&amp;</span> position) <span style="color:#f92672">&amp;</span><span style="color:#f92672">&amp;</span> <span style="color:#f92672">!</span>(<span style="color:#f92672">:</span><span style="color:#f92672">:</span>GetAsyncKeyState(VK_DOWN) <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">0x8000</span>))
 		{
-			state = 0;
+			state <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
 		}
-		if (position == 1 &amp;&amp; state == 0) changeFrame(5,FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_INTENSITY);
-		else if (position == 2 &amp;&amp; state == 0) changeFrame(6, FOREGROUND_INTENSITY | FOREGROUND_RED | BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_RED);
-		else if (position == 3 &amp;&amp; state == 0) changeFrame(7, FOREGROUND_INTENSITY
-			| FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
-		else if (position == 4 &amp;&amp; state == 0)changeFrame(8, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | BACKGROUND_BLUE);
+		<span style="color:#66d9ef">if</span> (position <span style="color:#f92672">=</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;</span><span style="color:#f92672">&amp;</span> state <span style="color:#f92672">=</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>) changeFrame(<span style="color:#ae81ff">5</span>,FOREGROUND_RED <span style="color:#f92672">|</span> FOREGROUND_GREEN <span style="color:#f92672">|</span> FOREGROUND_BLUE <span style="color:#f92672">|</span> BACKGROUND_GREEN <span style="color:#f92672">|</span> BACKGROUND_INTENSITY);
+		<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (position <span style="color:#f92672">=</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">&amp;</span><span style="color:#f92672">&amp;</span> state <span style="color:#f92672">=</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>) changeFrame(<span style="color:#ae81ff">6</span>, FOREGROUND_INTENSITY <span style="color:#f92672">|</span> FOREGROUND_RED <span style="color:#f92672">|</span> BACKGROUND_BLUE <span style="color:#f92672">|</span> BACKGROUND_GREEN <span style="color:#f92672">|</span> BACKGROUND_RED <span style="color:#f92672">|</span> BACKGROUND_GREEN <span style="color:#f92672">|</span> BACKGROUND_RED);
+		<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (position <span style="color:#f92672">=</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">&amp;</span><span style="color:#f92672">&amp;</span> state <span style="color:#f92672">=</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>) changeFrame(<span style="color:#ae81ff">7</span>, FOREGROUND_INTENSITY
+			<span style="color:#f92672">|</span> FOREGROUND_RED <span style="color:#f92672">|</span> FOREGROUND_GREEN <span style="color:#f92672">|</span> FOREGROUND_BLUE);
+		<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (position <span style="color:#f92672">=</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span> <span style="color:#f92672">&amp;</span><span style="color:#f92672">&amp;</span> state <span style="color:#f92672">=</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>)changeFrame(<span style="color:#ae81ff">8</span>, FOREGROUND_RED <span style="color:#f92672">|</span> FOREGROUND_GREEN <span style="color:#f92672">|</span> FOREGROUND_BLUE <span style="color:#f92672">|</span> BACKGROUND_BLUE);
 	}
-	system(&quot;pause&quot;);
+	system(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">pause</span><span style="color:#e6db74">&#34;</span>);
 }
 
-void putFrame(WORD wAttributes, char a[])
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">putFrame</span>(WORD wAttributes, <span style="color:#66d9ef">char</span> a[])
 {
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 0);
-	printf(&quot;        &quot;);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), <span style="color:#ae81ff">0</span>);
+	printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">        </span><span style="color:#e6db74">&#34;</span>);
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), wAttributes);
-	printf(&quot;%s\n&quot;,a);
+	printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,a);
 }
 
-void changeFrame(int a, WORD wAttributes)
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">changeFrame</span>(<span style="color:#66d9ef">int</span> a, WORD wAttributes)
 {
 	COORD coord;
-	coord.X = 6;
-	coord.Y = 4;
-	for (int i = 0; i &lt; 4; i++)
+	coord.X <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>;
+	coord.Y <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>;
+	<span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">4</span>; i<span style="color:#f92672">+</span><span style="color:#f92672">+</span>)
 	{
-		coord.Y += 1;
+		coord.Y <span style="color:#f92672">+</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
 		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
-		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 0);
-		printf(&quot;  &quot;);
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), <span style="color:#ae81ff">0</span>);
+		printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">  </span><span style="color:#e6db74">&#34;</span>);
 	}
-	coord.X = 6;
-	coord.Y = a;
+	coord.X <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>;
+	coord.Y <span style="color:#f92672">=</span> a;
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY
-		| FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
-	printf(&quot;-&gt;&quot;);
+		<span style="color:#f92672">|</span> FOREGROUND_RED <span style="color:#f92672">|</span> FOREGROUND_GREEN <span style="color:#f92672">|</span> FOREGROUND_BLUE);
+	printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">-&gt;</span><span style="color:#e6db74">&#34;</span>);
 
 
-	coord.X = 7;
-	coord.Y = 11;
+	coord.X <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span>;
+	coord.Y <span style="color:#f92672">=</span> <span style="color:#ae81ff">11</span>;
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), wAttributes);
-	printf(&quot;This is a test text.&quot;);
+	printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">This is a test text.</span><span style="color:#e6db74">&#34;</span>);
 }
 
-</code></pre>
-
+</code></pre></div>
     </article>
 
     

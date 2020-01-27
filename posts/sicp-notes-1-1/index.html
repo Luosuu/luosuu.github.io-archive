@@ -14,7 +14,7 @@
   <meta property="og:url" content="https://example.com/posts/sicp-notes-1-1/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.60.1" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -71,163 +71,111 @@
       
 <aside class="toc">
   <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#基本元素">基本元素</a></li>
-<li><a href="#表达式式的求值">表达式式的求值</a>
-<ul>
-<li><a href="#基本表达式">基本表达式</a></li>
-<li><a href="#组合表达式">组合表达式</a></li>
-</ul></li>
-<li><a href="#环境">环境</a></li>
-<li><a href="#解释的顺序-application-order与normal-order">解释的顺序：application-order与normal-order</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#heading">基本元素</a></li>
+    <li><a href="#heading1">表达式式的求值</a>
+      <ul>
+        <li><a href="#heading2">基本表达式</a></li>
+        <li><a href="#heading3">组合表达式</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading4">环境</a></li>
+    <li><a href="#applicationordernormalorder">解释的顺序：application-order与normal-order</a></li>
+  </ul>
 </nav>
 </aside>
-      
-
-<p>sicp的1-1主要内容是程序设计的基本元素</p>
-
-<h2 id="基本元素">基本元素</h2>
-
+      <p>sicp的1-1主要内容是程序设计的基本元素</p>
+<h2 id="heading">基本元素</h2>
 <ul>
 <li>基本表达形式：对最简单的元素操作</li>
 <li>组合的方法：将基本的表达组合起来形成一块复合的对象</li>
 <li>抽象的方法：命名复合对象，使得他们能够封装成一个黑箱</li>
 </ul>
-
-<h2 id="表达式式的求值">表达式式的求值</h2>
-
-<h3 id="基本表达式">基本表达式</h3>
-
+<h2 id="heading1">表达式式的求值</h2>
+<h3 id="heading2">基本表达式</h3>
 <p>规则如下：</p>
-
 <ul>
 <li>数的值就是它表示的数值大小</li>
 <li>运算符指能运行的操作的机器指令序列</li>
 <li>其他名字是在该环境下关联于这个名字的对象</li>
 </ul>
-
-<h3 id="组合表达式">组合表达式</h3>
-
+<h3 id="heading3">组合表达式</h3>
 <p>由表达式组合而成的组合式，组成这个组合式的表达式称为该组合式的子表达式（不排除该子表达式也是组合式），它的求值规则如下</p>
-
 <ol>
 <li>求值该组合式的子表达式</li>
 <li>运用该组合式的运算符号，应用于其实际参数（也就是实际的值而不是表达式，此时子表达式应该都已经计算为实际的数值）</li>
 </ol>
-
 <p>考虑到子表达式也可能是个组合式，那么就需要不断进行第一步，直到我们运算的对象是基本元素，也就是求组合式的过程需要调用自己，也就是这个过程就是 <em>递归</em> 的。</p>
-
 <p>此时我们可以用树的方法来表示它。</p>
-
-<p><img src="/方法树.png" alt="tree" /></p>
-
+<p><img src="/%E6%96%B9%E6%B3%95%E6%A0%91.png" alt="tree"></p>
 <p>递归这种方法是处理层次性结构（比如树）的一种强有力的技术。</p>
-
 <p>在表达式的树里，数值从树的最末端不断向上移动，这种过程我们一般称为<em>树形积累</em></p>
-
-<h2 id="环境">环境</h2>
-
+<h2 id="heading4">环境</h2>
 <p>环境是极其重要的，在我们定义的一个过程中（也就是我们抽象出来的一个过程），形式参数的命名应该是无关紧要的，这个过程中的同一个形式参数统一换成另外一个名字，应该是不对这个过程产生任何影响的。</p>
-
 <p>这对于我们封装一个过程极其重要，它可以依赖于外部的一些过程（和在这个过程在同一个环境的其他过程），但是它自己约束的变量，也就是它的形式参数不应该受到外界的控制。</p>
-
 <p>同时这有利于我们定义 <em>块结构</em> ，所谓块结构，就是我们在抽象一个过程时，发现它可以用多个子过程实现，我们不选择在这个过程外抽象它的子过程，而选择在这个过程内部抽象它的子过程。</p>
-
 <p>在块结构中，我们抽象的子过程只能在这个块内使用，且对于子过程来说，该过程的形式参数是可以依赖和修改的。</p>
-
 <p>本来我们求立方根的过程是</p>
-
-<pre><code class="language-scheme">(define (sqrt x)
-    (sqrt-iter 1.0 x))
-(define (sqrt-iter guess x)
-    (if (good-enough? guess x)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>(sqrt x)
+    (<span style="color:#a6e22e">sqrt-iter</span> <span style="color:#ae81ff">1.0</span> x))
+(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">sqrt-iter</span> guess x)
+    (<span style="color:#66d9ef">if </span>(<span style="color:#a6e22e">good-enough?</span> guess x)
     guess
-    (sqrt-iter (improve guess x) x)))
-(define (good-enough? guess x)
-    (&lt; (abs (- (square guess) x)) 0.001))
-(define (improve guess x)
-    (average guess (/ x guess)))
-</code></pre>
-
-<p><code>sqrt</code>依赖的子过程全部改到它的内部后</p>
-
-<pre><code class="language-scheme">(define (sqrt x)
-    (define (good-enough? guess x)
-        (&lt; (abs (- (square guess) x)) 0.001))
-    (define (improve guess x)
-        (average guess (/ x guess)))
-    (define (sqrt-iter guess x)
-        (if (good-enough? guess x)
+    (<span style="color:#a6e22e">sqrt-iter</span> (<span style="color:#a6e22e">improve</span> guess x) x)))
+(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">good-enough?</span> guess x)
+    (&lt; (abs (- (<span style="color:#a6e22e">square</span> guess) x)) <span style="color:#ae81ff">0.001</span>))
+(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">improve</span> guess x)
+    (<span style="color:#a6e22e">average</span> guess (/ x guess)))
+</code></pre></div><p><code>sqrt</code>依赖的子过程全部改到它的内部后</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>(sqrt x)
+    (<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">good-enough?</span> guess x)
+        (&lt; (abs (- (<span style="color:#a6e22e">square</span> guess) x)) <span style="color:#ae81ff">0.001</span>))
+    (<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">improve</span> guess x)
+        (<span style="color:#a6e22e">average</span> guess (/ x guess)))
+    (<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">sqrt-iter</span> guess x)
+        (<span style="color:#66d9ef">if </span>(<span style="color:#a6e22e">good-enough?</span> guess x)
             guess
-            (sqrt-iter (improve guess x) x)))
-    (sqrt-iter 1.0 x))
-</code></pre>
-
-<p>然后我们发现在子过程中将x的值传来传去没啥意义，他们可以直接访问并且修改x</p>
-
-<pre><code class="language-scheme">(define (sqrt x)
-    (define (good-enough? guess)
-        (&lt; (abs (- (square guess) x)) 0.001))
-    (define (improve guess)
-        (average guess (/ x guess)))
-    (define (sqrt-iter guess)
-        (if (good-enough? guess)
+            (<span style="color:#a6e22e">sqrt-iter</span> (<span style="color:#a6e22e">improve</span> guess x) x)))
+    (<span style="color:#a6e22e">sqrt-iter</span> <span style="color:#ae81ff">1.0</span> x))
+</code></pre></div><p>然后我们发现在子过程中将x的值传来传去没啥意义，他们可以直接访问并且修改x</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>(sqrt x)
+    (<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">good-enough?</span> guess)
+        (&lt; (abs (- (<span style="color:#a6e22e">square</span> guess) x)) <span style="color:#ae81ff">0.001</span>))
+    (<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">improve</span> guess)
+        (<span style="color:#a6e22e">average</span> guess (/ x guess)))
+    (<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">sqrt-iter</span> guess)
+        (<span style="color:#66d9ef">if </span>(<span style="color:#a6e22e">good-enough?</span> guess)
             guess
-            (sqrt-iter (improve guess))))
-    (sqrt-iter 1.0))
-</code></pre>
-
-<h2 id="解释的顺序-application-order与normal-order">解释的顺序：application-order与normal-order</h2>
-
+            (<span style="color:#a6e22e">sqrt-iter</span> (<span style="color:#a6e22e">improve</span> guess))))
+    (<span style="color:#a6e22e">sqrt-iter</span> <span style="color:#ae81ff">1.0</span>))
+</code></pre></div><h2 id="applicationordernormalorder">解释的顺序：application-order与normal-order</h2>
 <p>application-order就是将基本表达式求值，从基本的单元解释命名空间里的所有变量，然后一层层推上去，也就是上文组合式的表达方式。</p>
-
 <p>normal-order则是先不去算表达式的值，先从外不断按照它的解释去展开定义，直到无法展开，只有计算基本表达式的时候才能往下推进时才计算基本表达式。</p>
-
 <p>可以证明，那些可以通过替换去模拟，并且产生合法值的所有过程，他们采用这两种方式输出的结果应该是一样的。</p>
-
 <p>一般而言，都是采用application-order,这样可以避免重复计算表达式。</p>
-
 <p>这里想要说明的是解释的顺序的重要性，比如SICP例题1-5和1-6就明显的说明了这个问题。</p>
-
 <p>对于1-5</p>
-
-<pre><code class="language-scheme">(define (p) (p))
-(define (test x y)
-    (if (= x 0)
-        0
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">p</span>) (<span style="color:#a6e22e">p</span>))
+(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">test</span> x y)
+    (<span style="color:#66d9ef">if </span>(= x <span style="color:#ae81ff">0</span>)
+        <span style="color:#ae81ff">0</span>
         y))
 
-(test 0 (p))
-</code></pre>
-
-<p>上面是一个用来测试过程是应用application-order还是norma-order的样例。</p>
-
+(<span style="color:#a6e22e">test</span> <span style="color:#ae81ff">0</span> (<span style="color:#a6e22e">p</span>))
+</code></pre></div><p>上面是一个用来测试过程是应用application-order还是norma-order的样例。</p>
 <p>如果采用前者，那么解释器会先尝试解释(p),然后再往上运行test的内容，然而(p)用自己解释自己，这样只会陷入死循环，不断输出它解释出来的内容，也就是</p>
-
-<pre><code class="language-scheme">(test 0 (p))
-</code></pre>
-
-<p>如果采用normal-order，那么解释器就会先从test的内容开始，过程如下</p>
-
-<pre><code class="language-scheme">(test 0 (p))
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#a6e22e">test</span> <span style="color:#ae81ff">0</span> (<span style="color:#a6e22e">p</span>))
+</code></pre></div><p>如果采用normal-order，那么解释器就会先从test的内容开始，过程如下</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#a6e22e">test</span> <span style="color:#ae81ff">0</span> (<span style="color:#a6e22e">p</span>))
   
-(if (= 0 0) 0 (p))
+(<span style="color:#66d9ef">if </span>(= <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span>) <span style="color:#ae81ff">0</span> (<span style="color:#a6e22e">p</span>))
   
-(if #t 0 (p))
+(<span style="color:#66d9ef">if </span><span style="color:#66d9ef">#t</span> <span style="color:#ae81ff">0</span> (<span style="color:#a6e22e">p</span>))
   
-0
-</code></pre>
-
-<p>对于1-6</p>
-
+<span style="color:#ae81ff">0</span>
+</code></pre></div><p>对于1-6</p>
 <p>这位同学自己新定义的new-if的差距在于与if的解释顺序不同。</p>
-
 <p>new-if在解释器看来就是一个普通的过程，所以解释器会去先尝试去解释那三个参数，如果这三个参数参与了递归过程，那么就是自解释了，陷入死循环。</p>
-
 <p>而if会先解释判别式，然后在去选择后面的值进行解释，不会陷入死循环。</p>
 
     </article>

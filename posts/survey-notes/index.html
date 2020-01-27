@@ -14,7 +14,7 @@
   <meta property="og:url" content="https://example.com/posts/survey-notes/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.60.1" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -53,251 +53,167 @@
       
 <aside class="toc">
   <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#risks">Risks</a>
-<ul>
-<li><a href="#51-vulnerability">51% Vulnerability</a></li>
-<li><a href="#private-key-security">Private Key Security</a></li>
-<li><a href="#criminal-activity">Criminal Activity</a></li>
-<li><a href="#double-spending">Double Spending</a></li>
-<li><a href="#transaction-privacy-leakage">Transaction Privacy Leakage</a></li>
-</ul></li>
-<li><a href="#specific-risks-to-blockchain-2-0">Specific Risks to Blockchain 2.0</a>
-<ul>
-<li><a href="#criminal-smart-contracts-cscs">Criminal Smart Contracts(CSCs)</a></li>
-<li><a href="#vulnerabilities-in-smart-conrtract">Vulnerabilities in Smart Conrtract</a></li>
-<li><a href="#under-optimized-smart-contract">Under-Optimized Smart Contract</a></li>
-<li><a href="#under-priced-operations">Under-Priced Operations</a></li>
-</ul></li>
-<li><a href="#attack-cases">Attack Cases</a>
-<ul>
-<li><a href="#selfish-mining-attack">Selfish Mining Attack</a></li>
-<li><a href="#dao-attack">DAO Attack</a></li>
-<li><a href="#bgp-hijacking-attack">BGP Hijacking Attack</a></li>
-<li><a href="#eclipse-attack">Eclipse Attack</a></li>
-<li><a href="#liveness-attack">Liveness Attack</a></li>
-<li><a href="#balance-attack">Balance Attack</a></li>
-</ul></li>
-<li><a href="#security-enhancements">Security Enhancements</a>
-<ul>
-<li><a href="#smartpool">SmartPool</a></li>
-<li><a href="#quantitative-framework">Quantitative Framework</a></li>
-<li><a href="#oyente">OYENTE</a></li>
-<li><a href="#hawk">Hawk</a></li>
-<li><a href="#town-crier">Town Crier</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#risks">Risks</a>
+      <ul>
+        <li><a href="#51-vulnerability">51% Vulnerability</a></li>
+        <li><a href="#private-key-security">Private Key Security</a></li>
+        <li><a href="#criminal-activity">Criminal Activity</a></li>
+        <li><a href="#double-spending">Double Spending</a></li>
+        <li><a href="#transaction-privacy-leakage">Transaction Privacy Leakage</a></li>
+      </ul>
+    </li>
+    <li><a href="#specific-risks-to-blockchain-20">Specific Risks to Blockchain 2.0</a>
+      <ul>
+        <li><a href="#criminal-smart-contractscscs">Criminal Smart Contracts(CSCs)</a></li>
+        <li><a href="#vulnerabilities-in-smart-conrtract">Vulnerabilities in Smart Conrtract</a></li>
+        <li><a href="#underoptimized-smart-contract">Under-Optimized Smart Contract</a></li>
+        <li><a href="#underpriced-operations">Under-Priced Operations</a></li>
+      </ul>
+    </li>
+    <li><a href="#attack-cases">Attack Cases</a>
+      <ul>
+        <li><a href="#selfish-mining-attack">Selfish Mining Attack</a></li>
+        <li><a href="#dao-attack">DAO Attack</a></li>
+        <li><a href="#bgp-hijacking-attack">BGP Hijacking Attack</a></li>
+        <li><a href="#eclipse-attack">Eclipse Attack</a></li>
+        <li><a href="#liveness-attack">Liveness Attack</a></li>
+        <li><a href="#balance-attack">Balance Attack</a></li>
+      </ul>
+    </li>
+    <li><a href="#security-enhancements">Security Enhancements</a>
+      <ul>
+        <li><a href="#smartpool">SmartPool</a></li>
+        <li><a href="#quantitative-framework">Quantitative Framework</a></li>
+        <li><a href="#oyente">OYENTE</a></li>
+        <li><a href="#hawk">Hawk</a></li>
+        <li><a href="#town-crier">Town Crier</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
 </aside>
-      
-
-<p>All the content are from:</p>
-
+      <p>All the content are from:</p>
 <p>Li, X., Jiang, P., Chen, T., Luo, X., &amp; Wen, Q. (2017). A survey on the security of blockchain systems. Future Generation Computer Systems.</p>
-
 <h2 id="risks">Risks</h2>
-
 <h3 id="51-vulnerability">51% Vulnerability</h3>
-
 <p>example:</p>
-
 <p>gash.io reached 42% of total Bitcoin computing power.</p>
-
 <h3 id="private-key-security">Private Key Security</h3>
-
-<p>Hartwig discover a vulnerability in ECDSA scheme, through which an attacker can recover the user&rsquo;s private key because it does not generate enough randomness during the signature process.</p>
-
+<p>Hartwig discover a vulnerability in ECDSA scheme, through which an attacker can recover the user's private key because it does not generate enough randomness during the signature process.</p>
 <h3 id="criminal-activity">Criminal Activity</h3>
-
 <h3 id="double-spending">Double Spending</h3>
-
 <p>An attacker could leverage race attack for double spending. This kind of attack is relatively easy to implement in PoW-based blockchains, because the attacker can exploit the intermediate time between two transactions’ initiation and confirmation to quickly launch an attack. Before the second transaction is mined to be invalid, the attacker has already got the first transaction’s output, resulting in double spending.</p>
-
 <h3 id="transaction-privacy-leakage">Transaction Privacy Leakage</h3>
-
 <p>The privacy protection measures in blockchain are not very robust.</p>
-
 <p>66.09% of all transactions do not contain any mixins. Since users may use the outputs of 0-mixin transaction as mixins, these mixins will be deducible.</p>
-
 <p>Moreover, they study the sampling method of mixiins and find that the selection of mixiins is not really random. Newer TXOs(transaction outputs) tend to be used more frequently.</p>
-
 <p>They further discover that 62.32% pf transaction inputs with mixins are deducible.</p>
-
 <p>By exploiting these weaknesses in Monero, they can infer the actual transaction inputs with 80% accuracy.</p>
-
-<h2 id="specific-risks-to-blockchain-2-0">Specific Risks to Blockchain 2.0</h2>
-
-<h3 id="criminal-smart-contracts-cscs">Criminal Smart Contracts(CSCs)</h3>
-
+<h2 id="specific-risks-to-blockchain-20">Specific Risks to Blockchain 2.0</h2>
+<h3 id="criminal-smart-contractscscs">Criminal Smart Contracts(CSCs)</h3>
 <p>An example of password theft CSC PwdTheft.</p>
-
 <h3 id="vulnerabilities-in-smart-conrtract">Vulnerabilities in Smart Conrtract</h3>
-
-<p>Vulnerabilities from:
-1. Contract sourcr code
-2. EVM bytecode
-3. Blockchain mechanism</p>
-
-<p>bugs are as follows:
-* Transaction-ordering dependence
-* Timestamp dependence
-* Mishandled exceptions (错误处理的异常)
-* Reentrancy vulnerability（可重入漏洞）</p>
-
-<h3 id="under-optimized-smart-contract">Under-Optimized Smart Contract</h3>
-
-<p>(欠优化的智能合约)</p>
-
+<p>Vulnerabilities from:</p>
 <ol>
-<li>Dead code
-
+<li>Contract sourcr code</li>
+<li>EVM bytecode</li>
+<li>Blockchain mechanism</li>
+</ol>
+<p>bugs are as follows:</p>
+<ul>
+<li>Transaction-ordering dependence</li>
+<li>Timestamp dependence</li>
+<li>Mishandled exceptions (错误处理的异常)</li>
+<li>Reentrancy vulnerability（可重入漏洞）</li>
+</ul>
+<h3 id="underoptimized-smart-contract">Under-Optimized Smart Contract</h3>
+<p>(欠优化的智能合约)</p>
+<ol>
+<li>Dead code</li>
+</ol>
 <ul>
 <li>It means that some operations in a smart contract will never be executed,but they will still be deployed into the blockchain.  Since in the smart contract deploymentprocess the consumption of gas is related to bytecode size, the dead code will cause additionalgas consumption</li>
-</ul></li>
-<li>Opaque predicate
-
+</ul>
+<ol start="2">
+<li>Opaque predicate</li>
+</ol>
 <ul>
 <li>For some statements in a smart contract, their execution resultsare  always  the  same  and  will  not  a ect  other  statements  and  the  smart  contract.   Thepresence  of  the  opaque  predicate  causes  the  EVM  to  execute  useless  operations,  therebyconsuming additional gas.</li>
-</ul></li>
+</ul>
+<ol start="3">
 <li>Expensive operations in a loop</li>
 </ol>
-
-<h3 id="under-priced-operations">Under-Priced Operations</h3>
-
-<p>It&rsquo;s hard to accurately measure the consumption ofcomputing resources of an indicidual operation, and therefore some gas values are not set properly.</p>
-
-<p>Some IO-heavy operations&rsquo;gas values are set too low, and hence these operations can be executed in quantity in onetransaction.   In  this  way,  an  attacker  can  initiate  a  DoS  (Denial  of  Service)  attack  onEthereum.</p>
-
+<h3 id="underpriced-operations">Under-Priced Operations</h3>
+<p>It's hard to accurately measure the consumption ofcomputing resources of an indicidual operation, and therefore some gas values are not set properly.</p>
+<p>Some IO-heavy operations'gas values are set too low, and hence these operations can be executed in quantity in onetransaction.   In  this  way,  an  attacker  can  initiate  a  DoS  (Denial  of  Service)  attack  onEthereum.</p>
 <p>under-priced operation EXTCODESIZE and SUICIDE.</p>
-
 <p>In order to solve the security problem caused by under-priced operations, the gas values of 7 IO-heavy operations ae modified in EIP150(Ethereum Improvement Proposal).</p>
-
 <p>Note that EIP150 has already been implemented in the Ethereum publicchain by hard fork, and the new gas table parameters are used after No.2463000 block.</p>
-
 <h2 id="attack-cases">Attack Cases</h2>
-
 <p>Some real attacks on blockchain systems.</p>
-
 <h3 id="selfish-mining-attack">Selfish Mining Attack</h3>
-
 <p>Only in the situation where the computing power of the selfish miners are more than that of the honest miners.</p>
-
 <p>Selfish mining attack is conducted by attackers for the pirpose of obtaining undue rewards or wasting the computing power of honest miners.</p>
-
 <p>To conclude, the selfish miners holds discovered blocks privately and then attemps to fork a private chain. Afterwards, selfish miners would mine on this private chain, and try to maintain a longer orivate branch than the public branch. New blocks mined by the honest miners would be revealed when the public banch approaches the length of private branch, such that the honest miners end up wasting computing power and gaining no reward.</p>
-
 <h3 id="dao-attack">DAO Attack</h3>
-
-<p>DAO is a smart contract deployed in Ethereum, which implements a crowd-funding platform and has raise 150 million US\$, which is the biggest crowdfund ever. The attacker stole about 60 million US\$.</p>
-
+<p>DAO is a smart contract deployed in Ethereum, which implements a crowd-funding platform and has raise 150 million US$, which is the biggest crowdfund ever. The attacker stole about 60 million US$.</p>
 <p>The attacker publishes a malicious smart contract, which includes a withdraw() function call to DAO in its callback function. The withdraw() will send Ether to the callee, which is also in the form of call. Therefore, it will invoke the callback function of malicious smart contract again. In this way, the attacker is able to steal all the Ether from DAO.</p>
-
 <h3 id="bgp-hijacking-attack">BGP Hijacking Attack</h3>
-
 <p>To intercept the network traffic of blockchain,attackers either leverage or manipulate BGP routing.</p>
-
 <p>BGP hijacking typically requires the control of network operators, which could potentially be exploited to delay network messages.</p>
-
 <p>Because of the high centralization of some Bitcoin mining pools, if they are attacked by BGP hijacking,it will have a signficant effect. The attackers can effectively split the Bitcoin network, or delay the speed of block propagation.</p>
-
 <p>Attackers conduct BGP hijacking to intercept Bitcoin miners&rsquo; connections to a mining pool server.</p>
-
 <p>By rerouting traffic to a miningpool  controlled by the attacker,  it  was possible to steal cryptocurrency from the victim.</p>
-
 <h3 id="eclipse-attack">Eclipse Attack</h3>
-
-<p>The eclipse  attack allows an attacker to monopolize all of the victim&rsquo;s incoming and outgoing connections, whic isolates the victim from the other peers in the network.</p>
-
-<p>Furthermore, the attacker is able to leverage the victim&rsquo;s computing power to conduct its own malicious acts.</p>
-
+<p>The eclipse  attack allows an attacker to monopolize all of the victim's incoming and outgoing connections, whic isolates the victim from the other peers in the network.</p>
+<p>Furthermore, the attacker is able to leverage the victim's computing power to conduct its own malicious acts.</p>
 <p>There are two types of eclipse attack considered, namely botnet attack and infrastructure attack.</p>
-
 <p>The botnet attack is launched by bots with diverse IP address ranges.</p>
-
 <p>The infrastructure attacks models the threat from an ISP(Internet Service Provider), company or nation-state that has contiguous IP address.</p>
-
-<p>The Bitcoin network might suffer from disruption and a victim&rsquo;s view of the blockchain will be filtered due to the eclipse attack.</p>
-
+<p>The Bitcoin network might suffer from disruption and a victim's view of the blockchain will be filtered due to the eclipse attack.</p>
 <p>Some other attacks may be caused by the eclipse attack, such as engineering block races, spliting mining power, selfish mining, 0-confirmation double spend, N-confirmation double spend.</p>
-
 <h3 id="liveness-attack">Liveness Attack</h3>
-
 <p>Liveness attack is able to delay as much as possible the confirmation time of a target transaction.</p>
-
 <p>Liveness attack consists of three phases, namely attackpreparation phase, transaction denial phase, and blockchain retarder phase.</p>
-
 <h3 id="balance-attack">Balance Attack</h3>
-
 <p>Blance Attacks is against PoW-based blockchain, which allows a low-mining-power attacker to momently disrupt communications between subgroups with similar mining power.(允许低采矿率攻击者立即破坏具有相似采矿能力的子群之间的通信)</p>
-
 <p>They abstract blockchain into a DAG(Directed Acyclic Graph) tree.(有向无环树)</p>
-
 <p>After introducing a delay between correct sub-groups of equivalent mining power, the attacker issues transactions in one subgroup (called &ldquo;transaction subgroup&rdquo;) and mines blocks in another subgrou (called &ldquo;block subgroup&rdquo;), toguarantee that the tree of block subgroup outweighs the tree of transaction subgroup.</p>
-
 <p>Eventhough the transactions are committed, the attacker is able to outweigh the tree containingthis transaction and rewrite blocks with high probability.</p>
-
 <h2 id="security-enhancements">Security Enhancements</h2>
-
 <h3 id="smartpool">SmartPool</h3>
-
 <p>SmartPool gets the transactions from Ethereum node clients, which contain mining tasks information. Then, the miner conducts hashing computation based on the tasks and returns the completed shares to the smartpool client.</p>
-
 <p>When the number of thecompleted shares reaches to a certain amount, they will be committed to smartpool contract,which is deployed in Ethereum. The smartpool contract will verify the shares and deliverrewards to the client. Compared with the traditional P2P pool,SmartPoolsystem hasthe following advantages:</p>
-
 <ol>
 <li>Decentralized</li>
 <li>Efficency</li>
-<li>Secure
-
+<li>Secure</li>
+</ol>
 <ul>
 <li>SmartPool leverages a novel data structure, which can prevent the attacker from resubmitting shares in different batches. Furthermore, the verification method of SmartPool can guarantee that honest miners will gain expected rewards even there exists malicious miners in the pool.</li>
-</ul></li>
-</ol>
-
+</ul>
 <h3 id="quantitative-framework">Quantitative Framework</h3>
-
 <p>(量化框架)</p>
-
-<p>There exists tradeoffs between blockchain&rsquo;s performance and security.</p>
-
-<p>A quantitative framework which is leveraged to analyze PoW-based blockchain&rsquo;s execution performance and security provisions.</p>
-
+<p>There exists tradeoffs between blockchain's performance and security.</p>
+<p>A quantitative framework which is leveraged to analyze PoW-based blockchain's execution performance and security provisions.</p>
 <p>The framework has two components: blockchain stimulator and security model.</p>
-
-<p>The simulator mimics blockchain&rsquo;s execution, whose inputs are parameters of consensus protocol and network.(其参数是共识协议和网络的参数)</p>
-
-<p>Through thesimulator&rsquo;s analysis,  it can gain performance statistics of the target blockchain, includingblock propagation times, block sizes, network delays, stale block rate, throughput, etc.</p>
-
+<p>The simulator mimics blockchain's execution, whose inputs are parameters of consensus protocol and network.(其参数是共识协议和网络的参数)</p>
+<p>Through thesimulator's analysis,  it can gain performance statistics of the target blockchain, includingblock propagation times, block sizes, network delays, stale block rate, throughput, etc.</p>
 <p>The stale block refers to a block that is mined but not written to the public chain. The throughput is the number of transactions that the blockchain can handle per second. Stale block rate will be passed as a parameter to the security model component, which is based on MDP(Markov Decision Processes)(马尔可夫决策过程)for defeating double spending and selfish mining attacks.</p>
-
 <p>The framework eventually outputs optimal adversarial strategy against attacks, and facilitates building security provisions for the blockchain.</p>
-
 <h3 id="oyente">OYENTE</h3>
-
 <p>OYENTE is proposed to detect bugs in Ethereum smart contracts.</p>
-
 <p>OYENTE follows the execution model of EVM and leverages symbolic execution to analyze the bytecode of smart contracts.</p>
-
 <h3 id="hawk">Hawk</h3>
-
 <p>Hawk is a framework for developing privacy-preserving smart contracts.</p>
-
 <h3 id="town-crier">Town Crier</h3>
-
 <p>TC(Town Crier) is an authenticated data feed system for data interaction process with off-chain(i.e., external) data source.</p>
-
 <p>Smart contract deployed in Ethereum cannot access netwrok directly, they cannot get data through HTTPS.</p>
-
 <p>TC acts as a bridge between HTTPS-enabled data source and smart contracts.</p>
-
 <p>TC contract is the front end of the TC system, which acts as API between users&rsquo; contracts and TC server.</p>
-
 <p>The core program of TC is running in Intel SGX enclave. The main function of TC server is to obtain the data requests from users&rsquo; contract, and obtain the data from target HTTPS-enabled websites. Finally, the TC server will return a datagram to the users&rsquo; contracts in the form of digitally signed blockchain messages.</p>
-
-<p>Relay module is designed as a network communicationhub for smart contracts, SGX enclave environment, and data source websites. Therefore, it achieves isolation between network communication and the execution of TC&rsquo;s core program.Even if the Relay module is attacked, or the network communication packets are tampered, it will not change the normal function of TC.</p>
+<p>Relay module is designed as a network communicationhub for smart contracts, SGX enclave environment, and data source websites. Therefore, it achieves isolation between network communication and the execution of TC's core program.Even if the Relay module is attacked, or the network communication packets are tampered, it will not change the normal function of TC.</p>
 
     </article>
 

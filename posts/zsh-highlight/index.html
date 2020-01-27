@@ -14,7 +14,7 @@
   <meta property="og:url" content="https://example.com/posts/zsh-highlight/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.60.1" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -51,32 +51,17 @@
         <li class="article-meta-date"><time>November 12, 2019</time></li>
       </ul>
       
-      
-
-<p>为你的zsh终端添加语法高亮</p>
-
-<h2 id="请先下载并配置好zsh">请先下载并配置好zsh</h2>
-
+      <p>为你的zsh终端添加语法高亮</p>
+<h2 id="zsh">请先下载并配置好zsh</h2>
 <p>首先进入到zsh的插件文件夹，我用的是omz，所以要进入omz的插件文件夹</p>
-
-<pre><code class="language-shell">cd ~/.oh-my-zsh/custom/plugins
-</code></pre>
-
-<p>然后下载插件</p>
-
-<pre><code class="language-shell">git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
-</code></pre>
-
-<p>然后更改<code>.zshrc</code>里的配置</p>
-
-<pre><code class="language-shell">plugins=(zsh-syntax-highlighting)
-</code></pre>
-
-<p>然后读取配置即时生效</p>
-
-<pre><code class="language-shell">source ~/.zshrc
-</code></pre>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cd ~/.oh-my-zsh/custom/plugins
+</code></pre></div><p>然后下载插件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
+</code></pre></div><p>然后更改<code>.zshrc</code>里的配置</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">plugins<span style="color:#f92672">=</span><span style="color:#f92672">(</span>zsh-syntax-highlighting<span style="color:#f92672">)</span>
+</code></pre></div><p>然后读取配置即时生效</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">source ~/.zshrc
+</code></pre></div>
     </article>
 
     

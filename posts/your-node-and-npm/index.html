@@ -14,7 +14,7 @@
   <meta property="og:url" content="https://example.com/posts/your-node-and-npm/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.60.1" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -51,47 +51,23 @@
         <li class="article-meta-date"><time>November 12, 2019</time></li>
       </ul>
       
-      
-
-<p>用nvm管理你的node和npm</p>
-
+      <p>用nvm管理你的node和npm</p>
 <h2 id="awesome-nvm">awesome nvm</h2>
-
 <p>前端开发经常必然需要很好的管理自己的npm和node。奈何mac上的homebrew不给力，经常有很多问题。</p>
-
 <p>通过查询知道还有nvm这样一种方便的工具可以使用。便立即学习了一下。</p>
-
 <p>首先需要安装nvm。</p>
-
-<pre><code class="language-bash">curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
-</code></pre>
-
-<p>然后你可以直接运行</p>
-
-<pre><code class="language-bash">nvm install node
-</code></pre>
-
-<p>来直接安装最新的node。</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+</code></pre></div><p>然后你可以直接运行</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">nvm install node
+</code></pre></div><p>来直接安装最新的node。</p>
 <p>也可以使用</p>
-
-<pre><code class="language-bash">nvm ls-remote
-</code></pre>
-
-<p>看看所有可用的版本。</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">nvm ls-remote
+</code></pre></div><p>看看所有可用的版本。</p>
 <p>如果你有多个node版本。可以仿照下面的代码交换使用。</p>
-
-<pre><code class="language-bash">nvm use v12.7.0
-</code></pre>
-
-<p>如果使用</p>
-
-<pre><code class="language-bash">nvm use node
-</code></pre>
-
-<p>就切换到最新版了。</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">nvm use v12.7.0
+</code></pre></div><p>如果使用</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">nvm use node
+</code></pre></div><p>就切换到最新版了。</p>
 <p>其他用法可以看官方文档。</p>
 
     </article>
