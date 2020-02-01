@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Formulating Abstractions with Higher-Order Procedures - Luosuu的小站</title>
+  <meta property="og:title" content="Formulating Abstractions with Higher-Order Procedures - Luosuu的小站" />
+  <meta name="twitter:title" content="Formulating Abstractions with Higher-Order Procedures - Luosuu的小站" />
+  <meta name="description" content="&ldquo;用高阶的函数做抽象&rdquo;，本次我们更关注于过程本身的一些特性，以及相关的抽象方式">
+  <meta property="og:description" content="&ldquo;用高阶的函数做抽象&rdquo;，本次我们更关注于过程本身的一些特性，以及相关的抽象方式">
+  <meta name="twitter:description" content="&ldquo;用高阶的函数做抽象&rdquo;，本次我们更关注于过程本身的一些特性，以及相关的抽象方式">
+  <meta name="author" content="Luosuu"/>
+  <meta property="og:site_name" content="Luosuu的小站" />
+  <meta property="og:url" content="https://example.com/posts/sicp-1-3/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.60.1" />
+
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
+
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">Luosuu的小站</a></h1>
+    <ul class="site-navi-items">
+      <li class="site-navi-item-categories"><a href="/categories/" title="Categories">Categories</a></li>
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
+
+  <div class="main" role="main">
+    <article class="article">
+      
+      
+      <h1 class="article-title">Formulating Abstractions with Higher-Order Procedures</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>February 1, 2020</time></li>
+        <li class="article-meta-categories">
+          <a href="/categories/sicp-notes/">
+            <i class="fas fa-folder"></i>
+            sicp notes
+          </a>&nbsp;
+        </li>
+        <li class="article-meta-tags">
+          <a href="/tags/interpreter/">
+            <i class="fas fa-tag"></i>
+            interpreter
+          </a>&nbsp;
+        </li>
+        <li class="article-meta-tags">
+          <a href="/tags/sicp/">
+            <i class="fas fa-tag"></i>
+            SICP
+          </a>&nbsp;
+        </li>
+      </ul>
+      
+<aside class="toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#lambda">lambda</a></li>
+    <li><a href="#lisp">lisp中的过程</a></li>
+  </ul>
+</nav>
+</aside>
+      <p>&ldquo;用高阶的函数做抽象&rdquo;，本次我们更关注于过程本身的一些特性，以及相关的抽象方式</p>
+<h2 id="lambda">lambda</h2>
+<p>lambda表达式可以增强我们的表达能力，使我们表达一些简单的过程时非常方便，如：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(lambda (x) (<span style="color:#a6e22e">+</span> x <span style="color:#ae81ff">4</span>))
+</code></pre></div><p>这样我们在很多地方就无须再构建辅助过程了，直接使用lambda表达就可以，lambda表达式的优点之一还在于这个过程没有名字，不与环境中的任何名字相关联，且lambda表达式内部的环境和一般的过程一样，与外部独立。</p>
+<p>然后我们需要介绍一下lambda的另外一种用法</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">((lambda (&lt;var_1&gt; <span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span> &lt;var_n&gt;)
+        &lt;body&gt;)
+    &lt;exp_1&gt;
+    <span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span>
+    &lt;exp_n&gt;)
+</code></pre></div><p>其含义为，在body中将var_1至var_n解释为exp_1至exp_n</p>
+<p>比如</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(define (f x y)
+    ((lambda (a b) (<span style="color:#a6e22e">*</span> a b))
+            (a (<span style="color:#a6e22e">+</span> y (<span style="color:#a6e22e">*</span> x x)))
+            (b (<span style="color:#a6e22e">-</span> (<span style="color:#a6e22e">*</span> x y) x))))
+</code></pre></div><p>其中f就为</p>
+<p>$$f(x,y)=(x^2+y)<em>(x</em>y-x)$$</p>
+<p>这个使用方式有一个语法外衣let</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#66d9ef">let</span> ((var_1 exp_1)
+      <span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span>
+      (var_n exp_n)
+    &lt;body&gt;))
+</code></pre></div><p>let只是lambda上述使用方式的语法外衣，完全等效，但是看起来更舒适一点，var和exp一一对应。</p>
+<h2 id="lisp">lisp中的过程</h2>
+<p>在lisp当中，过程是更一般的对象，也就是既可以作为参数也可以作为返回值，如同就和一般的变量一般。</p>
+<p>我们来看以下方法</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(define (average-damp f)
+    (lambda (x) (average x (f x))))
+</code></pre></div><p>average-damp是一个以f为参数的方法，返回的也是一个方法，返回的方法由lambda产生。</p>
+<p>average-damp可以用来求x和f(x)的平均值</p>
+<p>使用它的例子可以如下</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">((average-damp square) <span style="color:#ae81ff">10</span>)
+<span style="color:#ae81ff">55</span>
+</code></pre></div><p>也就是说我们可以将过程（也就是计算的方式）作为参数传递进另外一个过程，而那另外一个过程无须关心f具体是什么。</p>
+<p>这是一种重要的抽象机制，也是典型的复合过程（思考下和前面几篇提到过的复合过程的区别）。</p>
+<p>一般而言，设计语言时会对计算元素可能使用方式作出限制，限制最少的元素就被称作是具有 <em>第一级</em> 的状态。</p>
+<p>在lisp中过程就是第一级状态的。（你可以想一下C语言中是否允许将函数作为参数进行传递）</p>
+<p>第一级元素有一些特权，如：</p>
+<ol>
+<li>可以用变量命名</li>
+<li>可以提供给过程作参数</li>
+<li>可以作为过程的结果返回</li>
+<li>可以包含在数据结构中（详情在sicp第二章中讲述）</li>
+</ol>
+
+    </article>
+
+    
+
+
+    <ul class="pager article-pager">
+      <li class="pager-newer">
+          <a href="/posts/foreword/" data-toggle="tooltip" data-placement="top" title="Foreword">&lt; Newer</a>
+      </li>
+      <li class="pager-older">
+        <a href="/posts/qemu-on-mac/" data-toggle="tooltip" data-placement="top" title="Qemu on Mac">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
+
+
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<link rel="stylesheet" href="/path/to/styles/default.css">
+<script src="../highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js"></script>
+
+</body>
+</html>
