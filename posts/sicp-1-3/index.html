@@ -80,37 +80,37 @@
       <p>&ldquo;用高阶的函数做抽象&rdquo;，本次我们更关注于过程本身的一些特性，以及相关的抽象方式</p>
 <h2 id="lambda">lambda</h2>
 <p>lambda表达式可以增强我们的表达能力，使我们表达一些简单的过程时非常方便，如：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(lambda (x) (<span style="color:#a6e22e">+</span> x <span style="color:#ae81ff">4</span>))
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">lambda </span>(<span style="color:#a6e22e">x</span>) (+ x <span style="color:#ae81ff">4</span>))
 </code></pre></div><p>这样我们在很多地方就无须再构建辅助过程了，直接使用lambda表达就可以，lambda表达式的优点之一还在于这个过程没有名字，不与环境中的任何名字相关联，且lambda表达式内部的环境和一般的过程一样，与外部独立。</p>
 <p>然后我们需要介绍一下lambda的另外一种用法</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">((lambda (&lt;var_1&gt; <span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span> &lt;var_n&gt;)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">((<span style="color:#66d9ef">lambda </span>(<span style="color:#a6e22e">&lt;var_1&gt;</span> <span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span> &lt;var_n&gt;)
         &lt;body&gt;)
     &lt;exp_1&gt;
     <span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span>
     &lt;exp_n&gt;)
 </code></pre></div><p>其含义为，在body中将var_1至var_n解释为exp_1至exp_n</p>
 <p>比如</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(define (f x y)
-    ((lambda (a b) (<span style="color:#a6e22e">*</span> a b))
-            (a (<span style="color:#a6e22e">+</span> y (<span style="color:#a6e22e">*</span> x x)))
-            (b (<span style="color:#a6e22e">-</span> (<span style="color:#a6e22e">*</span> x y) x))))
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">f</span> x y)
+    ((<span style="color:#66d9ef">lambda </span>(<span style="color:#a6e22e">a</span> b) (* a b))
+            (<span style="color:#a6e22e">a</span> (+ y (* x x)))
+            (<span style="color:#a6e22e">b</span> (- (* x y) x))))
 </code></pre></div><p>其中f就为</p>
 <p>$$f(x,y)=(x^2+y)<em>(x</em>y-x)$$</p>
 <p>这个使用方式有一个语法外衣let</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#66d9ef">let</span> ((var_1 exp_1)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">let </span>((<span style="color:#a6e22e">var_1</span> exp_1)
       <span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span>
-      (var_n exp_n)
+      (<span style="color:#a6e22e">var_n</span> exp_n)
     &lt;body&gt;))
 </code></pre></div><p>let只是lambda上述使用方式的语法外衣，完全等效，但是看起来更舒适一点，var和exp一一对应。</p>
 <h2 id="lisp">lisp中的过程</h2>
 <p>在lisp当中，过程是更一般的对象，也就是既可以作为参数也可以作为返回值，如同就和一般的变量一般。</p>
 <p>我们来看以下方法</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(define (average-damp f)
-    (lambda (x) (average x (f x))))
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">average-damp</span> f)
+    (<span style="color:#66d9ef">lambda </span>(<span style="color:#a6e22e">x</span>) (<span style="color:#a6e22e">average</span> x (<span style="color:#a6e22e">f</span> x))))
 </code></pre></div><p>average-damp是一个以f为参数的方法，返回的也是一个方法，返回的方法由lambda产生。</p>
 <p>average-damp可以用来求x和f(x)的平均值</p>
 <p>使用它的例子可以如下</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">((average-damp square) <span style="color:#ae81ff">10</span>)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">((<span style="color:#a6e22e">average-damp</span> square) <span style="color:#ae81ff">10</span>)
 <span style="color:#ae81ff">55</span>
 </code></pre></div><p>也就是说我们可以将过程（也就是计算的方式）作为参数传递进另外一个过程，而那另外一个过程无须关心f具体是什么。</p>
 <p>这是一种重要的抽象机制，也是典型的复合过程（思考下和前面几篇提到过的复合过程的区别）。</p>
