@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>&amp;copy; Copyright 2019 Luosuu</copyright>
-    <lastBuildDate>Sat, 01 Feb 2020 15:11:32 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 03 Feb 2020 16:55:22 +0800</lastBuildDate>
     
 	<atom:link href="https://example.com/categories/sicp-notes/index.xml" rel="self" type="application/rss+xml" />
     
@@ -19,6 +19,15 @@
       
       <guid>https://example.com/posts/start-plt/</guid>
       <description>研究事物的原理和构造，掌握基本方法。</description>
+    </item>
+    
+    <item>
+      <title>Introduction to SICP Chapter 2</title>
+      <link>https://example.com/posts/introduction-to-sicp-chapter-2/</link>
+      <pubDate>Mon, 03 Feb 2020 16:55:22 +0800</pubDate>
+      
+      <guid>https://example.com/posts/introduction-to-sicp-chapter-2/</guid>
+      <description>SICP第二章的导引</description>
     </item>
     
     <item>

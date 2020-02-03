@@ -18,6 +18,11 @@
   </url>
   
   <url>
+    <loc>https://example.com/posts/introduction-to-sicp-chapter-2/</loc>
+    <lastmod>2020-02-03T16:55:22+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://example.com/posts/sicp-1-3/</loc>
     <lastmod>2020-02-01T15:11:32+08:00</lastmod>
   </url>
@@ -49,37 +54,37 @@
   
   <url>
     <loc>https://example.com/categories/</loc>
-    <lastmod>2020-02-01T15:11:32+08:00</lastmod>
+    <lastmod>2020-02-03T16:55:22+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://example.com/tags/interpreter/</loc>
-    <lastmod>2020-02-01T15:11:32+08:00</lastmod>
+    <lastmod>2020-02-03T16:55:22+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://example.com/</loc>
-    <lastmod>2020-02-01T15:11:32+08:00</lastmod>
+    <lastmod>2020-02-03T16:55:22+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://example.com/posts/</loc>
-    <lastmod>2020-02-01T15:11:32+08:00</lastmod>
+    <lastmod>2020-02-03T16:55:22+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://example.com/tags/sicp/</loc>
-    <lastmod>2020-02-01T15:11:32+08:00</lastmod>
+    <lastmod>2020-02-03T16:55:22+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://example.com/categories/sicp-notes/</loc>
-    <lastmod>2020-02-01T15:11:32+08:00</lastmod>
+    <lastmod>2020-02-03T16:55:22+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://example.com/tags/</loc>
-    <lastmod>2020-02-01T15:11:32+08:00</lastmod>
+    <lastmod>2020-02-03T16:55:22+08:00</lastmod>
   </url>
   
   <url>
