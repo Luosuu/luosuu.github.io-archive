@@ -111,14 +111,14 @@
     (<span style="color:#a6e22e">make-rat</span> (* (<span style="color:#a6e22e">numer</span> x) (<span style="color:#a6e22e">numer</span> y))
               (* (<span style="color:#a6e22e">denom</span> x) (<span style="color:#a6e22e">denom</span> y))))
 (<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">div-rat</span> x y)
-    (<span style="color:#a6e22e">make-rat</span> (<span style="color:#a6e22e">*</span><span style="color:#960050;background-color:#1e0010">（</span>numer x) (<span style="color:#a6e22e">denom</span> y))
+    (<span style="color:#a6e22e">make-rat</span> (* (<span style="color:#a6e22e">numer</span> x) (<span style="color:#a6e22e">denom</span> y))
               (* (<span style="color:#a6e22e">denom</span> x) (<span style="color:#a6e22e">numer</span> y)))
 (<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">equal-rat?</span> x y)
     (= (* (<span style="color:#a6e22e">numer</span> x) (<span style="color:#a6e22e">denom</span> y))
        (* (<span style="color:#a6e22e">numer</span> y) (<span style="color:#a6e22e">denom</span> x))))
 </code></pre></div><p>我们现在可以构成、运算分数了，但是现在的分数还不不具备约分化简的能力，于是我们要用到1.2.5节的gcd，也就是查找最大公约数的方法修改make-rat</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">make-rat</span> n d)
-    <span style="color:#960050;background-color:#1e0010">（</span><span style="color:#66d9ef">let </span>((<span style="color:#a6e22e">g</span> (gcd n d))
+    (<span style="color:#66d9ef">let </span>((<span style="color:#a6e22e">g</span> (gcd n d))
         (cons (/ n g) (<span style="color:#a6e22e">/d</span>  g))))
 </code></pre></div><p>现在我们就完成了有理数数据类型的基本结构了。然后我们来回顾一下这个过程然后思考一些问题。</p>
 <h2 id="abstraction-barriers">抽象屏障(Abstraction Barriers)</h2>
