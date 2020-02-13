@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>&amp;copy; Copyright 2019 Luosuu</copyright>
-    <lastBuildDate>Mon, 03 Feb 2020 16:55:22 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 11 Feb 2020 17:22:40 +0800</lastBuildDate>
     
 	<atom:link href="https://example.com/tags/sicp/index.xml" rel="self" type="application/rss+xml" />
     
@@ -19,6 +19,15 @@
       
       <guid>https://example.com/posts/start-plt/</guid>
       <description>研究事物的原理和构造，掌握基本方法。</description>
+    </item>
+    
+    <item>
+      <title>sicp-2.1.1-Examples:Arithmetic Operations for Rational Numbers</title>
+      <link>https://example.com/posts/sicp-2-1-1/</link>
+      <pubDate>Tue, 11 Feb 2020 17:22:40 +0800</pubDate>
+      
+      <guid>https://example.com/posts/sicp-2-1-1/</guid>
+      <description>为了引入第二章的概念和主题，我们尝试构建有理数的数据类型并且定义它的计算方法。</description>
     </item>
     
     <item>

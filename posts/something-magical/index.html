@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Something Magical - Luosuu的小站</title>
+  <meta property="og:title" content="Something Magical - Luosuu的小站" />
+  <meta name="twitter:title" content="Something Magical - Luosuu的小站" />
+  <meta name="description" content="虽然有些危险，但是还是记录一下以备不时之需">
+  <meta property="og:description" content="虽然有些危险，但是还是记录一下以备不时之需">
+  <meta name="twitter:description" content="虽然有些危险，但是还是记录一下以备不时之需">
+  <meta name="author" content="Luosuu"/>
+  <meta property="og:site_name" content="Luosuu的小站" />
+  <meta property="og:url" content="https://example.com/posts/something-magical/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.60.1" />
+
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
+
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">Luosuu的小站</a></h1>
+    <ul class="site-navi-items">
+      <li class="site-navi-item-categories"><a href="/categories/" title="Categories">Categories</a></li>
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
+
+  <div class="main" role="main">
+    <article class="article">
+      
+      
+      <h1 class="article-title">Something Magical</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>February 13, 2020</time></li>
+        <li class="article-meta-categories">
+          <a href="/categories/diary/">
+            <i class="fas fa-folder"></i>
+            Diary
+          </a>&nbsp;
+        </li>
+        <li class="article-meta-tags">
+          <a href="/tags/life/">
+            <i class="fas fa-tag"></i>
+            Life
+          </a>&nbsp;
+        </li>
+      </ul>
+      
+<aside class="toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#client">client</a></li>
+    <li><a href="#server">server</a></li>
+  </ul>
+</nav>
+</aside>
+      <p>虽然有些危险，但是还是记录一下以备不时之需</p>
+<h2 id="client">client</h2>
+<p>配置文件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd /usr/local/etc
+vim shadowsocks-libev.json
+</code></pre></div><p>Template file, and Plugin path needs absolute path</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;server&#34;</span>:<span style="color:#e6db74">&#34;SERVER_ADDRESS&#34;</span>,
+  <span style="color:#f92672">&#34;server_port&#34;</span>:<span style="color:#ae81ff">3128</span>,
+  <span style="color:#f92672">&#34;local_address&#34;</span>:<span style="color:#e6db74">&#34;0.0.0.0&#34;</span>,
+  <span style="color:#f92672">&#34;local_port&#34;</span>:<span style="color:#ae81ff">1080</span>,
+  <span style="color:#f92672">&#34;password&#34;</span>:<span style="color:#e6db74">&#34;PASSWORD&#34;</span>,
+  <span style="color:#f92672">&#34;method&#34;</span>:<span style="color:#e6db74">&#34;chacha20-ietf-poly1305&#34;</span>,
+  <span style="color:#f92672">&#34;fast_open&#34;</span>:<span style="color:#66d9ef">true</span>,
+  <span style="color:#f92672">&#34;interface&#34;</span>:<span style="color:#e6db74">&#34;en0&#34;</span>,
+  <span style="color:#f92672">&#34;plugin&#34;</span>:<span style="color:#e6db74">&#34;/usr/local/bin/obfs-local&#34;</span>,
+  <span style="color:#f92672">&#34;plugin_opts&#34;</span>:<span style="color:#e6db74">&#34;obfs=http;obfs-host=cloudfront.net&#34;</span>
+}
+</code></pre></div><p>自启动配置文件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vim /usr/local/opt/shadowsocks-libev/homebrew.mxcl.shadowsocks-libev.plist
+</code></pre></div><p>Template file, and -c needs config file's absolute path</p>
+<pre><code class="language-plist" data-lang="plist">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+  &lt;dict&gt;
+    &lt;key&gt;Label&lt;/key&gt;
+    &lt;string&gt;homebrew.mxcl.shadowsocks-libev&lt;/string&gt;
+    &lt;key&gt;ProgramArguments&lt;/key&gt;
+    &lt;array&gt;
+      &lt;string&gt;/usr/local/opt/shadowsocks-libev/bin/ss-local&lt;/string&gt;
+      &lt;string&gt;-c&lt;/string&gt;
+      &lt;string&gt;/usr/local/etc/shadowsocks-libev.json&lt;/string&gt;
+      &lt;string&gt;-u&lt;/string&gt;
+    &lt;/array&gt;
+    &lt;key&gt;RunAtLoad&lt;/key&gt;
+    &lt;true/&gt;
+    &lt;key&gt;KeepAlive&lt;/key&gt;
+    &lt;true/&gt;
+  &lt;/dict&gt;
+&lt;/plist&gt;
+</code></pre><p>自启动</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">brew services
+brew services start shadowsocks-libev
+</code></pre></div><h2 id="server">server</h2>
+<p>install</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt update
+sudo apt install shadowsocks-libev
+</code></pre></div><p>config and start services</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Edit the configuration file</span>
+sudo vim /etc/shadowsocks-libev/config.json
+
+<span style="color:#75715e"># Edit the default configuration for debian</span>
+sudo vim /etc/default/shadowsocks-libev
+
+<span style="color:#75715e"># Start the service</span>
+sudo /etc/init.d/shadowsocks-libev start    <span style="color:#75715e"># for sysvinit, or</span>
+sudo systemctl start shadowsocks-libev      <span style="color:#75715e"># for systemd</span>
+</code></pre></div>
+    </article>
+
+    
+
+
+    <ul class="pager article-pager">
+      <li class="pager-newer">
+          <a href="/posts/foreword/" data-toggle="tooltip" data-placement="top" title="Foreword">&lt; Newer</a>
+      </li>
+      <li class="pager-older">
+        <a href="/posts/sicp-2-1-1/" data-toggle="tooltip" data-placement="top" title="sicp-2.1.1-Examples:Arithmetic Operations for Rational Numbers">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
+
+
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<link rel="stylesheet" href="/path/to/styles/default.css">
+<script src="../highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js"></script>
+
+</body>
+</html>
