@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>UWP Quickstart - luosuu的小站</title>
+  <meta property="og:title" content="UWP Quickstart - luosuu的小站" />
+  <meta name="twitter:title" content="UWP Quickstart - luosuu的小站" />
+  <meta name="description" content="第二学期假期时去MSRA时速成了一下UWP">
+  <meta property="og:description" content="第二学期假期时去MSRA时速成了一下UWP">
+  <meta name="twitter:description" content="第二学期假期时去MSRA时速成了一下UWP">
+  <meta name="author" content="luosuu"/>
+  <meta property="og:site_name" content="luosuu的小站" />
+  <meta property="og:url" content="https://example.com/post/uwp-quickstart/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.66.0" />
+
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
+
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">luosuu的小站</a></h1>
+    <ul class="site-navi-items">
+      <li class="site-navi-item-categories"><a href="/categories/" title="Categories">Categories</a></li>
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
+
+  <div class="main" role="main">
+    <article class="article">
+      
+      
+      <h1 class="article-title">UWP Quickstart</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>March 5, 2020</time></li>
+        <li class="article-meta-categories">
+          <a href="/categories/ui/">
+            <i class="fas fa-folder"></i>
+            UI
+          </a>&nbsp;
+        </li>
+      </ul>
+      
+      <p>第二学期假期时去MSRA时速成了一下UWP</p>
+<h2 id="uwp速成">UWP速成</h2>
+<p>夏令营期间速成了一下微软家的前端工具UWP。</p>
+<p>推荐环境：Blend for Visual Studio 2019 / Visual Studio 2019</p>
+<p>需要安装Visual Studio的UWP开发组件。在<code>tools and extensions</code>里面安装。</p>
+<p>如果你使用的是Visual Studio 2017，可能会出现无法使用实时preview功能，建议升级为2019版本。</p>
+<h2 id="quick-start">Quick Start</h2>
+<p>首先新建UWP项目。</p>
+<p>然后你会看到<code>App.xaml</code>和<code>MainPage.xaml</code>，前面的不用管。后面的就是我们的主页面。</p>
+<p>xaml文件类似于HTML文件，熟悉HTML的同学很快就能上手。</p>
+<p>关于常用的组件，可以去Windows store里面下载<code>xaml Controls Gallery</code>。里面有几乎所有常用的组件及其基本代码，更重要的是它本身就是用UWP写的，所以里面的组件都有展示效果，很方便很强大，缺点就是不够详细。</p>
+<p>比较详细的可以查阅文档，微软的UWP文档写的相当好。</p>
+<p><a href="https://docs.microsoft.com/en-us/windows/uwp/">UWP doucumentation</a></p>
+<p>现在你可以看到<code>MainPage.xaml</code>的内容了。</p>
+<pre><code class="language-xaml" data-lang="xaml">&lt;Page
+    x:Class=&quot;Github_example.MainPage&quot;
+    xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;
+    xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+    xmlns:local=&quot;using:Github_example&quot;
+    xmlns:d=&quot;http://schemas.microsoft.com/expression/blend/2008&quot;
+    xmlns:mc=&quot;http://schemas.openxmlformats.org/markup-compatibility/2006&quot;
+    mc:Ignorable=&quot;d&quot;
+    Background=&quot;{ThemeResource ApplicationPageBackgroundThemeBrush}&quot;&gt;
+
+    &lt;Grid&gt;
+
+    &lt;/Grid&gt;
+&lt;/Page&gt;
+</code></pre><p>``中是页面的内容。</p>
+<p>``是一个组件，能按照几行几列分割页面。其基本的使用是：</p>
+<pre><code class="language-xaml" data-lang="xaml">&lt;Grid&gt;
+    &lt;Grid.RowDefinitions&gt;
+        &lt;RowDefinition Height = &quot;50&quot; /&gt;
+        &lt;RowDefinition Height = &quot;*&quot;/&gt;
+        &lt;RowDefinition Height = &quot;2*&quot;/&gt;
+    &lt;/Grid.RowDefinitions&gt;
+
+    &lt;Grid.ColumnDefinitions&gt;
+        &lt;ColumnDefinition Width=&quot;50&quot; /&gt;
+        &lt;ColumnDefinition Width=&quot;Auto&quot; /&gt;
+        &lt;ColumnDefinition /&gt;
+    &lt;/Grid.ColumnDefinitions&gt;
+
+    &lt;StackPanel Orientation=&quot;Vertical&quot; Grid.Row=&quot;1&quot;&gt;
+        &lt;TextBlock Text=&quot;Hello&quot;/&gt;
+        &lt;TextBlock Text=&quot;world&quot;/&gt;
+    &lt;/StackPanel&gt;
+
+&lt;/Grid&gt;
+</code></pre><p>*表示按比例分割区域，上面的代码就代表着第二行和第三行的比例是1：2</p>
+<p>想要在Grid中布置组件，只需要在``中声明组件，然后在组件的属性中加入如<code>Grid.Row = &quot;1&quot;</code>表示组件在Grid中的位置。上面的代码就在第一行的位置上布置了一个组件StackPanel。</p>
+<p>StackPanel能按照一定的方向排列组件。排列的方向由属性&quot;Orientation&quot;决定。</p>
+<h2 id="常用的结构">常用的结构</h2>
+<h3 id="uwp非常具有独特风格的navigationview框架">UWP非常具有独特风格的NavigationView框架</h3>
+<pre><code class="language-xaml" data-lang="xaml">&lt;Page
+    x:Class=&quot;Github_example.MainPage&quot;
+    xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;
+    xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+    xmlns:local=&quot;using:Github_example&quot;
+    xmlns:d=&quot;http://schemas.microsoft.com/expression/blend/2008&quot;
+    xmlns:mc=&quot;http://schemas.openxmlformats.org/markup-compatibility/2006&quot;
+    mc:Ignorable=&quot;d&quot;
+    Background=&quot;{ThemeResource ApplicationPageBackgroundThemeBrush}&quot;&gt;
+
+
+    &lt;NavigationView x:Name=&quot;nvSample&quot;&gt;
+        &lt;NavigationView.MenuItems&gt;
+            &lt;NavigationViewItem Icon=&quot;Play&quot; Content=&quot;Menu Item1&quot; Tag=&quot;SamplePage1&quot; /&gt;
+            &lt;NavigationViewItem Icon=&quot;Save&quot; Content=&quot;Menu Item2&quot; Tag=&quot;SamplePage2&quot; /&gt;
+            &lt;NavigationViewItem Icon=&quot;Refresh&quot; Content=&quot;Menu Item3&quot; Tag=&quot;SamplePage3&quot; /&gt;
+            &lt;NavigationViewItem Icon=&quot;Download&quot; Content=&quot;Menu Item4&quot; Tag=&quot;SamplePage4&quot; /&gt;
+        &lt;/NavigationView.MenuItems&gt;
+
+        &lt;Frame x:Name=&quot;contentFrame&quot;&gt;
+            &lt;Grid&gt;
+            &lt;/Grid&gt;
+        &lt;/Frame&gt;
+    &lt;/NavigationView&gt;
+
+&lt;/Page&gt;
+</code></pre><p>``中就是除了框架的内容页面。</p>
+<p>使用了NavigationView自然要进行页面跳转。页面跳转的实现部分要放在<code>MianPage.xaml.cs</code>中实现。</p>
+<p>页面跳转有两种方法，一个是<code>ItemInvoked</code>，另外一个是<code>SelectionChanged</code>。前者只要发生NavigationView的item点击事件就会被检测到，后者只有当选择的item发生变化时才会发生。下面展示一个使用<code>ItemInvoked</code>的页面跳转的实现。所以你需要新建<code>Blank page</code>项目，修改.xaml.cs中的类的名称。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"> <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> NvSample_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
+        {
+            <span style="color:#66d9ef">if</span> (args.IsSettingsInvoked == <span style="color:#66d9ef">true</span>)
+            {
+                contentFrame.Navigate(<span style="color:#66d9ef">typeof</span>(SettingsPage), args.RecommendedNavigationTransitionInfo);
+            }
+            <span style="color:#66d9ef">else</span>
+            {
+                TextBlock ItemContent = args.InvokedItem <span style="color:#66d9ef">as</span> TextBlock;
+                <span style="color:#66d9ef">switch</span> (ItemContent.Tag)
+                {
+                    <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;Recog_page&#34;</span>:
+                        {
+                            contentFrame.Navigate(<span style="color:#66d9ef">typeof</span>(Recog_page));
+                        }
+                        <span style="color:#66d9ef">break</span>;
+                    <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;SP2&#34;</span>:
+                        {
+                            contentFrame.Navigate(<span style="color:#66d9ef">typeof</span>(SamplePage2));
+                        }
+                        <span style="color:#66d9ef">break</span>;
+                    <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;SP3&#34;</span>:
+                        {
+                            contentFrame.Navigate(<span style="color:#66d9ef">typeof</span>(SamplePage3));
+                        }
+                        <span style="color:#66d9ef">break</span>;
+                    <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;SP4&#34;</span>:
+                        {
+                            contentFrame.Navigate(<span style="color:#66d9ef">typeof</span>(SamplePage4));
+                        }
+                        <span style="color:#66d9ef">break</span>;
+                    <span style="color:#66d9ef">default</span>:
+                        {
+                            contentFrame.Navigate(<span style="color:#66d9ef">typeof</span>(MainPage));
+                        }
+                        <span style="color:#66d9ef">break</span>;
+                }
+            }
+        }
+</code></pre></div><p>上述的实现通过识别item的不同tag属性来进行跳转。由于NavigationView自带的Setting不具备tag属性，所以就先只好判断<code>IsSettingInvoked</code>。</p>
+<p>使用<code>contentFrame.Navigate(typeof())</code>进行页面跳转，识别的是.xaml.cs文件中的类的名称，而不是xaml文件里的name。</p>
+<p>xaml文件的地位并不高，只是方便我们搭建框架而已，实际上xaml文件完全可以不写，完全使用C#搭建框架，只是这样没有编辑xaml直观方便。</p>
+<h2 id="在uwp中使用图片">在UWP中使用图片</h2>
+<p>你可能需要使用到BitmapImage类，但是BitmapImage类默认不在UWP项目的引用列表里，所以需要手动添加</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#66d9ef">using</span> windows.UI.Xaml.Media.Imaging;
+<span style="color:#66d9ef">using</span> <span style="color:#960050;background-color:#1e0010">&lt;</span>MianPage的命名空间<span style="color:#960050;background-color:#1e0010">，一般是项目名</span>&gt;.Views;<span style="color:#75715e">//有的时候不必要添加
+</span></code></pre></div><p>BitmapImage类使用Uri进行加载资源文件，UWP的资源文件默认都放在项目里的Assets文件夹里。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#">BitmapImage picture = <span style="color:#66d9ef">new</span> BitmapImage();
+picture.UriSource = <span style="color:#66d9ef">new</span> Uri(<span style="color:#e6db74">&#34;ms-appx:Assets/dog.jpg&#34;</span>);
+</code></pre></div><p>然后就可以把这个属性赋给一些图片，让他们重新加载资源图片。如果xaml文件里有一个Image组件，属性有<code>x:name = Sample</code>，那么就可以在.xaml.cs文件里，使用<code>Sample.Source=picture</code>来重新加载图片。</p>
+    </article>
+
+    
+
+
+    <ul class="pager article-pager">
+      <li class="pager-newer">
+          <a href="/post/console-game/" data-toggle="tooltip" data-placement="top" title="Console Game">&lt; Newer</a>
+      </li>
+      <li class="pager-older">
+        <a href="/post/msra-summercamp/" data-toggle="tooltip" data-placement="top" title="MSRA Summercamp">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
+
+<script src="https://cdn.bootcss.com/highlight.js/9.18.1/highlight.min.js"></script>
+</body>
+</html>

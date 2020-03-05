@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Homebrew Install Scripts - luosuu的小站</title>
+  <meta property="og:title" content="Homebrew Install Scripts - luosuu的小站" />
+  <meta name="twitter:title" content="Homebrew Install Scripts - luosuu的小站" />
+  <meta name="description" content="通过ustc源安装homebrew">
+  <meta property="og:description" content="通过ustc源安装homebrew">
+  <meta name="twitter:description" content="通过ustc源安装homebrew">
+  <meta name="author" content="luosuu"/>
+  <meta property="og:site_name" content="luosuu的小站" />
+  <meta property="og:url" content="https://example.com/post/install-homebrew-ustc-source/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.66.0" />
+
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
+
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">luosuu的小站</a></h1>
+    <ul class="site-navi-items">
+      <li class="site-navi-item-categories"><a href="/categories/" title="Categories">Categories</a></li>
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
+
+  <div class="main" role="main">
+    <article class="article">
+      
+      
+      <h1 class="article-title">Homebrew Install Scripts</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>March 5, 2020</time></li>
+        <li class="article-meta-categories">
+          <a href="/categories/software/">
+            <i class="fas fa-folder"></i>
+            Software
+          </a>&nbsp;
+        </li>
+      </ul>
+      
+<aside class="toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ruby-scripts">Ruby Scripts</a></li>
+    <li><a href="#set-homebrew-core">Set Homebrew Core</a></li>
+    <li><a href="#set-homebrew-bottles">Set Homebrew Bottles</a></li>
+    <li><a href="#set-homebrew-cask">Set Homebrew Cask</a></li>
+  </ul>
+</nav>
+</aside>
+      <p>通过ustc源安装homebrew</p>
+<h2 id="ruby-scripts">Ruby Scripts</h2>
+<p>brew_install.rb</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#75715e">#!/usr/bin/ruby</span>
+<span style="color:#75715e"># This script installs to /usr/local only. To install elsewhere (which is</span>
+<span style="color:#75715e"># unsupported) you can untar https://github.com/Homebrew/brew/tarball/master</span>
+<span style="color:#75715e"># anywhere you like.</span>
+<span style="color:#66d9ef">HOMEBREW_PREFIX</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/usr/local&#34;</span><span style="color:#f92672">.</span>freeze
+<span style="color:#66d9ef">HOMEBREW_REPOSITORY</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/usr/local/Homebrew&#34;</span><span style="color:#f92672">.</span>freeze
+<span style="color:#66d9ef">HOMEBREW_CACHE</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span><span style="color:#66d9ef">ENV</span><span style="color:#f92672">[</span><span style="color:#e6db74">&#34;HOME&#34;</span><span style="color:#f92672">]</span><span style="color:#e6db74">}</span><span style="color:#e6db74">/Library/Caches/Homebrew&#34;</span><span style="color:#f92672">.</span>freeze
+<span style="color:#66d9ef">BREW_REPO</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://mirrors.ustc.edu.cn/brew.git&#34;</span><span style="color:#f92672">.</span>freeze
+
+<span style="color:#75715e"># TODO: bump version when new macOS is released</span>
+<span style="color:#66d9ef">MACOS_LATEST_SUPPORTED</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;10.15&#34;</span><span style="color:#f92672">.</span>freeze
+<span style="color:#75715e"># TODO: bump version when new macOS is released</span>
+<span style="color:#66d9ef">MACOS_OLDEST_SUPPORTED</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;10.13&#34;</span><span style="color:#f92672">.</span>freeze
+
+<span style="color:#75715e"># no analytics during installation</span>
+<span style="color:#66d9ef">ENV</span><span style="color:#f92672">[</span><span style="color:#e6db74">&#34;HOMEBREW_NO_ANALYTICS_THIS_RUN&#34;</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;1&#34;</span>
+<span style="color:#66d9ef">ENV</span><span style="color:#f92672">[</span><span style="color:#e6db74">&#34;HOMEBREW_NO_ANALYTICS_MESSAGE_OUTPUT&#34;</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;1&#34;</span>
+
+<span style="color:#75715e"># get nicer global variables</span>
+require <span style="color:#e6db74">&#34;English&#34;</span>
+
+<span style="color:#66d9ef">module</span> Tty
+  <span style="color:#66d9ef">module_function</span>
+
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">blue</span>
+    bold <span style="color:#ae81ff">34</span>
+  <span style="color:#66d9ef">end</span>
+
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">red</span>
+    bold <span style="color:#ae81ff">31</span>
+  <span style="color:#66d9ef">end</span>
+
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">reset</span>
+    escape <span style="color:#ae81ff">0</span>
+  <span style="color:#66d9ef">end</span>
+
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">bold</span>(code <span style="color:#f92672">=</span> <span style="color:#ae81ff">39</span>)
+    escape <span style="color:#e6db74">&#34;1;</span><span style="color:#e6db74">#{</span>code<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+  <span style="color:#66d9ef">end</span>
+
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">underline</span>
+    escape <span style="color:#e6db74">&#34;4;39&#34;</span>
+  <span style="color:#66d9ef">end</span>
+
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">escape</span>(code)
+    <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[</span><span style="color:#e6db74">#{</span>code<span style="color:#e6db74">}</span><span style="color:#e6db74">m&#34;</span> <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">STDOUT</span><span style="color:#f92672">.</span>tty?
+  <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Array</span>
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">shell_s</span>
+    cp <span style="color:#f92672">=</span> dup
+    first <span style="color:#f92672">=</span> cp<span style="color:#f92672">.</span>shift
+    cp<span style="color:#f92672">.</span>map { <span style="color:#f92672">|</span>arg<span style="color:#f92672">|</span> arg<span style="color:#f92672">.</span>gsub <span style="color:#e6db74">&#34; &#34;</span>, <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74"> &#34;</span> }<span style="color:#f92672">.</span>unshift(first)<span style="color:#f92672">.</span>join(<span style="color:#e6db74">&#34; &#34;</span>)
+  <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span>
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">ohai</span>(<span style="color:#f92672">*</span>args)
+  puts <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span><span style="color:#66d9ef">Tty</span><span style="color:#f92672">.</span>blue<span style="color:#e6db74">}</span><span style="color:#e6db74">==&gt;</span><span style="color:#e6db74">#{</span><span style="color:#66d9ef">Tty</span><span style="color:#f92672">.</span>bold<span style="color:#e6db74">}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">#{</span>args<span style="color:#f92672">.</span>shell_s<span style="color:#e6db74">}#{</span><span style="color:#66d9ef">Tty</span><span style="color:#f92672">.</span>reset<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+<span style="color:#66d9ef">end</span>
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">warn</span>(warning)
+  puts <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span><span style="color:#66d9ef">Tty</span><span style="color:#f92672">.</span>red<span style="color:#e6db74">}</span><span style="color:#e6db74">Warning</span><span style="color:#e6db74">#{</span><span style="color:#66d9ef">Tty</span><span style="color:#f92672">.</span>reset<span style="color:#e6db74">}</span><span style="color:#e6db74">: </span><span style="color:#e6db74">#{</span>warning<span style="color:#f92672">.</span>chomp<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+<span style="color:#66d9ef">end</span>
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">system</span>(<span style="color:#f92672">*</span>args)
+  abort <span style="color:#e6db74">&#34;Failed during: </span><span style="color:#e6db74">#{</span>args<span style="color:#f92672">.</span>shell_s<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#66d9ef">unless</span> <span style="color:#66d9ef">Kernel</span><span style="color:#f92672">.</span>system(<span style="color:#f92672">*</span>args)
+<span style="color:#66d9ef">end</span>
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sudo</span>(<span style="color:#f92672">*</span>args)
+  args<span style="color:#f92672">.</span>unshift(<span style="color:#e6db74">&#34;-A&#34;</span>) <span style="color:#66d9ef">unless</span> <span style="color:#66d9ef">ENV</span><span style="color:#f92672">[</span><span style="color:#e6db74">&#34;SUDO_ASKPASS&#34;</span><span style="color:#f92672">].</span>nil?
+  ohai <span style="color:#e6db74">&#34;/usr/bin/sudo&#34;</span>, <span style="color:#f92672">*</span>args
+  system <span style="color:#e6db74">&#34;/usr/bin/sudo&#34;</span>, <span style="color:#f92672">*</span>args
+<span style="color:#66d9ef">end</span>
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">getc</span>
+  system <span style="color:#e6db74">&#34;/bin/stty raw -echo&#34;</span>
+  <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">STDIN</span><span style="color:#f92672">.</span>respond_to?(<span style="color:#e6db74">:getbyte</span>)
+    <span style="color:#66d9ef">STDIN</span><span style="color:#f92672">.</span>getbyte
+  <span style="color:#66d9ef">else</span>
+    <span style="color:#66d9ef">STDIN</span><span style="color:#f92672">.</span>getc
+  <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">ensure</span>
+  system <span style="color:#e6db74">&#34;/bin/stty -raw echo&#34;</span>
+<span style="color:#66d9ef">end</span>
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">wait_for_user</span>
+  puts
+  puts <span style="color:#e6db74">&#34;Press RETURN to continue or any other key to abort&#34;</span>
+  c <span style="color:#f92672">=</span> getc
+  <span style="color:#75715e"># we test for \r and \n because some stuff does \r instead</span>
+  abort <span style="color:#66d9ef">unless</span> (c <span style="color:#f92672">==</span> <span style="color:#ae81ff">13</span>) <span style="color:#f92672">||</span> (c <span style="color:#f92672">==</span> <span style="color:#ae81ff">10</span>)
+<span style="color:#66d9ef">end</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Version</span>
+  <span style="color:#66d9ef">include</span> <span style="color:#66d9ef">Comparable</span>
+  <span style="color:#66d9ef">attr_reader</span> <span style="color:#e6db74">:parts</span>
+
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">initialize</span>(str)
+    @parts <span style="color:#f92672">=</span> str<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34;.&#34;</span>)<span style="color:#f92672">.</span>map(<span style="color:#f92672">&amp;</span><span style="color:#e6db74">:to_i</span>)
+  <span style="color:#66d9ef">end</span>
+
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">&lt;=&gt;</span>(other)
+    parts <span style="color:#f92672">&lt;=&gt;</span> self<span style="color:#f92672">.</span>class<span style="color:#f92672">.</span>new(other)<span style="color:#f92672">.</span>parts
+  <span style="color:#66d9ef">end</span>
+
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">to_s</span>
+    parts<span style="color:#f92672">.</span>join(<span style="color:#e6db74">&#34;.&#34;</span>)
+  <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span>
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">macos_version</span>
+  @macos_version <span style="color:#f92672">||=</span> <span style="color:#66d9ef">Version</span><span style="color:#f92672">.</span>new(<span style="color:#e6db74">`/usr/bin/sw_vers -productVersion`</span><span style="color:#f92672">.</span>chomp<span style="color:#f92672">[</span><span style="color:#e6db74">/10\.\d+/</span><span style="color:#f92672">]</span>)
+<span style="color:#66d9ef">end</span>
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">should_install_command_line_tools?</span>
+  <span style="color:#66d9ef">if</span> macos_version <span style="color:#f92672">&gt;</span> <span style="color:#e6db74">&#34;10.13&#34;</span>
+    <span style="color:#f92672">!</span><span style="color:#66d9ef">File</span><span style="color:#f92672">.</span>exist?(<span style="color:#e6db74">&#34;/Library/Developer/CommandLineTools/usr/bin/git&#34;</span>)
+  <span style="color:#66d9ef">else</span>
+    <span style="color:#f92672">!</span><span style="color:#66d9ef">File</span><span style="color:#f92672">.</span>exist?(<span style="color:#e6db74">&#34;/Library/Developer/CommandLineTools/usr/bin/git&#34;</span>) <span style="color:#f92672">||</span>
+      <span style="color:#f92672">!</span><span style="color:#66d9ef">File</span><span style="color:#f92672">.</span>exist?(<span style="color:#e6db74">&#34;/usr/include/iconv.h&#34;</span>)
+  <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span>
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">user_only_chmod?</span>(path)
+  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span> <span style="color:#66d9ef">unless</span> <span style="color:#66d9ef">File</span><span style="color:#f92672">.</span>directory?(path)
+
+  mode <span style="color:#f92672">=</span> <span style="color:#66d9ef">File</span><span style="color:#f92672">.</span>stat(path)<span style="color:#f92672">.</span>mode <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">0777</span>
+  <span style="color:#75715e"># u = (mode &gt;&gt; 6) &amp; 07</span>
+  <span style="color:#75715e"># g = (mode &gt;&gt; 3) &amp; 07</span>
+  <span style="color:#75715e"># o = (mode &gt;&gt; 0) &amp; 07</span>
+  mode <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0755</span>
+<span style="color:#66d9ef">end</span>
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">chmod?</span>(path)
+  <span style="color:#66d9ef">File</span><span style="color:#f92672">.</span>exist?(path) <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">!</span>(<span style="color:#66d9ef">File</span><span style="color:#f92672">.</span>readable?(path) <span style="color:#f92672">&amp;&amp;</span> <span style="color:#66d9ef">File</span><span style="color:#f92672">.</span>writable?(path) <span style="color:#f92672">&amp;&amp;</span> <span style="color:#66d9ef">File</span><span style="color:#f92672">.</span>executable?(path))
+<span style="color:#66d9ef">end</span>
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">chown?</span>(path)
+  <span style="color:#f92672">!</span><span style="color:#66d9ef">File</span><span style="color:#f92672">.</span>owned?(path)
+<span style="color:#66d9ef">end</span>
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">chgrp?</span>(path)
+  <span style="color:#f92672">!</span><span style="color:#66d9ef">File</span><span style="color:#f92672">.</span>grpowned?(path)
+<span style="color:#66d9ef">end</span>
+
+<span style="color:#75715e"># USER isn&#39;t always set so provide a fall back for the installer and subprocesses.</span>
+<span style="color:#66d9ef">ENV</span><span style="color:#f92672">[</span><span style="color:#e6db74">&#34;USER&#34;</span><span style="color:#f92672">]</span> <span style="color:#f92672">||=</span> <span style="color:#e6db74">`id -un`</span><span style="color:#f92672">.</span>chomp
+
+<span style="color:#75715e"># Invalidate sudo timestamp before exiting (if it wasn&#39;t active before).</span>
+<span style="color:#66d9ef">Kernel</span><span style="color:#f92672">.</span>system <span style="color:#e6db74">&#34;/usr/bin/sudo -n -v 2&gt;/dev/null&#34;</span>
+at_exit { <span style="color:#66d9ef">Kernel</span><span style="color:#f92672">.</span>system <span style="color:#e6db74">&#34;/usr/bin/sudo&#34;</span>, <span style="color:#e6db74">&#34;-k&#34;</span> } <span style="color:#66d9ef">unless</span> $CHILD_STATUS<span style="color:#f92672">.</span>success?
+
+<span style="color:#75715e"># The block form of Dir.chdir fails later if Dir.CWD doesn&#39;t exist which I</span>
+<span style="color:#75715e"># guess is fair enough. Also sudo prints a warning message for no good reason</span>
+<span style="color:#66d9ef">Dir</span><span style="color:#f92672">.</span>chdir <span style="color:#e6db74">&#34;/usr&#34;</span>
+
+<span style="color:#75715e">####################################################################### script</span>
+<span style="color:#66d9ef">if</span> <span style="color:#66d9ef">RUBY_PLATFORM</span><span style="color:#f92672">.</span>to_s<span style="color:#f92672">.</span>downcase<span style="color:#f92672">.</span>include?(<span style="color:#e6db74">&#34;linux&#34;</span>)
+  abort <span style="color:#e6db74">&lt;&lt;-EOABORT
+</span><span style="color:#e6db74"></span>  <span style="color:#66d9ef">To</span> install <span style="color:#66d9ef">Linuxbrew</span>, paste at a terminal <span style="color:#e6db74">prompt</span>:
+    sh <span style="color:#f92672">-</span>c <span style="color:#e6db74">&#34;$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)&#34;</span>
+  <span style="color:#66d9ef">EOABORT</span>
+<span style="color:#66d9ef">elsif</span> macos_version <span style="color:#f92672">&lt;</span> <span style="color:#e6db74">&#34;10.7&#34;</span>
+  abort <span style="color:#e6db74">&lt;&lt;-EOABORT
+</span><span style="color:#e6db74"></span><span style="color:#66d9ef">Your</span> <span style="color:#66d9ef">Mac</span> <span style="color:#66d9ef">OS</span> X version is too old<span style="color:#f92672">.</span> <span style="color:#e6db74">See</span>:
+  <span style="color:#75715e">#{Tty.underline}https://github.com/mistydemeo/tigerbrew#{Tty.reset}&#34;</span>
+  <span style="color:#66d9ef">EOABORT</span>
+<span style="color:#66d9ef">elsif</span> macos_version <span style="color:#f92672">&lt;</span> <span style="color:#e6db74">&#34;10.9&#34;</span>
+  abort <span style="color:#e6db74">&#34;Your OS X version is too old&#34;</span>
+<span style="color:#66d9ef">elsif</span> <span style="color:#66d9ef">Process</span><span style="color:#f92672">.</span>uid<span style="color:#f92672">.</span>zero?
+  abort <span style="color:#e6db74">&#34;Don&#39;t run this as root!&#34;</span>
+<span style="color:#66d9ef">elsif</span> <span style="color:#f92672">!</span><span style="color:#e6db74">`dsmemberutil checkmembership -U &#34;</span><span style="color:#e6db74">#{</span><span style="color:#66d9ef">ENV</span><span style="color:#f92672">[</span><span style="color:#e6db74">&#34;USER&#34;</span><span style="color:#f92672">]</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34; -G admin`</span><span style="color:#f92672">.</span>include?(<span style="color:#e6db74">&#34;user is a member&#34;</span>)
+  abort <span style="color:#e6db74">&#34;This script requires the user </span><span style="color:#e6db74">#{</span><span style="color:#66d9ef">ENV</span><span style="color:#f92672">[</span><span style="color:#e6db74">&#34;USER&#34;</span><span style="color:#f92672">]</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> to be an Administrator.&#34;</span>
+<span style="color:#66d9ef">elsif</span> <span style="color:#66d9ef">File</span><span style="color:#f92672">.</span>directory?(<span style="color:#66d9ef">HOMEBREW_PREFIX</span>) <span style="color:#f92672">&amp;&amp;</span> (<span style="color:#f92672">!</span><span style="color:#66d9ef">File</span><span style="color:#f92672">.</span>executable? <span style="color:#66d9ef">HOMEBREW_PREFIX</span>)
+  abort <span style="color:#e6db74">&lt;&lt;-EOABORT
+</span><span style="color:#e6db74"></span><span style="color:#66d9ef">The</span> <span style="color:#66d9ef">Homebrew</span> prefix, <span style="color:#75715e">#{HOMEBREW_PREFIX}, exists but is not searchable. If this is</span>
+<span style="color:#f92672">not</span> intentional, please restore the default permissions <span style="color:#f92672">and</span> try running the
+installer <span style="color:#e6db74">again</span>:
+    sudo chmod <span style="color:#ae81ff">775</span> <span style="color:#75715e">#{HOMEBREW_PREFIX}</span>
+  <span style="color:#66d9ef">EOABORT</span>
+<span style="color:#75715e"># TODO: bump version when new macOS is released</span>
+<span style="color:#66d9ef">elsif</span> macos_version <span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">MACOS_LATEST_SUPPORTED</span> <span style="color:#f92672">||</span> macos_version <span style="color:#f92672">&lt;</span> <span style="color:#66d9ef">MACOS_OLDEST_SUPPORTED</span>
+  who <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;We&#34;</span>
+  <span style="color:#66d9ef">if</span> macos_version <span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">MACOS_LATEST_SUPPORTED</span>
+    what <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;pre-release version&#34;</span>
+  <span style="color:#66d9ef">elsif</span> macos_version <span style="color:#f92672">&lt;</span> <span style="color:#66d9ef">MACOS_OLDEST_SUPPORTED</span>
+    who <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; (and Apple)&#34;</span>
+    what <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;old version&#34;</span>
+  <span style="color:#66d9ef">else</span>
+    <span style="color:#66d9ef">return</span>
+  <span style="color:#66d9ef">end</span>
+  ohai <span style="color:#e6db74">&#34;You are using macOS </span><span style="color:#e6db74">#{</span>macos_version<span style="color:#f92672">.</span>parts<span style="color:#f92672">.</span>join(<span style="color:#e6db74">&#34;.&#34;</span>)<span style="color:#e6db74">}</span><span style="color:#e6db74">.&#34;</span>
+  ohai <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span>who<span style="color:#e6db74">}</span><span style="color:#e6db74"> do not provide support for this </span><span style="color:#e6db74">#{</span>what<span style="color:#e6db74">}</span><span style="color:#e6db74">.&#34;</span>
+
+  puts <span style="color:#e6db74">&lt;&lt;-EOS
+</span><span style="color:#e6db74"></span><span style="color:#66d9ef">This</span> installation may <span style="color:#f92672">not</span> succeed<span style="color:#f92672">.</span>
+<span style="color:#66d9ef">After</span> installation, you will encounter build failures with some formulae<span style="color:#f92672">.</span>
+<span style="color:#66d9ef">Please</span> create pull requests instead of asking <span style="color:#66d9ef">for</span> help on <span style="color:#66d9ef">Homebrew</span><span style="color:#e6db74">&#39;s GitHub,
+</span><span style="color:#e6db74">Discourse, Twitter or IRC. You are responsible for resolving any issues you
+</span><span style="color:#e6db74">experience while you are running this #{what}.
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">  EOS
+</span><span style="color:#e6db74">end
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">ohai &#34;This script will install:&#34;
+</span><span style="color:#e6db74">puts &#34;#{HOMEBREW_PREFIX}/bin/brew&#34;
+</span><span style="color:#e6db74">puts &#34;#{HOMEBREW_PREFIX}/share/doc/homebrew&#34;
+</span><span style="color:#e6db74">puts &#34;#{HOMEBREW_PREFIX}/share/man/man1/brew.1&#34;
+</span><span style="color:#e6db74">puts &#34;#{HOMEBREW_PREFIX}/share/zsh/site-functions/_brew&#34;
+</span><span style="color:#e6db74">puts &#34;#{HOMEBREW_PREFIX}/etc/bash_completion.d/brew&#34;
+</span><span style="color:#e6db74">puts HOMEBREW_REPOSITORY.to_s
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74"># Keep relatively in sync with
+</span><span style="color:#e6db74"># https://github.com/Homebrew/brew/blob/master/Library/Homebrew/keg.rb
+</span><span style="color:#e6db74">group_chmods = %w[bin etc include lib sbin share opt var
+</span><span style="color:#e6db74">                  Frameworks
+</span><span style="color:#e6db74">                  etc/bash_completion.d lib/pkgconfig
+</span><span style="color:#e6db74">                  share/aclocal share/doc share/info share/locale share/man
+</span><span style="color:#e6db74">                  share/man/man1 share/man/man2 share/man/man3 share/man/man4
+</span><span style="color:#e6db74">                  share/man/man5 share/man/man6 share/man/man7 share/man/man8
+</span><span style="color:#e6db74">                  var/log var/homebrew var/homebrew/linked
+</span><span style="color:#e6db74">                  bin/brew]
+</span><span style="color:#e6db74">               .map { |d| File.join(HOMEBREW_PREFIX, d) }
+</span><span style="color:#e6db74">               .select { |d| chmod?(d) }
+</span><span style="color:#e6db74"># zsh refuses to read from these directories if group writable
+</span><span style="color:#e6db74">zsh_dirs = %w[share/zsh share/zsh/site-functions]
+</span><span style="color:#e6db74">           .map { |d| File.join(HOMEBREW_PREFIX, d) }
+</span><span style="color:#e6db74">mkdirs = %w[bin etc include lib sbin share var opt
+</span><span style="color:#e6db74">            share/zsh share/zsh/site-functions
+</span><span style="color:#e6db74">            var/homebrew var/homebrew/linked
+</span><span style="color:#e6db74">            Cellar Caskroom Homebrew Frameworks]
+</span><span style="color:#e6db74">         .map { |d| File.join(HOMEBREW_PREFIX, d) }
+</span><span style="color:#e6db74">         .reject { |d| File.directory?(d) }
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">user_chmods = zsh_dirs.select { |d| user_only_chmod?(d) }
+</span><span style="color:#e6db74">chmods = group_chmods + user_chmods
+</span><span style="color:#e6db74">chowns = chmods.select { |d| chown?(d) }
+</span><span style="color:#e6db74">chgrps = chmods.select { |d| chgrp?(d) }
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">unless group_chmods.empty?
+</span><span style="color:#e6db74">  ohai &#34;The following existing directories will be made group writable:&#34;
+</span><span style="color:#e6db74">  puts(*group_chmods)
+</span><span style="color:#e6db74">end
+</span><span style="color:#e6db74">unless user_chmods.empty?
+</span><span style="color:#e6db74">  ohai &#34;The following existing directories will be made writable by user only:&#34;
+</span><span style="color:#e6db74">  puts(*user_chmods)
+</span><span style="color:#e6db74">end
+</span><span style="color:#e6db74">unless chowns.empty?
+</span><span style="color:#e6db74">  ohai &#34;The following existing directories will have their owner set to #{Tty.underline}#{ENV[&#34;USER&#34;]}#{Tty.reset}:&#34;
+</span><span style="color:#e6db74">  puts(*chowns)
+</span><span style="color:#e6db74">end
+</span><span style="color:#e6db74">unless chgrps.empty?
+</span><span style="color:#e6db74">  ohai &#34;The following existing directories will have their group set to #{Tty.underline}admin#{Tty.reset}:&#34;
+</span><span style="color:#e6db74">  puts(*chgrps)
+</span><span style="color:#e6db74">end
+</span><span style="color:#e6db74">unless mkdirs.empty?
+</span><span style="color:#e6db74">  ohai &#34;The following new directories will be created:&#34;
+</span><span style="color:#e6db74">  puts(*mkdirs)
+</span><span style="color:#e6db74">end
+</span><span style="color:#e6db74">if should_install_command_line_tools?
+</span><span style="color:#e6db74">  ohai &#34;The Xcode Command Line Tools will be installed.&#34;
+</span><span style="color:#e6db74">end
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">wait_for_user if STDIN.tty? &amp;&amp; !ENV[&#34;CI&#34;]
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">if File.directory? HOMEBREW_PREFIX
+</span><span style="color:#e6db74">  sudo &#34;/bin/chmod&#34;, &#34;u+rwx&#34;, *chmods unless chmods.empty?
+</span><span style="color:#e6db74">  sudo &#34;/bin/chmod&#34;, &#34;g+rwx&#34;, *group_chmods unless group_chmods.empty?
+</span><span style="color:#e6db74">  sudo &#34;/bin/chmod&#34;, &#34;755&#34;, *user_chmods unless user_chmods.empty?
+</span><span style="color:#e6db74">  sudo &#34;/usr/sbin/chown&#34;, ENV[&#34;USER&#34;], *chowns unless chowns.empty?
+</span><span style="color:#e6db74">  sudo &#34;/usr/bin/chgrp&#34;, &#34;admin&#34;, *chgrps unless chgrps.empty?
+</span><span style="color:#e6db74">else
+</span><span style="color:#e6db74">  sudo &#34;/bin/mkdir&#34;, &#34;-p&#34;, HOMEBREW_PREFIX
+</span><span style="color:#e6db74">  sudo &#34;/usr/sbin/chown&#34;, &#34;root:wheel&#34;, HOMEBREW_PREFIX
+</span><span style="color:#e6db74">end
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">unless mkdirs.empty?
+</span><span style="color:#e6db74">  sudo &#34;/bin/mkdir&#34;, &#34;-p&#34;, *mkdirs
+</span><span style="color:#e6db74">  sudo &#34;/bin/chmod&#34;, &#34;g+rwx&#34;, *mkdirs
+</span><span style="color:#e6db74">  sudo &#34;/bin/chmod&#34;, &#34;755&#34;, *zsh_dirs
+</span><span style="color:#e6db74">  sudo &#34;/usr/sbin/chown&#34;, ENV[&#34;USER&#34;], *mkdirs
+</span><span style="color:#e6db74">  sudo &#34;/usr/bin/chgrp&#34;, &#34;admin&#34;, *mkdirs
+</span><span style="color:#e6db74">end
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">sudo &#34;/bin/mkdir&#34;, &#34;-p&#34;, HOMEBREW_CACHE unless File.directory? HOMEBREW_CACHE
+</span><span style="color:#e6db74">sudo &#34;/bin/chmod&#34;, &#34;g+rwx&#34;, HOMEBREW_CACHE if chmod? HOMEBREW_CACHE
+</span><span style="color:#e6db74">sudo &#34;/usr/sbin/chown&#34;, ENV[&#34;USER&#34;], HOMEBREW_CACHE if chown? HOMEBREW_CACHE
+</span><span style="color:#e6db74">sudo &#34;/usr/bin/chgrp&#34;, &#34;admin&#34;, HOMEBREW_CACHE if chgrp? HOMEBREW_CACHE
+</span><span style="color:#e6db74">system &#34;/usr/bin/touch&#34;, &#34;#{HOMEBREW_CACHE}/.cleaned&#34; if File.directory? HOMEBREW_CACHE
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">if should_install_command_line_tools? &amp;&amp; macos_version &gt;= &#34;10.13&#34;
+</span><span style="color:#e6db74">  ohai &#34;Searching online for the Command Line Tools&#34;
+</span><span style="color:#e6db74">  # This temporary file prompts the &#39;</span>softwareupdate<span style="color:#e6db74">&#39; utility to list the Command Line Tools
+</span><span style="color:#e6db74">  clt_placeholder = &#34;/tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress&#34;
+</span><span style="color:#e6db74">  sudo &#34;/usr/bin/touch&#34;, clt_placeholder
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">  clt_label_command = &#34;/usr/sbin/softwareupdate -l | &#34; \
+</span><span style="color:#e6db74">                      &#34;grep -B 1 -E &#39;</span><span style="color:#66d9ef">Command</span> <span style="color:#66d9ef">Line</span> <span style="color:#66d9ef">Tools</span><span style="color:#e6db74">&#39; | &#34; \
+</span><span style="color:#e6db74">                      &#34;awk -F&#39;</span><span style="color:#f92672">*</span><span style="color:#e6db74">&#39; &#39;</span><span style="color:#f92672">/^</span> <span style="color:#f92672">*</span>\\<span style="color:#f92672">*/</span> {print $2}<span style="color:#e6db74">&#39; | &#34; \
+</span><span style="color:#e6db74">                      &#34;sed -e &#39;</span>s<span style="color:#f92672">/^</span> <span style="color:#f92672">*</span><span style="color:#e6db74">Label</span>: <span style="color:#e6db74">//</span><span style="color:#e6db74">&#39; -e &#39;</span>s<span style="color:#f92672">/^</span> <span style="color:#f92672">*//</span><span style="color:#e6db74">&#39; | &#34; \
+</span><span style="color:#e6db74">                      &#34;sort -V | &#34; \
+</span><span style="color:#e6db74">                      &#34;tail -n1&#34;
+</span><span style="color:#e6db74">  clt_label = `#{clt_label_command}`.chomp
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">  unless clt_label.empty?
+</span><span style="color:#e6db74">    ohai &#34;Installing #{clt_label}&#34;
+</span><span style="color:#e6db74">    sudo &#34;/usr/sbin/softwareupdate&#34;, &#34;-i&#34;, clt_label
+</span><span style="color:#e6db74">    sudo &#34;/bin/rm&#34;, &#34;-f&#34;, clt_placeholder
+</span><span style="color:#e6db74">    sudo &#34;/usr/bin/xcode-select&#34;, &#34;--switch&#34;, &#34;/Library/Developer/CommandLineTools&#34;
+</span><span style="color:#e6db74">  end
+</span><span style="color:#e6db74">end
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74"># Headless install may have failed, so fallback to original &#39;</span>xcode<span style="color:#f92672">-</span>select<span style="color:#e6db74">&#39; method
+</span><span style="color:#e6db74">if should_install_command_line_tools? &amp;&amp; STDIN.tty?
+</span><span style="color:#e6db74">  ohai &#34;Installing the Command Line Tools (expect a GUI popup):&#34;
+</span><span style="color:#e6db74">  sudo &#34;/usr/bin/xcode-select&#34;, &#34;--install&#34;
+</span><span style="color:#e6db74">  puts &#34;Press any key when the installation has completed.&#34;
+</span><span style="color:#e6db74">  getc
+</span><span style="color:#e6db74">  sudo &#34;/usr/bin/xcode-select&#34;, &#34;--switch&#34;, &#34;/Library/Developer/CommandLineTools&#34;
+</span><span style="color:#e6db74">end
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">abort &lt;&lt;-EOABORT if `/usr/bin/xcrun clang 2&gt;&amp;1` =~ /license/ &amp;&amp; !$CHILD_STATUS.success?
+</span><span style="color:#e6db74">You have not agreed to the Xcode license.
+</span><span style="color:#e6db74">Before running the installer again please agree to the license by opening
+</span><span style="color:#e6db74">Xcode.app or running:
+</span><span style="color:#e6db74">    sudo xcodebuild -license
+</span><span style="color:#e6db74">EOABORT
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">ohai &#34;Downloading and installing Homebrew...&#34;
+</span><span style="color:#e6db74">Dir.chdir HOMEBREW_REPOSITORY do
+</span><span style="color:#e6db74">  # we do it in four steps to avoid merge errors when reinstalling
+</span><span style="color:#e6db74">  system &#34;git&#34;, &#34;init&#34;, &#34;-q&#34;
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">  # &#34;git remote add&#34; will fail if the remote is defined in the global config
+</span><span style="color:#e6db74">  system &#34;git&#34;, &#34;config&#34;, &#34;remote.origin.url&#34;, BREW_REPO
+</span><span style="color:#e6db74">  system &#34;git&#34;, &#34;config&#34;, &#34;remote.origin.fetch&#34;, &#34;+refs/heads/*:refs/remotes/origin/*&#34;
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">  # ensure we don&#39;</span>t munge line endings on checkout
+  system <span style="color:#e6db74">&#34;git&#34;</span>, <span style="color:#e6db74">&#34;config&#34;</span>, <span style="color:#e6db74">&#34;core.autocrlf&#34;</span>, <span style="color:#e6db74">&#34;false&#34;</span>
+
+  system <span style="color:#e6db74">&#34;git&#34;</span>, <span style="color:#e6db74">&#34;fetch&#34;</span>, <span style="color:#e6db74">&#34;origin&#34;</span>, <span style="color:#e6db74">&#34;master:refs/remotes/origin/master&#34;</span>,
+         <span style="color:#e6db74">&#34;--tags&#34;</span>, <span style="color:#e6db74">&#34;--force&#34;</span>
+
+  system <span style="color:#e6db74">&#34;git&#34;</span>, <span style="color:#e6db74">&#34;reset&#34;</span>, <span style="color:#e6db74">&#34;--hard&#34;</span>, <span style="color:#e6db74">&#34;origin/master&#34;</span>
+
+  system <span style="color:#e6db74">&#34;ln&#34;</span>, <span style="color:#e6db74">&#34;-sf&#34;</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span><span style="color:#66d9ef">HOMEBREW_REPOSITORY</span><span style="color:#e6db74">}</span><span style="color:#e6db74">/bin/brew&#34;</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span><span style="color:#66d9ef">HOMEBREW_PREFIX</span><span style="color:#e6db74">}</span><span style="color:#e6db74">/bin/brew&#34;</span>
+
+  system <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span><span style="color:#66d9ef">HOMEBREW_PREFIX</span><span style="color:#e6db74">}</span><span style="color:#e6db74">/bin/brew&#34;</span>, <span style="color:#e6db74">&#34;update&#34;</span>, <span style="color:#e6db74">&#34;--force&#34;</span>
+<span style="color:#66d9ef">end</span>
+
+warn <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span><span style="color:#66d9ef">HOMEBREW_PREFIX</span><span style="color:#e6db74">}</span><span style="color:#e6db74">/bin is not in your PATH.&#34;</span> <span style="color:#66d9ef">unless</span> <span style="color:#66d9ef">ENV</span><span style="color:#f92672">[</span><span style="color:#e6db74">&#34;PATH&#34;</span><span style="color:#f92672">].</span>split(<span style="color:#e6db74">&#34;:&#34;</span>)<span style="color:#f92672">.</span>include? <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span><span style="color:#66d9ef">HOMEBREW_PREFIX</span><span style="color:#e6db74">}</span><span style="color:#e6db74">/bin&#34;</span>
+
+ohai <span style="color:#e6db74">&#34;Installation successful!&#34;</span>
+puts
+
+<span style="color:#75715e"># Use the shell&#39;s audible bell.</span>
+print <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\a</span><span style="color:#e6db74">&#34;</span>
+
+<span style="color:#75715e"># Use an extra newline and bold to avoid this being missed.</span>
+ohai <span style="color:#e6db74">&#34;Homebrew has enabled anonymous aggregate formulae and cask analytics.&#34;</span>
+puts <span style="color:#e6db74">&lt;&lt;-EOS
+</span><span style="color:#e6db74"></span><span style="color:#75715e">#{Tty.bold}Read the analytics documentation (and how to opt-out) here:</span>
+  <span style="color:#75715e">#{Tty.underline}https://docs.brew.sh/Analytics#{Tty.reset}</span>
+
+<span style="color:#66d9ef">EOS</span>
+
+ohai <span style="color:#e6db74">&#34;Homebrew is run entirely by unpaid volunteers. Please consider donating:&#34;</span>
+puts <span style="color:#e6db74">&lt;&lt;-EOS
+</span><span style="color:#e6db74"></span>  <span style="color:#75715e">#{Tty.underline}https://github.com/Homebrew/brew#donations#{Tty.reset}</span>
+<span style="color:#66d9ef">EOS</span>
+
+<span style="color:#66d9ef">Dir</span><span style="color:#f92672">.</span>chdir <span style="color:#66d9ef">HOMEBREW_REPOSITORY</span> <span style="color:#66d9ef">do</span>
+  system <span style="color:#e6db74">&#34;git&#34;</span>, <span style="color:#e6db74">&#34;config&#34;</span>, <span style="color:#e6db74">&#34;--replace-all&#34;</span>, <span style="color:#e6db74">&#34;homebrew.analyticsmessage&#34;</span>, <span style="color:#e6db74">&#34;true&#34;</span>
+  system <span style="color:#e6db74">&#34;git&#34;</span>, <span style="color:#e6db74">&#34;config&#34;</span>, <span style="color:#e6db74">&#34;--replace-all&#34;</span>, <span style="color:#e6db74">&#34;homebrew.caskanalyticsmessage&#34;</span>, <span style="color:#e6db74">&#34;true&#34;</span>
+<span style="color:#66d9ef">end</span>
+
+ohai <span style="color:#e6db74">&#34;Next steps:&#34;</span>
+puts <span style="color:#e6db74">&#34;- Run `brew help` to get started&#34;</span>
+puts <span style="color:#e6db74">&#34;- Further documentation: &#34;</span>
+puts <span style="color:#e6db74">&#34;    </span><span style="color:#e6db74">#{</span><span style="color:#66d9ef">Tty</span><span style="color:#f92672">.</span>underline<span style="color:#e6db74">}</span><span style="color:#e6db74">https://docs.brew.sh</span><span style="color:#e6db74">#{</span><span style="color:#66d9ef">Tty</span><span style="color:#f92672">.</span>reset<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</code></pre></div><h2 id="set-homebrew-core">Set Homebrew Core</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cd <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>brew --repo<span style="color:#66d9ef">)</span><span style="color:#e6db74">/Library/Taps/homebrew/homebrew-core&#34;</span>
+git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git
+</code></pre></div><h2 id="set-homebrew-bottles">Set Homebrew Bottles</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">echo <span style="color:#e6db74">&#39;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles&#39;</span> &gt;&gt; ~/.bash_profile
+source ~/.bash_profile
+</code></pre></div><h2 id="set-homebrew-cask">Set Homebrew Cask</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>brew --repo<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>/Library/Taps/homebrew/homebrew-cask
+git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-cask.git
+</code></pre></div><p>Finally, <code>brew update</code></p>
+    </article>
+
+    
+
+
+    <ul class="pager article-pager">
+      <li class="pager-newer">
+          <a href="/post/msra-summercamp/" data-toggle="tooltip" data-placement="top" title="MSRA Summercamp">&lt; Newer</a>
+      </li>
+      <li class="pager-older pager-noitem">Older &gt;</li>
+    </ul>
+  </div>
+
+<script src="https://cdn.bootcss.com/highlight.js/9.18.1/highlight.min.js"></script>
+</body>
+</html>

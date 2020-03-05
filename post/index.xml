@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on luosuu的小站</title>
+    <link>https://example.com/post/</link>
+    <description>Recent content in Posts on luosuu的小站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy; Copyright 2020 luosuu</copyright>
+    <lastBuildDate>Thu, 05 Mar 2020 19:52:11 +0800</lastBuildDate>
+    
+	<atom:link href="https://example.com/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>To Do 2020 WinterVacation</title>
+      <link>https://example.com/post/to-do-2020-wintervacation/</link>
+      <pubDate>Thu, 05 Mar 2020 19:31:15 +0800</pubDate>
+      
+      <guid>https://example.com/post/to-do-2020-wintervacation/</guid>
+      <description>&lt;p&gt;寒假ToDoList，用来公开处刑，完不成请私信我让我女装&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Start PLT</title>
+      <link>https://example.com/post/start-plt/</link>
+      <pubDate>Thu, 05 Mar 2020 18:38:45 +0800</pubDate>
+      
+      <guid>https://example.com/post/start-plt/</guid>
+      <description>&lt;p&gt;研究事物的原理和构造，掌握基本方法。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>SICP-1.1:Element and Expressions</title>
+      <link>https://example.com/post/sicp-1-1/</link>
+      <pubDate>Thu, 05 Mar 2020 18:53:26 +0800</pubDate>
+      
+      <guid>https://example.com/post/sicp-1-1/</guid>
+      <description>&lt;p&gt;sicp的1-1主要内容是程序设计的基本元素&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Linear Recursion and Iteration</title>
+      <link>https://example.com/post/linear-recursion-and-iteration/</link>
+      <pubDate>Thu, 05 Mar 2020 18:52:22 +0800</pubDate>
+      
+      <guid>https://example.com/post/linear-recursion-and-iteration/</guid>
+      <description>&lt;p&gt;迭代语法的解释/计算过程&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>SICP: order of growth</title>
+      <link>https://example.com/post/sicp-rank/</link>
+      <pubDate>Thu, 05 Mar 2020 18:50:56 +0800</pubDate>
+      
+      <guid>https://example.com/post/sicp-rank/</guid>
+      <description>&lt;p&gt;作为讨论线性迭代与递归的延续，我们来讨论计算过程的阶数。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>sicp-1.3:Formulating Abstractions with Higher-Order Procedures</title>
+      <link>https://example.com/post/sicp-1-3/</link>
+      <pubDate>Thu, 05 Mar 2020 18:49:12 +0800</pubDate>
+      
+      <guid>https://example.com/post/sicp-1-3/</guid>
+      <description>&lt;p&gt;“用高阶的函数做抽象”，本次我们更关注于过程本身的一些特性，以及相关的抽象方式&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Introduction to SICP Chapter 2</title>
+      <link>https://example.com/post/introduction-to-sicp-chapter-2/</link>
+      <pubDate>Thu, 05 Mar 2020 18:45:23 +0800</pubDate>
+      
+      <guid>https://example.com/post/introduction-to-sicp-chapter-2/</guid>
+      <description>&lt;p&gt;SICP第二章的导引&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>sicp-2.1.1-Examples:Arithmetic Operations for Rational Numbers</title>
+      <link>https://example.com/post/sicp-2-1-1/</link>
+      <pubDate>Thu, 05 Mar 2020 18:42:28 +0800</pubDate>
+      
+      <guid>https://example.com/post/sicp-2-1-1/</guid>
+      <description>&lt;p&gt;为了引入第二章的概念和主题，我们尝试构建有理数的数据类型并且定义它的计算方法。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Jenv Manage JDK</title>
+      <link>https://example.com/post/jenv-manage-jdk/</link>
+      <pubDate>Thu, 05 Mar 2020 19:52:11 +0800</pubDate>
+      
+      <guid>https://example.com/post/jenv-manage-jdk/</guid>
+      <description>&lt;p&gt;灵活管理JDK&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>pip change source</title>
+      <link>https://example.com/post/pip-change-source/</link>
+      <pubDate>Thu, 05 Mar 2020 19:49:11 +0800</pubDate>
+      
+      <guid>https://example.com/post/pip-change-source/</guid>
+      <description>&lt;p&gt;TUNA source&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Diary 2019 11 3</title>
+      <link>https://example.com/post/diary-2019-11-3/</link>
+      <pubDate>Thu, 05 Mar 2020 19:27:28 +0800</pubDate>
+      
+      <guid>https://example.com/post/diary-2019-11-3/</guid>
+      <description>&lt;p&gt;我能跑多快？&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Qt Windows Navigation</title>
+      <link>https://example.com/post/qt-windows-navigation/</link>
+      <pubDate>Thu, 05 Mar 2020 19:26:15 +0800</pubDate>
+      
+      <guid>https://example.com/post/qt-windows-navigation/</guid>
+      <description>&lt;p&gt;记录一下上学期写的Qt功能，窗口跳转&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>C Struct Pointer</title>
+      <link>https://example.com/post/c-struct-pointer/</link>
+      <pubDate>Thu, 05 Mar 2020 19:25:41 +0800</pubDate>
+      
+      <guid>https://example.com/post/c-struct-pointer/</guid>
+      <description>&lt;p&gt;C语言中的结构体指针，曾在第一学期坑过我&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Pycon2019 Chengdu</title>
+      <link>https://example.com/post/pycon2019-chengdu/</link>
+      <pubDate>Thu, 05 Mar 2020 19:24:46 +0800</pubDate>
+      
+      <guid>https://example.com/post/pycon2019-chengdu/</guid>
+      <description>&lt;p&gt;这里记录一下我参加pycon2019成都站的笔记和体会。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Nvm Manage Node</title>
+      <link>https://example.com/post/nvm-manage-node/</link>
+      <pubDate>Thu, 05 Mar 2020 19:23:34 +0800</pubDate>
+      
+      <guid>https://example.com/post/nvm-manage-node/</guid>
+      <description>&lt;p&gt;用nvm管理你的node和npm&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Ssh Login Server</title>
+      <link>https://example.com/post/ssh-login-server/</link>
+      <pubDate>Thu, 05 Mar 2020 19:22:52 +0800</pubDate>
+      
+      <guid>https://example.com/post/ssh-login-server/</guid>
+      <description>&lt;p&gt;用ssh密钥文件登陆服务器&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Smart Contrast Dev</title>
+      <link>https://example.com/post/smart-contrast-dev/</link>
+      <pubDate>Thu, 05 Mar 2020 19:21:47 +0800</pubDate>
+      
+      <guid>https://example.com/post/smart-contrast-dev/</guid>
+      <description>&lt;p&gt;本文主要参考于&lt;a href=&#34;https://solidity-cn.readthedocs.io/zh/develop/introduction-to-smart-contracts.html&#34;&gt;Solidity develop文档&lt;/a&gt;。作为本人的学习笔记和再理解。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Basic Eth</title>
+      <link>https://example.com/post/basic-eth/</link>
+      <pubDate>Thu, 05 Mar 2020 19:19:47 +0800</pubDate>
+      
+      <guid>https://example.com/post/basic-eth/</guid>
+      <description>&lt;p&gt;一些以太坊基础知识&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Console Game</title>
+      <link>https://example.com/post/console-game/</link>
+      <pubDate>Thu, 05 Mar 2020 19:18:53 +0800</pubDate>
+      
+      <guid>https://example.com/post/console-game/</guid>
+      <description>&lt;p&gt;记录一下第一学期假期时跟着Github@guyaqi学长写的控制台小玩意&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>UWP Quickstart</title>
+      <link>https://example.com/post/uwp-quickstart/</link>
+      <pubDate>Thu, 05 Mar 2020 18:55:54 +0800</pubDate>
+      
+      <guid>https://example.com/post/uwp-quickstart/</guid>
+      <description>&lt;p&gt;第二学期假期时去MSRA时速成了一下UWP&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>MSRA Summercamp</title>
+      <link>https://example.com/post/msra-summercamp/</link>
+      <pubDate>Thu, 05 Mar 2020 18:55:03 +0800</pubDate>
+      
+      <guid>https://example.com/post/msra-summercamp/</guid>
+      <description>&lt;p&gt;微软学生夏令营记录&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Homebrew Install Scripts</title>
+      <link>https://example.com/post/install-homebrew-ustc-source/</link>
+      <pubDate>Thu, 05 Mar 2020 17:22:17 +0800</pubDate>
+      
+      <guid>https://example.com/post/install-homebrew-ustc-source/</guid>
+      <description>&lt;p&gt;通过ustc源安装homebrew&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

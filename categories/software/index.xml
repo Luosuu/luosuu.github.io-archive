@@ -1,24 +1,51 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>software on Luosuu的小站</title>
+    <title>Software on luosuu的小站</title>
     <link>https://example.com/categories/software/</link>
-    <description>Recent content in software on Luosuu的小站</description>
+    <description>Recent content in Software on luosuu的小站</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh</language>
-    <copyright>&amp;copy; Copyright 2019 Luosuu</copyright>
-    <lastBuildDate>Wed, 04 Dec 2019 11:01:01 +0800</lastBuildDate>
+    <language>en</language>
+    <copyright>&amp;copy; Copyright 2020 luosuu</copyright>
+    <lastBuildDate>Thu, 05 Mar 2020 19:52:11 +0800</lastBuildDate>
     
 	<atom:link href="https://example.com/categories/software/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Qemu on Mac</title>
-      <link>https://example.com/posts/qemu-on-mac/</link>
-      <pubDate>Wed, 04 Dec 2019 11:01:01 +0800</pubDate>
+      <title>Jenv Manage JDK</title>
+      <link>https://example.com/post/jenv-manage-jdk/</link>
+      <pubDate>Thu, 05 Mar 2020 19:52:11 +0800</pubDate>
       
-      <guid>https://example.com/posts/qemu-on-mac/</guid>
-      <description>how to use Qemu on macOS</description>
+      <guid>https://example.com/post/jenv-manage-jdk/</guid>
+      <description>&lt;p&gt;灵活管理JDK&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Nvm Manage Node</title>
+      <link>https://example.com/post/nvm-manage-node/</link>
+      <pubDate>Thu, 05 Mar 2020 19:23:34 +0800</pubDate>
+      
+      <guid>https://example.com/post/nvm-manage-node/</guid>
+      <description>&lt;p&gt;用nvm管理你的node和npm&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Ssh Login Server</title>
+      <link>https://example.com/post/ssh-login-server/</link>
+      <pubDate>Thu, 05 Mar 2020 19:22:52 +0800</pubDate>
+      
+      <guid>https://example.com/post/ssh-login-server/</guid>
+      <description>&lt;p&gt;用ssh密钥文件登陆服务器&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Homebrew Install Scripts</title>
+      <link>https://example.com/post/install-homebrew-ustc-source/</link>
+      <pubDate>Thu, 05 Mar 2020 17:22:17 +0800</pubDate>
+      
+      <guid>https://example.com/post/install-homebrew-ustc-source/</guid>
+      <description>&lt;p&gt;通过ustc源安装homebrew&lt;/p&gt;</description>
     </item>
     
   </channel>

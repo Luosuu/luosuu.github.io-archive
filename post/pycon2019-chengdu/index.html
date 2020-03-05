@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Pycon2019 Chengdu - luosuu的小站</title>
+  <meta property="og:title" content="Pycon2019 Chengdu - luosuu的小站" />
+  <meta name="twitter:title" content="Pycon2019 Chengdu - luosuu的小站" />
+  <meta name="description" content="这里记录一下我参加pycon2019成都站的笔记和体会。">
+  <meta property="og:description" content="这里记录一下我参加pycon2019成都站的笔记和体会。">
+  <meta name="twitter:description" content="这里记录一下我参加pycon2019成都站的笔记和体会。">
+  <meta name="author" content="luosuu"/>
+  <meta property="og:site_name" content="luosuu的小站" />
+  <meta property="og:url" content="https://example.com/post/pycon2019-chengdu/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.66.0" />
+
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
+
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">luosuu的小站</a></h1>
+    <ul class="site-navi-items">
+      <li class="site-navi-item-categories"><a href="/categories/" title="Categories">Categories</a></li>
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
+
+  <div class="main" role="main">
+    <article class="article">
+      
+      
+      <h1 class="article-title">Pycon2019 Chengdu</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>March 5, 2020</time></li>
+        <li class="article-meta-categories">
+          <a href="/categories/diary/">
+            <i class="fas fa-folder"></i>
+            diary
+          </a>&nbsp;
+        </li>
+      </ul>
+      
+      <p>这里记录一下我参加pycon2019成都站的笔记和体会。</p>
+<h2 id="类型推断静态类型jit">类型推断，静态类型，JIT</h2>
+<p>语法树到语法树的函数 我们称之为<strong>宏</strong>。</p>
+<p>类型大小本质为将类型看作一个集合，计算集合的大小（取值区间的大小）</p>
+<p>学习路线：</p>
+<p>Python的Virtual Machine</p>
+<p>Stack Machine</p>
+<p><a href="https://github.com/thautwarm/mapping-high-level-constructs-to-llvm-ir">LLVM Based Machine</a></p>
+<p>dis模块</p>
+<p><a href="http://okmij.org/">okmij.org</a></p>
+<p>编译原理</p>
+<p>Python字节码</p>
+<h2 id="web-api">WEB API</h2>
+<p><strong>Web Application</strong>是和用户直接交互的。</p>
+<p><strong>Web API</strong>返回纯数据格式的（如XML和JSON），与机器（如Web Application，iOS，Android等）进行交互。</p>
+<p>RESTful API指符合REST规范的Web API，虽然几乎没有Web API完全符合REST规范。所以大概符合REST风格的现在都叫RESTful API。REST只是一个架构风格，而非强制要求。</p>
+<p>Flask是一个开发Web API的工具，只提供最基本的功能，有良好的拓展性。选择Flask表示比起Djanro的方便你选择了灵活和更多的可控制性。因此比起<code>Flask+大而全的拓展</code>更推荐<code>Flask+一组优秀的工具</code>。</p>
+<h3 id="推荐的学习路线">推荐的学习路线</h3>
+<ol>
+<li>了解Web API设计原则</li>
+<li>学习Flask原生实现</li>
+<li>学习其他搭配工具</li>
+</ol>
+<p><a href="http://greyli.com/">李辉的个人网站 greyli.com</a></p>
+<p>网站里有很多python web开发的教程和分享。</p>
+<h2 id="nlp">NLP</h2>
+<ul>
+<li>任何时候都不要忘记“当初你想解决的问题”</li>
+<li>把问题转化为具体统计问题或者能够使用机器学习解决的问题（不知道该怎么做时可以用EDA把握数据倾向）</li>
+<li>根据你的时间和预算选择分析方法和合适的模型</li>
+<li>Just Python</li>
+</ul>
+<h2 id="其他">其他</h2>
+<p>AWS 12要素应用宣言：无需猜测容量，摆脱无差异化工作等</p>
+<p>AWS云基础设施，<code>Infrastructure is Code</code>，用面向对象的方式描述和构建基础设施。（上一代为<code>Infrastructure as Code</code>，用JSON等记录和描述基础设施）。</p>
+    </article>
+
+    
+
+
+    <ul class="pager article-pager">
+      <li class="pager-newer">
+          <a href="/post/c-struct-pointer/" data-toggle="tooltip" data-placement="top" title="C Struct Pointer">&lt; Newer</a>
+      </li>
+      <li class="pager-older">
+        <a href="/post/nvm-manage-node/" data-toggle="tooltip" data-placement="top" title="Nvm Manage Node">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
+
+<script src="https://cdn.bootcss.com/highlight.js/9.18.1/highlight.min.js"></script>
+</body>
+</html>

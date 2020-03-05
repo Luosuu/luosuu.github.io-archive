@@ -1,41 +1,77 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Luosuu的小站</title>
+    <title>Categories on luosuu的小站</title>
     <link>https://example.com/categories/</link>
-    <description>Recent content in Categories on Luosuu的小站</description>
+    <description>Recent content in Categories on luosuu的小站</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh</language>
-    <copyright>&amp;copy; Copyright 2019 Luosuu</copyright>
-    <lastBuildDate>Thu, 13 Feb 2020 13:38:06 +0800</lastBuildDate>
+    <language>en</language>
+    <copyright>&amp;copy; Copyright 2020 luosuu</copyright>
+    <lastBuildDate>Thu, 05 Mar 2020 19:52:11 +0800</lastBuildDate>
     
 	<atom:link href="https://example.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Diary</title>
+      <title>Software</title>
+      <link>https://example.com/categories/software/</link>
+      <pubDate>Thu, 05 Mar 2020 19:52:11 +0800</pubDate>
+      
+      <guid>https://example.com/categories/software/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>To Do</title>
+      <link>https://example.com/categories/to-do/</link>
+      <pubDate>Thu, 05 Mar 2020 19:31:15 +0800</pubDate>
+      
+      <guid>https://example.com/categories/to-do/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>diary</title>
       <link>https://example.com/categories/diary/</link>
-      <pubDate>Thu, 13 Feb 2020 13:38:06 +0800</pubDate>
+      <pubDate>Thu, 05 Mar 2020 19:27:28 +0800</pubDate>
       
       <guid>https://example.com/categories/diary/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>sicp notes</title>
-      <link>https://example.com/categories/sicp-notes/</link>
-      <pubDate>Tue, 11 Feb 2020 17:22:40 +0800</pubDate>
+      <title>UI</title>
+      <link>https://example.com/categories/ui/</link>
+      <pubDate>Thu, 05 Mar 2020 19:26:15 +0800</pubDate>
       
-      <guid>https://example.com/categories/sicp-notes/</guid>
+      <guid>https://example.com/categories/ui/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>software</title>
-      <link>https://example.com/categories/software/</link>
-      <pubDate>Wed, 04 Dec 2019 11:01:01 +0800</pubDate>
+      <title>C&#43;&#43;</title>
+      <link>https://example.com/categories/c&#43;&#43;/</link>
+      <pubDate>Thu, 05 Mar 2020 19:25:41 +0800</pubDate>
       
-      <guid>https://example.com/categories/software/</guid>
+      <guid>https://example.com/categories/c&#43;&#43;/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>eth</title>
+      <link>https://example.com/categories/eth/</link>
+      <pubDate>Thu, 05 Mar 2020 19:21:47 +0800</pubDate>
+      
+      <guid>https://example.com/categories/eth/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sicp</title>
+      <link>https://example.com/categories/sicp/</link>
+      <pubDate>Thu, 05 Mar 2020 18:53:26 +0800</pubDate>
+      
+      <guid>https://example.com/categories/sicp/</guid>
       <description></description>
     </item>
     

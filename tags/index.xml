@@ -1,52 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Luosuu的小站</title>
+    <title>Tags on luosuu的小站</title>
     <link>https://example.com/tags/</link>
-    <description>Recent content in Tags on Luosuu的小站</description>
+    <description>Recent content in Tags on luosuu的小站</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh</language>
-    <copyright>&amp;copy; Copyright 2019 Luosuu</copyright>
-    <lastBuildDate>Thu, 13 Feb 2020 13:38:06 +0800</lastBuildDate>
+    <language>en</language>
+    <copyright>&amp;copy; Copyright 2020 luosuu</copyright>
     
 	<atom:link href="https://example.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Life</title>
-      <link>https://example.com/tags/life/</link>
-      <pubDate>Thu, 13 Feb 2020 13:38:06 +0800</pubDate>
-      
-      <guid>https://example.com/tags/life/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>interpreter</title>
-      <link>https://example.com/tags/interpreter/</link>
-      <pubDate>Tue, 11 Feb 2020 17:22:40 +0800</pubDate>
-      
-      <guid>https://example.com/tags/interpreter/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>SICP</title>
-      <link>https://example.com/tags/sicp/</link>
-      <pubDate>Tue, 11 Feb 2020 17:22:40 +0800</pubDate>
-      
-      <guid>https://example.com/tags/sicp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Qemu</title>
-      <link>https://example.com/tags/qemu/</link>
-      <pubDate>Wed, 04 Dec 2019 11:01:01 +0800</pubDate>
-      
-      <guid>https://example.com/tags/qemu/</guid>
-      <description></description>
-    </item>
     
   </channel>
 </rss>

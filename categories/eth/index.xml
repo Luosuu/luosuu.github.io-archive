@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>eth on luosuu的小站</title>
+    <link>https://example.com/categories/eth/</link>
+    <description>Recent content in eth on luosuu的小站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy; Copyright 2020 luosuu</copyright>
+    <lastBuildDate>Thu, 05 Mar 2020 19:21:47 +0800</lastBuildDate>
+    
+	<atom:link href="https://example.com/categories/eth/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Smart Contrast Dev</title>
+      <link>https://example.com/post/smart-contrast-dev/</link>
+      <pubDate>Thu, 05 Mar 2020 19:21:47 +0800</pubDate>
+      
+      <guid>https://example.com/post/smart-contrast-dev/</guid>
+      <description>&lt;p&gt;本文主要参考于&lt;a href=&#34;https://solidity-cn.readthedocs.io/zh/develop/introduction-to-smart-contracts.html&#34;&gt;Solidity develop文档&lt;/a&gt;。作为本人的学习笔记和再理解。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Basic Eth</title>
+      <link>https://example.com/post/basic-eth/</link>
+      <pubDate>Thu, 05 Mar 2020 19:19:47 +0800</pubDate>
+      
+      <guid>https://example.com/post/basic-eth/</guid>
+      <description>&lt;p&gt;一些以太坊基础知识&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

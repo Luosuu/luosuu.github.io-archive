@@ -1,51 +1,42 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Diary on Luosuu的小站</title>
+    <title>diary on luosuu的小站</title>
     <link>https://example.com/categories/diary/</link>
-    <description>Recent content in Diary on Luosuu的小站</description>
+    <description>Recent content in diary on luosuu的小站</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh</language>
-    <copyright>&amp;copy; Copyright 2019 Luosuu</copyright>
-    <lastBuildDate>Thu, 13 Feb 2020 13:38:06 +0800</lastBuildDate>
+    <language>en</language>
+    <copyright>&amp;copy; Copyright 2020 luosuu</copyright>
+    <lastBuildDate>Thu, 05 Mar 2020 19:27:28 +0800</lastBuildDate>
     
 	<atom:link href="https://example.com/categories/diary/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>To Do List WinterVacation</title>
-      <link>https://example.com/posts/to-do-list-wintervacation/</link>
-      <pubDate>Mon, 27 Jan 2020 11:04:48 +0800</pubDate>
+      <title>Diary 2019 11 3</title>
+      <link>https://example.com/post/diary-2019-11-3/</link>
+      <pubDate>Thu, 05 Mar 2020 19:27:28 +0800</pubDate>
       
-      <guid>https://example.com/posts/to-do-list-wintervacation/</guid>
-      <description>寒假ToDoList，用来公开处刑，完不成请私信我让我女装</description>
+      <guid>https://example.com/post/diary-2019-11-3/</guid>
+      <description>&lt;p&gt;我能跑多快？&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>Something Magical</title>
-      <link>https://example.com/posts/something-magical/</link>
-      <pubDate>Thu, 13 Feb 2020 13:38:06 +0800</pubDate>
+      <title>Pycon2019 Chengdu</title>
+      <link>https://example.com/post/pycon2019-chengdu/</link>
+      <pubDate>Thu, 05 Mar 2020 19:24:46 +0800</pubDate>
       
-      <guid>https://example.com/posts/something-magical/</guid>
-      <description>虽然有些危险，但是还是记录一下以备不时之需</description>
+      <guid>https://example.com/post/pycon2019-chengdu/</guid>
+      <description>&lt;p&gt;这里记录一下我参加pycon2019成都站的笔记和体会。&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>计算机是一门实践科学</title>
-      <link>https://example.com/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%98%AF%E4%B8%80%E9%97%A8%E5%AE%9E%E8%B7%B5%E7%A7%91%E5%AD%A6/</link>
-      <pubDate>Wed, 20 Nov 2019 10:30:46 +0800</pubDate>
+      <title>MSRA Summercamp</title>
+      <link>https://example.com/post/msra-summercamp/</link>
+      <pubDate>Thu, 05 Mar 2020 18:55:03 +0800</pubDate>
       
-      <guid>https://example.com/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%98%AF%E4%B8%80%E9%97%A8%E5%AE%9E%E8%B7%B5%E7%A7%91%E5%AD%A6/</guid>
-      <description>2019年11月20日有感</description>
-    </item>
-    
-    <item>
-      <title>diary-2019-11-13</title>
-      <link>https://example.com/posts/diary-2019-11-13/</link>
-      <pubDate>Tue, 12 Nov 2019 10:30:46 +0800</pubDate>
-      
-      <guid>https://example.com/posts/diary-2019-11-13/</guid>
-      <description>我能跑多快？</description>
+      <guid>https://example.com/post/msra-summercamp/</guid>
+      <description>&lt;p&gt;微软学生夏令营记录&lt;/p&gt;</description>
     </item>
     
   </channel>

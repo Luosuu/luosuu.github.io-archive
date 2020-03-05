@@ -1,276 +1,213 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Luosuu的小站</title>
+    <title>luosuu的小站</title>
     <link>https://example.com/</link>
-    <description>Recent content on Luosuu的小站</description>
+    <description>Recent content on luosuu的小站</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh</language>
-    <copyright>&amp;copy; Copyright 2019 Luosuu</copyright>
-    <lastBuildDate>Thu, 13 Feb 2020 13:38:06 +0800</lastBuildDate>
+    <language>en</language>
+    <copyright>&amp;copy; Copyright 2020 luosuu</copyright>
+    <lastBuildDate>Thu, 05 Mar 2020 19:52:11 +0800</lastBuildDate>
     
 	<atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>To Do List WinterVacation</title>
-      <link>https://example.com/posts/to-do-list-wintervacation/</link>
-      <pubDate>Mon, 27 Jan 2020 11:04:48 +0800</pubDate>
+      <title>To Do 2020 WinterVacation</title>
+      <link>https://example.com/post/to-do-2020-wintervacation/</link>
+      <pubDate>Thu, 05 Mar 2020 19:31:15 +0800</pubDate>
       
-      <guid>https://example.com/posts/to-do-list-wintervacation/</guid>
-      <description>寒假ToDoList，用来公开处刑，完不成请私信我让我女装</description>
+      <guid>https://example.com/post/to-do-2020-wintervacation/</guid>
+      <description>&lt;p&gt;寒假ToDoList，用来公开处刑，完不成请私信我让我女装&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Start PLT</title>
-      <link>https://example.com/posts/start-plt/</link>
-      <pubDate>Tue, 12 Nov 2019 10:30:46 +0800</pubDate>
+      <link>https://example.com/post/start-plt/</link>
+      <pubDate>Thu, 05 Mar 2020 18:38:45 +0800</pubDate>
       
-      <guid>https://example.com/posts/start-plt/</guid>
-      <description>研究事物的原理和构造，掌握基本方法。</description>
+      <guid>https://example.com/post/start-plt/</guid>
+      <description>&lt;p&gt;研究事物的原理和构造，掌握基本方法。&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>Foreword</title>
-      <link>https://example.com/posts/foreword/</link>
-      <pubDate>Mon, 11 Nov 2019 18:18:13 +0800</pubDate>
+      <title>SICP-1.1:Element and Expressions</title>
+      <link>https://example.com/post/sicp-1-1/</link>
+      <pubDate>Thu, 05 Mar 2020 18:53:26 +0800</pubDate>
       
-      <guid>https://example.com/posts/foreword/</guid>
-      <description>写在前面 本来无心写博客的，大部分笔记都放在了Github的repo里存着，结果发现自己也懒得打开repo复习，而且写的东西愈来愈多，索性建个简单的博客记录一下自己的笔记。甚为简陋请多包含，打算在第三学期读完SICP，如果我没有经常更新，欢迎发邮件到ZhLuosuu@outlook.</description>
-    </item>
-    
-    <item>
-      <title>Something Magical</title>
-      <link>https://example.com/posts/something-magical/</link>
-      <pubDate>Thu, 13 Feb 2020 13:38:06 +0800</pubDate>
-      
-      <guid>https://example.com/posts/something-magical/</guid>
-      <description>虽然有些危险，但是还是记录一下以备不时之需</description>
-    </item>
-    
-    <item>
-      <title>sicp-2.1.1-Examples:Arithmetic Operations for Rational Numbers</title>
-      <link>https://example.com/posts/sicp-2-1-1/</link>
-      <pubDate>Tue, 11 Feb 2020 17:22:40 +0800</pubDate>
-      
-      <guid>https://example.com/posts/sicp-2-1-1/</guid>
-      <description>为了引入第二章的概念和主题，我们尝试构建有理数的数据类型并且定义它的计算方法。</description>
-    </item>
-    
-    <item>
-      <title>Introduction to SICP Chapter 2</title>
-      <link>https://example.com/posts/introduction-to-sicp-chapter-2/</link>
-      <pubDate>Mon, 03 Feb 2020 16:55:22 +0800</pubDate>
-      
-      <guid>https://example.com/posts/introduction-to-sicp-chapter-2/</guid>
-      <description>SICP第二章的导引</description>
-    </item>
-    
-    <item>
-      <title>Formulating Abstractions with Higher-Order Procedures</title>
-      <link>https://example.com/posts/sicp-1-3/</link>
-      <pubDate>Sat, 01 Feb 2020 15:11:32 +0800</pubDate>
-      
-      <guid>https://example.com/posts/sicp-1-3/</guid>
-      <description>&amp;ldquo;用高阶的函数做抽象&amp;rdquo;，本次我们更关注于过程本身的一些特性，以及相关的抽象方式</description>
-    </item>
-    
-    <item>
-      <title>Qemu on Mac</title>
-      <link>https://example.com/posts/qemu-on-mac/</link>
-      <pubDate>Wed, 04 Dec 2019 11:01:01 +0800</pubDate>
-      
-      <guid>https://example.com/posts/qemu-on-mac/</guid>
-      <description>how to use Qemu on macOS</description>
-    </item>
-    
-    <item>
-      <title>Orders of Growth</title>
-      <link>https://example.com/posts/sicp-rank/</link>
-      <pubDate>Fri, 29 Nov 2019 16:11:32 +0800</pubDate>
-      
-      <guid>https://example.com/posts/sicp-rank/</guid>
-      <description>作为讨论线性迭代与递归的延续，我们来讨论计算过程的阶数。</description>
+      <guid>https://example.com/post/sicp-1-1/</guid>
+      <description>&lt;p&gt;sicp的1-1主要内容是程序设计的基本元素&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Linear Recursion and Iteration</title>
-      <link>https://example.com/posts/linear-recursion-and-iteration/</link>
-      <pubDate>Wed, 20 Nov 2019 10:30:46 +0800</pubDate>
+      <link>https://example.com/post/linear-recursion-and-iteration/</link>
+      <pubDate>Thu, 05 Mar 2020 18:52:22 +0800</pubDate>
       
-      <guid>https://example.com/posts/linear-recursion-and-iteration/</guid>
-      <description>迭代语法的解释/计算过程</description>
+      <guid>https://example.com/post/linear-recursion-and-iteration/</guid>
+      <description>&lt;p&gt;迭代语法的解释/计算过程&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>Element and Expressions</title>
-      <link>https://example.com/posts/sicp-notes-1-1/</link>
-      <pubDate>Tue, 12 Nov 2019 10:30:46 +0800</pubDate>
+      <title>SICP: order of growth</title>
+      <link>https://example.com/post/sicp-rank/</link>
+      <pubDate>Thu, 05 Mar 2020 18:50:56 +0800</pubDate>
       
-      <guid>https://example.com/posts/sicp-notes-1-1/</guid>
-      <description>sicp的1-1主要内容是程序设计的基本元素</description>
+      <guid>https://example.com/post/sicp-rank/</guid>
+      <description>&lt;p&gt;作为讨论线性迭代与递归的延续，我们来讨论计算过程的阶数。&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>计算机是一门实践科学</title>
-      <link>https://example.com/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%98%AF%E4%B8%80%E9%97%A8%E5%AE%9E%E8%B7%B5%E7%A7%91%E5%AD%A6/</link>
-      <pubDate>Wed, 20 Nov 2019 10:30:46 +0800</pubDate>
+      <title>sicp-1.3:Formulating Abstractions with Higher-Order Procedures</title>
+      <link>https://example.com/post/sicp-1-3/</link>
+      <pubDate>Thu, 05 Mar 2020 18:49:12 +0800</pubDate>
       
-      <guid>https://example.com/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%98%AF%E4%B8%80%E9%97%A8%E5%AE%9E%E8%B7%B5%E7%A7%91%E5%AD%A6/</guid>
-      <description>2019年11月20日有感</description>
+      <guid>https://example.com/post/sicp-1-3/</guid>
+      <description>&lt;p&gt;“用高阶的函数做抽象”，本次我们更关注于过程本身的一些特性，以及相关的抽象方式&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>Msra Summercamp</title>
-      <link>https://example.com/posts/msra-summercamp/</link>
-      <pubDate>Wed, 13 Nov 2019 12:20:54 +0800</pubDate>
+      <title>Introduction to SICP Chapter 2</title>
+      <link>https://example.com/post/introduction-to-sicp-chapter-2/</link>
+      <pubDate>Thu, 05 Mar 2020 18:45:23 +0800</pubDate>
       
-      <guid>https://example.com/posts/msra-summercamp/</guid>
-      <description>微软学生夏令营记录</description>
+      <guid>https://example.com/post/introduction-to-sicp-chapter-2/</guid>
+      <description>&lt;p&gt;SICP第二章的导引&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>UWP 速成笔记</title>
-      <link>https://example.com/posts/uwp-fast/</link>
-      <pubDate>Wed, 13 Nov 2019 09:33:01 +0800</pubDate>
+      <title>sicp-2.1.1-Examples:Arithmetic Operations for Rational Numbers</title>
+      <link>https://example.com/post/sicp-2-1-1/</link>
+      <pubDate>Thu, 05 Mar 2020 18:42:28 +0800</pubDate>
       
-      <guid>https://example.com/posts/uwp-fast/</guid>
-      <description>第二学期假期时去MSRA时速成了一下UWP</description>
+      <guid>https://example.com/post/sicp-2-1-1/</guid>
+      <description>&lt;p&gt;为了引入第二章的概念和主题，我们尝试构建有理数的数据类型并且定义它的计算方法。&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>Console Game</title>
-      <link>https://example.com/posts/console-game/</link>
-      <pubDate>Tue, 12 Nov 2019 22:48:38 +0800</pubDate>
+      <title>Jenv Manage JDK</title>
+      <link>https://example.com/post/jenv-manage-jdk/</link>
+      <pubDate>Thu, 05 Mar 2020 19:52:11 +0800</pubDate>
       
-      <guid>https://example.com/posts/console-game/</guid>
-      <description>记录一下第一学期假期时跟着Github@guyaqi学长写的控制台小玩意</description>
+      <guid>https://example.com/post/jenv-manage-jdk/</guid>
+      <description>&lt;p&gt;灵活管理JDK&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>Basic Etheruem</title>
-      <link>https://example.com/posts/basic-etheruem/</link>
-      <pubDate>Tue, 12 Nov 2019 22:40:06 +0800</pubDate>
+      <title>pip change source</title>
+      <link>https://example.com/post/pip-change-source/</link>
+      <pubDate>Thu, 05 Mar 2020 19:49:11 +0800</pubDate>
       
-      <guid>https://example.com/posts/basic-etheruem/</guid>
-      <description>一些以太坊基础知识</description>
+      <guid>https://example.com/post/pip-change-source/</guid>
+      <description>&lt;p&gt;TUNA source&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>简单理解智能合约</title>
-      <link>https://example.com/posts/%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/</link>
-      <pubDate>Tue, 12 Nov 2019 22:24:52 +0800</pubDate>
+      <title>Diary 2019 11 3</title>
+      <link>https://example.com/post/diary-2019-11-3/</link>
+      <pubDate>Thu, 05 Mar 2020 19:27:28 +0800</pubDate>
       
-      <guid>https://example.com/posts/%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/</guid>
-      <description>本文主要参考于Solidity develop文档。作为本人的学习笔记和再理解。</description>
-    </item>
-    
-    <item>
-      <title>Use ssh to Login Your Server</title>
-      <link>https://example.com/posts/use-ssh-to-login-your-server/</link>
-      <pubDate>Tue, 12 Nov 2019 22:23:07 +0800</pubDate>
-      
-      <guid>https://example.com/posts/use-ssh-to-login-your-server/</guid>
-      <description>用ssh密钥文件登陆服务器</description>
-    </item>
-    
-    <item>
-      <title>Manage Your Node and Npm</title>
-      <link>https://example.com/posts/your-node-and-npm/</link>
-      <pubDate>Tue, 12 Nov 2019 22:20:48 +0800</pubDate>
-      
-      <guid>https://example.com/posts/your-node-and-npm/</guid>
-      <description>用nvm管理你的node和npm</description>
-    </item>
-    
-    <item>
-      <title>Zsh Highlight</title>
-      <link>https://example.com/posts/zsh-highlight/</link>
-      <pubDate>Tue, 12 Nov 2019 22:18:40 +0800</pubDate>
-      
-      <guid>https://example.com/posts/zsh-highlight/</guid>
-      <description>为你的zsh终端添加语法高亮</description>
-    </item>
-    
-    <item>
-      <title>Pycon2019 成都站记录</title>
-      <link>https://example.com/posts/pycon2019-%E6%88%90%E9%83%BD%E7%AB%99%E8%AE%B0%E5%BD%95/</link>
-      <pubDate>Tue, 12 Nov 2019 22:12:31 +0800</pubDate>
-      
-      <guid>https://example.com/posts/pycon2019-%E6%88%90%E9%83%BD%E7%AB%99%E8%AE%B0%E5%BD%95/</guid>
-      <description>这里记录一下我参加pycon2019成都站的笔记和体会。</description>
-    </item>
-    
-    <item>
-      <title>C:struct Pointers</title>
-      <link>https://example.com/posts/cstruct-pointers/</link>
-      <pubDate>Tue, 12 Nov 2019 22:09:31 +0800</pubDate>
-      
-      <guid>https://example.com/posts/cstruct-pointers/</guid>
-      <description>C语言中的结构体指针，曾在第一学期坑过我</description>
+      <guid>https://example.com/post/diary-2019-11-3/</guid>
+      <description>&lt;p&gt;我能跑多快？&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Qt Windows Navigation</title>
-      <link>https://example.com/posts/qt-windows-navigation/</link>
-      <pubDate>Tue, 12 Nov 2019 22:06:54 +0800</pubDate>
+      <link>https://example.com/post/qt-windows-navigation/</link>
+      <pubDate>Thu, 05 Mar 2020 19:26:15 +0800</pubDate>
       
-      <guid>https://example.com/posts/qt-windows-navigation/</guid>
-      <description>记录一下上学期写的Qt功能，窗口跳转，虽然感觉以后不会再写Qt了。</description>
+      <guid>https://example.com/post/qt-windows-navigation/</guid>
+      <description>&lt;p&gt;记录一下上学期写的Qt功能，窗口跳转&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>diary-2019-11-13</title>
-      <link>https://example.com/posts/diary-2019-11-13/</link>
-      <pubDate>Tue, 12 Nov 2019 10:30:46 +0800</pubDate>
+      <title>C Struct Pointer</title>
+      <link>https://example.com/post/c-struct-pointer/</link>
+      <pubDate>Thu, 05 Mar 2020 19:25:41 +0800</pubDate>
       
-      <guid>https://example.com/posts/diary-2019-11-13/</guid>
-      <description>我能跑多快？</description>
+      <guid>https://example.com/post/c-struct-pointer/</guid>
+      <description>&lt;p&gt;C语言中的结构体指针，曾在第一学期坑过我&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>Overview_ComputerScience</title>
-      <link>https://example.com/posts/overview_computerscience/</link>
-      <pubDate>Mon, 11 Nov 2019 22:45:14 +0800</pubDate>
+      <title>Pycon2019 Chengdu</title>
+      <link>https://example.com/post/pycon2019-chengdu/</link>
+      <pubDate>Thu, 05 Mar 2020 19:24:46 +0800</pubDate>
       
-      <guid>https://example.com/posts/overview_computerscience/</guid>
-      <description>有的同学表示对计算机有什么方向比较迷茫。应一些小伙伴要求，我就班门弄斧得给大家稍微介绍和总结一下。</description>
+      <guid>https://example.com/post/pycon2019-chengdu/</guid>
+      <description>&lt;p&gt;这里记录一下我参加pycon2019成都站的笔记和体会。&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>Linux Shell DIY</title>
-      <link>https://example.com/posts/linux-shell-diy/</link>
-      <pubDate>Mon, 11 Nov 2019 21:04:35 +0800</pubDate>
+      <title>Nvm Manage Node</title>
+      <link>https://example.com/post/nvm-manage-node/</link>
+      <pubDate>Thu, 05 Mar 2020 19:23:34 +0800</pubDate>
       
-      <guid>https://example.com/posts/linux-shell-diy/</guid>
-      <description>Linux提供了非常高的自定义美化终端的空间。不搞的漂亮点，天天面对丑丑的终端，谁受得了啊！ 本文主要参考（搬运）于Powerlevel9k &amp;mdash; 一个美观而又实用的 ZSH 主题。</description>
+      <guid>https://example.com/post/nvm-manage-node/</guid>
+      <description>&lt;p&gt;用nvm管理你的node和npm&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>计算机的数值表示和计算</title>
-      <link>https://example.com/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E6%95%B0%E5%80%BC%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%AE%A1%E7%AE%97/</link>
-      <pubDate>Mon, 11 Nov 2019 19:06:16 +0800</pubDate>
+      <title>Ssh Login Server</title>
+      <link>https://example.com/post/ssh-login-server/</link>
+      <pubDate>Thu, 05 Mar 2020 19:22:52 +0800</pubDate>
       
-      <guid>https://example.com/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E6%95%B0%E5%80%BC%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%AE%A1%E7%AE%97/</guid>
-      <description>简单记录一下在计算机中如何表示数值与简单运算的。</description>
+      <guid>https://example.com/post/ssh-login-server/</guid>
+      <description>&lt;p&gt;用ssh密钥文件登陆服务器&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>Notes of Graphic Understanding Etheruem</title>
-      <link>https://example.com/posts/graphic-etheruem/</link>
-      <pubDate>Sun, 10 Nov 2019 22:29:40 +0800</pubDate>
+      <title>Smart Contrast Dev</title>
+      <link>https://example.com/post/smart-contrast-dev/</link>
+      <pubDate>Thu, 05 Mar 2020 19:21:47 +0800</pubDate>
       
-      <guid>https://example.com/posts/graphic-etheruem/</guid>
-      <description>Paper Notes</description>
+      <guid>https://example.com/post/smart-contrast-dev/</guid>
+      <description>&lt;p&gt;本文主要参考于&lt;a href=&#34;https://solidity-cn.readthedocs.io/zh/develop/introduction-to-smart-contracts.html&#34;&gt;Solidity develop文档&lt;/a&gt;。作为本人的学习笔记和再理解。&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>A Survey on the Security of Blockchain systems Notes</title>
-      <link>https://example.com/posts/survey-notes/</link>
-      <pubDate>Sun, 10 Nov 2019 22:28:04 +0800</pubDate>
+      <title>Basic Eth</title>
+      <link>https://example.com/post/basic-eth/</link>
+      <pubDate>Thu, 05 Mar 2020 19:19:47 +0800</pubDate>
       
-      <guid>https://example.com/posts/survey-notes/</guid>
-      <description>All the content are from:</description>
+      <guid>https://example.com/post/basic-eth/</guid>
+      <description>&lt;p&gt;一些以太坊基础知识&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Console Game</title>
+      <link>https://example.com/post/console-game/</link>
+      <pubDate>Thu, 05 Mar 2020 19:18:53 +0800</pubDate>
+      
+      <guid>https://example.com/post/console-game/</guid>
+      <description>&lt;p&gt;记录一下第一学期假期时跟着Github@guyaqi学长写的控制台小玩意&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>UWP Quickstart</title>
+      <link>https://example.com/post/uwp-quickstart/</link>
+      <pubDate>Thu, 05 Mar 2020 18:55:54 +0800</pubDate>
+      
+      <guid>https://example.com/post/uwp-quickstart/</guid>
+      <description>&lt;p&gt;第二学期假期时去MSRA时速成了一下UWP&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>MSRA Summercamp</title>
+      <link>https://example.com/post/msra-summercamp/</link>
+      <pubDate>Thu, 05 Mar 2020 18:55:03 +0800</pubDate>
+      
+      <guid>https://example.com/post/msra-summercamp/</guid>
+      <description>&lt;p&gt;微软学生夏令营记录&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Homebrew Install Scripts</title>
+      <link>https://example.com/post/install-homebrew-ustc-source/</link>
+      <pubDate>Thu, 05 Mar 2020 17:22:17 +0800</pubDate>
+      
+      <guid>https://example.com/post/install-homebrew-ustc-source/</guid>
+      <description>&lt;p&gt;通过ustc源安装homebrew&lt;/p&gt;</description>
     </item>
     
   </channel>

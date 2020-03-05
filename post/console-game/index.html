@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Console Game - luosuu的小站</title>
+  <meta property="og:title" content="Console Game - luosuu的小站" />
+  <meta name="twitter:title" content="Console Game - luosuu的小站" />
+  <meta name="description" content="记录一下第一学期假期时跟着Github@guyaqi学长写的控制台小玩意">
+  <meta property="og:description" content="记录一下第一学期假期时跟着Github@guyaqi学长写的控制台小玩意">
+  <meta name="twitter:description" content="记录一下第一学期假期时跟着Github@guyaqi学长写的控制台小玩意">
+  <meta name="author" content="luosuu"/>
+  <meta property="og:site_name" content="luosuu的小站" />
+  <meta property="og:url" content="https://example.com/post/console-game/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.66.0" />
+
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
+
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">luosuu的小站</a></h1>
+    <ul class="site-navi-items">
+      <li class="site-navi-item-categories"><a href="/categories/" title="Categories">Categories</a></li>
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
+
+  <div class="main" role="main">
+    <article class="article">
+      
+      
+      <h1 class="article-title">Console Game</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>March 5, 2020</time></li>
+        <li class="article-meta-categories">
+          <a href="/categories/c&#43;&#43;/">
+            <i class="fas fa-folder"></i>
+            C&#43;&#43;
+          </a>&nbsp;
+        </li>
+      </ul>
+      
+      <p>记录一下第一学期假期时跟着Github@guyaqi学长写的控制台小玩意</p>
+<h2 id="代码">代码</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;windows.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">putFrame</span>(WORD wAttributes,<span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>a);
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">changeFrame</span>(<span style="color:#66d9ef">int</span> a, WORD wAttributes);
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+	HANDLE handle;
+	handle <span style="color:#f92672">=</span> GetStdHandle(STD_OUTPUT_HANDLE);
+	CONSOLE_CURSOR_INFO cursor <span style="color:#f92672">=</span> { <span style="color:#ae81ff">100</span>,FALSE };<span style="color:#75715e">//隐藏光标
+</span><span style="color:#75715e"></span>	SetConsoleCursorInfo(handle, <span style="color:#f92672">&amp;</span>cursor);
+	<span style="color:#66d9ef">int</span> position <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+	<span style="color:#66d9ef">int</span> state <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+	<span style="color:#66d9ef">char</span> a[][<span style="color:#ae81ff">128</span>] <span style="color:#f92672">=</span>
+	{
+		<span style="color:#e6db74">&#34;1. White &amp; Green&#34;</span>,
+		<span style="color:#e6db74">&#34;2. Red &amp; Grey&#34;</span>,
+		<span style="color:#e6db74">&#34;3. White &amp; Black&#34;</span>,
+		<span style="color:#e6db74">&#34;4. White &amp; Blue&#34;</span>
+	};
+
+	printf(<span style="color:#e6db74">&#34;----------------------------------</span><span style="color:#ae81ff">\n\n\n</span><span style="color:#e6db74">&#34;</span>);
+	printf(<span style="color:#e6db74">&#34;            Colors</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>);
+	putFrame(FOREGROUND_RED <span style="color:#f92672">|</span> FOREGROUND_GREEN <span style="color:#f92672">|</span> FOREGROUND_BLUE <span style="color:#f92672">|</span> BACKGROUND_GREEN <span style="color:#f92672">|</span> BACKGROUND_INTENSITY, <span style="color:#f92672">*</span>a);
+	putFrame(FOREGROUND_INTENSITY <span style="color:#f92672">|</span> FOREGROUND_RED <span style="color:#f92672">|</span> BACKGROUND_BLUE <span style="color:#f92672">|</span> BACKGROUND_GREEN <span style="color:#f92672">|</span> BACKGROUND_RED <span style="color:#f92672">|</span> BACKGROUND_GREEN <span style="color:#f92672">|</span> BACKGROUND_RED,<span style="color:#f92672">*</span>(a<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>));
+	putFrame(FOREGROUND_INTENSITY<span style="color:#f92672">|</span> FOREGROUND_RED <span style="color:#f92672">|</span> FOREGROUND_GREEN <span style="color:#f92672">|</span> FOREGROUND_BLUE,<span style="color:#f92672">*</span>(a<span style="color:#f92672">+</span><span style="color:#ae81ff">2</span>));
+	putFrame(FOREGROUND_RED <span style="color:#f92672">|</span> FOREGROUND_GREEN <span style="color:#f92672">|</span> FOREGROUND_BLUE <span style="color:#f92672">|</span> BACKGROUND_BLUE,<span style="color:#f92672">*</span>(a<span style="color:#f92672">+</span><span style="color:#ae81ff">3</span>));
+
+	SetConsoleTextAttribute(handle, <span style="color:#ae81ff">0</span>);
+	printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>);
+	printf(<span style="color:#e6db74">&#34;       &#34;</span>);
+	SetConsoleTextAttribute(handle, FOREGROUND_RED <span style="color:#f92672">|</span> FOREGROUND_GREEN <span style="color:#f92672">|</span> FOREGROUND_BLUE <span style="color:#f92672">|</span> BACKGROUND_GREEN <span style="color:#f92672">|</span> BACKGROUND_INTENSITY);
+	printf(<span style="color:#e6db74">&#34;This is a test text.&#34;</span>);
+
+	<span style="color:#75715e">//交互
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">while</span> (true)
+	{
+		<span style="color:#66d9ef">if</span> (<span style="color:#f92672">::</span>GetAsyncKeyState(VK_UP) <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">0x8000</span> <span style="color:#f92672">&amp;&amp;</span> position <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span> state <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>)
+		{
+			position<span style="color:#f92672">--</span>;
+			state <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+		}
+		<span style="color:#66d9ef">if</span> (<span style="color:#f92672">::</span>GetAsyncKeyState(VK_DOWN) <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">0x8000</span> <span style="color:#f92672">&amp;&amp;</span> position <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">4</span> <span style="color:#f92672">&amp;&amp;</span> state <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>)
+		{
+			position<span style="color:#f92672">++</span>;
+			state <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+		}
+		<span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>(<span style="color:#f92672">::</span>GetAsyncKeyState(VK_UP) <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">0x8000</span> <span style="color:#f92672">&amp;&amp;</span> position) <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">!</span>(<span style="color:#f92672">::</span>GetAsyncKeyState(VK_DOWN) <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">0x8000</span>))
+		{
+			state <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+		}
+		<span style="color:#66d9ef">if</span> (position <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span> state <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) changeFrame(<span style="color:#ae81ff">5</span>,FOREGROUND_RED <span style="color:#f92672">|</span> FOREGROUND_GREEN <span style="color:#f92672">|</span> FOREGROUND_BLUE <span style="color:#f92672">|</span> BACKGROUND_GREEN <span style="color:#f92672">|</span> BACKGROUND_INTENSITY);
+		<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (position <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">&amp;&amp;</span> state <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) changeFrame(<span style="color:#ae81ff">6</span>, FOREGROUND_INTENSITY <span style="color:#f92672">|</span> FOREGROUND_RED <span style="color:#f92672">|</span> BACKGROUND_BLUE <span style="color:#f92672">|</span> BACKGROUND_GREEN <span style="color:#f92672">|</span> BACKGROUND_RED <span style="color:#f92672">|</span> BACKGROUND_GREEN <span style="color:#f92672">|</span> BACKGROUND_RED);
+		<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (position <span style="color:#f92672">==</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">&amp;&amp;</span> state <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) changeFrame(<span style="color:#ae81ff">7</span>, FOREGROUND_INTENSITY
+			<span style="color:#f92672">|</span> FOREGROUND_RED <span style="color:#f92672">|</span> FOREGROUND_GREEN <span style="color:#f92672">|</span> FOREGROUND_BLUE);
+		<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (position <span style="color:#f92672">==</span> <span style="color:#ae81ff">4</span> <span style="color:#f92672">&amp;&amp;</span> state <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>)changeFrame(<span style="color:#ae81ff">8</span>, FOREGROUND_RED <span style="color:#f92672">|</span> FOREGROUND_GREEN <span style="color:#f92672">|</span> FOREGROUND_BLUE <span style="color:#f92672">|</span> BACKGROUND_BLUE);
+	}
+	system(<span style="color:#e6db74">&#34;pause&#34;</span>);
+}
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">putFrame</span>(WORD wAttributes, <span style="color:#66d9ef">char</span> a[])
+{
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), <span style="color:#ae81ff">0</span>);
+	printf(<span style="color:#e6db74">&#34;        &#34;</span>);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), wAttributes);
+	printf(<span style="color:#e6db74">&#34;%s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,a);
+}
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">changeFrame</span>(<span style="color:#66d9ef">int</span> a, WORD wAttributes)
+{
+	COORD coord;
+	coord.X <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>;
+	coord.Y <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>;
+	<span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">4</span>; i<span style="color:#f92672">++</span>)
+	{
+		coord.Y <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>;
+		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), <span style="color:#ae81ff">0</span>);
+		printf(<span style="color:#e6db74">&#34;  &#34;</span>);
+	}
+	coord.X <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>;
+	coord.Y <span style="color:#f92672">=</span> a;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY
+		<span style="color:#f92672">|</span> FOREGROUND_RED <span style="color:#f92672">|</span> FOREGROUND_GREEN <span style="color:#f92672">|</span> FOREGROUND_BLUE);
+	printf(<span style="color:#e6db74">&#34;-&gt;&#34;</span>);
+
+
+	coord.X <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span>;
+	coord.Y <span style="color:#f92672">=</span> <span style="color:#ae81ff">11</span>;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), wAttributes);
+	printf(<span style="color:#e6db74">&#34;This is a test text.&#34;</span>);
+}
+</code></pre></div>
+    </article>
+
+    
+
+
+    <ul class="pager article-pager">
+      <li class="pager-newer">
+          <a href="/post/basic-eth/" data-toggle="tooltip" data-placement="top" title="Basic Eth">&lt; Newer</a>
+      </li>
+      <li class="pager-older">
+        <a href="/post/uwp-quickstart/" data-toggle="tooltip" data-placement="top" title="UWP Quickstart">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
+
+<script src="https://cdn.bootcss.com/highlight.js/9.18.1/highlight.min.js"></script>
+</body>
+</html>

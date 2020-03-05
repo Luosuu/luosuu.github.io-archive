@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>C Struct Pointer - luosuu的小站</title>
+  <meta property="og:title" content="C Struct Pointer - luosuu的小站" />
+  <meta name="twitter:title" content="C Struct Pointer - luosuu的小站" />
+  <meta name="description" content="C语言中的结构体指针，曾在第一学期坑过我">
+  <meta property="og:description" content="C语言中的结构体指针，曾在第一学期坑过我">
+  <meta name="twitter:description" content="C语言中的结构体指针，曾在第一学期坑过我">
+  <meta name="author" content="luosuu"/>
+  <meta property="og:site_name" content="luosuu的小站" />
+  <meta property="og:url" content="https://example.com/post/c-struct-pointer/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.66.0" />
+
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
+
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">luosuu的小站</a></h1>
+    <ul class="site-navi-items">
+      <li class="site-navi-item-categories"><a href="/categories/" title="Categories">Categories</a></li>
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
+
+  <div class="main" role="main">
+    <article class="article">
+      
+      
+      <h1 class="article-title">C Struct Pointer</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>March 5, 2020</time></li>
+        <li class="article-meta-categories">
+          <a href="/categories/c&#43;&#43;/">
+            <i class="fas fa-folder"></i>
+            C&#43;&#43;
+          </a>&nbsp;
+        </li>
+      </ul>
+      
+      <p>C语言中的结构体指针，曾在第一学期坑过我</p>
+<h2 id="代码">代码</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> student
+{
+	<span style="color:#66d9ef">int</span> id;
+	<span style="color:#66d9ef">char</span> name[<span style="color:#ae81ff">50</span>];
+	<span style="color:#66d9ef">float</span> chinese;
+	<span style="color:#66d9ef">float</span> math;
+	<span style="color:#66d9ef">float</span> english;
+	<span style="color:#66d9ef">float</span> sum;
+}student;
+
+<span style="color:#75715e">//就像一个普通的变量一样，直接传指针就可以进行相应的操作，指针存储的是结构体首地址
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">swap</span>(<span style="color:#66d9ef">struct</span> student<span style="color:#f92672">*</span>a, <span style="color:#66d9ef">struct</span> student<span style="color:#f92672">*</span>b)
+{
+    <span style="color:#66d9ef">struct</span> student temp <span style="color:#f92672">=</span> <span style="color:#f92672">*</span>a;
+    <span style="color:#f92672">*</span>a <span style="color:#f92672">=</span> <span style="color:#f92672">*</span>b;
+    <span style="color:#f92672">*</span>b <span style="color:#f92672">=</span> temp;
+};
+</code></pre></div><p>结构体的操作一般都是以指针的方式进行，有的结构体会很大，直接进行拷贝操作代价太高，因此在函数的传参中，结构体一般也是通过指针的形式传经函数。</p>
+    </article>
+
+    
+
+
+    <ul class="pager article-pager">
+      <li class="pager-newer">
+          <a href="/post/qt-windows-navigation/" data-toggle="tooltip" data-placement="top" title="Qt Windows Navigation">&lt; Newer</a>
+      </li>
+      <li class="pager-older">
+        <a href="/post/pycon2019-chengdu/" data-toggle="tooltip" data-placement="top" title="Pycon2019 Chengdu">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
+
+<script src="https://cdn.bootcss.com/highlight.js/9.18.1/highlight.min.js"></script>
+</body>
+</html>

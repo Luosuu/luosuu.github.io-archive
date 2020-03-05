@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Series on Luosuu的小站</title>
+    <title>Series on luosuu的小站</title>
     <link>https://example.com/series/</link>
-    <description>Recent content in Series on Luosuu的小站</description>
+    <description>Recent content in Series on luosuu的小站</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh</language>
-    <copyright>&amp;copy; Copyright 2019 Luosuu</copyright>
+    <language>en</language>
+    <copyright>&amp;copy; Copyright 2020 luosuu</copyright>
     
 	<atom:link href="https://example.com/series/index.xml" rel="self" type="application/rss+xml" />
     

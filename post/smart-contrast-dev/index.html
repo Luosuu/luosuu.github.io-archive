@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Smart Contrast Dev - luosuu的小站</title>
+  <meta property="og:title" content="Smart Contrast Dev - luosuu的小站" />
+  <meta name="twitter:title" content="Smart Contrast Dev - luosuu的小站" />
+  <meta name="description" content="本文主要参考于Solidity develop文档。作为本人的学习笔记和再理解。">
+  <meta property="og:description" content="本文主要参考于Solidity develop文档。作为本人的学习笔记和再理解。">
+  <meta name="twitter:description" content="本文主要参考于Solidity develop文档。作为本人的学习笔记和再理解。">
+  <meta name="author" content="luosuu"/>
+  <meta property="og:site_name" content="luosuu的小站" />
+  <meta property="og:url" content="https://example.com/post/smart-contrast-dev/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.66.0" />
+
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
+
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">luosuu的小站</a></h1>
+    <ul class="site-navi-items">
+      <li class="site-navi-item-categories"><a href="/categories/" title="Categories">Categories</a></li>
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
+
+  <div class="main" role="main">
+    <article class="article">
+      
+      
+      <h1 class="article-title">Smart Contrast Dev</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>March 5, 2020</time></li>
+        <li class="article-meta-categories">
+          <a href="/categories/eth/">
+            <i class="fas fa-folder"></i>
+            eth
+          </a>&nbsp;
+        </li>
+      </ul>
+      
+      <p>本文主要参考于<a href="https://solidity-cn.readthedocs.io/zh/develop/introduction-to-smart-contracts.html">Solidity develop文档</a>。作为本人的学习笔记和再理解。</p>
+<h2 id="对solidity的初步了解">对solidity的初步了解</h2>
+<p>Solidity是针对以太坊的编程语言，受到C++，Python，JavaScript等语言的影响。它的设计目的就是为了在以太坊上运行。</p>
+<p>它是一种静态语言。solidity支持一部分类的特性。solidity同样支持继承，和复杂的由用户自定义的特殊类型。因此我们可以说solidity是一种OOP（面对对象）的语言。我们在编写solidity代码时，应该以面对对象的编程方式定义变量（状态）和函数。并在solidity中，是大小写敏感的。</p>
+<p>我们知道以太坊上的每个节点实际上一般都是EVM，就算是矿工节点，一般也承担EVM的职责。以太坊区块链通过编写和执行智能合约来帮助拓展它的功能。EVM支持的语言很多，solidity是其中最流行也是最适合的。</p>
+<h2 id="evm和solidity">EVM和solidity</h2>
+<p>EVM是最终执行智能合约代码的地方，但是它不能直接理解solidity里面的高级的结构。EVM能理解的是一种被称为<strong>字节码</strong>的一种低级指令。这种指令非常精简。深入了解EVM，你会发现EVM在实际运行代码时不能联网，权限也非常有限。包括使用精简的指令在内的这些特性，都是为了保证EVM的安全性。</p>
+<p>要把我们编写的solidity代码转换成字节码，需要编译器。solidity附带的编译器成为solidity编译器或者<strong>solc</strong>。</p>
+<p>那么这个工作流程就和普通的编译代码并运行它没有什么太大的区别了。</p>
+<p>solidity代码 -&gt; solc -&gt; 字节码 -&gt; 部署并在EVM上运行。</p>
+<h2 id="solidity文件">solidity文件</h2>
+<p>储存solidity代码的solidity文件的拓展名是<code>.sol</code>。solidity文件是人类可读的文件，可以在任何编辑器，甚至可以在记事本里打开。</p>
+<p>solidity文件由以下四个高级结构组成</p>
+<ul>
+<li>预编译指令 - pragma</li>
+<li>注释</li>
+<li>导入(import)</li>
+<li>合约/库/接口 - contract/library/interface</li>
+</ul>
+<p>其中solidity的注释是和C++是一样的，<code>\\</code>是单行注释，<code>\* *\</code>是多行注释。</p>
+<p>它们整体看起来像是这个样子的</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-solidity" data-lang="solidity"><span style="color:#66d9ef">pragma solidity</span> <span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">4</span>.<span style="color:#ae81ff">19</span>;
+
+<span style="color:#66d9ef">contract</span> a{
+    <span style="color:#75715e">//***
+</span><span style="color:#75715e"></span>}
+<span style="color:#66d9ef">library</span> b{
+    <span style="color:#75715e">//***
+</span><span style="color:#75715e"></span>}
+<span style="color:#66d9ef">interface</span> c{
+    <span style="color:#75715e">//***
+</span><span style="color:#75715e"></span>}
+</code></pre></div><h3 id="import语句">import语句</h3>
+<p>帮助我们导入其他solidity文件，使得当前的solidity文件可以访问其中的代码。这有助于我们编写模块化的代码。如：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-solidity" data-lang="solidity"><span style="color:#f92672">import</span> <span style="color:#e6db74">&#39;commonLibrary.sol&#39;</span>;
+</code></pre></div><h3 id="预编译指令">预编译指令</h3>
+<p>通常指solidity文件的第一行代码，其形式一般为</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-solidity" data-lang="solidity"><span style="color:#66d9ef">pragma solidity</span> <span style="color:#f92672">&lt;&lt;</span>version number<span style="color:#f92672">&gt;&gt;</span>;
+</code></pre></div><p>注意是有分号作为结束的。</p>
+<p>在<code>pragma</code>指令的帮助下，你可以为你的代码选择合适的编译器。这是一种很好的习惯。</p>
+<p>其中版本号<code>^0.4.0</code>代表版本号为4的最新的版本。</p>
+<h2 id="hello-world">Hello world</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-solidity" data-lang="solidity"><span style="color:#66d9ef">pragma solidity</span> <span style="color:#f92672">^</span><span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">4</span>.<span style="color:#ae81ff">18</span>
+<span style="color:#66d9ef">contract</span> Helloworld{
+    <span style="color:#66d9ef">string</span> <span style="color:#66d9ef">private</span> a <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hello world&#34;</span>;
+    <span style="color:#66d9ef">function</span> GetHelloWorld() <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">view</span> <span style="color:#66d9ef">returns</span> (<span style="color:#66d9ef">string</span>){
+        <span style="color:#66d9ef">return</span> a;
+    }
+}
+</code></pre></div><p>这是用solidity输出&quot;Hello world&quot;的一个范例。我们可以从中简单的窥见solidity声明变量和函数的一些特点。</p>
+<p><code>pragma</code>关键字代表着编译器应该如何处理源代码，常见的就是声明使用的编译器版本。 我们可以窥见我们写的所谓合约<code>contract</code>其实在写一个很类似于C++类的东西，在其中声明了该合约的成员和成员函数，或公有供别人调用，或私有进行保护。</p>
+<p>我们写了这个合约，就可以进行发布，将它写在区块上，使其拥有一个特定的地址，这样别人就可以通过这个地址使用我们写的合约了。</p>
+<h2 id="存储">存储</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-solidity" data-lang="solidity"><span style="color:#66d9ef">pragma solidity</span> <span style="color:#f92672">^</span><span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">4</span>.<span style="color:#ae81ff">0</span>;
+
+<span style="color:#66d9ef">contract</span> SimpleStorage {
+    <span style="color:#66d9ef">uint</span> storedData;
+
+    <span style="color:#66d9ef">function</span> set(<span style="color:#66d9ef">uint</span> x) <span style="color:#66d9ef">public</span> {
+        storedData <span style="color:#f92672">=</span> x;
+    }
+
+    <span style="color:#66d9ef">function</span> get() <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">view</span> <span style="color:#66d9ef">returns</span> (<span style="color:#66d9ef">uint</span>) {
+        <span style="color:#66d9ef">return</span> storedData;
+    }
+}
+</code></pre></div><p><code>unit</code>这个变量类型是最高256位的无符号整数，我们在上述代码里声明了一个<code>unit</code>类型的状态变量，叫做<code>storedDate</code>。</p>
+<p>后面我们声明了两个函数<code>set</code>与<code>get</code>，用于设定和返回合约<code>SimpleStorage</code>的成员<code>storedDate</code>。</p>
+<p>在solidity中，我们不需要<code>this.</code>来访问合约内部的变量。</p>
+<h2 id="一个简单的货币实现">一个简单的货币实现</h2>
+<p>实际上，public关键字会让编译器自动生成函数，用于返回public变量或函数，理解这一点尤其重要。我们将分析下面这个最简单的加密货币：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-solidity" data-lang="solidity"><span style="color:#66d9ef">pragma solidity</span> <span style="color:#f92672">^</span><span style="color:#ae81ff">0</span>.<span style="color:#ae81ff">4</span>.<span style="color:#ae81ff">21</span>;
+
+<span style="color:#66d9ef">contract</span> Coin {
+    <span style="color:#75715e">// 关键字“public”让这些变量可以从外部读取
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">address</span> <span style="color:#66d9ef">public</span> minter;
+    <span style="color:#66d9ef">mapping</span> (<span style="color:#66d9ef">address</span> <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">uint</span>) <span style="color:#66d9ef">public</span> balances;
+
+    <span style="color:#75715e">// 轻客户端可以通过事件针对变化作出高效的反应
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">event</span> Sent(<span style="color:#66d9ef">address</span> <span style="color:#66d9ef">from</span>, <span style="color:#66d9ef">address</span> to, <span style="color:#66d9ef">uint</span> amount);
+
+    <span style="color:#75715e">// 这是构造函数，只有当合约创建时运行
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">function</span> Coin() <span style="color:#66d9ef">public</span> {
+        minter <span style="color:#f92672">=</span> msg.sender;
+    }
+
+    <span style="color:#66d9ef">function</span> mint(<span style="color:#66d9ef">address</span> receiver, <span style="color:#66d9ef">uint</span> amount) <span style="color:#66d9ef">public</span> {
+        <span style="color:#66d9ef">if</span> (msg.sender <span style="color:#f92672">!=</span> minter) <span style="color:#66d9ef">return</span>;
+        balances[receiver] <span style="color:#f92672">+=</span> amount;
+    }
+
+    <span style="color:#66d9ef">function</span> send(<span style="color:#66d9ef">address</span> receiver, <span style="color:#66d9ef">uint</span> amount) <span style="color:#66d9ef">public</span> {
+        <span style="color:#66d9ef">if</span> (balances[msg.sender] <span style="color:#f92672">&lt;</span> amount) <span style="color:#66d9ef">return</span>;
+        balances[msg.sender] <span style="color:#f92672">-=</span> amount;
+        balances[receiver] <span style="color:#f92672">+=</span> amount;
+        emit Sent(msg.sender, receiver, amount);
+    }
+}
+</code></pre></div><p>我们在这里遇到了新的变量类型，<code>address</code>。 <code>address</code>类型是一个160位的值，如果你知道在以太坊中，用户之间是通过每个用户的公钥的前160位来区别，那么将很好理解。代码里我们声明了一个叫做<code>minter</code>的<code>address</code>的公有变量。 <code>public</code>关键字对于<code>minter</code>来讲，编译器自动生成的代码大致如下。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-solidity" data-lang="solidity"><span style="color:#66d9ef">function</span> minter() <span style="color:#66d9ef">returns</span> (<span style="color:#66d9ef">address</span>) { <span style="color:#66d9ef">return</span> minter; }
+</code></pre></div><p>编译器通过这种方式，使<code>minter</code>可以被其他合约访问。</p>
+<p>下一行</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-solidity" data-lang="solidity"><span style="color:#66d9ef">mapping</span> (<span style="color:#66d9ef">address</span> <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">uint</span>) <span style="color:#66d9ef">public</span> balances;
+</code></pre></div><p>我们声明了一个叫做<code>balances</code>的公有变量，那么它的类型怎么理解呢？我们可以将它理解为一个转换器，也就是对于<code>balances(address _account)</code>，它返回的是一个<code>unit</code>类型，并且每个<code>_account</code>都有互相独立的空间，你可以理解每个<code>_account</code>可以通过<code>balances</code>拥有一个自己成员/属性，就是自己的一个<code>unit</code>类型的值。通过<code>balances</code>我们实现了使每一个地址的用户都有储存自己余额的地方，我们也可以通过<code>balances</code>管理每个用户的余额从而实现货币的流通（实际上在以太坊里，<code>balances</code>就代表余额的意思）。我们一般可以称类似于<code>balances</code>这种变量为<strong>状态变量</strong>。 <code>public</code>关键字对<code>balances</code>生成的代码大致如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-solidity" data-lang="solidity"><span style="color:#66d9ef">function</span> balances(<span style="color:#66d9ef">address</span> _account) <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">view</span> <span style="color:#66d9ef">returns</span> (<span style="color:#66d9ef">uint</span>) {
+    <span style="color:#66d9ef">return</span> balances[_account];
+}
+</code></pre></div><p>我们可以看到通过<code>balances</code>轻松的查询到每一位用户的余额。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-solidity" data-lang="solidity"><span style="color:#66d9ef">event</span> Sent(<span style="color:#66d9ef">address</span> <span style="color:#66d9ef">from</span>, <span style="color:#66d9ef">address</span> to, <span style="color:#66d9ef">uint</span> amount);
+</code></pre></div><p><code>event</code>变量，即“事件”。这种变量类型是用来被传输信息的，也就是说可以被传送出去，并且携带一些我们希望它携带的信息。而用来监听这个事件并且获得信息的代码示例如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-solidity" data-lang="solidity">Coin.Sent().watch({}, <span style="color:#e6db74">&#39;&#39;</span>, <span style="color:#66d9ef">function</span>(error, result) {
+    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>error) {
+        console.log(<span style="color:#e6db74">&#34;Coin transfer: &#34;</span> <span style="color:#f92672">+</span> result.args.amount <span style="color:#f92672">+</span>
+            <span style="color:#e6db74">&#34; coins were sent from &#34;</span> <span style="color:#f92672">+</span> result.args.<span style="color:#66d9ef">from</span> <span style="color:#f92672">+</span>
+            <span style="color:#e6db74">&#34; to &#34;</span> <span style="color:#f92672">+</span> result.args.to <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;.&#34;</span>);
+        console.log(<span style="color:#e6db74">&#34;Balances now:</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">+</span>
+            <span style="color:#e6db74">&#34;Sender: &#34;</span> <span style="color:#f92672">+</span> Coin.balances.call(result.args.<span style="color:#66d9ef">from</span>) <span style="color:#f92672">+</span>
+            <span style="color:#e6db74">&#34;Receiver: &#34;</span> <span style="color:#f92672">+</span> Coin.balances.call(result.args.to));
+    }
+})
+</code></pre></div><p>用户可以通过在自己的应用程序或者服务器上添加上面这个代码来获取事件的信息。这是<code>event</code>类型数据所允许的一种方式。</p>
+<p>请一定要注意<code>balances</code>函数是如何在用户界面调用的。不再是通过<code>balances(_address)</code>这种形式，而是通过<code>balances.call(_address)</code>这种形式调用。</p>
+<p>然后我们看到了构造函数：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-solidity" data-lang="solidity"><span style="color:#66d9ef">function</span> Coin() <span style="color:#66d9ef">public</span> {
+        minter <span style="color:#f92672">=</span> msg.sender;
+    }
+</code></pre></div><p>构造函数<code>Coin()</code>只会在合约创建的时候被调用，存入合约创建者的地址。<code>msg</code>是一个全局变量，其中<code>msg.sender</code>始终是当前函数调用的来源地址。这样就可以理解函数的内容了。</p>
+<p>函数<code>mint</code>和<code>send</code>是完成合约功能的两个函数。</p>
+<p>函数<code>mint</code>会先检验调用者是不是合约创建者，如果不是，那么就什么都不会发生，直接返回。而如果调用者就是合约创建者，就会执行内容，也就是给指定的接受地址的用户增加余额。</p>
+<p>函数<code>send</code>允许任何人调用，用于将自己的货币的余额的一部分转移到指定接受账户的余额里。并且送出事件<code>Sent</code>用于告知所有用户。后面就是用户更新自己账本了。具体流程可以看我的其他文档。</p>
+    </article>
+
+    
+
+
+    <ul class="pager article-pager">
+      <li class="pager-newer">
+          <a href="/post/ssh-login-server/" data-toggle="tooltip" data-placement="top" title="Ssh Login Server">&lt; Newer</a>
+      </li>
+      <li class="pager-older">
+        <a href="/post/basic-eth/" data-toggle="tooltip" data-placement="top" title="Basic Eth">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
+
+<script src="https://cdn.bootcss.com/highlight.js/9.18.1/highlight.min.js"></script>
+</body>
+</html>

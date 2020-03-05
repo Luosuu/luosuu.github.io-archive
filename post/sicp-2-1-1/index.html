@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>sicp-2.1.1-Examples:Arithmetic Operations for Rational Numbers - luosuu的小站</title>
+  <meta property="og:title" content="sicp-2.1.1-Examples:Arithmetic Operations for Rational Numbers - luosuu的小站" />
+  <meta name="twitter:title" content="sicp-2.1.1-Examples:Arithmetic Operations for Rational Numbers - …" />
+  <meta name="description" content="为了引入第二章的概念和主题，我们尝试构建有理数的数据类型并且定义它的计算方法。">
+  <meta property="og:description" content="为了引入第二章的概念和主题，我们尝试构建有理数的数据类型并且定义它的计算方法。">
+  <meta name="twitter:description" content="为了引入第二章的概念和主题，我们尝试构建有理数的数据类型并且定义它的计算方法。">
+  <meta name="author" content="luosuu"/>
+  <meta property="og:site_name" content="luosuu的小站" />
+  <meta property="og:url" content="https://example.com/post/sicp-2-1-1/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.66.0" />
+
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
+
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">luosuu的小站</a></h1>
+    <ul class="site-navi-items">
+      <li class="site-navi-item-categories"><a href="/categories/" title="Categories">Categories</a></li>
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
+
+  <div class="main" role="main">
+    <article class="article">
+      
+      
+      <h1 class="article-title">sicp-2.1.1-Examples:Arithmetic Operations for Rational Numbers</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>March 5, 2020</time></li>
+        <li class="article-meta-categories">
+          <a href="/categories/sicp/">
+            <i class="fas fa-folder"></i>
+            sicp
+          </a>&nbsp;
+        </li>
+      </ul>
+      
+<aside class="toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#表示有理数">表示有理数</a></li>
+    <li><a href="#运算有理数">运算有理数</a></li>
+    <li><a href="#抽象屏障abstraction-barriers">抽象屏障(Abstraction Barriers)</a></li>
+    <li><a href="#数据是什么">数据是什么</a></li>
+  </ul>
+</nav>
+</aside>
+      <p>为了引入第二章的概念和主题，我们尝试构建有理数的数据类型并且定义它的计算方法。</p>
+<h2 id="表示有理数">表示有理数</h2>
+<p>我们知道有理数肯定可以用分数的方式来表示，而分数由分子和分母构成，因此我们可以用一对数的组合来表示分数，也就是有理数。</p>
+<p>好在scheme给我们提供了天然的数对结构Pairs，我们可以用以下方式将两个数组合起来</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>x (cons <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">2</span>))
+
+(car x)
+<span style="color:#ae81ff">1</span>
+
+(cdr x)
+<span style="color:#ae81ff">2</span>
+</code></pre></div><p>我们用cons操作将1和2组合起来，称之为x，car返回x的首元素，cdr返回x的尾元素。值得一提的是，数对的元素还可以是数对。</p>
+<h2 id="运算有理数">运算有理数</h2>
+<p>定义好了有理数，我们要定义有理数的运算方式。</p>
+<p>这里我们先定义三个基本的方法，分别是<code>make-rat</code>,<code>numer</code>,<code>denom</code>。</p>
+<p><code>make-rat</code>将将两个数组合成有理数，而<code>numer</code>返回分子，<code>denom</code>返回分母</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">make-rat</span> n d) (cons n d))
+(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">numer</span> x) (car x))
+(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">denom</span> x) (cdr x))
+</code></pre></div><p>在考虑分子之间互相运算，加减乘除和判断相等分别可以定位为</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">add-rat</span> x y)
+    (<span style="color:#a6e22e">make-rat</span> (+ (* (<span style="color:#a6e22e">numer</span> x) (<span style="color:#a6e22e">denom</span> y))
+                 (* (<span style="color:#a6e22e">numer</span> y) (<span style="color:#a6e22e">denom</span> x)))
+              (* (<span style="color:#a6e22e">denom</span> x) (<span style="color:#a6e22e">denom</span> y))))
+(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">sub-rat</span> x y)
+    (<span style="color:#a6e22e">make-rat</span> (- (* (<span style="color:#a6e22e">numer</span> x) (<span style="color:#a6e22e">denom</span> y))
+                 (* (<span style="color:#a6e22e">numer</span> y) (<span style="color:#a6e22e">denom</span> x)))
+              (* (<span style="color:#a6e22e">denom</span> x) (<span style="color:#a6e22e">denom</span> y))))
+(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">mul-rat</span> x y)
+    (<span style="color:#a6e22e">make-rat</span> (* (<span style="color:#a6e22e">numer</span> x) (<span style="color:#a6e22e">numer</span> y))
+              (* (<span style="color:#a6e22e">denom</span> x) (<span style="color:#a6e22e">denom</span> y))))
+(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">div-rat</span> x y)
+    (<span style="color:#a6e22e">make-rat</span> (* (<span style="color:#a6e22e">numer</span> x) (<span style="color:#a6e22e">denom</span> y))
+              (* (<span style="color:#a6e22e">denom</span> x) (<span style="color:#a6e22e">numer</span> y)))
+(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">equal-rat?</span> x y)
+    (= (* (<span style="color:#a6e22e">numer</span> x) (<span style="color:#a6e22e">denom</span> y))
+       (* (<span style="color:#a6e22e">numer</span> y) (<span style="color:#a6e22e">denom</span> x))))
+</code></pre></div><p>我们现在可以构成、运算分数了，但是现在的分数还不不具备约分化简的能力，于是我们要用到1.2.5节的gcd，也就是查找最大公约数的方法修改make-rat</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">make-rat</span> n d)
+    (<span style="color:#66d9ef">let </span>((<span style="color:#a6e22e">g</span> (gcd n d))
+        (cons (/ n g) (<span style="color:#a6e22e">/d</span>  g))))
+</code></pre></div><p>现在我们就完成了有理数数据类型的基本结构了。然后我们来回顾一下这个过程然后思考一些问题。</p>
+<h2 id="抽象屏障abstraction-barriers">抽象屏障(Abstraction Barriers)</h2>
+<p>我们可以看到，上述有理数的数据设计是有明显的层次的</p>
+<p><img src="/AbsBarr.jpeg" alt="AbsBarr"></p>
+<p>上层都无须关注下层的具体实现，例如make-rat不需要关注序对怎么实现的，add-rat也不需要关心make-rat是怎么实现的。</p>
+<p>这种思想的有点基本可以概括为</p>
+<ol>
+<li>程序容易维护和修改</li>
+<li>可以先扔下底层的具体实现而先构建上层</li>
+</ol>
+<p>第一点很好理解，对于第二点，我们可以举个例子</p>
+<p>对于刚才我们实现的三个基本方法，约分的步骤是在构造有理数的方法make-rat里实现的，但是我也可以让有理数就原原本本的保存，在取分子或者分母的时候再约分，如下</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">make-rat</span> n d)
+    (cons n d))
+
+(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">numer</span> x)
+    (<span style="color:#66d9ef">let </span>((<span style="color:#a6e22e">g</span> (gcd (car x) (cdr x)))
+        (/ (car x) g))))
+
+(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">denom</span> x))
+    (<span style="color:#66d9ef">let </span>((<span style="color:#a6e22e">g</span> (gcd (car x) (cdr x)))
+        (/ (cdr x) g)))
+</code></pre></div><p>区别只在于何时运用gcd约分，如果我们需要多次访问有理数的分子和分母，那么我们最好最开始构造有理数的时候就约分，如果情况并非如此，那么我们就可以取分子和取分母的时候再约分。</p>
+<p>而这种区别，对于上层我们如何设计add-rat等方法没有任何影响，我们可以先放下何时取约分这种细节问题，不让他干扰我们整体系统的设计。</p>
+<h2 id="数据是什么">数据是什么</h2>
+<p>对于上面的例子，constructor就是make-rat，selector就是numer和denom。而数据就是由constructor和selector所构建的，当然constructor和selector不是随便的几个过程就行的，还要满足一些条件，对于上面有理数的例子，条件就是</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>x (<span style="color:#a6e22e">make-rat</span> n d))
+(<span style="color:#a6e22e">equal-rat?</span> x (cons (car x) (cdr x)))=true
+</code></pre></div><p>因此我们可以说数据是由满足 <em>使得表达式完整有意义的条件</em> 的constructor和selector所构建的。</p>
+    </article>
+
+    
+
+
+    <ul class="pager article-pager">
+      <li class="pager-newer">
+          <a href="/post/introduction-to-sicp-chapter-2/" data-toggle="tooltip" data-placement="top" title="Introduction to SICP Chapter 2">&lt; Newer</a>
+      </li>
+      <li class="pager-older">
+        <a href="/post/jenv-manage-jdk/" data-toggle="tooltip" data-placement="top" title="Jenv Manage JDK">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
+
+<script src="https://cdn.bootcss.com/highlight.js/9.18.1/highlight.min.js"></script>
+</body>
+</html>

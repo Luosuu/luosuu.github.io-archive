@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>To Do on luosuu的小站</title>
+    <link>https://example.com/categories/to-do/</link>
+    <description>Recent content in To Do on luosuu的小站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy; Copyright 2020 luosuu</copyright>
+    <lastBuildDate>Thu, 05 Mar 2020 19:31:15 +0800</lastBuildDate>
+    
+	<atom:link href="https://example.com/categories/to-do/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>To Do 2020 WinterVacation</title>
+      <link>https://example.com/post/to-do-2020-wintervacation/</link>
+      <pubDate>Thu, 05 Mar 2020 19:31:15 +0800</pubDate>
+      
+      <guid>https://example.com/post/to-do-2020-wintervacation/</guid>
+      <description>&lt;p&gt;寒假ToDoList，用来公开处刑，完不成请私信我让我女装&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
