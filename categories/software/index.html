@@ -60,24 +60,6 @@
         </ul>
         <div class="article-content">
           <p>Something magical</p>
-<!-- raw HTML omitted -->
-<h2 id="config-file-on-macos">Config file on macOS</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vim /usr/local/etc/shadowsocks-libev.json
-</code></pre></div><p>Example:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#f92672">&#34;server&#34;</span>:<span style="color:#e6db74">&#34;abc.xyz.com&#34;</span>,
-    <span style="color:#f92672">&#34;server_port&#34;</span>:<span style="color:#ae81ff">8888</span>,
-    <span style="color:#f92672">&#34;local_port&#34;</span>:<span style="color:#ae81ff">1080</span>,
-    <span style="color:#f92672">&#34;password&#34;</span>:<span style="color:#e6db74">&#34;AbCdEfGhIjKlMn&#34;</span>,
-    <span style="color:#f92672">&#34;timeout&#34;</span>:<span style="color:#ae81ff">5</span>,
-    <span style="color:#f92672">&#34;method&#34;</span>:<span style="color:#e6db74">&#34;chacha20-ietf-poly1305&#34;</span>,
-    <span style="color:#f92672">&#34;mode&#34;</span>:<span style="color:#e6db74">&#34;tcp_and_udp&#34;</span>,
-    <span style="color:#f92672">&#34;plugin&#34;</span>: <span style="color:#e6db74">&#34;obfs-local&#34;</span>,
-    <span style="color:#f92672">&#34;plugin_opts&#34;</span>: <span style="color:#e6db74">&#34;obfs=http;obfs-host=cloudflare.net&#34;</span>
-} 
-</code></pre></div><p>Restart services</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">brew services restart shadowsocks-libev 
-</code></pre></div>
         </div>
         <div class="article-readmore"><a href="/post/something-magical/">Read more...</a></div>
         <div class="article-floatclear"></div>
