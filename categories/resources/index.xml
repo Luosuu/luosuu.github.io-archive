@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Resources on luosuu的小站</title>
+    <link>https://example.com/categories/resources/</link>
+    <description>Recent content in Resources on luosuu的小站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy; Copyright 2020 luosuu</copyright>
+    <lastBuildDate>Mon, 16 Mar 2020 11:32:11 +0800</lastBuildDate>
+    
+	<atom:link href="https://example.com/categories/resources/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Arrangement of Learning Resources</title>
+      <link>https://example.com/post/arrangement-of-learning-resources/</link>
+      <pubDate>Mon, 16 Mar 2020 11:32:11 +0800</pubDate>
+      
+      <guid>https://example.com/post/arrangement-of-learning-resources/</guid>
+      <description>&lt;p&gt;资源整理向博客&lt;/p&gt;
+&lt;p&gt;课程的完整列表可见：&lt;/p&gt;
+&lt;p&gt;​	https://github.com/shining1984/PL-Compiler-Resource&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
