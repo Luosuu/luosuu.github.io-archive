@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; Copyright 2020 luosuu</copyright>
-    <lastBuildDate>Mon, 16 Mar 2020 11:32:11 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 27 Mar 2020 12:00:09 +0800</lastBuildDate>
     
 	<atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Always Know What Is Important</title>
+      <link>https://example.com/post/always-know-what-is-important/</link>
+      <pubDate>Fri, 27 Mar 2020 12:00:09 +0800</pubDate>
+      
+      <guid>https://example.com/post/always-know-what-is-important/</guid>
+      <description>&lt;p&gt;整理心情，重新出发&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Arrangement of Learning Resources</title>
