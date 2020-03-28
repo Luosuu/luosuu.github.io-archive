@@ -7,17 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; Copyright 2020 luosuu</copyright>
-    <lastBuildDate>Fri, 27 Mar 2020 12:00:09 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 28 Mar 2020 16:14:22 +0800</lastBuildDate>
     
 	<atom:link href="https://example.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>sicp</title>
-      <link>https://example.com/categories/sicp/</link>
-      <pubDate>Fri, 27 Mar 2020 12:00:09 +0800</pubDate>
+      <title>Diary</title>
+      <link>https://example.com/categories/diary/</link>
+      <pubDate>Sat, 28 Mar 2020 16:14:22 +0800</pubDate>
       
-      <guid>https://example.com/categories/sicp/</guid>
+      <guid>https://example.com/categories/diary/</guid>
       <description></description>
     </item>
     
@@ -49,15 +49,6 @@
     </item>
     
     <item>
-      <title>diary</title>
-      <link>https://example.com/categories/diary/</link>
-      <pubDate>Thu, 05 Mar 2020 19:27:28 +0800</pubDate>
-      
-      <guid>https://example.com/categories/diary/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>UI</title>
       <link>https://example.com/categories/ui/</link>
       <pubDate>Thu, 05 Mar 2020 19:26:15 +0800</pubDate>
@@ -81,6 +72,15 @@
       <pubDate>Thu, 05 Mar 2020 19:21:47 +0800</pubDate>
       
       <guid>https://example.com/categories/eth/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sicp</title>
+      <link>https://example.com/categories/sicp/</link>
+      <pubDate>Thu, 05 Mar 2020 18:53:26 +0800</pubDate>
+      
+      <guid>https://example.com/categories/sicp/</guid>
       <description></description>
     </item>
     

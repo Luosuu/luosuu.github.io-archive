@@ -1,16 +1,34 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>diary on luosuu的小站</title>
+    <title>Diary on luosuu的小站</title>
     <link>https://example.com/categories/diary/</link>
-    <description>Recent content in diary on luosuu的小站</description>
+    <description>Recent content in Diary on luosuu的小站</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; Copyright 2020 luosuu</copyright>
-    <lastBuildDate>Thu, 05 Mar 2020 19:27:28 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 28 Mar 2020 16:14:22 +0800</lastBuildDate>
     
 	<atom:link href="https://example.com/categories/diary/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Homogenization and Diversification</title>
+      <link>https://example.com/post/homogenization-and-diversification/</link>
+      <pubDate>Sat, 28 Mar 2020 16:14:22 +0800</pubDate>
+      
+      <guid>https://example.com/post/homogenization-and-diversification/</guid>
+      <description>&lt;p&gt;记有关“同质化与多样化”一堂课的相关思考。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Always Know What Is Important</title>
+      <link>https://example.com/post/always-know-what-is-important/</link>
+      <pubDate>Fri, 27 Mar 2020 12:00:09 +0800</pubDate>
+      
+      <guid>https://example.com/post/always-know-what-is-important/</guid>
+      <description>&lt;p&gt;整理心情，重新出发&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Diary 2019 11 3</title>
