@@ -7,19 +7,10 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; Copyright 2020 luosuu</copyright>
-    <lastBuildDate>Sat, 28 Mar 2020 16:14:22 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 13 May 2020 12:00:09 +0800</lastBuildDate>
     
 	<atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Homogenization and Diversification</title>
-      <link>https://example.com/post/homogenization-and-diversification/</link>
-      <pubDate>Sat, 28 Mar 2020 16:14:22 +0800</pubDate>
-      
-      <guid>https://example.com/post/homogenization-and-diversification/</guid>
-      <description>&lt;p&gt;记有关“同质化与多样化”一堂课的相关思考。&lt;/p&gt;</description>
-    </item>
     
     <item>
       <title>Always Know What Is Important</title>
@@ -42,21 +33,49 @@
     </item>
     
     <item>
-      <title>To Do 2020 WinterVacation</title>
-      <link>https://example.com/post/to-do-2020-wintervacation/</link>
-      <pubDate>Thu, 05 Mar 2020 19:31:15 +0800</pubDate>
-      
-      <guid>https://example.com/post/to-do-2020-wintervacation/</guid>
-      <description>&lt;p&gt;寒假ToDoList，用来公开处刑，完不成请私信我让我女装&lt;/p&gt;</description>
-    </item>
-    
-    <item>
       <title>Start PLT</title>
       <link>https://example.com/post/start-plt/</link>
       <pubDate>Thu, 05 Mar 2020 18:38:45 +0800</pubDate>
       
       <guid>https://example.com/post/start-plt/</guid>
       <description>&lt;p&gt;研究事物的原理和构造，掌握基本方法。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Azure CLI to Deploy Containers</title>
+      <link>https://example.com/post/azure_contianer_cli/</link>
+      <pubDate>Wed, 13 May 2020 12:00:09 +0800</pubDate>
+      
+      <guid>https://example.com/post/azure_contianer_cli/</guid>
+      <description>&lt;p&gt;最近因为一些原因在折腾Azure，毕竟不能浪费微软爸爸发的每月150刀额度。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Azure CLI VM Deployment</title>
+      <link>https://example.com/post/azure-vm-deployment/</link>
+      <pubDate>Wed, 13 May 2020 12:00:09 +0800</pubDate>
+      
+      <guid>https://example.com/post/azure-vm-deployment/</guid>
+      <description>&lt;p&gt;用Azure CLI快速部署一台实例。&lt;/p&gt;
+&lt;p&gt;注意这些操作都可以用Azure门户快速实现，Azure CLI不是唯一选择。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Homogenization and Diversification</title>
+      <link>https://example.com/post/homogenization-and-diversification/</link>
+      <pubDate>Sat, 28 Mar 2020 16:14:22 +0800</pubDate>
+      
+      <guid>https://example.com/post/homogenization-and-diversification/</guid>
+      <description>&lt;p&gt;记有关“同质化与多样化”一堂课的相关思考。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>To Do 2020 WinterVacation</title>
+      <link>https://example.com/post/to-do-2020-wintervacation/</link>
+      <pubDate>Thu, 05 Mar 2020 19:31:15 +0800</pubDate>
+      
+      <guid>https://example.com/post/to-do-2020-wintervacation/</guid>
+      <description>&lt;p&gt;寒假ToDoList，用来公开处刑，完不成请私信我让我女装&lt;/p&gt;</description>
     </item>
     
     <item>

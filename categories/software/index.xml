@@ -7,10 +7,29 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; Copyright 2020 luosuu</copyright>
-    <lastBuildDate>Wed, 11 Mar 2020 16:03:03 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 13 May 2020 12:00:09 +0800</lastBuildDate>
     
 	<atom:link href="https://example.com/categories/software/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Azure CLI to Deploy Containers</title>
+      <link>https://example.com/post/azure_contianer_cli/</link>
+      <pubDate>Wed, 13 May 2020 12:00:09 +0800</pubDate>
+      
+      <guid>https://example.com/post/azure_contianer_cli/</guid>
+      <description>&lt;p&gt;最近因为一些原因在折腾Azure，毕竟不能浪费微软爸爸发的每月150刀额度。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Azure CLI VM Deployment</title>
+      <link>https://example.com/post/azure-vm-deployment/</link>
+      <pubDate>Wed, 13 May 2020 12:00:09 +0800</pubDate>
+      
+      <guid>https://example.com/post/azure-vm-deployment/</guid>
+      <description>&lt;p&gt;用Azure CLI快速部署一台实例。&lt;/p&gt;
+&lt;p&gt;注意这些操作都可以用Azure门户快速实现，Azure CLI不是唯一选择。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Something Magical</title>

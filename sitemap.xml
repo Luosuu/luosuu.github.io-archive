@@ -3,11 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://example.com/post/homogenization-and-diversification/</loc>
-    <lastmod>2020-03-28T16:14:22+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://example.com/post/always-know-what-is-important/</loc>
     <lastmod>2020-03-27T12:00:09+08:00</lastmod>
   </url>
@@ -18,13 +13,28 @@
   </url>
   
   <url>
-    <loc>https://example.com/post/to-do-2020-wintervacation/</loc>
-    <lastmod>2020-03-05T19:31:15+08:00</lastmod>
+    <loc>https://example.com/post/start-plt/</loc>
+    <lastmod>2020-03-05T18:38:45+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/post/start-plt/</loc>
-    <lastmod>2020-03-05T18:38:45+08:00</lastmod>
+    <loc>https://example.com/post/azure_contianer_cli/</loc>
+    <lastmod>2020-05-13T12:00:09+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/post/azure-vm-deployment/</loc>
+    <lastmod>2020-05-13T12:00:09+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/post/homogenization-and-diversification/</loc>
+    <lastmod>2020-03-28T16:14:22+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/post/to-do-2020-wintervacation/</loc>
+    <lastmod>2020-03-05T19:31:15+08:00</lastmod>
   </url>
   
   <url>
@@ -59,7 +69,22 @@
   
   <url>
     <loc>https://example.com/categories/</loc>
-    <lastmod>2020-03-28T16:14:22+08:00</lastmod>
+    <lastmod>2020-05-13T12:00:09+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/</loc>
+    <lastmod>2020-05-13T12:00:09+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/post/</loc>
+    <lastmod>2020-05-13T12:00:09+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/categories/software/</loc>
+    <lastmod>2020-05-13T12:00:09+08:00</lastmod>
   </url>
   
   <url>
@@ -68,23 +93,8 @@
   </url>
   
   <url>
-    <loc>https://example.com/</loc>
-    <lastmod>2020-03-28T16:14:22+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/post/</loc>
-    <lastmod>2020-03-28T16:14:22+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://example.com/categories/resources/</loc>
     <lastmod>2020-03-16T11:32:11+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/categories/software/</loc>
-    <lastmod>2020-03-11T16:03:03+08:00</lastmod>
   </url>
   
   <url>
