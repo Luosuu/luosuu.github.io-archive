@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>微信小程序开发训练营 - luosuu的小站</title>
+  <meta property="og:title" content="微信小程序开发训练营 - luosuu的小站" />
+  <meta name="twitter:title" content="微信小程序开发训练营 - luosuu的小站" />
+  <meta name="description" content="最近参加了腾讯微信小程序开发训练营，记录一些有趣的点。">
+  <meta property="og:description" content="最近参加了腾讯微信小程序开发训练营，记录一些有趣的点。">
+  <meta name="twitter:description" content="最近参加了腾讯微信小程序开发训练营，记录一些有趣的点。">
+  <meta name="author" content="luosuu"/>
+  <meta property="og:site_name" content="luosuu的小站" />
+  <meta property="og:url" content="https://example.com/post/wx-miniprogram-tips/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.73.0" />
+
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
+
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">luosuu的小站</a></h1>
+    <ul class="site-navi-items">
+      <li class="site-navi-item-categories"><a href="/categories/" title="Categories">Categories</a></li>
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
+
+  <div class="main" role="main">
+    <article class="article">
+      
+      
+      <h1 class="article-title">微信小程序开发训练营</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>July 29, 2020</time></li>
+        <li class="article-meta-categories">
+          <a href="/categories/software/">
+            <i class="fas fa-folder"></i>
+            software
+          </a>&nbsp;
+        </li>
+      </ul>
+      
+<aside class="toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#用户登陆">用户登陆</a></li>
+    <li><a href="#文件存储">文件存储</a></li>
+    <li><a href="#生命周期">生命周期</a></li>
+    <li><a href="#一丢丢心得">一丢丢心得</a></li>
+  </ul>
+</nav>
+</aside>
+      <p>最近参加了腾讯微信小程序开发训练营，记录一些有趣的点。</p>
+<p>参考文档：</p>
+<p><a href="https://cloudbase.net/community/guides/handbook/index.html">腾讯云开发训练营</a></p>
+<p><a href="https://developers.weixin.qq.com/miniprogram/dev/framework/">微信小程序开放文档</a></p>
+<h2 id="用户登陆">用户登陆</h2>
+<p>登陆方式有很多种，可以用<code>wx.login</code>登陆，也可以使用云函数登陆 。所谓云函数，是在云端运行的代码，由微信私有协议天然鉴权，开发者只需编写业务逻辑代码。如果我们想对不同的用户有不同的记录，区分不同的用户的方式就是获取他们的<code>openid</code>。由服务器端云函数返回用户<code>openid</code>是简单的。在创建小程序项目时，选择基于云的小程序，其中的<code>cloudfunctions/login</code>就是登陆函数。</p>
+<p><img src="/image-20200730111044048.png" alt="image-20200730111044048"></p>
+<p>以下是<code>login</code>云函数的主要内容</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// 云函数模板
+</span><span style="color:#75715e">// 部署：在 cloud-functions/login 文件夹右击选择 “上传并部署”
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">cloud</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;wx-server-sdk&#39;</span>)
+
+<span style="color:#75715e">// 初始化 cloud
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">cloud</span>.<span style="color:#a6e22e">init</span>({
+  <span style="color:#75715e">// API 调用都保持和云函数当前所在环境一致
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">env</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">cloud</span>.<span style="color:#a6e22e">DYNAMIC_CURRENT_ENV</span>
+})
+
+<span style="color:#75715e">/**
+</span><span style="color:#75715e"> * 这个示例将经自动鉴权过的小程序用户 openid 返回给小程序端
+</span><span style="color:#75715e"> * 
+</span><span style="color:#75715e"> * event 参数包含小程序端调用传入的 data
+</span><span style="color:#75715e"> * 
+</span><span style="color:#75715e"> */</span>
+<span style="color:#a6e22e">exports</span>.<span style="color:#a6e22e">main</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">async</span> (<span style="color:#a6e22e">event</span>, <span style="color:#a6e22e">context</span>) =&gt; {
+  <span style="color:#75715e">// 可执行其他自定义逻辑
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// console.log 的内容可以在云开发云函数调用日志查看
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// 获取 WX Context (微信调用上下文)，包括 OPENID、APPID、及 UNIONID（需满足 UNIONID 获取条件）等信息
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">wxContext</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">cloud</span>.<span style="color:#a6e22e">getWXContext</span>()
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;getWXContext返回的结果&#39;</span>,<span style="color:#a6e22e">wxContext</span>)
+  <span style="color:#66d9ef">return</span> {
+    <span style="color:#a6e22e">event</span>,
+    <span style="color:#a6e22e">openid</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">wxContext</span>.<span style="color:#a6e22e">OPENID</span>,
+    <span style="color:#a6e22e">appid</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">wxContext</span>.<span style="color:#a6e22e">APPID</span>,
+    <span style="color:#a6e22e">unionid</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">wxContext</span>.<span style="color:#a6e22e">UNIONID</span>,
+    <span style="color:#a6e22e">env</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">wxContext</span>.<span style="color:#a6e22e">ENV</span>,
+  }
+}
+</code></pre></div><p>下面是一个使用云函数登陆的示例代码</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">wx</span>.<span style="color:#a6e22e">cloud</span>.<span style="color:#a6e22e">callFunction</span>({
+  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;login&#39;</span>,
+  <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span>{},
+  <span style="color:#a6e22e">succeess</span><span style="color:#f92672">:</span><span style="color:#a6e22e">res</span>=&gt;{
+    <span style="color:#75715e">//登陆成功后的处理,其中回调函数的res.result.openid就是云端返回的用户openid
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">//在云端存储用户信息
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">wx</span>.<span style="color:#a6e22e">cloud</span>.<span style="color:#a6e22e">callFunction</span>({
+      <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;setUserInfo&#39;</span>
+      <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span>{
+      <span style="color:#a6e22e">userid</span><span style="color:#f92672">:</span><span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">openid</span>
+      <span style="color:#75715e">//其他参数
+</span><span style="color:#75715e"></span>      <span style="color:#75715e">//....
+</span><span style="color:#75715e"></span>    }
+    })    
+  }
+})
+</code></pre></div><h2 id="文件存储">文件存储</h2>
+<p>微信小程序支持本地缓存储存文件，也支持云存储文件。缓存文件只在用户小程序端存在，可以用来缓存用户个人信息等，云存储的文件可以用云开发控制台直接上传，获取<code>cloud://</code>开头的路径，就可以在小程序中直接使用了。</p>
+<p>当然我们也可以让用户上传文件，其中一种方式就是将本地的临时文件上传到云端，要使用<code>wx.cloud.uploadFile</code></p>
+<p>cloudPath是文件在云端的路径，我们可以指定。</p>
+<p>filePath是本地临时文件的路径。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">  <span style="color:#a6e22e">uploadFiles</span>(<span style="color:#a6e22e">e</span>) {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">filePath</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">files</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">src</span>
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">cloudPath</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`cloudbase/</span><span style="color:#e6db74">${</span>Date.<span style="color:#a6e22e">now</span>()<span style="color:#e6db74">}</span><span style="color:#e6db74">-</span><span style="color:#e6db74">${</span>Math.<span style="color:#a6e22e">floor</span>(Math.<span style="color:#a6e22e">random</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>) <span style="color:#f92672">*</span> <span style="color:#ae81ff">1000</span>)<span style="color:#e6db74">}</span><span style="color:#e6db74">`</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">filePath</span>.<span style="color:#a6e22e">match</span>(<span style="color:#e6db74">/\.[^.]+?$/</span>)
+    <span style="color:#a6e22e">wx</span>.<span style="color:#a6e22e">cloud</span>.<span style="color:#a6e22e">uploadFile</span>({
+      <span style="color:#a6e22e">cloudPath</span>,<span style="color:#a6e22e">filePath</span>
+    }).<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">res</span> =&gt; {
+      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setData</span>({
+        <span style="color:#a6e22e">fileID</span><span style="color:#f92672">:</span><span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">fileID</span>
+      })
+    }).<span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">error</span> =&gt; {
+      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;文件上传失败&#34;</span>,<span style="color:#a6e22e">error</span>)
+    })
+  },
+</code></pre></div><h2 id="生命周期">生命周期</h2>
+<p>有时候我们需要数据跨页面渲染，我们当然可以全部都存储到云端然后读取、处理，但是也可以使用url带数据的方式将数据传递到下一个页面。</p>
+<p>对于一个链接来说</p>
+<ul>
+<li>/ 分隔目录和子目录</li>
+<li>? 分隔实际的 URL 和参数</li>
+<li>&amp; URL 中指定的参数间的分隔符</li>
+<li>= URL 中指定的参数的值</li>
+</ul>
+<p>以下面这个链接为例</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">navigator</span> <span style="color:#a6e22e">url</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;./../home/detail/detail?id={{index}}&amp;name={{movies.name}}&amp;img={{movies.img}}&amp;desc={{movies.desc}}&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;weui-media-box weui-media-box_appmsg&#34;</span> <span style="color:#a6e22e">hover-class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;weui-cell_active&#34;</span>&gt;
+</code></pre></div><p>这是一个跳转链接，跳转到<code>home/detail/detail</code>页面，传递了变量<code>id</code>,<code>name</code>,<code>img</code>,<code>desc</code>。这些变量的值都在对应的本页面的js文件中定义。</p>
+<p>然后我们可以在跳转目标页面的js文件里，在<code>onLoad</code>中获得到这些变量，并赋给需要的地方，比如</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">onLoad</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">options</span>) {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">options</span>)
+  <span style="color:#a6e22e">wx</span>.<span style="color:#a6e22e">setNavigationBarTitle</span>({
+    <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">options</span>.<span style="color:#a6e22e">name</span>
+  })
+  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setData</span>({
+    <span style="color:#a6e22e">detail</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">options</span>,
+  })
+},
+</code></pre></div><h2 id="一丢丢心得">一丢丢心得</h2>
+<p>微信小程序开发主要还是需要熟悉微信小程序开发的框架与规定（与angularJs框架类似），虽然一个功能逻辑可以有很多种写法，但是有很多既定的推荐写法可以借鉴。</p>
+<p>云函数的开发要对各种API比较熟悉，不同的小程序之间可以方便的复用。但是我对云函数的调试并不满意，虽然提供了本地调试的选项，用起来也不是特别的方便。最后要吐槽很多功能的表现在电脑的开发者工具上预览的效果与手机实际效果是有不少差距的，debug的时候也很麻烦。</p>
+    </article>
+
+    
+
+
+    <ul class="pager article-pager">
+      <li class="pager-newer">
+          <a href="/post/start-plt/" data-toggle="tooltip" data-placement="top" title="Start PLT">&lt; Newer</a>
+      </li>
+      <li class="pager-older">
+        <a href="/post/azure_contianer_cli/" data-toggle="tooltip" data-placement="top" title="Azure CLI to Deploy Containers">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
+
+<script src="https://cdn.bootcss.com/highlight.js/9.18.1/highlight.min.js"></script>
+</body>
+</html>

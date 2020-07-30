@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; Copyright 2020 luosuu</copyright>
-    <lastBuildDate>Wed, 13 May 2020 12:00:09 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 29 Jul 2020 18:53:26 +0800</lastBuildDate>
     
 	<atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
     
@@ -39,6 +39,15 @@
       
       <guid>https://example.com/post/start-plt/</guid>
       <description>&lt;p&gt;研究事物的原理和构造，掌握基本方法。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>微信小程序开发训练营</title>
+      <link>https://example.com/post/wx-miniprogram-tips/</link>
+      <pubDate>Wed, 29 Jul 2020 18:53:26 +0800</pubDate>
+      
+      <guid>https://example.com/post/wx-miniprogram-tips/</guid>
+      <description>&lt;p&gt;最近参加了腾讯微信小程序开发训练营，记录一些有趣的点。&lt;/p&gt;</description>
     </item>
     
     <item>

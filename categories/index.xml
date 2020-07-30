@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; Copyright 2020 luosuu</copyright>
-    <lastBuildDate>Wed, 13 May 2020 12:00:09 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 29 Jul 2020 18:53:26 +0800</lastBuildDate>
     
 	<atom:link href="https://example.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>Software</title>
       <link>https://example.com/categories/software/</link>
-      <pubDate>Wed, 13 May 2020 12:00:09 +0800</pubDate>
+      <pubDate>Wed, 29 Jul 2020 18:53:26 +0800</pubDate>
       
       <guid>https://example.com/categories/software/</guid>
       <description></description>
