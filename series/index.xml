@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Series on luosuu的小站</title>
-    <link>https://example.com/series/</link>
-    <description>Recent content in Series on luosuu的小站</description>
+    <title>Series on 洛舒luosuu的小站</title>
+    <link>https://luosuu.github.io/series/</link>
+    <description>Recent content in Series on 洛舒luosuu的小站</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>&amp;copy; Copyright 2020 luosuu</copyright>
+    <language>zh-cn</language>
+    <copyright>Copyright © 2020</copyright>
+    <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://example.com/series/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://luosuu.github.io/series/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Themes Guide</title>
+      <link>https://luosuu.github.io/series/themes-guide/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://luosuu.github.io/series/themes-guide/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

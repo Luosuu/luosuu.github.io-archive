@@ -1,87 +1,559 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>sicp on luosuu的小站</title>
-    <link>https://example.com/categories/sicp/</link>
-    <description>Recent content in sicp on luosuu的小站</description>
+    <title>sicp on 洛舒luosuu的小站</title>
+    <link>https://luosuu.github.io/categories/sicp/</link>
+    <description>Recent content in sicp on 洛舒luosuu的小站</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>&amp;copy; Copyright 2020 luosuu</copyright>
+    <language>zh-cn</language>
+    <copyright>Copyright © 2020</copyright>
     <lastBuildDate>Thu, 06 Aug 2020 11:13:49 +0800</lastBuildDate>
     
-	<atom:link href="https://example.com/categories/sicp/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://luosuu.github.io/categories/sicp/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>2020shanghai B - 缓冲区结算、括号嵌套的递归</title>
-      <link>https://example.com/post/2020shanghai-b/</link>
+      <link>https://luosuu.github.io/post/2020shanghai-b/</link>
       <pubDate>Thu, 06 Aug 2020 11:13:49 +0800</pubDate>
       
-      <guid>https://example.com/post/2020shanghai-b/</guid>
-      <description>&lt;p&gt;题面:&lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6871/B&#34;&gt;https://ac.nowcoder.com/acm/contest/6871/B&lt;/a&gt;&lt;/p&gt;</description>
+      <guid>https://luosuu.github.io/post/2020shanghai-b/</guid>
+      <description>&lt;p&gt;题面:&lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6871/B&#34;&gt;https://ac.nowcoder.com/acm/contest/6871/B&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;分析&#34;&gt;分析&lt;/h2&gt;
+
+&lt;p&gt;典型的字符串处理，而且出题人强调了没有括号嵌套（真亚撒西嘤嘤嘤）。&lt;/p&gt;
+
+&lt;p&gt;因为分子式不同部分的计算方式是不一样的，可以用缓冲的思想来解决这个问题。&lt;/p&gt;
+
+&lt;p&gt;在不考虑括号嵌套的情况下&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;#34;string&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;namespace&lt;/span&gt; std;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;typedef&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;long&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;long&lt;/span&gt; ll;
+string a;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;(){
+    cin&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt;a;
+    ll ans&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,cnt&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,res&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,sum&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; len&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;a.length();
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; i&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;i&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;a.length();)
+    {
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(a[i]&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;C&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;||&lt;/span&gt;a[i]&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;H&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;||&lt;/span&gt;a[i]&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;O&amp;#39;&lt;/span&gt;){
+             &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(a[i]&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;C&amp;#39;&lt;/span&gt;)cnt&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;13&lt;/span&gt;;
+              &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(a[i]&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;H&amp;#39;&lt;/span&gt;)cnt&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(a[i]&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;O&amp;#39;&lt;/span&gt;)cnt&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;17&lt;/span&gt;;
+            i&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;;
+            res&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt;(i&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;len&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;a[i]&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;0&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;a[i]&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;9&amp;#39;&lt;/span&gt;){
+                res&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;res&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;a[i]&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;0&amp;#39;&lt;/span&gt;;
+                i&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;;
+            }
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;!&lt;/span&gt;res)ans&lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt;cnt;
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; ans&lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt;cnt&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;res;
+        }
+
+        &lt;span style=&#34;color:#75715e&#34;&gt;//遇到左括号，就先把未加进最终结果的非括号内元素们算入结果，清空缓冲区，准备计算括号内的分子式
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(a[i]&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;(&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;i&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;len){
+          sum&lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt;ans;
+            ans&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
+            i&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;;
+        }
+        &lt;span style=&#34;color:#75715e&#34;&gt;//遇到右括号，结算括号内部的
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(a[i]&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;)&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;i&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;len){
+            i&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;;
+            res&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
+             &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt;(i&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;len&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;a[i]&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;0&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;a[i]&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;9&amp;#39;&lt;/span&gt;){
+                res&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;res&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;a[i]&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;0&amp;#39;&lt;/span&gt;;
+                i&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;;
+            }
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;!&lt;/span&gt;res)sum&lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt;ans;
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; sum&lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt;ans&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;res;
+            ans&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
+        }
+    }
+    sum&lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt;ans;
+    printf(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%lld&amp;#34;&lt;/span&gt;,sum);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&#34;用递归的方式处理括号嵌套&#34;&gt;用递归的方式处理括号嵌套&lt;/h3&gt;
+
+&lt;p&gt;如果要考虑括号内部的嵌套，就需要用到递归的方法了。&lt;/p&gt;
+
+&lt;p&gt;先说缓冲区的部分，遇到常规字符&lt;code&gt;C&lt;/code&gt;,&lt;code&gt;H&lt;/code&gt;,&lt;code&gt;O&lt;/code&gt;，将缓冲区算入结果，将常规字符的值读入缓冲区，以处理后面可能会出现的数字，括号等情况。&lt;/p&gt;
+
+&lt;p&gt;遇到左括号，也是先将缓冲区算入结果，然后进入下一层函数，计算括号内部的分子式，遇到右括号时内部分子式返回来。如果内部还有括号，同理，会进入再下一层函数。最后将括号内的值读入缓冲区。&lt;/p&gt;
+
+&lt;p&gt;遇到数字，就会继续往下读，直到把整个数字段都读出来（这个过程会转换为具体的数字&lt;code&gt;times&lt;/code&gt;）。然后将缓冲区内的值乘以times算入结果，清空缓冲区（这里清空缓冲区是必要的，虽然读入下一个数据的时候会覆盖它，但是如果已经是最后一个数据，就会跳出循环，执行最后的缓冲区内数据算入结果，如果不清空会多算一次）。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;cstdio&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;#34;string&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#define ll long long
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;namespace&lt;/span&gt; std;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;char&lt;/span&gt; in[&lt;span style=&#34;color:#ae81ff&#34;&gt;1000050&lt;/span&gt;];
+&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; len;
+ll &lt;span style=&#34;color:#a6e22e&#34;&gt;cal&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;now){
+    ll tmp&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,sum&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,times&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt;(now;now&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;len;){
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(in[now]&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;0&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;in[now]&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;9&amp;#39;&lt;/span&gt;){
+            times&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;(in[now]&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;0&amp;#39;&lt;/span&gt;);
+            now&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;;
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt;(in[now]&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;0&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;in[now]&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;9&amp;#39;&lt;/span&gt;){
+                times&lt;span style=&#34;color:#f92672&#34;&gt;*=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;;
+                times&lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt;(in[now]&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;0&amp;#39;&lt;/span&gt;);
+                now&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;;
+            }
+            sum&lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt;tmp&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;times;
+            tmp&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;continue&lt;/span&gt;;
+        }
+        &lt;span style=&#34;color:#75715e&#34;&gt;//遇到左括号时，先将缓冲区内部加入结果，然后进入下一层函数，计算内部分子式，遇到右括号再返回来
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(in[now]&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;(&amp;#39;&lt;/span&gt;){
+            sum&lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt;tmp;
+            now&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;;
+            tmp&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;cal(now);
+        }
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(in[now]&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;)&amp;#39;&lt;/span&gt;){
+            sum&lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt;tmp;
+            now&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;;
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; sum;
+        }
+        &lt;span style=&#34;color:#75715e&#34;&gt;//遇到常规字符也是把上一个缓冲区的内容加入结果，把当前的加入缓冲区，以处理后面可能会出现的数字
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(in[now]&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;C&amp;#39;&lt;/span&gt;){
+            sum&lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt;tmp;
+            tmp&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;13&lt;/span&gt;;
+            now&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;;
+        }&lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(in[now]&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;H&amp;#39;&lt;/span&gt;){
+            sum&lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt;tmp;
+            tmp&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+            now&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;;
+        }&lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(in[now]&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;O&amp;#39;&lt;/span&gt;){
+            sum&lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt;tmp;
+            tmp&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;17&lt;/span&gt;;
+            now&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;;
+        }
+    }
+    sum&lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt;tmp;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; sum;
+}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;solve&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; T){
+    scanf(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%s&amp;#34;&lt;/span&gt;,in);
+    len&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;strlen(in);
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; now&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
+    printf(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%lld&amp;#34;&lt;/span&gt;,cal(now));
+}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;signed&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;(){
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; t&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+    &lt;span style=&#34;color:#75715e&#34;&gt;//scanf(&amp;#34;%d&amp;#34;,&amp;amp;t);
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; i&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;i&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt;t;i&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;){
+        solve(i);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
       <title>Start PLT</title>
-      <link>https://example.com/post/start-plt/</link>
+      <link>https://luosuu.github.io/post/start-plt/</link>
       <pubDate>Thu, 05 Mar 2020 18:38:45 +0800</pubDate>
       
-      <guid>https://example.com/post/start-plt/</guid>
-      <description>&lt;p&gt;研究事物的原理和构造，掌握基本方法。&lt;/p&gt;</description>
+      <guid>https://luosuu.github.io/post/start-plt/</guid>
+      <description>&lt;p&gt;研究事物的原理和构造，掌握基本方法。&lt;/p&gt;
+&lt;h2 id=&#34;记一个开始&#34;&gt;记一个开始&lt;/h2&gt;
+&lt;p&gt;今天我的SICP实体版到了，虽然有官方html转的PDF，并且英文版的表达也清晰优雅，但是还是抵不住实体版拿在手里的实在。&lt;/p&gt;
+&lt;p&gt;这学期开始时我花了三到四周的时间读了《计算机网络：自顶向下方法》的主要内容，近期也准备写一个摘要清理一下脉络。&lt;/p&gt;
+&lt;p&gt;我准备花我下半个学期的精力努力研读这本《Structre and Interpretation of Computer Programs》，争取在一月份初，也就是两个月后读完它的主要内容。&lt;/p&gt;
+&lt;p&gt;鼓励下我自己：&lt;/p&gt;
+&lt;p&gt;坚信一切都是纸老虎，投入全部的精力和时间去思考和研究，不要提前做规划，前面说的两个月只是参考，实际上是竭力而为。&lt;/p&gt;
+&lt;p&gt;最后这里记一下PLT相关的，其他的参考资料：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://thautwarm.github.io/Site-32/&#34;&gt;thautwarm的博客&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[梁杰的博客](&lt;a href=&#34;http://numbbbbb.com/2016/03/28/20160328_&#34;&gt;http://numbbbbb.com/2016/03/28/20160328_&lt;/a&gt;我如何用两周时间刷完 SICP/)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/marisa&#34;&gt;知乎专栏：雾雨魔法店&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;《程序语言设计：实践之路》&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://okmij.org/ftp/&#34;&gt;okmij.org&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.pl-enthusiast.net/2015/05/27/what-is-pl-research-and-how-is-it-useful/&#34;&gt;What is PL research and how is it useful&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;准备工作&#34;&gt;准备工作&lt;/h2&gt;
+&lt;p&gt;我推荐开始之前先看看上面的链接里第二个和最后一个，了解一下大概的情况以及这个领域关心的问题。&lt;/p&gt;
+&lt;p&gt;然后这里搬运一下macOS如何安装MIT-scheme，因为SICP的代码都是基于MIT-scheme的，不过只要是符合IEEE-1990的scheme标准的lisp方言，都可以运行SICP第二版的代码（第二版前言述）。&lt;/p&gt;
+&lt;p&gt;首先下载MIT-Scheme的 .dmg文件。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://ftp.gnu.org/gnu/mit-scheme/stable.pkg/9.2/mit-scheme-9.2-x86-64.dmg&#34;&gt;64-bit&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;由于macOS Catalina只支持64位的软件了，所以我推荐下载64位的。下面的是32位的下载链接:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://ftp.gnu.org/gnu/mit-scheme/stable.pkg/9.2/mit-scheme-9.2-i386.dmg&#34;&gt;32-bit&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;下载完成后，打开dmg文件把app拖进Application文件夹。&lt;/p&gt;
+&lt;p&gt;64位请打开terminal运行&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo ln -s /Applications/MIT&lt;span style=&#34;color:#ae81ff&#34;&gt;\:&lt;/span&gt;GNU&lt;span style=&#34;color:#ae81ff&#34;&gt;\ &lt;/span&gt;Scheme.app/Contents/Resources /usr/local/lib/mit-scheme-x86-64
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;一般会要求你输入密码&lt;/p&gt;
+&lt;p&gt;然后运行&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo ln -s /usr/local/lib/mit-scheme-x86-64/mit-scheme /usr/bin/scheme
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果不行，把 &lt;code&gt;/usr/bin/scheme&lt;/code&gt;换成&lt;code&gt;/usr/local/bin/scheme&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;现在你可以在terminal里直接输入 &lt;code&gt;scheme&lt;/code&gt; 启动了，启动后输入&lt;code&gt;(+ 1 1)&lt;/code&gt;看看是不是运行正常。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;上述方法搬自&lt;a href=&#34;https://jacksonisaac.wordpress.com/2014/03/25/installing-scheme-on-mac-os-x/&#34;&gt;JACKSON&amp;rsquo;S BLOG&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;之后你就可以开始草书了。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>SICP-1.1:Element and Expressions</title>
-      <link>https://example.com/post/sicp-1-1/</link>
+      <link>https://luosuu.github.io/post/sicp-1-1/</link>
       <pubDate>Thu, 05 Mar 2020 18:53:26 +0800</pubDate>
       
-      <guid>https://example.com/post/sicp-1-1/</guid>
-      <description>&lt;p&gt;sicp的1-1主要内容是程序设计的基本元素&lt;/p&gt;</description>
+      <guid>https://luosuu.github.io/post/sicp-1-1/</guid>
+      <description>&lt;p&gt;sicp的1-1主要内容是程序设计的基本元素&lt;/p&gt;
+&lt;h2 id=&#34;基本元素&#34;&gt;基本元素&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;基本表达形式：对最简单的元素操作&lt;/li&gt;
+&lt;li&gt;组合的方法：将基本的表达组合起来形成一块复合的对象&lt;/li&gt;
+&lt;li&gt;抽象的方法：命名复合对象，使得他们能够封装成一个黑箱&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;表达式式的求值&#34;&gt;表达式式的求值&lt;/h2&gt;
+&lt;h3 id=&#34;基本表达式&#34;&gt;基本表达式&lt;/h3&gt;
+&lt;p&gt;规则如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;数的值就是它表示的数值大小&lt;/li&gt;
+&lt;li&gt;运算符指能运行的操作的机器指令序列&lt;/li&gt;
+&lt;li&gt;其他名字是在该环境下关联于这个名字的对象&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;组合表达式&#34;&gt;组合表达式&lt;/h3&gt;
+&lt;p&gt;由表达式组合而成的组合式，组成这个组合式的表达式称为该组合式的子表达式（不排除该子表达式也是组合式），它的求值规则如下&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;求值该组合式的子表达式&lt;/li&gt;
+&lt;li&gt;运用该组合式的运算符号，应用于其实际参数（也就是实际的值而不是表达式，此时子表达式应该都已经计算为实际的数值）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;考虑到子表达式也可能是个组合式，那么就需要不断进行第一步，直到我们运算的对象是基本元素，也就是求组合式的过程需要调用自己，也就是这个过程就是 &lt;em&gt;递归&lt;/em&gt; 的。&lt;/p&gt;
+&lt;p&gt;此时我们可以用树的方法来表示它。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://luosuu.github.io/%E6%96%B9%E6%B3%95%E6%A0%91.png&#34; alt=&#34;tree&#34;&gt;&lt;/p&gt;
+&lt;p&gt;递归这种方法是处理层次性结构（比如树）的一种强有力的技术。&lt;/p&gt;
+&lt;p&gt;在表达式的树里，数值从树的最末端不断向上移动，这种过程我们一般称为&lt;em&gt;树形积累&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;环境&#34;&gt;环境&lt;/h2&gt;
+&lt;p&gt;环境是极其重要的，在我们定义的一个过程中（也就是我们抽象出来的一个过程），形式参数的命名应该是无关紧要的，这个过程中的同一个形式参数统一换成另外一个名字，应该是不对这个过程产生任何影响的。&lt;/p&gt;
+&lt;p&gt;这对于我们封装一个过程极其重要，它可以依赖于外部的一些过程（和在这个过程在同一个环境的其他过程），但是它自己约束的变量，也就是它的形式参数不应该受到外界的控制。&lt;/p&gt;
+&lt;p&gt;同时这有利于我们定义 &lt;em&gt;块结构&lt;/em&gt; ，所谓块结构，就是我们在抽象一个过程时，发现它可以用多个子过程实现，我们不选择在这个过程外抽象它的子过程，而选择在这个过程内部抽象它的子过程。&lt;/p&gt;
+&lt;p&gt;在块结构中，我们抽象的子过程只能在这个块内使用，且对于子过程来说，该过程的形式参数是可以依赖和修改的。&lt;/p&gt;
+&lt;p&gt;本来我们求立方根的过程是&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-scheme&#34; data-lang=&#34;scheme&#34;&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;define &lt;/span&gt;(sqrt x)
+    (&lt;span style=&#34;color:#a6e22e&#34;&gt;sqrt-iter&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1.0&lt;/span&gt; x))
+(&lt;span style=&#34;color:#66d9ef&#34;&gt;define &lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;sqrt-iter&lt;/span&gt; guess x)
+    (&lt;span style=&#34;color:#66d9ef&#34;&gt;if &lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;good-enough?&lt;/span&gt; guess x)
+    guess
+    (&lt;span style=&#34;color:#a6e22e&#34;&gt;sqrt-iter&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;improve&lt;/span&gt; guess x) x)))
+(&lt;span style=&#34;color:#66d9ef&#34;&gt;define &lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;good-enough?&lt;/span&gt; guess x)
+    (&amp;lt; (abs (- (&lt;span style=&#34;color:#a6e22e&#34;&gt;square&lt;/span&gt; guess) x)) &lt;span style=&#34;color:#ae81ff&#34;&gt;0.001&lt;/span&gt;))
+(&lt;span style=&#34;color:#66d9ef&#34;&gt;define &lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;improve&lt;/span&gt; guess x)
+    (&lt;span style=&#34;color:#a6e22e&#34;&gt;average&lt;/span&gt; guess (/ x guess)))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;sqrt&lt;/code&gt;依赖的子过程全部改到它的内部后&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-scheme&#34; data-lang=&#34;scheme&#34;&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;define &lt;/span&gt;(sqrt x)
+    (&lt;span style=&#34;color:#66d9ef&#34;&gt;define &lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;good-enough?&lt;/span&gt; guess x)
+        (&amp;lt; (abs (- (&lt;span style=&#34;color:#a6e22e&#34;&gt;square&lt;/span&gt; guess) x)) &lt;span style=&#34;color:#ae81ff&#34;&gt;0.001&lt;/span&gt;))
+    (&lt;span style=&#34;color:#66d9ef&#34;&gt;define &lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;improve&lt;/span&gt; guess x)
+        (&lt;span style=&#34;color:#a6e22e&#34;&gt;average&lt;/span&gt; guess (/ x guess)))
+    (&lt;span style=&#34;color:#66d9ef&#34;&gt;define &lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;sqrt-iter&lt;/span&gt; guess x)
+        (&lt;span style=&#34;color:#66d9ef&#34;&gt;if &lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;good-enough?&lt;/span&gt; guess x)
+            guess
+            (&lt;span style=&#34;color:#a6e22e&#34;&gt;sqrt-iter&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;improve&lt;/span&gt; guess x) x)))
+    (&lt;span style=&#34;color:#a6e22e&#34;&gt;sqrt-iter&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1.0&lt;/span&gt; x))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后我们发现在子过程中将x的值传来传去没啥意义，他们可以直接访问并且修改x&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-scheme&#34; data-lang=&#34;scheme&#34;&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;define &lt;/span&gt;(sqrt x)
+    (&lt;span style=&#34;color:#66d9ef&#34;&gt;define &lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;good-enough?&lt;/span&gt; guess)
+        (&amp;lt; (abs (- (&lt;span style=&#34;color:#a6e22e&#34;&gt;square&lt;/span&gt; guess) x)) &lt;span style=&#34;color:#ae81ff&#34;&gt;0.001&lt;/span&gt;))
+    (&lt;span style=&#34;color:#66d9ef&#34;&gt;define &lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;improve&lt;/span&gt; guess)
+        (&lt;span style=&#34;color:#a6e22e&#34;&gt;average&lt;/span&gt; guess (/ x guess)))
+    (&lt;span style=&#34;color:#66d9ef&#34;&gt;define &lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;sqrt-iter&lt;/span&gt; guess)
+        (&lt;span style=&#34;color:#66d9ef&#34;&gt;if &lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;good-enough?&lt;/span&gt; guess)
+            guess
+            (&lt;span style=&#34;color:#a6e22e&#34;&gt;sqrt-iter&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;improve&lt;/span&gt; guess))))
+    (&lt;span style=&#34;color:#a6e22e&#34;&gt;sqrt-iter&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1.0&lt;/span&gt;))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;解释的顺序application-order与normal-order&#34;&gt;解释的顺序：application-order与normal-order&lt;/h2&gt;
+&lt;p&gt;application-order就是将基本表达式求值，从基本的单元解释命名空间里的所有变量，然后一层层推上去，也就是上文组合式的表达方式。&lt;/p&gt;
+&lt;p&gt;normal-order则是先不去算表达式的值，先从外不断按照它的解释去展开定义，直到无法展开，只有计算基本表达式的时候才能往下推进时才计算基本表达式。&lt;/p&gt;
+&lt;p&gt;可以证明，那些可以通过替换去模拟，并且产生合法值的所有过程，他们采用这两种方式输出的结果应该是一样的。&lt;/p&gt;
+&lt;p&gt;一般而言，都是采用application-order,这样可以避免重复计算表达式。&lt;/p&gt;
+&lt;p&gt;这里想要说明的是解释的顺序的重要性，比如SICP例题1-5和1-6就明显的说明了这个问题。&lt;/p&gt;
+&lt;p&gt;对于1-5&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-scheme&#34; data-lang=&#34;scheme&#34;&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;define &lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;p&lt;/span&gt;) (&lt;span style=&#34;color:#a6e22e&#34;&gt;p&lt;/span&gt;))
+(&lt;span style=&#34;color:#66d9ef&#34;&gt;define &lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;test&lt;/span&gt; x y)
+    (&lt;span style=&#34;color:#66d9ef&#34;&gt;if &lt;/span&gt;(= x &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;)
+        &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+        y))
+
+(&lt;span style=&#34;color:#a6e22e&#34;&gt;test&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;p&lt;/span&gt;))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;上面是一个用来测试过程是应用application-order还是norma-order的样例。&lt;/p&gt;
+&lt;p&gt;如果采用前者，那么解释器会先尝试解释(p),然后再往上运行test的内容，然而(p)用自己解释自己，这样只会陷入死循环，不断输出它解释出来的内容，也就是&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-scheme&#34; data-lang=&#34;scheme&#34;&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;test&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;p&lt;/span&gt;))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果采用normal-order，那么解释器就会先从test的内容开始，过程如下&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-scheme&#34; data-lang=&#34;scheme&#34;&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;test&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;p&lt;/span&gt;))
+  
+(&lt;span style=&#34;color:#66d9ef&#34;&gt;if &lt;/span&gt;(= &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;) &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;p&lt;/span&gt;))
+  
+(&lt;span style=&#34;color:#66d9ef&#34;&gt;if &lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;#t&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;p&lt;/span&gt;))
+  
+&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;对于1-6&lt;/p&gt;
+&lt;p&gt;这位同学自己新定义的new-if的差距在于与if的解释顺序不同。&lt;/p&gt;
+&lt;p&gt;new-if在解释器看来就是一个普通的过程，所以解释器会去先尝试去解释那三个参数，如果这三个参数参与了递归过程，那么就是自解释了，陷入死循环。&lt;/p&gt;
+&lt;p&gt;而if会先解释判别式，然后在去选择后面的值进行解释，不会陷入死循环。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Linear Recursion and Iteration</title>
-      <link>https://example.com/post/linear-recursion-and-iteration/</link>
+      <link>https://luosuu.github.io/post/linear-recursion-and-iteration/</link>
       <pubDate>Thu, 05 Mar 2020 18:52:22 +0800</pubDate>
       
-      <guid>https://example.com/post/linear-recursion-and-iteration/</guid>
-      <description>&lt;p&gt;迭代语法的解释/计算过程&lt;/p&gt;</description>
+      <guid>https://luosuu.github.io/post/linear-recursion-and-iteration/</guid>
+      <description>&lt;p&gt;迭代语法的解释/计算过程&lt;/p&gt;
+&lt;h2 id=&#34;过程的产生&#34;&gt;过程的产生&lt;/h2&gt;
+&lt;p&gt;我们在&lt;a href=&#34;https://luosuu.github.io/posts/sicp-notes-1-1/&#34;&gt;Elements and Expressions&lt;/a&gt;里，已经讨论了程序的基本元素与表达式。&lt;/p&gt;
+&lt;p&gt;现在的我们已经可以进行基本的算术操作，对操作进行组合然后抽象、定义为一个复合过程。但是我们还不能说我们已经了解了编程这件事，因为我们现在就像知道了手里的卡牌的使用方法，但是不清楚游戏常见的战术一样，也就是说我们现在缺乏经验，无法预知我们采取的每个动作的后果（执行一个过程的效果）。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The ability to visualize the consequences of the actions under consideration is crucial to becoming an expert programmer, just as it is in any synthetic, creative activity. –sicp 1.2&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;也就是说，我们需要对我们执行的过程有足够的了解，了解他们运作的模式，还要研究这些计算过程消耗的资源（时间和空间）&lt;/p&gt;
+&lt;p&gt;在1.2.1，我们主要关注递归语法的两种计算过程。&lt;/p&gt;
+&lt;p&gt;在开始之前，我们要搞清楚一个事情，那就是 &lt;em&gt;递归过程&lt;/em&gt; 和 &lt;em&gt;递归计算过程&lt;/em&gt; 是两回事，前者指语法的结构的事实，也就是它的定义需要调用它自己，后者是解释递归语法的一种计算方式。&lt;/p&gt;
+&lt;h2 id=&#34;递归计算过程线性递归过程&#34;&gt;递归计算过程（线性递归过程）&lt;/h2&gt;
+&lt;p&gt;考虑一个递归，计算阶乘&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-scheme&#34; data-lang=&#34;scheme&#34;&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;define &lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;factorial&lt;/span&gt; n)
+    (&lt;span style=&#34;color:#66d9ef&#34;&gt;if &lt;/span&gt;(= n &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
+        &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+        (* n (&lt;span style=&#34;color:#a6e22e&#34;&gt;factorial&lt;/span&gt; (- n &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)))))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;我们观察它的过程&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-scheme&#34; data-lang=&#34;scheme&#34;&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;factorial&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt;)
+(* &lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;factorial&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;))
+(* &lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt; (* &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;factorial&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;)))
+&lt;span style=&#34;color:#f92672&#34;&gt;...&lt;/span&gt;
+(* &lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt; (* &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; (* &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt; (* &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; (* &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;factorial&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;))))))
+(* &lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt; (* &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; (* &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt; (* &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; (* &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)))))
+&lt;span style=&#34;color:#f92672&#34;&gt;...&lt;/span&gt;
+(* &lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;120&lt;/span&gt;)
+&lt;span style=&#34;color:#ae81ff&#34;&gt;720&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;从“形状”上来看，它先不断展开，越来越长，这是因为它必须不断延后它需要实施的运算，然后他会不断收缩，这是实际运算不断实施的体现。&lt;/p&gt;
+&lt;p&gt;这类“不断推延运算，需要解释器维护一个运算链条”的过程，我们称为 &lt;em&gt;递归计算过程&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;迭代计算过程线性迭代过程&#34;&gt;迭代计算过程（线性迭代过程）&lt;/h2&gt;
+&lt;p&gt;然后我们考虑另外一个计算阶乘的过程，刚才我们是从大的数不断计算到小的数，现在我们反过来，从小的数的阶乘开始算，算到大头的数的阶乘。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-scheme&#34; data-lang=&#34;scheme&#34;&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;define &lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;factorial&lt;/span&gt; n)
+    (&lt;span style=&#34;color:#a6e22e&#34;&gt;fact-iter&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; n))
+(&lt;span style=&#34;color:#66d9ef&#34;&gt;define &lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;fact-iter&lt;/span&gt; product counter max-count)
+    (&lt;span style=&#34;color:#66d9ef&#34;&gt;if &lt;/span&gt;(&amp;gt; counter max-count)
+        product
+        (&lt;span style=&#34;color:#a6e22e&#34;&gt;fact-iter&lt;/span&gt; (* counter product)
+                    (+ counter &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
+                    max-count)))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果我们用到上一节的块结构，可以把&lt;code&gt;fact-iter&lt;/code&gt;隐藏到函数内部&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-scheme&#34; data-lang=&#34;scheme&#34;&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;define &lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;factorial&lt;/span&gt; n)
+    (&lt;span style=&#34;color:#66d9ef&#34;&gt;define &lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;iter&lt;/span&gt; product counter)
+        (&lt;span style=&#34;color:#66d9ef&#34;&gt;if &lt;/span&gt;(&amp;gt; counter n)
+            product
+            (&lt;span style=&#34;color:#a6e22e&#34;&gt;iter&lt;/span&gt; (* counter product)
+                    (+ counter &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;))))
+    (&lt;span style=&#34;color:#a6e22e&#34;&gt;iter&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后我们考虑它的计算过程&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-scheme&#34; data-lang=&#34;scheme&#34;&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;factorial&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt;)
+(&lt;span style=&#34;color:#a6e22e&#34;&gt;fact-iter&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt;)
+(&lt;span style=&#34;color:#a6e22e&#34;&gt;fact-iter&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt;)
+(&lt;span style=&#34;color:#a6e22e&#34;&gt;fact-iter&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt;)
+(&lt;span style=&#34;color:#a6e22e&#34;&gt;fact-iter&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt;)
+(&lt;span style=&#34;color:#a6e22e&#34;&gt;fact-iter&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt;)
+(&lt;span style=&#34;color:#a6e22e&#34;&gt;fact-iter&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;120&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt;)
+(&lt;span style=&#34;color:#a6e22e&#34;&gt;fact-iter&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;720&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;7&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;我们会发现它有如下重要的性质：&lt;/p&gt;
+&lt;p&gt;首先它用的每一步的运算过程都可以独立出来，不需要维持上一步的运算，也就是它用三个 &lt;em&gt;状态变量&lt;/em&gt; 完整的描述了这个计算过程，同时它又规定了变量如何向下一个状态转换的计算规则，还有一个（可能会有）的结束检测。&lt;/p&gt;
+&lt;p&gt;也就是我们只需要提供这三个状态变量，解释器就可以计算下去，而对比上面说过的递归计算过程，除了变量以外，它还要维持一些隐形的信息（在这里就是外面有多少套嵌的乘法），其实二者的差别根本在于是否明示了 &lt;em&gt;当前计算在这个过程的哪一处&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;我们称这种计算方式为 &lt;em&gt;迭代计算过程（线性迭代过程）&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;注意，我们在这里我们并没有使用其他语言里常见的 &lt;em&gt;特殊的循环结构&lt;/em&gt; ，譬如 &lt;code&gt;do while&lt;/code&gt;，&lt;code&gt;for&lt;/code&gt;等等。scheme里的实现没有这一环，scheme总能 &lt;em&gt;在常量空间里执行迭代计算过程，即使这个过程是用递归描述的&lt;/em&gt; ，具有这一特性的实现，我们称其为 &lt;em&gt;尾递归&lt;/em&gt; 的。&lt;/p&gt;
+&lt;p&gt;有了尾递归的实现，我们就不需要一些特殊的专用迭代结构，可以用常规的过程调用来实表述迭代。&lt;/p&gt;
+&lt;h2 id=&#34;对比&#34;&gt;对比&lt;/h2&gt;
+&lt;p&gt;虽然在这里我们发现树形递归比线性递归要低效的多，但是我们要注意到树形递归的表达能力很好，它很直接了当，对于我们理解和设计程序非常有帮助。&lt;/p&gt;
+&lt;p&gt;另外，当我们考虑一种层次结构性的数据上操作时，而不是对数操作时，我们会发现树形递归计算是一种自然、威力强大的工具。&lt;/p&gt;
+&lt;p&gt;在&lt;a href=&#34;https://luosuu.github.io/posts/sicp-notes-1-1/&#34;&gt;Elements and Expression&lt;/a&gt;里，对于求值表达式，解释器采用的策略就是树形递归计算过程。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>SICP: order of growth</title>
-      <link>https://example.com/post/sicp-rank/</link>
+      <link>https://luosuu.github.io/post/sicp-rank/</link>
       <pubDate>Thu, 05 Mar 2020 18:50:56 +0800</pubDate>
       
-      <guid>https://example.com/post/sicp-rank/</guid>
-      <description>&lt;p&gt;作为讨论线性迭代与递归的延续，我们来讨论计算过程的阶数。&lt;/p&gt;</description>
+      <guid>https://luosuu.github.io/post/sicp-rank/</guid>
+      <description>&lt;p&gt;作为讨论线性迭代与递归的延续，我们来讨论计算过程的阶数。&lt;/p&gt;
+&lt;h2 id=&#34;计算过程的阶数&#34;&gt;计算过程的阶数&lt;/h2&gt;
+&lt;p&gt;经过&lt;a href=&#34;https://luosuu.github.io/posts/linear-recursion-and-iteration/&#34;&gt;Linear Recursion and Iteration&lt;/a&gt;我们大概知道了不同的计算过程的代价是不同的，为了实现同样的目标，不同的计算过程消耗的时空资源差距很大。&lt;/p&gt;
+&lt;p&gt;因此我们需要提供一种评估不同计算过程消耗资源的情况的方法。&lt;/p&gt;
+&lt;p&gt;我们用n来代表问题规模的大小，也就是某个模式下问题的输入。我们需要衡量的是当输入变大时（问题规模变大时），某一计算过程所需资源粗略的增长的情况。&lt;/p&gt;
+&lt;p&gt;对于不同的问题我们取的n很可能是不一样的，但是确定的是n肯定是和计算过程的难度/步数紧密相关的，让我们可以根据它来分析计算过程。例如计算平方根的过程这个n我们可以取要精确的小数点后多少位，矩阵乘法可以取矩阵的行数。&lt;/p&gt;
+&lt;p&gt;然后我们记R(n)为处理规模为n的问题时所需要的资源量，称之为 &lt;em&gt;增长阶&lt;/em&gt; 。总之它是一个用n表达的函数。&lt;/p&gt;
+&lt;p&gt;R(n)=Θ(f(n))R(n)=Θ(f(n))&lt;/p&gt;
+&lt;p&gt;且对于任意大的n，存在与n无关的k1和k2，使得&lt;/p&gt;
+&lt;p&gt;k1f(n)≤R(n)≤k2f(n)k1f(n)≤R(n)≤k2f(n)&lt;/p&gt;
+&lt;p&gt;对于斐波那契计算，树形递归需要的步数是&lt;/p&gt;
+&lt;p&gt;Θ(ϕn)Θ(ϕn)&lt;/p&gt;
+&lt;p&gt;其中&lt;/p&gt;
+&lt;p&gt;ϕ2=ϕ+1ϕ2=ϕ+1&lt;/p&gt;
+&lt;p&gt;空间为&lt;/p&gt;
+&lt;p&gt;Θ(n)Θ(n)&lt;/p&gt;
+&lt;p&gt;而对于线性迭代过程，步数和空间为&lt;/p&gt;
+&lt;p&gt;Θ(n),Θ(1)Θ(n),Θ(1)&lt;/p&gt;
+&lt;p&gt;也就是代表线性迭代过程的步数增长正比于n，而空间需求是个常数。&lt;/p&gt;
+&lt;h2 id=&#34;增长阶的价值&#34;&gt;增长阶的价值&lt;/h2&gt;
+&lt;p&gt;注意这里的度量是一个很粗略的过程，比如一个计算过程的步数为&lt;/p&gt;
+&lt;p&gt;3n2+10n+173n2+10n+17&lt;/p&gt;
+&lt;p&gt;另外一个计算过程的步数为&lt;/p&gt;
+&lt;p&gt;1000n21000n2&lt;/p&gt;
+&lt;p&gt;那么这两个计算过程的增长的阶都是&lt;/p&gt;
+&lt;p&gt;Θ(n2)Θ(n2)&lt;/p&gt;
+&lt;p&gt;但是从外一个角度来看，我们可以通过增长阶窥见一个计算过程的增长变化。&lt;/p&gt;
+&lt;p&gt;对于线性过程，规模增长一倍代表计算资源的需求也增长一倍；对于一个指数计算过程，问题规模每增长1都将导致所用资源按照某个常数倍增长；对于对数型增长的计算过程，但问题规模扩大一倍，所需资源量都只增加一个常数。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>sicp-1.3:Formulating Abstractions with Higher-Order Procedures</title>
-      <link>https://example.com/post/sicp-1-3/</link>
+      <link>https://luosuu.github.io/post/sicp-1-3/</link>
       <pubDate>Thu, 05 Mar 2020 18:49:12 +0800</pubDate>
       
-      <guid>https://example.com/post/sicp-1-3/</guid>
-      <description>&lt;p&gt;“用高阶的函数做抽象”，本次我们更关注于过程本身的一些特性，以及相关的抽象方式&lt;/p&gt;</description>
+      <guid>https://luosuu.github.io/post/sicp-1-3/</guid>
+      <description>&lt;p&gt;“用高阶的函数做抽象”，本次我们更关注于过程本身的一些特性，以及相关的抽象方式&lt;/p&gt;
+&lt;h2 id=&#34;lambda&#34;&gt;lambda&lt;/h2&gt;
+&lt;p&gt;lambda表达式可以增强我们的表达能力，使我们表达一些简单的过程时非常方便，如：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-scheme&#34; data-lang=&#34;scheme&#34;&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;lambda &lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;x&lt;/span&gt;) (+ x &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这样我们在很多地方就无须再构建辅助过程了，直接使用lambda表达就可以，lambda表达式的优点之一还在于这个过程没有名字，不与环境中的任何名字相关联，且lambda表达式内部的环境和一般的过程一样，与外部独立。&lt;/p&gt;
+&lt;p&gt;然后我们需要介绍一下lambda的另外一种用法&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-scheme&#34; data-lang=&#34;scheme&#34;&gt;((&lt;span style=&#34;color:#66d9ef&#34;&gt;lambda &lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;&amp;lt;var_1&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;...&lt;/span&gt; &amp;lt;var_n&amp;gt;)
+        &amp;lt;body&amp;gt;)
+    &amp;lt;exp_1&amp;gt;
+    &lt;span style=&#34;color:#f92672&#34;&gt;...&lt;/span&gt;
+    &amp;lt;exp_n&amp;gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;其含义为，在body中将var_1至var_n解释为exp_1至exp_n&lt;/p&gt;
+&lt;p&gt;比如&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-scheme&#34; data-lang=&#34;scheme&#34;&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;define &lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;f&lt;/span&gt; x y)
+    ((&lt;span style=&#34;color:#66d9ef&#34;&gt;lambda &lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;a&lt;/span&gt; b) (* a b))
+            (&lt;span style=&#34;color:#a6e22e&#34;&gt;a&lt;/span&gt; (+ y (* x x)))
+            (&lt;span style=&#34;color:#a6e22e&#34;&gt;b&lt;/span&gt; (- (* x y) x))))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;其中f就为&lt;/p&gt;
+&lt;p&gt;$$f(x,y)=(x^2+y)&lt;em&gt;(x&lt;/em&gt;y-x)$$&lt;/p&gt;
+&lt;p&gt;这个使用方式有一个语法外衣let&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-scheme&#34; data-lang=&#34;scheme&#34;&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;let &lt;/span&gt;((&lt;span style=&#34;color:#a6e22e&#34;&gt;var_1&lt;/span&gt; exp_1)
+      &lt;span style=&#34;color:#f92672&#34;&gt;...&lt;/span&gt;
+      (&lt;span style=&#34;color:#a6e22e&#34;&gt;var_n&lt;/span&gt; exp_n)
+    &amp;lt;body&amp;gt;))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;let只是lambda上述使用方式的语法外衣，完全等效，但是看起来更舒适一点，var和exp一一对应。&lt;/p&gt;
+&lt;h2 id=&#34;lisp中的过程&#34;&gt;lisp中的过程&lt;/h2&gt;
+&lt;p&gt;在lisp当中，过程是更一般的对象，也就是既可以作为参数也可以作为返回值，如同就和一般的变量一般。&lt;/p&gt;
+&lt;p&gt;我们来看以下方法&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-scheme&#34; data-lang=&#34;scheme&#34;&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;define &lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;average-damp&lt;/span&gt; f)
+    (&lt;span style=&#34;color:#66d9ef&#34;&gt;lambda &lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;x&lt;/span&gt;) (&lt;span style=&#34;color:#a6e22e&#34;&gt;average&lt;/span&gt; x (&lt;span style=&#34;color:#a6e22e&#34;&gt;f&lt;/span&gt; x))))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;average-damp是一个以f为参数的方法，返回的也是一个方法，返回的方法由lambda产生。&lt;/p&gt;
+&lt;p&gt;average-damp可以用来求x和f(x)的平均值&lt;/p&gt;
+&lt;p&gt;使用它的例子可以如下&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-scheme&#34; data-lang=&#34;scheme&#34;&gt;((&lt;span style=&#34;color:#a6e22e&#34;&gt;average-damp&lt;/span&gt; square) &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;)
+&lt;span style=&#34;color:#ae81ff&#34;&gt;55&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;也就是说我们可以将过程（也就是计算的方式）作为参数传递进另外一个过程，而那另外一个过程无须关心f具体是什么。&lt;/p&gt;
+&lt;p&gt;这是一种重要的抽象机制，也是典型的复合过程（思考下和前面几篇提到过的复合过程的区别）。&lt;/p&gt;
+&lt;p&gt;一般而言，设计语言时会对计算元素可能使用方式作出限制，限制最少的元素就被称作是具有 &lt;em&gt;第一级&lt;/em&gt; 的状态。&lt;/p&gt;
+&lt;p&gt;在lisp中过程就是第一级状态的。（你可以想一下C语言中是否允许将函数作为参数进行传递）&lt;/p&gt;
+&lt;p&gt;第一级元素有一些特权，如：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;可以用变量命名&lt;/li&gt;
+&lt;li&gt;可以提供给过程作参数&lt;/li&gt;
+&lt;li&gt;可以作为过程的结果返回&lt;/li&gt;
+&lt;li&gt;可以包含在数据结构中（详情在sicp第二章中讲述）&lt;/li&gt;
+&lt;/ol&gt;</description>
     </item>
     
     <item>
       <title>Introduction to SICP Chapter 2</title>
-      <link>https://example.com/post/introduction-to-sicp-chapter-2/</link>
+      <link>https://luosuu.github.io/post/introduction-to-sicp-chapter-2/</link>
       <pubDate>Thu, 05 Mar 2020 18:45:23 +0800</pubDate>
       
-      <guid>https://example.com/post/introduction-to-sicp-chapter-2/</guid>
-      <description>&lt;p&gt;SICP第二章的导引&lt;/p&gt;</description>
+      <guid>https://luosuu.github.io/post/introduction-to-sicp-chapter-2/</guid>
+      <description>&lt;p&gt;SICP第二章的导引&lt;/p&gt;
+&lt;h2 id=&#34;所谓数据抽象&#34;&gt;所谓数据抽象&lt;/h2&gt;
+&lt;p&gt;我们在第一章关注了 &lt;em&gt;计算过程&lt;/em&gt;，并了解了&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;基本的数据和基本的操作(&lt;a href=&#34;https://luosuu.github.io/posts/sicp-notes-1-1/&#34;&gt;Element and Expressions&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;如何将一些过程组合起来形成复合过程(&lt;a href=&#34;https://luosuu.github.io/posts/sicp-1-3/&#34;&gt;Formulating Abstractions with Higher-Order Procedures &lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;简单的算法分析和计算模式(&lt;a href=&#34;https://luosuu.github.io/posts/sicp-rank/&#34;&gt;Order of growth&lt;/a&gt;,&lt;a href=&#34;https://luosuu.github.io/posts/linear-recursion-and-iteration/&#34;&gt;Linear Recursion and Iteration&lt;/a&gt;)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;第二章将要关注构造 &lt;em&gt;复合数据&lt;/em&gt;。也就是我们要构造一种将数据组合起来的计算对象。&lt;/p&gt;
+&lt;p&gt;其中的关键在于：数据对象的如何表示的部分，与数据对象的如何使用部分互相隔离，使其具有一定的模块性，这种技术一般称作 &lt;strong&gt;数据抽象&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;进一步思考，如果分隔开了数据对象的表示细节和处理方法，那么理应站在处理方法的一侧看时，应该无须关心数据对象具体如何表示，无须为所用的数据做任何多余的假设；同时站在数据对象的表示一侧来看，它的数据定义应该和数据如何使用无关。将二者之间联通的部分（原书翻译为“界面”，或理解为“平台”），称为 &lt;em&gt;选择函数&lt;/em&gt; 和 &lt;em&gt;构造函数&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;数据抽象是我们用来克服问题复杂性的技术，它可以用于在程序的不同部分建立适当的 &lt;em&gt;抽象屏障&lt;/em&gt;。&lt;/p&gt;
+&lt;p&gt;数据抽象的关键在于，程序设计语言中应该提供了一些“粘合剂“，可以将数据对象组合起来，形成更复杂的数据对象。在后面我们会解释其中的一些关键理念，如 &lt;em&gt;闭包&lt;/em&gt; 和 &lt;em&gt;符号表达式&lt;/em&gt;，他们用于构造和解释复杂的数据对象。&lt;/p&gt;
+&lt;p&gt;而后我们需要一种”通用型的操作“，它必须能处理不同的数据结构。我们会引入&lt;em&gt;数据导向型的程序设计&lt;/em&gt;。&lt;/p&gt;
+&lt;p&gt;第二章的关键在于理解数据抽象的概念，掌握相关的理念和方法（用斜体标注出来了）&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>sicp-2.1.1-Examples:Arithmetic Operations for Rational Numbers</title>
-      <link>https://example.com/post/sicp-2-1-1/</link>
+      <link>https://luosuu.github.io/post/sicp-2-1-1/</link>
       <pubDate>Thu, 05 Mar 2020 18:42:28 +0800</pubDate>
       
-      <guid>https://example.com/post/sicp-2-1-1/</guid>
-      <description>&lt;p&gt;为了引入第二章的概念和主题，我们尝试构建有理数的数据类型并且定义它的计算方法。&lt;/p&gt;</description>
+      <guid>https://luosuu.github.io/post/sicp-2-1-1/</guid>
+      <description>&lt;p&gt;为了引入第二章的概念和主题，我们尝试构建有理数的数据类型并且定义它的计算方法。&lt;/p&gt;
+&lt;h2 id=&#34;表示有理数&#34;&gt;表示有理数&lt;/h2&gt;
+&lt;p&gt;我们知道有理数肯定可以用分数的方式来表示，而分数由分子和分母构成，因此我们可以用一对数的组合来表示分数，也就是有理数。&lt;/p&gt;
+&lt;p&gt;好在scheme给我们提供了天然的数对结构Pairs，我们可以用以下方式将两个数组合起来&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-scheme&#34; data-lang=&#34;scheme&#34;&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;define &lt;/span&gt;x (cons &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;))
+
+(car x)
+&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+
+(cdr x)
+&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;我们用cons操作将1和2组合起来，称之为x，car返回x的首元素，cdr返回x的尾元素。值得一提的是，数对的元素还可以是数对。&lt;/p&gt;
+&lt;h2 id=&#34;运算有理数&#34;&gt;运算有理数&lt;/h2&gt;
+&lt;p&gt;定义好了有理数，我们要定义有理数的运算方式。&lt;/p&gt;
+&lt;p&gt;这里我们先定义三个基本的方法，分别是&lt;code&gt;make-rat&lt;/code&gt;,&lt;code&gt;numer&lt;/code&gt;,&lt;code&gt;denom&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;make-rat&lt;/code&gt;将将两个数组合成有理数，而&lt;code&gt;numer&lt;/code&gt;返回分子，&lt;code&gt;denom&lt;/code&gt;返回分母&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-scheme&#34; data-lang=&#34;scheme&#34;&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;define &lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;make-rat&lt;/span&gt; n d) (cons n d))
+(&lt;span style=&#34;color:#66d9ef&#34;&gt;define &lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;numer&lt;/span&gt; x) (car x))
+(&lt;span style=&#34;color:#66d9ef&#34;&gt;define &lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;denom&lt;/span&gt; x) (cdr x))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在考虑分子之间互相运算，加减乘除和判断相等分别可以定位为&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-scheme&#34; data-lang=&#34;scheme&#34;&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;define &lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;add-rat&lt;/span&gt; x y)
+    (&lt;span style=&#34;color:#a6e22e&#34;&gt;make-rat&lt;/span&gt; (+ (* (&lt;span style=&#34;color:#a6e22e&#34;&gt;numer&lt;/span&gt; x) (&lt;span style=&#34;color:#a6e22e&#34;&gt;denom&lt;/span&gt; y))
+                 (* (&lt;span style=&#34;color:#a6e22e&#34;&gt;numer&lt;/span&gt; y) (&lt;span style=&#34;color:#a6e22e&#34;&gt;denom&lt;/span&gt; x)))
+              (* (&lt;span style=&#34;color:#a6e22e&#34;&gt;denom&lt;/span&gt; x) (&lt;span style=&#34;color:#a6e22e&#34;&gt;denom&lt;/span&gt; y))))
+(&lt;span style=&#34;color:#66d9ef&#34;&gt;define &lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;sub-rat&lt;/span&gt; x y)
+    (&lt;span style=&#34;color:#a6e22e&#34;&gt;make-rat&lt;/span&gt; (- (* (&lt;span style=&#34;color:#a6e22e&#34;&gt;numer&lt;/span&gt; x) (&lt;span style=&#34;color:#a6e22e&#34;&gt;denom&lt;/span&gt; y))
+                 (* (&lt;span style=&#34;color:#a6e22e&#34;&gt;numer&lt;/span&gt; y) (&lt;span style=&#34;color:#a6e22e&#34;&gt;denom&lt;/span&gt; x)))
+              (* (&lt;span style=&#34;color:#a6e22e&#34;&gt;denom&lt;/span&gt; x) (&lt;span style=&#34;color:#a6e22e&#34;&gt;denom&lt;/span&gt; y))))
+(&lt;span style=&#34;color:#66d9ef&#34;&gt;define &lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;mul-rat&lt;/span&gt; x y)
+    (&lt;span style=&#34;color:#a6e22e&#34;&gt;make-rat&lt;/span&gt; (* (&lt;span style=&#34;color:#a6e22e&#34;&gt;numer&lt;/span&gt; x) (&lt;span style=&#34;color:#a6e22e&#34;&gt;numer&lt;/span&gt; y))
+              (* (&lt;span style=&#34;color:#a6e22e&#34;&gt;denom&lt;/span&gt; x) (&lt;span style=&#34;color:#a6e22e&#34;&gt;denom&lt;/span&gt; y))))
+(&lt;span style=&#34;color:#66d9ef&#34;&gt;define &lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;div-rat&lt;/span&gt; x y)
+    (&lt;span style=&#34;color:#a6e22e&#34;&gt;make-rat&lt;/span&gt; (* (&lt;span style=&#34;color:#a6e22e&#34;&gt;numer&lt;/span&gt; x) (&lt;span style=&#34;color:#a6e22e&#34;&gt;denom&lt;/span&gt; y))
+              (* (&lt;span style=&#34;color:#a6e22e&#34;&gt;denom&lt;/span&gt; x) (&lt;span style=&#34;color:#a6e22e&#34;&gt;numer&lt;/span&gt; y)))
+(&lt;span style=&#34;color:#66d9ef&#34;&gt;define &lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;equal-rat?&lt;/span&gt; x y)
+    (= (* (&lt;span style=&#34;color:#a6e22e&#34;&gt;numer&lt;/span&gt; x) (&lt;span style=&#34;color:#a6e22e&#34;&gt;denom&lt;/span&gt; y))
+       (* (&lt;span style=&#34;color:#a6e22e&#34;&gt;numer&lt;/span&gt; y) (&lt;span style=&#34;color:#a6e22e&#34;&gt;denom&lt;/span&gt; x))))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;我们现在可以构成、运算分数了，但是现在的分数还不不具备约分化简的能力，于是我们要用到1.2.5节的gcd，也就是查找最大公约数的方法修改make-rat&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-scheme&#34; data-lang=&#34;scheme&#34;&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;define &lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;make-rat&lt;/span&gt; n d)
+    (&lt;span style=&#34;color:#66d9ef&#34;&gt;let &lt;/span&gt;((&lt;span style=&#34;color:#a6e22e&#34;&gt;g&lt;/span&gt; (gcd n d))
+        (cons (/ n g) (&lt;span style=&#34;color:#a6e22e&#34;&gt;/d&lt;/span&gt;  g))))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;现在我们就完成了有理数数据类型的基本结构了。然后我们来回顾一下这个过程然后思考一些问题。&lt;/p&gt;
+&lt;h2 id=&#34;抽象屏障abstraction-barriers&#34;&gt;抽象屏障(Abstraction Barriers)&lt;/h2&gt;
+&lt;p&gt;我们可以看到，上述有理数的数据设计是有明显的层次的&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://luosuu.github.io/AbsBarr.jpeg&#34; alt=&#34;AbsBarr&#34;&gt;&lt;/p&gt;
+&lt;p&gt;上层都无须关注下层的具体实现，例如make-rat不需要关注序对怎么实现的，add-rat也不需要关心make-rat是怎么实现的。&lt;/p&gt;
+&lt;p&gt;这种思想的有点基本可以概括为&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;程序容易维护和修改&lt;/li&gt;
+&lt;li&gt;可以先扔下底层的具体实现而先构建上层&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;第一点很好理解，对于第二点，我们可以举个例子&lt;/p&gt;
+&lt;p&gt;对于刚才我们实现的三个基本方法，约分的步骤是在构造有理数的方法make-rat里实现的，但是我也可以让有理数就原原本本的保存，在取分子或者分母的时候再约分，如下&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-scheme&#34; data-lang=&#34;scheme&#34;&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;define &lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;make-rat&lt;/span&gt; n d)
+    (cons n d))
+
+(&lt;span style=&#34;color:#66d9ef&#34;&gt;define &lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;numer&lt;/span&gt; x)
+    (&lt;span style=&#34;color:#66d9ef&#34;&gt;let &lt;/span&gt;((&lt;span style=&#34;color:#a6e22e&#34;&gt;g&lt;/span&gt; (gcd (car x) (cdr x)))
+        (/ (car x) g))))
+
+(&lt;span style=&#34;color:#66d9ef&#34;&gt;define &lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;denom&lt;/span&gt; x))
+    (&lt;span style=&#34;color:#66d9ef&#34;&gt;let &lt;/span&gt;((&lt;span style=&#34;color:#a6e22e&#34;&gt;g&lt;/span&gt; (gcd (car x) (cdr x)))
+        (/ (cdr x) g)))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;区别只在于何时运用gcd约分，如果我们需要多次访问有理数的分子和分母，那么我们最好最开始构造有理数的时候就约分，如果情况并非如此，那么我们就可以取分子和取分母的时候再约分。&lt;/p&gt;
+&lt;p&gt;而这种区别，对于上层我们如何设计add-rat等方法没有任何影响，我们可以先放下何时取约分这种细节问题，不让他干扰我们整体系统的设计。&lt;/p&gt;
+&lt;h2 id=&#34;数据是什么&#34;&gt;数据是什么&lt;/h2&gt;
+&lt;p&gt;对于上面的例子，constructor就是make-rat，selector就是numer和denom。而数据就是由constructor和selector所构建的，当然constructor和selector不是随便的几个过程就行的，还要满足一些条件，对于上面有理数的例子，条件就是&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-scheme&#34; data-lang=&#34;scheme&#34;&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;define &lt;/span&gt;x (&lt;span style=&#34;color:#a6e22e&#34;&gt;make-rat&lt;/span&gt; n d))
+(&lt;span style=&#34;color:#a6e22e&#34;&gt;equal-rat?&lt;/span&gt; x (cons (car x) (cdr x)))=true
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;因此我们可以说数据是由满足 &lt;em&gt;使得表达式完整有意义的条件&lt;/em&gt; 的constructor和selector所构建的。&lt;/p&gt;</description>
     </item>
     
   </channel>

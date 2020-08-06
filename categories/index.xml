@@ -1,95 +1,113 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on luosuu的小站</title>
-    <link>https://example.com/categories/</link>
-    <description>Recent content in Categories on luosuu的小站</description>
+    <title>Categories on 洛舒luosuu的小站</title>
+    <link>https://luosuu.github.io/categories/</link>
+    <description>Recent content in Categories on 洛舒luosuu的小站</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>&amp;copy; Copyright 2020 luosuu</copyright>
+    <language>zh-cn</language>
+    <copyright>Copyright © 2020</copyright>
     <lastBuildDate>Thu, 06 Aug 2020 11:13:49 +0800</lastBuildDate>
     
-	<atom:link href="https://example.com/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://luosuu.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>sicp</title>
-      <link>https://example.com/categories/sicp/</link>
+      <link>https://luosuu.github.io/categories/sicp/</link>
       <pubDate>Thu, 06 Aug 2020 11:13:49 +0800</pubDate>
       
-      <guid>https://example.com/categories/sicp/</guid>
+      <guid>https://luosuu.github.io/categories/sicp/</guid>
       <description></description>
     </item>
     
     <item>
       <title>OJ</title>
-      <link>https://example.com/categories/oj/</link>
+      <link>https://luosuu.github.io/categories/oj/</link>
       <pubDate>Thu, 06 Aug 2020 10:04:10 +0800</pubDate>
       
-      <guid>https://example.com/categories/oj/</guid>
+      <guid>https://luosuu.github.io/categories/oj/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Software</title>
-      <link>https://example.com/categories/software/</link>
-      <pubDate>Wed, 29 Jul 2020 18:53:26 +0800</pubDate>
+      <link>https://luosuu.github.io/categories/software/</link>
+      <pubDate>Wed, 13 May 2020 12:00:09 +0800</pubDate>
       
-      <guid>https://example.com/categories/software/</guid>
+      <guid>https://luosuu.github.io/categories/software/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Diary</title>
-      <link>https://example.com/categories/diary/</link>
+      <link>https://luosuu.github.io/categories/diary/</link>
       <pubDate>Sat, 28 Mar 2020 16:14:22 +0800</pubDate>
       
-      <guid>https://example.com/categories/diary/</guid>
+      <guid>https://luosuu.github.io/categories/diary/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Resources</title>
-      <link>https://example.com/categories/resources/</link>
+      <link>https://luosuu.github.io/categories/resources/</link>
       <pubDate>Mon, 16 Mar 2020 11:32:11 +0800</pubDate>
       
-      <guid>https://example.com/categories/resources/</guid>
+      <guid>https://luosuu.github.io/categories/resources/</guid>
       <description></description>
     </item>
     
     <item>
       <title>To Do</title>
-      <link>https://example.com/categories/to-do/</link>
+      <link>https://luosuu.github.io/categories/to-do/</link>
       <pubDate>Thu, 05 Mar 2020 19:31:15 +0800</pubDate>
       
-      <guid>https://example.com/categories/to-do/</guid>
+      <guid>https://luosuu.github.io/categories/to-do/</guid>
       <description></description>
     </item>
     
     <item>
       <title>UI</title>
-      <link>https://example.com/categories/ui/</link>
+      <link>https://luosuu.github.io/categories/ui/</link>
       <pubDate>Thu, 05 Mar 2020 19:26:15 +0800</pubDate>
       
-      <guid>https://example.com/categories/ui/</guid>
+      <guid>https://luosuu.github.io/categories/ui/</guid>
       <description></description>
     </item>
     
     <item>
       <title>C&#43;&#43;</title>
-      <link>https://example.com/categories/c&#43;&#43;/</link>
+      <link>https://luosuu.github.io/categories/c&#43;&#43;/</link>
       <pubDate>Thu, 05 Mar 2020 19:25:41 +0800</pubDate>
       
-      <guid>https://example.com/categories/c&#43;&#43;/</guid>
+      <guid>https://luosuu.github.io/categories/c&#43;&#43;/</guid>
       <description></description>
     </item>
     
     <item>
       <title>eth</title>
-      <link>https://example.com/categories/eth/</link>
+      <link>https://luosuu.github.io/categories/eth/</link>
       <pubDate>Thu, 05 Mar 2020 19:21:47 +0800</pubDate>
       
-      <guid>https://example.com/categories/eth/</guid>
+      <guid>https://luosuu.github.io/categories/eth/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>syntax</title>
+      <link>https://luosuu.github.io/categories/syntax/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://luosuu.github.io/categories/syntax/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>themes</title>
+      <link>https://luosuu.github.io/categories/themes/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://luosuu.github.io/categories/themes/</guid>
       <description></description>
     </item>
     

@@ -1,33 +1,219 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>UI on luosuu的小站</title>
-    <link>https://example.com/categories/ui/</link>
-    <description>Recent content in UI on luosuu的小站</description>
+    <title>UI on 洛舒luosuu的小站</title>
+    <link>https://luosuu.github.io/categories/ui/</link>
+    <description>Recent content in UI on 洛舒luosuu的小站</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>&amp;copy; Copyright 2020 luosuu</copyright>
+    <language>zh-cn</language>
+    <copyright>Copyright © 2020</copyright>
     <lastBuildDate>Thu, 05 Mar 2020 19:26:15 +0800</lastBuildDate>
     
-	<atom:link href="https://example.com/categories/ui/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://luosuu.github.io/categories/ui/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Qt Windows Navigation</title>
-      <link>https://example.com/post/qt-windows-navigation/</link>
+      <link>https://luosuu.github.io/post/qt-windows-navigation/</link>
       <pubDate>Thu, 05 Mar 2020 19:26:15 +0800</pubDate>
       
-      <guid>https://example.com/post/qt-windows-navigation/</guid>
-      <description>&lt;p&gt;记录一下上学期写的Qt功能，窗口跳转&lt;/p&gt;</description>
+      <guid>https://luosuu.github.io/post/qt-windows-navigation/</guid>
+      <description>&lt;p&gt;记录一下上学期写的Qt功能，窗口跳转&lt;/p&gt;
+&lt;h2 id=&#34;代码&#34;&gt;代码&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-C++&#34; data-lang=&#34;C++&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;#34;mainwindow.h&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;QMainWindow&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;QPushButton&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;QPixmap&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;QSize&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;QMouseEvent&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;QMessageBox&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
+MainWindow&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;MainWindow(QWidget &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;parent)
+    &lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; QMainWindow(parent)
+{
+    QMainWindow &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;new_window &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; QMainWindow; &lt;span style=&#34;color:#75715e&#34;&gt;//创建一个新的窗口，这是我们接下来要跳转的目标。
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    QPushButton &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;toNewWindow &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; QPushButton;&lt;span style=&#34;color:#75715e&#34;&gt;//这是在this窗口里的按钮，我们要通过触发这个按钮跳转到新窗口
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    QPushButton &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;ReturnthisWindow &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; QPushButton;
+    QPixmap &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;newButtonIcon &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; QPixmap(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;:/SchoolGirls.jpg&amp;#34;&lt;/span&gt;);&lt;span style=&#34;color:#75715e&#34;&gt;//创建一个QPixmap类型的对象，用作button的图标，括号里的是资源文件
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    QPixmap &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;returnButtonIcon &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; QPixmap(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;:/LeiMuu&amp;#34;&lt;/span&gt;);
+    QSize &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;newButtonIconsize &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; QSize(&lt;span style=&#34;color:#ae81ff&#34;&gt;200&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;500&lt;/span&gt;);&lt;span style=&#34;color:#75715e&#34;&gt;//括号里是像素的大小
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    QSize &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;reButtonIconsize &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; QSize(&lt;span style=&#34;color:#ae81ff&#34;&gt;300&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;300&lt;/span&gt;);
+    QMessageBox &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;nihao &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; QMessageBox;
+
+    nihao&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;setText(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;helloworld&amp;#34;&lt;/span&gt;);
+    nihao&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;setParent(&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;);
+    nihao&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;move(&lt;span style=&#34;color:#ae81ff&#34;&gt;200&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;200&lt;/span&gt;);
+
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;setFixedSize(&lt;span style=&#34;color:#ae81ff&#34;&gt;400&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;400&lt;/span&gt;);
+    new_window&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;setFixedSize(&lt;span style=&#34;color:#ae81ff&#34;&gt;400&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;400&lt;/span&gt;);
+
+    toNewWindow&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;setParent(&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;);&lt;span style=&#34;color:#75715e&#34;&gt;//把按钮设置在this窗口上
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    toNewWindow&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;setIcon(&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;newButtonIcon);&lt;span style=&#34;color:#75715e&#34;&gt;//把按钮的图标加上
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    toNewWindow&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;setIconSize(&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;newButtonIconsize);&lt;span style=&#34;color:#75715e&#34;&gt;//调整图标的大小
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    toNewWindow&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;setFixedSize(&lt;span style=&#34;color:#ae81ff&#34;&gt;300&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;);&lt;span style=&#34;color:#75715e&#34;&gt;//调整Button的大小
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    toNewWindow&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;move(&lt;span style=&#34;color:#ae81ff&#34;&gt;50&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;120&lt;/span&gt;);
+
+    ReturnthisWindow&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;setParent(new_window);
+    ReturnthisWindow&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;setIcon(&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;returnButtonIcon);
+    ReturnthisWindow&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;setIconSize(&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;reButtonIconsize);
+    ReturnthisWindow&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;setFixedSize(&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;reButtonIconsize);
+    ReturnthisWindow&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;move(&lt;span style=&#34;color:#ae81ff&#34;&gt;50&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;50&lt;/span&gt;);
+
+    connect(toNewWindow,&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;QPushButton&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;clicked,new_window,&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;QMainWindow&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;show);
+    connect(toNewWindow,&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;QPushButton&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;clicked,&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;,&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;QMainWindow&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;hide);
+
+    connect(ReturnthisWindow,&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;QPushButton&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;clicked,&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;,&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;QMainWindow&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;show);
+    connect(ReturnthisWindow,&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;QPushButton&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;clicked,new_window,&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;QMainWindow&lt;span style=&#34;color:#f92672&#34;&gt;::&lt;/span&gt;hide);
+
+
+}
+
+MainWindow&lt;span style=&#34;color:#f92672&#34;&gt;::~&lt;/span&gt;MainWindow()
+{
+
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
       <title>UWP Quickstart</title>
-      <link>https://example.com/post/uwp-quickstart/</link>
+      <link>https://luosuu.github.io/post/uwp-quickstart/</link>
       <pubDate>Thu, 05 Mar 2020 18:55:54 +0800</pubDate>
       
-      <guid>https://example.com/post/uwp-quickstart/</guid>
-      <description>&lt;p&gt;第二学期假期时去MSRA时速成了一下UWP&lt;/p&gt;</description>
+      <guid>https://luosuu.github.io/post/uwp-quickstart/</guid>
+      <description>&lt;p&gt;第二学期假期时去MSRA时速成了一下UWP&lt;/p&gt;
+&lt;h2 id=&#34;uwp速成&#34;&gt;UWP速成&lt;/h2&gt;
+&lt;p&gt;夏令营期间速成了一下微软家的前端工具UWP。&lt;/p&gt;
+&lt;p&gt;推荐环境：Blend for Visual Studio 2019 / Visual Studio 2019&lt;/p&gt;
+&lt;p&gt;需要安装Visual Studio的UWP开发组件。在&lt;code&gt;tools and extensions&lt;/code&gt;里面安装。&lt;/p&gt;
+&lt;p&gt;如果你使用的是Visual Studio 2017，可能会出现无法使用实时preview功能，建议升级为2019版本。&lt;/p&gt;
+&lt;h2 id=&#34;quick-start&#34;&gt;Quick Start&lt;/h2&gt;
+&lt;p&gt;首先新建UWP项目。&lt;/p&gt;
+&lt;p&gt;然后你会看到&lt;code&gt;App.xaml&lt;/code&gt;和&lt;code&gt;MainPage.xaml&lt;/code&gt;，前面的不用管。后面的就是我们的主页面。&lt;/p&gt;
+&lt;p&gt;xaml文件类似于HTML文件，熟悉HTML的同学很快就能上手。&lt;/p&gt;
+&lt;p&gt;关于常用的组件，可以去Windows store里面下载&lt;code&gt;xaml Controls Gallery&lt;/code&gt;。里面有几乎所有常用的组件及其基本代码，更重要的是它本身就是用UWP写的，所以里面的组件都有展示效果，很方便很强大，缺点就是不够详细。&lt;/p&gt;
+&lt;p&gt;比较详细的可以查阅文档，微软的UWP文档写的相当好。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.microsoft.com/en-us/windows/uwp/&#34;&gt;UWP doucumentation&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;现在你可以看到&lt;code&gt;MainPage.xaml&lt;/code&gt;的内容了。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xaml&#34; data-lang=&#34;xaml&#34;&gt;&amp;lt;Page
+    x:Class=&amp;quot;Github_example.MainPage&amp;quot;
+    xmlns=&amp;quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&amp;quot;
+    xmlns:x=&amp;quot;http://schemas.microsoft.com/winfx/2006/xaml&amp;quot;
+    xmlns:local=&amp;quot;using:Github_example&amp;quot;
+    xmlns:d=&amp;quot;http://schemas.microsoft.com/expression/blend/2008&amp;quot;
+    xmlns:mc=&amp;quot;http://schemas.openxmlformats.org/markup-compatibility/2006&amp;quot;
+    mc:Ignorable=&amp;quot;d&amp;quot;
+    Background=&amp;quot;{ThemeResource ApplicationPageBackgroundThemeBrush}&amp;quot;&amp;gt;
+
+    &amp;lt;Grid&amp;gt;
+
+    &amp;lt;/Grid&amp;gt;
+&amp;lt;/Page&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;``中是页面的内容。&lt;/p&gt;
+&lt;p&gt;``是一个组件，能按照几行几列分割页面。其基本的使用是：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xaml&#34; data-lang=&#34;xaml&#34;&gt;&amp;lt;Grid&amp;gt;
+    &amp;lt;Grid.RowDefinitions&amp;gt;
+        &amp;lt;RowDefinition Height = &amp;quot;50&amp;quot; /&amp;gt;
+        &amp;lt;RowDefinition Height = &amp;quot;*&amp;quot;/&amp;gt;
+        &amp;lt;RowDefinition Height = &amp;quot;2*&amp;quot;/&amp;gt;
+    &amp;lt;/Grid.RowDefinitions&amp;gt;
+
+    &amp;lt;Grid.ColumnDefinitions&amp;gt;
+        &amp;lt;ColumnDefinition Width=&amp;quot;50&amp;quot; /&amp;gt;
+        &amp;lt;ColumnDefinition Width=&amp;quot;Auto&amp;quot; /&amp;gt;
+        &amp;lt;ColumnDefinition /&amp;gt;
+    &amp;lt;/Grid.ColumnDefinitions&amp;gt;
+
+    &amp;lt;StackPanel Orientation=&amp;quot;Vertical&amp;quot; Grid.Row=&amp;quot;1&amp;quot;&amp;gt;
+        &amp;lt;TextBlock Text=&amp;quot;Hello&amp;quot;/&amp;gt;
+        &amp;lt;TextBlock Text=&amp;quot;world&amp;quot;/&amp;gt;
+    &amp;lt;/StackPanel&amp;gt;
+
+&amp;lt;/Grid&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;*表示按比例分割区域，上面的代码就代表着第二行和第三行的比例是1：2&lt;/p&gt;
+&lt;p&gt;想要在Grid中布置组件，只需要在``中声明组件，然后在组件的属性中加入如&lt;code&gt;Grid.Row = &amp;quot;1&amp;quot;&lt;/code&gt;表示组件在Grid中的位置。上面的代码就在第一行的位置上布置了一个组件StackPanel。&lt;/p&gt;
+&lt;p&gt;StackPanel能按照一定的方向排列组件。排列的方向由属性&amp;quot;Orientation&amp;quot;决定。&lt;/p&gt;
+&lt;h2 id=&#34;常用的结构&#34;&gt;常用的结构&lt;/h2&gt;
+&lt;h3 id=&#34;uwp非常具有独特风格的navigationview框架&#34;&gt;UWP非常具有独特风格的NavigationView框架&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xaml&#34; data-lang=&#34;xaml&#34;&gt;&amp;lt;Page
+    x:Class=&amp;quot;Github_example.MainPage&amp;quot;
+    xmlns=&amp;quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&amp;quot;
+    xmlns:x=&amp;quot;http://schemas.microsoft.com/winfx/2006/xaml&amp;quot;
+    xmlns:local=&amp;quot;using:Github_example&amp;quot;
+    xmlns:d=&amp;quot;http://schemas.microsoft.com/expression/blend/2008&amp;quot;
+    xmlns:mc=&amp;quot;http://schemas.openxmlformats.org/markup-compatibility/2006&amp;quot;
+    mc:Ignorable=&amp;quot;d&amp;quot;
+    Background=&amp;quot;{ThemeResource ApplicationPageBackgroundThemeBrush}&amp;quot;&amp;gt;
+
+
+    &amp;lt;NavigationView x:Name=&amp;quot;nvSample&amp;quot;&amp;gt;
+        &amp;lt;NavigationView.MenuItems&amp;gt;
+            &amp;lt;NavigationViewItem Icon=&amp;quot;Play&amp;quot; Content=&amp;quot;Menu Item1&amp;quot; Tag=&amp;quot;SamplePage1&amp;quot; /&amp;gt;
+            &amp;lt;NavigationViewItem Icon=&amp;quot;Save&amp;quot; Content=&amp;quot;Menu Item2&amp;quot; Tag=&amp;quot;SamplePage2&amp;quot; /&amp;gt;
+            &amp;lt;NavigationViewItem Icon=&amp;quot;Refresh&amp;quot; Content=&amp;quot;Menu Item3&amp;quot; Tag=&amp;quot;SamplePage3&amp;quot; /&amp;gt;
+            &amp;lt;NavigationViewItem Icon=&amp;quot;Download&amp;quot; Content=&amp;quot;Menu Item4&amp;quot; Tag=&amp;quot;SamplePage4&amp;quot; /&amp;gt;
+        &amp;lt;/NavigationView.MenuItems&amp;gt;
+
+        &amp;lt;Frame x:Name=&amp;quot;contentFrame&amp;quot;&amp;gt;
+            &amp;lt;Grid&amp;gt;
+            &amp;lt;/Grid&amp;gt;
+        &amp;lt;/Frame&amp;gt;
+    &amp;lt;/NavigationView&amp;gt;
+
+&amp;lt;/Page&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;``中就是除了框架的内容页面。&lt;/p&gt;
+&lt;p&gt;使用了NavigationView自然要进行页面跳转。页面跳转的实现部分要放在&lt;code&gt;MianPage.xaml.cs&lt;/code&gt;中实现。&lt;/p&gt;
+&lt;p&gt;页面跳转有两种方法，一个是&lt;code&gt;ItemInvoked&lt;/code&gt;，另外一个是&lt;code&gt;SelectionChanged&lt;/code&gt;。前者只要发生NavigationView的item点击事件就会被检测到，后者只有当选择的item发生变化时才会发生。下面展示一个使用&lt;code&gt;ItemInvoked&lt;/code&gt;的页面跳转的实现。所以你需要新建&lt;code&gt;Blank page&lt;/code&gt;项目，修改.xaml.cs中的类的名称。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-C#&#34; data-lang=&#34;C#&#34;&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; NvSample_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
+        {
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (args.IsSettingsInvoked == &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;)
+            {
+                contentFrame.Navigate(&lt;span style=&#34;color:#66d9ef&#34;&gt;typeof&lt;/span&gt;(SettingsPage), args.RecommendedNavigationTransitionInfo);
+            }
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;
+            {
+                TextBlock ItemContent = args.InvokedItem &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; TextBlock;
+                &lt;span style=&#34;color:#66d9ef&#34;&gt;switch&lt;/span&gt; (ItemContent.Tag)
+                {
+                    &lt;span style=&#34;color:#66d9ef&#34;&gt;case&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Recog_page&amp;#34;&lt;/span&gt;:
+                        {
+                            contentFrame.Navigate(&lt;span style=&#34;color:#66d9ef&#34;&gt;typeof&lt;/span&gt;(Recog_page));
+                        }
+                        &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt;;
+                    &lt;span style=&#34;color:#66d9ef&#34;&gt;case&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;SP2&amp;#34;&lt;/span&gt;:
+                        {
+                            contentFrame.Navigate(&lt;span style=&#34;color:#66d9ef&#34;&gt;typeof&lt;/span&gt;(SamplePage2));
+                        }
+                        &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt;;
+                    &lt;span style=&#34;color:#66d9ef&#34;&gt;case&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;SP3&amp;#34;&lt;/span&gt;:
+                        {
+                            contentFrame.Navigate(&lt;span style=&#34;color:#66d9ef&#34;&gt;typeof&lt;/span&gt;(SamplePage3));
+                        }
+                        &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt;;
+                    &lt;span style=&#34;color:#66d9ef&#34;&gt;case&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;SP4&amp;#34;&lt;/span&gt;:
+                        {
+                            contentFrame.Navigate(&lt;span style=&#34;color:#66d9ef&#34;&gt;typeof&lt;/span&gt;(SamplePage4));
+                        }
+                        &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt;;
+                    &lt;span style=&#34;color:#66d9ef&#34;&gt;default&lt;/span&gt;:
+                        {
+                            contentFrame.Navigate(&lt;span style=&#34;color:#66d9ef&#34;&gt;typeof&lt;/span&gt;(MainPage));
+                        }
+                        &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt;;
+                }
+            }
+        }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;上述的实现通过识别item的不同tag属性来进行跳转。由于NavigationView自带的Setting不具备tag属性，所以就先只好判断&lt;code&gt;IsSettingInvoked&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;使用&lt;code&gt;contentFrame.Navigate(typeof())&lt;/code&gt;进行页面跳转，识别的是.xaml.cs文件中的类的名称，而不是xaml文件里的name。&lt;/p&gt;
+&lt;p&gt;xaml文件的地位并不高，只是方便我们搭建框架而已，实际上xaml文件完全可以不写，完全使用C#搭建框架，只是这样没有编辑xaml直观方便。&lt;/p&gt;
+&lt;h2 id=&#34;在uwp中使用图片&#34;&gt;在UWP中使用图片&lt;/h2&gt;
+&lt;p&gt;你可能需要使用到BitmapImage类，但是BitmapImage类默认不在UWP项目的引用列表里，所以需要手动添加&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-C#&#34; data-lang=&#34;C#&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; windows.UI.Xaml.Media.Imaging;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;lt;&lt;/span&gt;MianPage的命名空间&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，一般是项目名&lt;/span&gt;&amp;gt;.Views;&lt;span style=&#34;color:#75715e&#34;&gt;//有的时候不必要添加
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;BitmapImage类使用Uri进行加载资源文件，UWP的资源文件默认都放在项目里的Assets文件夹里。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-C#&#34; data-lang=&#34;C#&#34;&gt;BitmapImage picture = &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; BitmapImage();
+picture.UriSource = &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; Uri(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ms-appx:Assets/dog.jpg&amp;#34;&lt;/span&gt;);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后就可以把这个属性赋给一些图片，让他们重新加载资源图片。如果xaml文件里有一个Image组件，属性有&lt;code&gt;x:name = Sample&lt;/code&gt;，那么就可以在.xaml.cs文件里，使用&lt;code&gt;Sample.Source=picture&lt;/code&gt;来重新加载图片。&lt;/p&gt;</description>
     </item>
     
   </channel>

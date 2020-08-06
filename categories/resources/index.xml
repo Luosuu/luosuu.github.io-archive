@@ -1,26 +1,108 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Resources on luosuu的小站</title>
-    <link>https://example.com/categories/resources/</link>
-    <description>Recent content in Resources on luosuu的小站</description>
+    <title>Resources on 洛舒luosuu的小站</title>
+    <link>https://luosuu.github.io/categories/resources/</link>
+    <description>Recent content in Resources on 洛舒luosuu的小站</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>&amp;copy; Copyright 2020 luosuu</copyright>
+    <language>zh-cn</language>
+    <copyright>Copyright © 2020</copyright>
     <lastBuildDate>Mon, 16 Mar 2020 11:32:11 +0800</lastBuildDate>
     
-	<atom:link href="https://example.com/categories/resources/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://luosuu.github.io/categories/resources/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Arrangement of Learning Resources</title>
-      <link>https://example.com/post/arrangement-of-learning-resources/</link>
+      <link>https://luosuu.github.io/post/arrangement-of-learning-resources/</link>
       <pubDate>Mon, 16 Mar 2020 11:32:11 +0800</pubDate>
       
-      <guid>https://example.com/post/arrangement-of-learning-resources/</guid>
+      <guid>https://luosuu.github.io/post/arrangement-of-learning-resources/</guid>
       <description>&lt;p&gt;资源整理向博客&lt;/p&gt;
 &lt;p&gt;课程的完整列表可见：&lt;/p&gt;
-&lt;p&gt;​	https://github.com/shining1984/PL-Compiler-Resource&lt;/p&gt;</description>
+&lt;p&gt;​	https://github.com/shining1984/PL-Compiler-Resource&lt;/p&gt;
+&lt;h2 id=&#34;课程&#34;&gt;课程&lt;/h2&gt;
+&lt;h3 id=&#34;静态分析&#34;&gt;静态分析&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.bilibili.com/video/av91858985&#34;&gt;南京大学《软件分析》课程&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;无教材&lt;/li&gt;
+&lt;li&gt;有PPT&lt;/li&gt;
+&lt;li&gt;国内老师，讲的很清楚&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.cis.upenn.edu/~cis341/current/&#34;&gt;Upenn-Software Analysis and Testing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://homepages.dcc.ufmg.br/~fernando/classes/dcc888/ementa/&#34;&gt;Dr.Fernando-DCC888&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;有PPT，引用资料全&lt;/li&gt;
+&lt;li&gt;针对静态分析程序分析，及其优化部分&lt;/li&gt;
+&lt;li&gt;有一部分LLVM的内容&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://cs.au.dk/~amoeller/spa/&#34;&gt;Universitas Arhusiensis-Static Program Analysis&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;覆盖了静态分析的基本内容&lt;/li&gt;
+&lt;li&gt;有教材，较成体系&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://xiongyingfei.github.io/SA/2019/main.htm&#34;&gt;北京大学《软件分析技术》&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;有课件&lt;/li&gt;
+&lt;li&gt;内容覆盖宽广&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;编译器&#34;&gt;编译器&lt;/h3&gt;
+&lt;h4 id=&#34;1-stanford&#34;&gt;(1) Stanford&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://web.stanford.edu/class/archive/cs/cs143/cs143.1128/&#34;&gt;CS143:Compilers&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;编译器基础知识&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://suif.stanford.edu/~courses/cs243/&#34;&gt;CS234:Advanced Compilers&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;程序分析和优化技术&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://web.stanford.edu/class/cs343/&#34;&gt;CS 343&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;最新的研究成果&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;简化内容的视频资源：https://www.bilibili.com/video/av18939632&lt;/p&gt;
+&lt;h4 id=&#34;2-upenn&#34;&gt;(2) Upenn&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.cis.upenn.edu/~cis341/current/&#34;&gt;CIS 341-Compilers Spring 2020&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;基本编译器课程&lt;/li&gt;
+&lt;li&gt;词法/语法分析、代码生成、语义分析、优化和运行时支持&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;4-rice-university&#34;&gt;(4) Rice University&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.clear.rice.edu/comp412/&#34;&gt;COMP412&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&#34;5-sacramento&#34;&gt;(5) Sacramento&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.bilibili.com/video/av81692863&#34;&gt;CSC 151: Compiler Construction&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&#34;6-uiuc&#34;&gt;(6) UIUC&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://courses.engr.illinois.edu/cs426/fa2019/&#34;&gt;CS426&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://polaris.cs.uiuc.edu/~padua/cs526/&#34;&gt;CS526-2011&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://courses.engr.illinois.edu/cs526/sp2020/&#34;&gt;CS526-2020 (Not started yet)&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;其他&#34;&gt;其他&lt;/h3&gt;
+&lt;p&gt;1.&lt;a href=&#34;https://www.bilibili.com/video/av8515129&#34;&gt;MIT-sicp&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;博客&#34;&gt;博客&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;http://fleurer.github.io/lyah/chapters.htm&#34;&gt;Haskell趣学指南&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://thautwarm.github.io/Site-32/&#34;&gt;thautwarm的博客&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://numbbbbb.com/2016/03/28/20160328_%E6%88%91%E5%A6%82%E4%BD%95%E7%94%A8%E4%B8%A4%E5%91%A8%E6%97%B6%E9%97%B4%E5%88%B7%E5%AE%8C%20SICP/&#34;&gt;梁杰的博客-20天刷完sicp&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://okmij.org/ftp/&#34;&gt;okmij.org&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.pl-enthusiast.net/2015/05/27/what-is-pl-research-and-how-is-it-useful/&#34;&gt;What is PL research and how is it useful&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;书&#34;&gt;书&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://mitpress.mit.edu/sites/default/files/sicp/index.html&#34;&gt;SICP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.filepicker.io/api/file/jjQ29xA9RP29juOcGbRL&#34;&gt;Programming Language Pragmatics&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</description>
     </item>
     
   </channel>

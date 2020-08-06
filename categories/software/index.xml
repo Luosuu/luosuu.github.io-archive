@@ -1,88 +1,641 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Software on luosuu的小站</title>
-    <link>https://example.com/categories/software/</link>
-    <description>Recent content in Software on luosuu的小站</description>
+    <title>Software on 洛舒luosuu的小站</title>
+    <link>https://luosuu.github.io/categories/software/</link>
+    <description>Recent content in Software on 洛舒luosuu的小站</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>&amp;copy; Copyright 2020 luosuu</copyright>
-    <lastBuildDate>Wed, 29 Jul 2020 18:53:26 +0800</lastBuildDate>
+    <language>zh-cn</language>
+    <copyright>Copyright © 2020</copyright>
+    <lastBuildDate>Wed, 13 May 2020 12:00:09 +0800</lastBuildDate>
     
-	<atom:link href="https://example.com/categories/software/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://luosuu.github.io/categories/software/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>微信小程序开发训练营</title>
-      <link>https://example.com/post/wx-miniprogram-tips/</link>
-      <pubDate>Wed, 29 Jul 2020 18:53:26 +0800</pubDate>
-      
-      <guid>https://example.com/post/wx-miniprogram-tips/</guid>
-      <description>&lt;p&gt;最近参加了腾讯微信小程序开发训练营，记录一些有趣的点。&lt;/p&gt;</description>
-    </item>
     
     <item>
       <title>Azure CLI to Deploy Containers</title>
-      <link>https://example.com/post/azure_contianer_cli/</link>
+      <link>https://luosuu.github.io/post/azure_contianer_cli/</link>
       <pubDate>Wed, 13 May 2020 12:00:09 +0800</pubDate>
       
-      <guid>https://example.com/post/azure_contianer_cli/</guid>
-      <description>&lt;p&gt;最近因为一些原因在折腾Azure，毕竟不能浪费微软爸爸发的每月150刀额度。&lt;/p&gt;</description>
+      <guid>https://luosuu.github.io/post/azure_contianer_cli/</guid>
+      <description>&lt;p&gt;最近因为一些原因在折腾Azure，毕竟不能浪费微软爸爸发的每月150刀额度。&lt;/p&gt;
+&lt;p&gt;创建资源组&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;az group create &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;	--name &amp;lt;Resourse Group Name&amp;gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;	--location eastus
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;运行容器&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;az container create &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;	--resource-group &amp;lt;Resourse Group Name&amp;gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;	--name &amp;lt;Container Tag Name&amp;gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;	--image &amp;lt;Your IMG&amp;gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;	--ports &lt;span style=&#34;color:#ae81ff&#34;&gt;8388&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;	--location eastus &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;	--ip-address public &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;	--restart-policy Always &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;	--environment-variables &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;		PASSWAORD&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&amp;lt;YOUR PWD&amp;gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;		METHOD&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;chacha20-ietf-poly1305
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;检查状态&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;az container show &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;	--resource-group &amp;lt;Resourse Group Name&amp;gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;	--name &amp;lt;Container Tag Name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在容器中执行命令&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;az container exec \
+  --resource-group learn-deploy-aci-rg \
+  --name mycontainer \
+  --exec-command /bin/sh
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     
     <item>
       <title>Azure CLI VM Deployment</title>
-      <link>https://example.com/post/azure-vm-deployment/</link>
+      <link>https://luosuu.github.io/post/azure-vm-deployment/</link>
       <pubDate>Wed, 13 May 2020 12:00:09 +0800</pubDate>
       
-      <guid>https://example.com/post/azure-vm-deployment/</guid>
+      <guid>https://luosuu.github.io/post/azure-vm-deployment/</guid>
       <description>&lt;p&gt;用Azure CLI快速部署一台实例。&lt;/p&gt;
-&lt;p&gt;注意这些操作都可以用Azure门户快速实现，Azure CLI不是唯一选择。&lt;/p&gt;</description>
+&lt;p&gt;注意这些操作都可以用Azure门户快速实现，Azure CLI不是唯一选择。&lt;/p&gt;
+&lt;p&gt;创建资源组&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;az group create &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;  --name &amp;lt;resource-group-name&amp;gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;  --location &amp;lt;resource-group-location&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在创建的资源组里创建VM&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;az vm create &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;  --resource-group servers &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;  --name MeanStack &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;  --image credativ:Debian:10:latest  &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;  --admin-username azureuser &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;  --generate-ssh-keys
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;打开VM端口的80端口方便访问在其上的网页服务&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;az vm open-port &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;  --port 80&lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;  --resource-group &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;resource group name&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;  --name MeanStack
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;创建SSH与VM的链接，首先先把vm的ip地址存在bash的变量中方便操作&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ipaddress&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;az vm show &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;  --name MeanStack &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;  --resource-group &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;resource group name&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;  --show-details &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;  --query &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;publicIps&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;  --output tsv&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh azureuser@$ipaddress
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这样VM就已经准备就绪了&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Something Magical</title>
-      <link>https://example.com/post/something-magical/</link>
+      <link>https://luosuu.github.io/post/something-magical/</link>
       <pubDate>Wed, 11 Mar 2020 16:03:03 +0800</pubDate>
       
-      <guid>https://example.com/post/something-magical/</guid>
-      <description>&lt;p&gt;Something magical&lt;/p&gt;</description>
+      <guid>https://luosuu.github.io/post/something-magical/</guid>
+      <description>&lt;p&gt;Something magical&lt;/p&gt;
+&lt;h2 id=&#34;config-file-on-macos&#34;&gt;Config file on macOS&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;vim /usr/local/etc/shadowsocks-libev.json
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Example:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;{
+    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;server&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;abc.xyz.com&amp;#34;&lt;/span&gt;,
+    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;server_port&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#ae81ff&#34;&gt;8888&lt;/span&gt;,
+    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;local_port&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#ae81ff&#34;&gt;1080&lt;/span&gt;,
+    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;password&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;AbCdEfGhIjKlMn&amp;#34;&lt;/span&gt;,
+    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;timeout&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;,
+    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;method&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;chacha20-ietf-poly1305&amp;#34;&lt;/span&gt;,
+    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;mode&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tcp_and_udp&amp;#34;&lt;/span&gt;,
+    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;plugin&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;obfs-local&amp;#34;&lt;/span&gt;,
+    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;plugin_opts&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;obfs=http;obfs-host=cloudflare.net&amp;#34;&lt;/span&gt;
+} 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Restart services&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;brew services restart shadowsocks-libev 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
       <title>Jenv Manage JDK</title>
-      <link>https://example.com/post/jenv-manage-jdk/</link>
+      <link>https://luosuu.github.io/post/jenv-manage-jdk/</link>
       <pubDate>Thu, 05 Mar 2020 19:52:11 +0800</pubDate>
       
-      <guid>https://example.com/post/jenv-manage-jdk/</guid>
-      <description>&lt;p&gt;灵活管理JDK&lt;/p&gt;</description>
+      <guid>https://luosuu.github.io/post/jenv-manage-jdk/</guid>
+      <description>&lt;p&gt;灵活管理JDK&lt;/p&gt;
+&lt;h2 id=&#34;whats-jenv&#34;&gt;What&amp;rsquo;s jenv&lt;/h2&gt;
+&lt;p&gt;在我安装weka的python包时，需要安装javabridge这个包，于是我先后下载了JDK13和openJDK1.8.0，需要管理JDK的环境（题外话，安装javabridge时需要环境为JDK8或者同等级的openJDk，太新的JDK13不行）&lt;/p&gt;
+&lt;p&gt;jenv 是一个命令行工具，可以在 Linux/OS X 平台使用，可以管理多个版本 JDK，方便在多个版本 JDK 之间切换，另外其还可以设置 JAVA_HOME 环境变量。&lt;/p&gt;
+&lt;p&gt;使用 jenv 有一个前提，必须提前安装 JDK，其不提供下载安装 JDK 的功能。MacOSX 平台可以提前使用 brew 安装 JDK。&lt;/p&gt;
+&lt;h2 id=&#34;install-jenv&#34;&gt;Install jenv&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;brew install jenv
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;macOS只需brew一行安装即可，其他平台请见下方&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git clone https://github.com/jenv/jenv.git ~/.jenv
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果是bash:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;export PATH=&amp;#34;$HOME/.jenv/bin:$PATH&amp;#34;&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt; ~/.bash_profile   
+echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;eval &amp;#34;$(jenv init -)&amp;#34;&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt; ~/.bash_profile
+source ~/.bash_profile
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果是zsh:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;export PATH=&amp;#34;$HOME/.jenv/bin:$PATH&amp;#34;&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt; ~/.zshrc  
+echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;eval &amp;#34;$(jenv init -)&amp;#34;&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt; ~/.zshrc
+source ~/.zshrc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;usage&#34;&gt;usage&lt;/h2&gt;
+&lt;p&gt;先用下面这行查找出所有已安装的JDK&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;/usr/libexec/java_home -V
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;找到JDK的路径后，使用&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;jenv add &amp;lt;JDK_path&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;将JDK加入jenv的管理&lt;/p&gt;
+&lt;p&gt;有些应用程序需要使用&lt;code&gt;JAVA_HOME&lt;/code&gt;环境变量，可以设置jenv轻松变更该环境变量&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;jenv enable-plugin export
+&lt;span style=&#34;color:#75715e&#34;&gt;## 运行这个才会生效&lt;/span&gt;
+exec $SHELL -l
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;可以用下面这条显示所有jenv管理的版本&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;jenv versions
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;对当前文件夹更换JDK环境&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;jenv local &amp;lt;version_number&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;对当前shell里的所有操作更换JDK环境&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;jenv shell &amp;lt;version_numbers&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;全局设置JDK环境&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;jenv global &amp;lt;version_numbers&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;对jenv进行检查&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;jenv doctor
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;显示所有可行操作&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;jenv commands
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果使用过程中，发现JDK环境没有变(&lt;code&gt;java -version&lt;/code&gt;)，可以运行&lt;code&gt;exec $SHELL -l&lt;/code&gt;尝试，然后看看JDK环境是否变化。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Nvm Manage Node</title>
-      <link>https://example.com/post/nvm-manage-node/</link>
+      <link>https://luosuu.github.io/post/nvm-manage-node/</link>
       <pubDate>Thu, 05 Mar 2020 19:23:34 +0800</pubDate>
       
-      <guid>https://example.com/post/nvm-manage-node/</guid>
-      <description>&lt;p&gt;用nvm管理你的node和npm&lt;/p&gt;</description>
+      <guid>https://luosuu.github.io/post/nvm-manage-node/</guid>
+      <description>&lt;p&gt;用nvm管理你的node和npm&lt;/p&gt;
+&lt;h2 id=&#34;awesome-nvm&#34;&gt;awesome nvm&lt;/h2&gt;
+&lt;p&gt;前端开发经常必然需要很好的管理自己的npm和node。奈何mac上的homebrew不给力，经常有很多问题。&lt;/p&gt;
+&lt;p&gt;通过查询知道还有nvm这样一种方便的工具可以使用。便立即学习了一下。&lt;/p&gt;
+&lt;p&gt;首先需要安装nvm。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后你可以直接运行&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;nvm install node
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;来直接安装最新的node。&lt;/p&gt;
+&lt;p&gt;也可以使用&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;nvm ls-remote
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;看看所有可用的版本。&lt;/p&gt;
+&lt;p&gt;如果你有多个node版本。可以仿照下面的代码交换使用。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;nvm use v12.7.0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果使用&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;nvm use node
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;就切换到最新版了。&lt;/p&gt;
+&lt;p&gt;其他用法可以看官方文档。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Ssh Login Server</title>
-      <link>https://example.com/post/ssh-login-server/</link>
+      <link>https://luosuu.github.io/post/ssh-login-server/</link>
       <pubDate>Thu, 05 Mar 2020 19:22:52 +0800</pubDate>
       
-      <guid>https://example.com/post/ssh-login-server/</guid>
-      <description>&lt;p&gt;用ssh密钥文件登陆服务器&lt;/p&gt;</description>
+      <guid>https://luosuu.github.io/post/ssh-login-server/</guid>
+      <description>&lt;p&gt;用ssh密钥文件登陆服务器&lt;/p&gt;
+&lt;h2 id=&#34;用腾讯云自己生成的密钥文件&#34;&gt;用腾讯云自己生成的密钥文件&lt;/h2&gt;
+&lt;p&gt;如果你购买了一个服务器，那么你肯定是需要远程登陆它的。&lt;/p&gt;
+&lt;p&gt;ssh密钥登陆就是受推崇的一种方式。它在安全性和便捷性间作出了非常好的折中。&lt;/p&gt;
+&lt;p&gt;以腾讯云为例。你在购买腾讯云的服务器后，如果你想登陆服务器，那么就需要开放ssh端口。&lt;/p&gt;
+&lt;p&gt;你可以通过它自带的方式生成一个密钥文件。腾讯云会为你保存名称和公钥，私钥文件需要自己下载保存。&lt;/p&gt;
+&lt;p&gt;你下载下来的密钥文件的文件名应该是和你所起的名称是一致的。&lt;/p&gt;
+&lt;p&gt;你可以直接使用这个密钥文件。&lt;/p&gt;
+&lt;p&gt;使用之前你可能需要先更改这个文件的权限&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;chmod &lt;span style=&#34;color:#ae81ff&#34;&gt;400&lt;/span&gt; &amp;lt;文件路径&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;修改以后你就可以直接使用以下命令来登陆服务器了。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh -i &amp;lt;文件路径&amp;gt; &amp;lt;服务器用户名&amp;gt;@&amp;lt;公网ip&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;注意，如果你使用以上方法，那么你的文件名不能改，改了就不行了。&lt;/p&gt;
+&lt;h2 id=&#34;更通常的做法&#34;&gt;更通常的做法&lt;/h2&gt;
+&lt;p&gt;然而这个方式不优雅，也不是我们推崇的。&lt;/p&gt;
+&lt;p&gt;一般操作系统都会自带&lt;code&gt;~/.ssh&lt;/code&gt;文件夹，如果没有，你可以自己创建一个。&lt;/p&gt;
+&lt;p&gt;进去后应该会有两个文件，一个是&lt;code&gt;id_rsa&lt;/code&gt;，另外一个是&lt;code&gt;id_rsa.pub&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;这是我们电脑默认的ssh加密文件。如果你曾经使用过git，那么不应该对他们很陌生。&lt;/p&gt;
+&lt;p&gt;这两个文件各有用处，&lt;code&gt;id_rsa&lt;/code&gt;负责储存私钥，&lt;code&gt;id_rsa.pub&lt;/code&gt;负责储存公钥。&lt;/p&gt;
+&lt;p&gt;如果你想使用腾讯云给你生成的密钥文件的内容。那么你可以将你之前下载的密钥文件重命名为&lt;code&gt;id_rsa&lt;/code&gt;然后覆盖掉默认的。&lt;/p&gt;
+&lt;p&gt;然后去腾讯云将公钥复制下来，创建一个&lt;code&gt;id_rsa.pub&lt;/code&gt;的文件，将公钥内容复制进去。然后用你创建的&lt;code&gt;id_rsa.pub&lt;/code&gt;文件覆盖掉默认的。&lt;/p&gt;
+&lt;p&gt;然后你可能需要更改文件权限&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;chmod &lt;span style=&#34;color:#ae81ff&#34;&gt;400&lt;/span&gt; ~/.ssh/id_rsa
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这样你就可以使用以下命令登陆服务器了&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh &amp;lt;服务器用户名&amp;gt;@&amp;lt;公网ip&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果你不想用腾讯云给你的密钥文件内容。我假设你之前没有密钥文件（因为有密钥文件的操作是包含在没有密钥文件的操作之中的）。&lt;/p&gt;
+&lt;p&gt;在shell中输入以下命令&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 这是在生成密钥对&lt;/span&gt;
+ssh-keygen
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后会出现以下提示&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;Generating public/private rsa key pair.
+Enter file in which to save the key ～/.ssh/id_rsa&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;:
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这是让你在选择ssh密钥内容的保存位置。而这个文件位置一般就是&lt;code&gt;~/.ssh/id_rsa&lt;/code&gt;，也就是我们期望的默认位置。直接回车。&lt;/p&gt;
+&lt;p&gt;然后会出现以下提示&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;Enter passphrase &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;empty &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; no passphrase&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;:
+Enter same passphrase again:
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后会让你输入两次一个叫做&lt;code&gt;passphrase&lt;/code&gt;的东西，你可以理解是对密钥文件的加密，也就是密钥文件的密码。一般来说直接回车两次就行了，这代表不设置&lt;code&gt;passphrase&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;然后登陆服务器。进入服务器的&lt;code&gt;~/.ssh&lt;/code&gt;目录，使用&lt;code&gt;ls&lt;/code&gt;命令查看其中的文件。里面应该有一个叫做&lt;code&gt;authorized_keys&lt;/code&gt;的文件。这个文件里面存有所有得到登陆授权的公钥。储存格式是每行一个公钥。&lt;/p&gt;
+&lt;p&gt;我们可以编辑&lt;code&gt;authorized_keys&lt;/code&gt;，然后将自己生成的公钥内容复制进去（记得保存）。&lt;/p&gt;
+&lt;p&gt;然后我们就可以通过本地的ssh密钥对登陆了。&lt;/p&gt;
+&lt;p&gt;从这里我们可以看出ssh密钥对的优势和好处。我们可以在服务器的&lt;code&gt;authorized_keys&lt;/code&gt;储存多台电脑的ssh文件的公钥，就可以实现服务器的安全共享。&lt;/p&gt;
+&lt;h2 id=&#34;ssh文件的使用&#34;&gt;ssh文件的使用&lt;/h2&gt;
+&lt;p&gt;为了方便，我们每个计算机都只保存一个ssh文件密钥对，也就是&lt;code&gt;id_rsa&lt;/code&gt;与&lt;code&gt;id_rsa.pub&lt;/code&gt;。然后任何需要使用ssh文件的地方都用这个密钥对。这样我们就免去了命令上的麻烦。&lt;/p&gt;
+&lt;p&gt;ssh命令中的&lt;code&gt;-i&lt;/code&gt;实际上就是使用密钥文件的意思。以后我们登陆任何需要ssh文件的服务器，都直接使用&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh &amp;lt;服务器用户名&amp;gt;@&amp;lt;公网ip&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;就可以了。非常方便。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Homebrew Install Scripts</title>
-      <link>https://example.com/post/install-homebrew-ustc-source/</link>
+      <link>https://luosuu.github.io/post/install-homebrew-ustc-source/</link>
       <pubDate>Thu, 05 Mar 2020 17:22:17 +0800</pubDate>
       
-      <guid>https://example.com/post/install-homebrew-ustc-source/</guid>
-      <description>&lt;p&gt;通过ustc源安装homebrew&lt;/p&gt;</description>
+      <guid>https://luosuu.github.io/post/install-homebrew-ustc-source/</guid>
+      <description>&lt;p&gt;通过ustc源安装homebrew&lt;/p&gt;
+&lt;h2 id=&#34;ruby-scripts&#34;&gt;Ruby Scripts&lt;/h2&gt;
+&lt;p&gt;brew_install.rb&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/usr/bin/ruby&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# This script installs to /usr/local only. To install elsewhere (which is&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# unsupported) you can untar https://github.com/Homebrew/brew/tarball/master&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# anywhere you like.&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;HOMEBREW_PREFIX&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/usr/local&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;freeze
+&lt;span style=&#34;color:#66d9ef&#34;&gt;HOMEBREW_REPOSITORY&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/usr/local/Homebrew&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;freeze
+&lt;span style=&#34;color:#66d9ef&#34;&gt;HOMEBREW_CACHE&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;#{&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;ENV&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;HOME&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;/Library/Caches/Homebrew&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;freeze
+&lt;span style=&#34;color:#66d9ef&#34;&gt;BREW_REPO&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://mirrors.ustc.edu.cn/brew.git&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;freeze
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# TODO: bump version when new macOS is released&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;MACOS_LATEST_SUPPORTED&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;10.15&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;freeze
+&lt;span style=&#34;color:#75715e&#34;&gt;# TODO: bump version when new macOS is released&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;MACOS_OLDEST_SUPPORTED&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;10.13&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;freeze
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# no analytics during installation&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;ENV&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;HOMEBREW_NO_ANALYTICS_THIS_RUN&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;1&amp;#34;&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;ENV&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;HOMEBREW_NO_ANALYTICS_MESSAGE_OUTPUT&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;1&amp;#34;&lt;/span&gt;
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# get nicer global variables&lt;/span&gt;
+require &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;English&amp;#34;&lt;/span&gt;
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;module&lt;/span&gt; Tty
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;module_function&lt;/span&gt;
+
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;blue&lt;/span&gt;
+    bold &lt;span style=&#34;color:#ae81ff&#34;&gt;34&lt;/span&gt;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
+
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;red&lt;/span&gt;
+    bold &lt;span style=&#34;color:#ae81ff&#34;&gt;31&lt;/span&gt;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
+
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;reset&lt;/span&gt;
+    escape &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
+
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;bold&lt;/span&gt;(code &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;39&lt;/span&gt;)
+    escape &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;1;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;#{&lt;/span&gt;code&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
+
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;underline&lt;/span&gt;
+    escape &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;4;39&amp;#34;&lt;/span&gt;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
+
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;escape&lt;/span&gt;(code)
+    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;#{&lt;/span&gt;code&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;m&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;STDOUT&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;tty?
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Array&lt;/span&gt;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;shell_s&lt;/span&gt;
+    cp &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; dup
+    first &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; cp&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;shift
+    cp&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;map { &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt;arg&lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt; arg&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;gsub &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; &amp;#34;&lt;/span&gt; }&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;unshift(first)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;join(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt;)
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ohai&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;args)
+  puts &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;#{&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Tty&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;blue&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;==&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;#{&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Tty&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;bold&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;#{&lt;/span&gt;args&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;shell_s&lt;span style=&#34;color:#e6db74&#34;&gt;}#{&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Tty&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;reset&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;warn&lt;/span&gt;(warning)
+  puts &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;#{&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Tty&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;red&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Warning&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;#{&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Tty&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;reset&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;: &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;#{&lt;/span&gt;warning&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;chomp&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;system&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;args)
+  abort &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Failed during: &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;#{&lt;/span&gt;args&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;shell_s&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;unless&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;Kernel&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;system(&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;args)
+&lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;sudo&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;args)
+  args&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;unshift(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;-A&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;unless&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;ENV&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;SUDO_ASKPASS&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;].&lt;/span&gt;nil?
+  ohai &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/usr/bin/sudo&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;args
+  system &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/usr/bin/sudo&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;args
+&lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;getc&lt;/span&gt;
+  system &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/bin/stty raw -echo&amp;#34;&lt;/span&gt;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;STDIN&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;respond_to?(&lt;span style=&#34;color:#e6db74&#34;&gt;:getbyte&lt;/span&gt;)
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;STDIN&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;getbyte
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;STDIN&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;getc
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;ensure&lt;/span&gt;
+  system &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/bin/stty -raw echo&amp;#34;&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;wait_for_user&lt;/span&gt;
+  puts
+  puts &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Press RETURN to continue or any other key to abort&amp;#34;&lt;/span&gt;
+  c &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; getc
+  &lt;span style=&#34;color:#75715e&#34;&gt;# we test for \r and \n because some stuff does \r instead&lt;/span&gt;
+  abort &lt;span style=&#34;color:#66d9ef&#34;&gt;unless&lt;/span&gt; (c &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;13&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;||&lt;/span&gt; (c &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;)
+&lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Version&lt;/span&gt;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;include&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;Comparable&lt;/span&gt;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;attr_reader&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;:parts&lt;/span&gt;
+
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;initialize&lt;/span&gt;(str)
+    @parts &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; str&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;split(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.&amp;#34;&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;map(&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;:to_i&lt;/span&gt;)
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
+
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;&amp;lt;=&amp;gt;&lt;/span&gt;(other)
+    parts &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&amp;gt;&lt;/span&gt; self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;class&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;new(other)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;parts
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
+
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;to_s&lt;/span&gt;
+    parts&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;join(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.&amp;#34;&lt;/span&gt;)
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;macos_version&lt;/span&gt;
+  @macos_version &lt;span style=&#34;color:#f92672&#34;&gt;||=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;Version&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;new(&lt;span style=&#34;color:#e6db74&#34;&gt;`/usr/bin/sw_vers -productVersion`&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;chomp&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;/10\.\d+/&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;)
+&lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;should_install_command_line_tools?&lt;/span&gt;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; macos_version &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;10.13&amp;#34;&lt;/span&gt;
+    &lt;span style=&#34;color:#f92672&#34;&gt;!&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;File&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;exist?(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/Library/Developer/CommandLineTools/usr/bin/git&amp;#34;&lt;/span&gt;)
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;
+    &lt;span style=&#34;color:#f92672&#34;&gt;!&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;File&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;exist?(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/Library/Developer/CommandLineTools/usr/bin/git&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;||&lt;/span&gt;
+      &lt;span style=&#34;color:#f92672&#34;&gt;!&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;File&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;exist?(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/usr/include/iconv.h&amp;#34;&lt;/span&gt;)
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;user_only_chmod?&lt;/span&gt;(path)
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;unless&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;File&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;directory?(path)
+
+  mode &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;File&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;stat(path)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;mode &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0777&lt;/span&gt;
+  &lt;span style=&#34;color:#75715e&#34;&gt;# u = (mode &amp;gt;&amp;gt; 6) &amp;amp; 07&lt;/span&gt;
+  &lt;span style=&#34;color:#75715e&#34;&gt;# g = (mode &amp;gt;&amp;gt; 3) &amp;amp; 07&lt;/span&gt;
+  &lt;span style=&#34;color:#75715e&#34;&gt;# o = (mode &amp;gt;&amp;gt; 0) &amp;amp; 07&lt;/span&gt;
+  mode &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0755&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;chmod?&lt;/span&gt;(path)
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;File&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;exist?(path) &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;File&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;readable?(path) &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;File&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;writable?(path) &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;File&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;executable?(path))
+&lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;chown?&lt;/span&gt;(path)
+  &lt;span style=&#34;color:#f92672&#34;&gt;!&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;File&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;owned?(path)
+&lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;chgrp?&lt;/span&gt;(path)
+  &lt;span style=&#34;color:#f92672&#34;&gt;!&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;File&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;grpowned?(path)
+&lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# USER isn&amp;#39;t always set so provide a fall back for the installer and subprocesses.&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;ENV&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;USER&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;||=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;`id -un`&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;chomp
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Invalidate sudo timestamp before exiting (if it wasn&amp;#39;t active before).&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;Kernel&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;system &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/usr/bin/sudo -n -v 2&amp;gt;/dev/null&amp;#34;&lt;/span&gt;
+at_exit { &lt;span style=&#34;color:#66d9ef&#34;&gt;Kernel&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;system &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/usr/bin/sudo&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;-k&amp;#34;&lt;/span&gt; } &lt;span style=&#34;color:#66d9ef&#34;&gt;unless&lt;/span&gt; $CHILD_STATUS&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;success?
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# The block form of Dir.chdir fails later if Dir.CWD doesn&amp;#39;t exist which I&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# guess is fair enough. Also sudo prints a warning message for no good reason&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;Dir&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;chdir &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/usr&amp;#34;&lt;/span&gt;
+
+&lt;span style=&#34;color:#75715e&#34;&gt;####################################################################### script&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;RUBY_PLATFORM&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;to_s&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;downcase&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;include?(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;linux&amp;#34;&lt;/span&gt;)
+  abort &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;lt;&amp;lt;-EOABORT
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;To&lt;/span&gt; install &lt;span style=&#34;color:#66d9ef&#34;&gt;Linuxbrew&lt;/span&gt;, paste at a terminal &lt;span style=&#34;color:#e6db74&#34;&gt;prompt&lt;/span&gt;:
+    sh &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;c &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)&amp;#34;&lt;/span&gt;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;EOABORT&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;elsif&lt;/span&gt; macos_version &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;10.7&amp;#34;&lt;/span&gt;
+  abort &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;lt;&amp;lt;-EOABORT
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Your&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;Mac&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;OS&lt;/span&gt; X version is too old&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;See&lt;/span&gt;:
+  &lt;span style=&#34;color:#75715e&#34;&gt;#{Tty.underline}https://github.com/mistydemeo/tigerbrew#{Tty.reset}&amp;#34;&lt;/span&gt;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;EOABORT&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;elsif&lt;/span&gt; macos_version &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;10.9&amp;#34;&lt;/span&gt;
+  abort &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Your OS X version is too old&amp;#34;&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;elsif&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;Process&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;uid&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;zero?
+  abort &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Don&amp;#39;t run this as root!&amp;#34;&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;elsif&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;`dsmemberutil checkmembership -U &amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;#{&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;ENV&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;USER&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34; -G admin`&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;include?(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;user is a member&amp;#34;&lt;/span&gt;)
+  abort &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;This script requires the user &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;#{&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;ENV&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;USER&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; to be an Administrator.&amp;#34;&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;elsif&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;File&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;directory?(&lt;span style=&#34;color:#66d9ef&#34;&gt;HOMEBREW_PREFIX&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; (&lt;span style=&#34;color:#f92672&#34;&gt;!&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;File&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;executable? &lt;span style=&#34;color:#66d9ef&#34;&gt;HOMEBREW_PREFIX&lt;/span&gt;)
+  abort &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;lt;&amp;lt;-EOABORT
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;The&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;Homebrew&lt;/span&gt; prefix, &lt;span style=&#34;color:#75715e&#34;&gt;#{HOMEBREW_PREFIX}, exists but is not searchable. If this is&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; intentional, please restore the default permissions &lt;span style=&#34;color:#f92672&#34;&gt;and&lt;/span&gt; try running the
+installer &lt;span style=&#34;color:#e6db74&#34;&gt;again&lt;/span&gt;:
+    sudo chmod &lt;span style=&#34;color:#ae81ff&#34;&gt;775&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#{HOMEBREW_PREFIX}&lt;/span&gt;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;EOABORT&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# TODO: bump version when new macOS is released&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;elsif&lt;/span&gt; macos_version &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;MACOS_LATEST_SUPPORTED&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;||&lt;/span&gt; macos_version &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;MACOS_OLDEST_SUPPORTED&lt;/span&gt;
+  who &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;We&amp;#34;&lt;/span&gt;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; macos_version &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;MACOS_LATEST_SUPPORTED&lt;/span&gt;
+    what &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;pre-release version&amp;#34;&lt;/span&gt;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;elsif&lt;/span&gt; macos_version &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;MACOS_OLDEST_SUPPORTED&lt;/span&gt;
+    who &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34; (and Apple)&amp;#34;&lt;/span&gt;
+    what &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;old version&amp;#34;&lt;/span&gt;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
+  ohai &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;You are using macOS &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;#{&lt;/span&gt;macos_version&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;parts&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;join(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.&amp;#34;&lt;/span&gt;)&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;.&amp;#34;&lt;/span&gt;
+  ohai &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;#{&lt;/span&gt;who&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; do not provide support for this &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;#{&lt;/span&gt;what&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;.&amp;#34;&lt;/span&gt;
+
+  puts &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;lt;&amp;lt;-EOS
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;This&lt;/span&gt; installation may &lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; succeed&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;After&lt;/span&gt; installation, you will encounter build failures with some formulae&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;Please&lt;/span&gt; create pull requests instead of asking &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; help on &lt;span style=&#34;color:#66d9ef&#34;&gt;Homebrew&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;s GitHub,
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Discourse, Twitter or IRC. You are responsible for resolving any issues you
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;experience while you are running this #{what}.
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  EOS
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;end
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;ohai &amp;#34;This script will install:&amp;#34;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;puts &amp;#34;#{HOMEBREW_PREFIX}/bin/brew&amp;#34;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;puts &amp;#34;#{HOMEBREW_PREFIX}/share/doc/homebrew&amp;#34;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;puts &amp;#34;#{HOMEBREW_PREFIX}/share/man/man1/brew.1&amp;#34;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;puts &amp;#34;#{HOMEBREW_PREFIX}/share/zsh/site-functions/_brew&amp;#34;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;puts &amp;#34;#{HOMEBREW_PREFIX}/etc/bash_completion.d/brew&amp;#34;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;puts HOMEBREW_REPOSITORY.to_s
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;# Keep relatively in sync with
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;# https://github.com/Homebrew/brew/blob/master/Library/Homebrew/keg.rb
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;group_chmods = %w[bin etc include lib sbin share opt var
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;                  Frameworks
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;                  etc/bash_completion.d lib/pkgconfig
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;                  share/aclocal share/doc share/info share/locale share/man
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;                  share/man/man1 share/man/man2 share/man/man3 share/man/man4
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;                  share/man/man5 share/man/man6 share/man/man7 share/man/man8
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;                  var/log var/homebrew var/homebrew/linked
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;                  bin/brew]
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;               .map { |d| File.join(HOMEBREW_PREFIX, d) }
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;               .select { |d| chmod?(d) }
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;# zsh refuses to read from these directories if group writable
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;zsh_dirs = %w[share/zsh share/zsh/site-functions]
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;           .map { |d| File.join(HOMEBREW_PREFIX, d) }
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;mkdirs = %w[bin etc include lib sbin share var opt
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;            share/zsh share/zsh/site-functions
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;            var/homebrew var/homebrew/linked
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;            Cellar Caskroom Homebrew Frameworks]
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;         .map { |d| File.join(HOMEBREW_PREFIX, d) }
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;         .reject { |d| File.directory?(d) }
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;user_chmods = zsh_dirs.select { |d| user_only_chmod?(d) }
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;chmods = group_chmods + user_chmods
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;chowns = chmods.select { |d| chown?(d) }
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;chgrps = chmods.select { |d| chgrp?(d) }
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;unless group_chmods.empty?
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  ohai &amp;#34;The following existing directories will be made group writable:&amp;#34;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  puts(*group_chmods)
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;end
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;unless user_chmods.empty?
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  ohai &amp;#34;The following existing directories will be made writable by user only:&amp;#34;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  puts(*user_chmods)
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;end
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;unless chowns.empty?
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  ohai &amp;#34;The following existing directories will have their owner set to #{Tty.underline}#{ENV[&amp;#34;USER&amp;#34;]}#{Tty.reset}:&amp;#34;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  puts(*chowns)
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;end
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;unless chgrps.empty?
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  ohai &amp;#34;The following existing directories will have their group set to #{Tty.underline}admin#{Tty.reset}:&amp;#34;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  puts(*chgrps)
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;end
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;unless mkdirs.empty?
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  ohai &amp;#34;The following new directories will be created:&amp;#34;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  puts(*mkdirs)
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;end
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;if should_install_command_line_tools?
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  ohai &amp;#34;The Xcode Command Line Tools will be installed.&amp;#34;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;end
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;wait_for_user if STDIN.tty? &amp;amp;&amp;amp; !ENV[&amp;#34;CI&amp;#34;]
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;if File.directory? HOMEBREW_PREFIX
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  sudo &amp;#34;/bin/chmod&amp;#34;, &amp;#34;u+rwx&amp;#34;, *chmods unless chmods.empty?
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  sudo &amp;#34;/bin/chmod&amp;#34;, &amp;#34;g+rwx&amp;#34;, *group_chmods unless group_chmods.empty?
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  sudo &amp;#34;/bin/chmod&amp;#34;, &amp;#34;755&amp;#34;, *user_chmods unless user_chmods.empty?
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  sudo &amp;#34;/usr/sbin/chown&amp;#34;, ENV[&amp;#34;USER&amp;#34;], *chowns unless chowns.empty?
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  sudo &amp;#34;/usr/bin/chgrp&amp;#34;, &amp;#34;admin&amp;#34;, *chgrps unless chgrps.empty?
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;else
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  sudo &amp;#34;/bin/mkdir&amp;#34;, &amp;#34;-p&amp;#34;, HOMEBREW_PREFIX
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  sudo &amp;#34;/usr/sbin/chown&amp;#34;, &amp;#34;root:wheel&amp;#34;, HOMEBREW_PREFIX
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;end
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;unless mkdirs.empty?
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  sudo &amp;#34;/bin/mkdir&amp;#34;, &amp;#34;-p&amp;#34;, *mkdirs
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  sudo &amp;#34;/bin/chmod&amp;#34;, &amp;#34;g+rwx&amp;#34;, *mkdirs
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  sudo &amp;#34;/bin/chmod&amp;#34;, &amp;#34;755&amp;#34;, *zsh_dirs
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  sudo &amp;#34;/usr/sbin/chown&amp;#34;, ENV[&amp;#34;USER&amp;#34;], *mkdirs
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  sudo &amp;#34;/usr/bin/chgrp&amp;#34;, &amp;#34;admin&amp;#34;, *mkdirs
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;end
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;sudo &amp;#34;/bin/mkdir&amp;#34;, &amp;#34;-p&amp;#34;, HOMEBREW_CACHE unless File.directory? HOMEBREW_CACHE
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;sudo &amp;#34;/bin/chmod&amp;#34;, &amp;#34;g+rwx&amp;#34;, HOMEBREW_CACHE if chmod? HOMEBREW_CACHE
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;sudo &amp;#34;/usr/sbin/chown&amp;#34;, ENV[&amp;#34;USER&amp;#34;], HOMEBREW_CACHE if chown? HOMEBREW_CACHE
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;sudo &amp;#34;/usr/bin/chgrp&amp;#34;, &amp;#34;admin&amp;#34;, HOMEBREW_CACHE if chgrp? HOMEBREW_CACHE
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;system &amp;#34;/usr/bin/touch&amp;#34;, &amp;#34;#{HOMEBREW_CACHE}/.cleaned&amp;#34; if File.directory? HOMEBREW_CACHE
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;if should_install_command_line_tools? &amp;amp;&amp;amp; macos_version &amp;gt;= &amp;#34;10.13&amp;#34;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  ohai &amp;#34;Searching online for the Command Line Tools&amp;#34;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  # This temporary file prompts the &amp;#39;&lt;/span&gt;softwareupdate&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39; utility to list the Command Line Tools
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  clt_placeholder = &amp;#34;/tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress&amp;#34;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  sudo &amp;#34;/usr/bin/touch&amp;#34;, clt_placeholder
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  clt_label_command = &amp;#34;/usr/sbin/softwareupdate -l | &amp;#34; \
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;                      &amp;#34;grep -B 1 -E &amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Command&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;Line&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;Tools&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39; | &amp;#34; \
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;                      &amp;#34;awk -F&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39; &amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;/^&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;\\&lt;span style=&#34;color:#f92672&#34;&gt;*/&lt;/span&gt; {print $2}&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39; | &amp;#34; \
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;                      &amp;#34;sed -e &amp;#39;&lt;/span&gt;s&lt;span style=&#34;color:#f92672&#34;&gt;/^&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Label&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;//&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39; -e &amp;#39;&lt;/span&gt;s&lt;span style=&#34;color:#f92672&#34;&gt;/^&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*//&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39; | &amp;#34; \
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;                      &amp;#34;sort -V | &amp;#34; \
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;                      &amp;#34;tail -n1&amp;#34;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  clt_label = `#{clt_label_command}`.chomp
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  unless clt_label.empty?
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    ohai &amp;#34;Installing #{clt_label}&amp;#34;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    sudo &amp;#34;/usr/sbin/softwareupdate&amp;#34;, &amp;#34;-i&amp;#34;, clt_label
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    sudo &amp;#34;/bin/rm&amp;#34;, &amp;#34;-f&amp;#34;, clt_placeholder
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    sudo &amp;#34;/usr/bin/xcode-select&amp;#34;, &amp;#34;--switch&amp;#34;, &amp;#34;/Library/Developer/CommandLineTools&amp;#34;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  end
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;end
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;# Headless install may have failed, so fallback to original &amp;#39;&lt;/span&gt;xcode&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;select&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39; method
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;if should_install_command_line_tools? &amp;amp;&amp;amp; STDIN.tty?
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  ohai &amp;#34;Installing the Command Line Tools (expect a GUI popup):&amp;#34;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  sudo &amp;#34;/usr/bin/xcode-select&amp;#34;, &amp;#34;--install&amp;#34;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  puts &amp;#34;Press any key when the installation has completed.&amp;#34;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  getc
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  sudo &amp;#34;/usr/bin/xcode-select&amp;#34;, &amp;#34;--switch&amp;#34;, &amp;#34;/Library/Developer/CommandLineTools&amp;#34;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;end
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;abort &amp;lt;&amp;lt;-EOABORT if `/usr/bin/xcrun clang 2&amp;gt;&amp;amp;1` =~ /license/ &amp;amp;&amp;amp; !$CHILD_STATUS.success?
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;You have not agreed to the Xcode license.
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Before running the installer again please agree to the license by opening
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Xcode.app or running:
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    sudo xcodebuild -license
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;EOABORT
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;ohai &amp;#34;Downloading and installing Homebrew...&amp;#34;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Dir.chdir HOMEBREW_REPOSITORY do
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  # we do it in four steps to avoid merge errors when reinstalling
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  system &amp;#34;git&amp;#34;, &amp;#34;init&amp;#34;, &amp;#34;-q&amp;#34;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  # &amp;#34;git remote add&amp;#34; will fail if the remote is defined in the global config
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  system &amp;#34;git&amp;#34;, &amp;#34;config&amp;#34;, &amp;#34;remote.origin.url&amp;#34;, BREW_REPO
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  system &amp;#34;git&amp;#34;, &amp;#34;config&amp;#34;, &amp;#34;remote.origin.fetch&amp;#34;, &amp;#34;+refs/heads/*:refs/remotes/origin/*&amp;#34;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  # ensure we don&amp;#39;&lt;/span&gt;t munge line endings on checkout
+  system &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;git&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;config&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;core.autocrlf&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;false&amp;#34;&lt;/span&gt;
+
+  system &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;git&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;fetch&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;origin&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;master:refs/remotes/origin/master&amp;#34;&lt;/span&gt;,
+         &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;--tags&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;--force&amp;#34;&lt;/span&gt;
+
+  system &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;git&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;reset&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;--hard&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;origin/master&amp;#34;&lt;/span&gt;
+
+  system &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ln&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;-sf&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;#{&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;HOMEBREW_REPOSITORY&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;/bin/brew&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;#{&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;HOMEBREW_PREFIX&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;/bin/brew&amp;#34;&lt;/span&gt;
+
+  system &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;#{&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;HOMEBREW_PREFIX&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;/bin/brew&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;update&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;--force&amp;#34;&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
+
+warn &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;#{&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;HOMEBREW_PREFIX&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;/bin is not in your PATH.&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;unless&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;ENV&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;PATH&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;].&lt;/span&gt;split(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;:&amp;#34;&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;include? &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;#{&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;HOMEBREW_PREFIX&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;/bin&amp;#34;&lt;/span&gt;
+
+ohai &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Installation successful!&amp;#34;&lt;/span&gt;
+puts
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Use the shell&amp;#39;s audible bell.&lt;/span&gt;
+print &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\a&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Use an extra newline and bold to avoid this being missed.&lt;/span&gt;
+ohai &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Homebrew has enabled anonymous aggregate formulae and cask analytics.&amp;#34;&lt;/span&gt;
+puts &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;lt;&amp;lt;-EOS
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#{Tty.bold}Read the analytics documentation (and how to opt-out) here:&lt;/span&gt;
+  &lt;span style=&#34;color:#75715e&#34;&gt;#{Tty.underline}https://docs.brew.sh/Analytics#{Tty.reset}&lt;/span&gt;
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;EOS&lt;/span&gt;
+
+ohai &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Homebrew is run entirely by unpaid volunteers. Please consider donating:&amp;#34;&lt;/span&gt;
+puts &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;lt;&amp;lt;-EOS
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;#{Tty.underline}https://github.com/Homebrew/brew#donations#{Tty.reset}&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;EOS&lt;/span&gt;
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;Dir&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;chdir &lt;span style=&#34;color:#66d9ef&#34;&gt;HOMEBREW_REPOSITORY&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt;
+  system &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;git&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;config&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;--replace-all&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;homebrew.analyticsmessage&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;true&amp;#34;&lt;/span&gt;
+  system &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;git&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;config&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;--replace-all&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;homebrew.caskanalyticsmessage&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;true&amp;#34;&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
+
+ohai &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Next steps:&amp;#34;&lt;/span&gt;
+puts &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;- Run `brew help` to get started&amp;#34;&lt;/span&gt;
+puts &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;- Further documentation: &amp;#34;&lt;/span&gt;
+puts &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;    &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;#{&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Tty&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;underline&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;https://docs.brew.sh&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;#{&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Tty&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;reset&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;set-homebrew-core&#34;&gt;Set Homebrew Core&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;cd &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;brew --repo&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;/Library/Taps/homebrew/homebrew-core&amp;#34;&lt;/span&gt;
+git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;set-homebrew-bottles&#34;&gt;Set Homebrew Bottles&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt; ~/.bash_profile
+source ~/.bash_profile
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;set-homebrew-cask&#34;&gt;Set Homebrew Cask&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;cd &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;brew --repo&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;/Library/Taps/homebrew/homebrew-cask
+git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-cask.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Finally, &lt;code&gt;brew update&lt;/code&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

@@ -1,284 +1,702 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <title>luosuu的小站</title>
-  <meta property="og:title" content="luosuu的小站" />
-  <meta name="twitter:title" content="luosuu的小站" />
-  <meta name="author" content="luosuu"/>
-  <meta property="og:site_name" content="luosuu的小站" />
-  <meta property="og:url" content="https://example.com/" />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.73.0" />
-  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="luosuu的小站" />
-  <link href="/index.xml" rel="feed" type="application/rss+xml" title="luosuu的小站" />
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>洛舒luosuu的小站 </title>
+	<meta name="viewport" content="width=device-width,minimum-scale=1">
+	<meta name="generator" content="Hugo 0.73.0" />
+	
+	
+	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+	
 
-  <link rel="stylesheet" href="/css/style.css" media="all" />
-  <link rel="stylesheet" href="/css/syntax.css" media="all" />
-  <link rel="stylesheet" href="/css/custom.css" media="all" />
+	
+	
+	<link href="/dist/app.css" rel="stylesheet">
+	
 
-  <script src="/js/script.js"></script>
-  <script src="/js/custom.js"></script>
-  <script defer src="/js/fontawesome.js"></script>
+	
+
+	
+	
+	
+
+	
+	<link rel="alternate" href="/index.xml" type="application/rss+xml" title="洛舒luosuu的小站">
+	<link rel="feed" href="/index.xml" type="application/rss+xml" title="洛舒luosuu的小站">
+	
+	
+	
+	
+
+
+
+<link rel="stylesheet" href='https://luosuu.github.io/lib/katex.min.css' integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+
+
+<script defer src='https://luosuu.github.io/lib/katex.min.js' integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+
+
+<script defer src='https://luosuu.github.io/lib/contrib/auto-render.min.js' integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI"
+crossorigin="anonymous"
+onload='renderMathInElement(document.body);'></script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+
+	
+	
+	
+	<script>
+		(function (u, c) {
+			var d = document,
+				t = 'script',
+				o = d.createElement(t),
+				s = d.getElementsByTagName(t)[0];
+			o.src = u;
+			if (c) {
+				o.addEventListener('load', function (e) {
+					c(e);
+				});
+			}
+			s.parentNode.insertBefore(o, s);
+		})('https:\/\/luosuu.github.io\/lib\/pangu.min.js', function () {
+			pangu.spacingPage();
+		});
+	</script>
+	
+	
+	<style type="text/css" media="screen, print">
+		@font-face {
+			font-family: "FancyTitleFont";
+			font-style: normal;
+			font-display: swap;
+			src: url('https://luosuu.github.io/fonts/exampleFont.woff2') format('woff2'),
+				url('https://luosuu.github.io/fonts/exampleFont.woff') format('woff');
+		}
+
+		 
+		@font-face {
+			font-family: 'Noto Serif CJK SC';
+			font-style: normal;
+			font-weight: 300;
+			font-display: swap;
+			src: local('Noto Serif CJK SC Light'), local('NotoSerifCJK-Light'),
+				url('https://luosuu.github.io/fonts/noto-serif-sc-v7-latin_chinese-simplified-300.woff2') format('woff2'),
+				 
+				url('https://luosuu.github.io/fonts/noto-serif-sc-v7-latin_chinese-simplified-300.woff') format('woff');
+			 
+		}
+
+		 
+		@font-face {
+			font-family: 'Noto Serif CJK SC';
+			font-style: normal;
+			font-weight: 400;
+			font-display: swap;
+			src: local('Noto Serif CJK SC'), local('NotoSerifCJK-Regular'),
+				url('https://luosuu.github.io/fonts/noto-serif-sc-v7-latin_chinese-simplified-regular.woff2') format('woff2'),
+				 
+				url('https://luosuu.github.io/fonts/noto-serif-sc-v7-latin_chinese-simplified-regular.woff') format('woff');
+			 
+		}
+
+		 
+		@font-face {
+			font-family: 'Noto Serif CJK SC';
+			font-style: normal;
+			font-weight: 500;
+			font-display: swap;
+			src: local('Noto Serif CJK SC Medium'), local('NotoSerifCJK-Medium'),
+				url('https://luosuu.github.io/fonts/noto-serif-sc-v7-latin_chinese-simplified-500.woff2') format('woff2'),
+				 
+				url('https://luosuu.github.io/fonts/noto-serif-sc-v7-latin_chinese-simplified-500.woff') format('woff');
+			 
+		}
+	</style>
+	
+	
 </head>
 
-<body>
+<body class="bg-gray-100 text-gray-700 font-sans">
+	<div class="p-6 sm:p-10 md:p-16 flex flex-wrap">
+		<header class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-1 md:order-1 max-w-2xl">
+			<div
+				class="z-50 bg-gray-100 bg-opacity-75 bg-opacity-custom lg:min-w-0.7 max-w-xl md:float-right md:text-right leading-loose tracking-tight md:sticky md:top-0 pt-2">
+					<div class="pb-4">
+		<h1 >
+			<a href="https://luosuu.github.io/" title="洛舒luosuu的小站" class="heading font-cursive icon">洛舒luosuu的小站</a>
+		</h1>
+	</div>
+	<ul class="font-serif flex-grow-0 flex justify-between flex-wrap md:flex-col">
+	
+	
+	<li class="px-1 md:px-0">
+		<a href="/post/" title="Posts page" >
+			Posts
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/categories/" title="Categories page" >
+			Categories
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/tags/" title="Tags page" >
+			Tags
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/about/" title="About page" >
+			About
+		</a>
+	</li>
+	
+	
+	<li>
+		<a href='/index.xml'>RSS</a>
+	</li>
+	
+	
+	
+	<div id="fastSearch" class="m-0">
+		<input id="searchInput" type="text" size=10 
+			class="bg-gray-100 focus:outline-none border-b border-gray-100 focus:border-eucalyptus-300 md:text-right
+			placeholder-java-500 min-w-0 max-w-xxxs"
+			placeholder="search" />
+		<ul id="searchResults" class="bg-gray-200 px-2 divide-y divide-gray-400">
+		</ul>
+	</div>
+	
+</ul>
+			</div>
+		</header>
+		<main role="main" class="w-full md:w-3/5 xl:w-1/2 max-w-3xl order-2 md:order-2 min-h-70vh pt-2 pb-4">
+			
 
-<header class="site-header">
-  <nav class="site-navi">
-    <h1 class="site-title"><a href="/">luosuu的小站</a></h1>
-    <ul class="site-navi-items">
-      <li class="site-navi-item-categories"><a href="/categories/" title="Categories">Categories</a></li>
-      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
-      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
-      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
-    </ul>
-  </nav>
-</header>
-<hr class="site-header-bottom">
+<div class="font-serif text-medium-red-violet-400 pt-3">
+	我就在这雨中歌唱。
+</div>
+<hr  class="pt-2"/>
 
-  <div class="main" role="main">
-    <section class="list home-list">
-      <article class="article">
-        <a href="/post/2020shanghai-b/" class="article-titles">
-          <h2 class="article-title">2020shanghai B - 缓冲区结算、括号嵌套的递归</h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>August 6, 2020</time></li>
-          <li class="article-meta-categories">
-            <a href="/categories/sicp/">
-              <i class="fas fa-folder"></i>
-              sicp
-            </a>&nbsp;
-          </li>
-        </ul>
-        <div class="article-content">
-          <p>题面:<a href="https://ac.nowcoder.com/acm/contest/6871/B">https://ac.nowcoder.com/acm/contest/6871/B</a></p>
-        </div>
-        <div class="article-readmore"><a href="/post/2020shanghai-b/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
-      <article class="article">
-        <a href="/post/atabc174-e/" class="article-titles">
-          <h2 class="article-title">AtABC174 E-二分查找</h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>August 6, 2020</time></li>
-          <li class="article-meta-categories">
-            <a href="/categories/oj/">
-              <i class="fas fa-folder"></i>
-              OJ
-            </a>&nbsp;
-          </li>
-        </ul>
-        <div class="article-content">
-          <p>题面：https://atcoder.jp/contests/abc174/tasks/abc174_e</p>
-        </div>
-        <div class="article-readmore"><a href="/post/atabc174-e/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
-      <article class="article">
-        <a href="/post/cf661-a/" class="article-titles">
-          <h2 class="article-title">Cf#661 A-输入输出</h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>August 6, 2020</time></li>
-          <li class="article-meta-categories">
-            <a href="/categories/oj/">
-              <i class="fas fa-folder"></i>
-              OJ
-            </a>&nbsp;
-          </li>
-        </ul>
-        <div class="article-content">
-          <p>题面：https://codeforces.com/contest/1399/problem/A</p>
-        </div>
-        <div class="article-readmore"><a href="/post/cf661-a/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
-      <article class="article">
-        <a href="/post/acabc174_c/" class="article-titles">
-          <h2 class="article-title">AcABC174C-模运算</h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>August 4, 2020</time></li>
-          <li class="article-meta-categories">
-            <a href="/categories/oj/">
-              <i class="fas fa-folder"></i>
-              OJ
-            </a>&nbsp;
-          </li>
-        </ul>
-        <div class="article-content">
-          <p>题面：<a href="https://atcoder.jp/contests/abc174/tasks/abc174_c">https://atcoder.jp/contests/abc174/tasks/abc174_c</a></p>
-        </div>
-        <div class="article-readmore"><a href="/post/acabc174_c/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
-      <article class="article">
-        <a href="/post/always-know-what-is-important/" class="article-titles">
-          <h2 class="article-title">Always Know What Is Important</h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>March 27, 2020</time></li>
-          <li class="article-meta-categories">
-            <a href="/categories/diary/">
-              <i class="fas fa-folder"></i>
-              Diary
-            </a>&nbsp;
-          </li>
-        </ul>
-        <div class="article-content">
-          <p>整理心情，重新出发</p>
-        </div>
-        <div class="article-readmore"><a href="/post/always-know-what-is-important/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
-      <article class="article">
-        <a href="/post/arrangement-of-learning-resources/" class="article-titles">
-          <h2 class="article-title">Arrangement of Learning Resources</h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>March 16, 2020</time></li>
-          <li class="article-meta-categories">
-            <a href="/categories/resources/">
-              <i class="fas fa-folder"></i>
-              Resources
-            </a>&nbsp;
-          </li>
-        </ul>
-        <div class="article-content">
-          <p>资源整理向博客</p>
-<p>课程的完整列表可见：</p>
-<p>​	https://github.com/shining1984/PL-Compiler-Resource</p>
-        </div>
-        <div class="article-readmore"><a href="/post/arrangement-of-learning-resources/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
-      <article class="article">
-        <a href="/post/start-plt/" class="article-titles">
-          <h2 class="article-title">Start PLT</h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>March 5, 2020</time></li>
-          <li class="article-meta-categories">
-            <a href="/categories/sicp/">
-              <i class="fas fa-folder"></i>
-              sicp
-            </a>&nbsp;
-          </li>
-        </ul>
-        <div class="article-content">
-          <p>研究事物的原理和构造，掌握基本方法。</p>
-        </div>
-        <div class="article-readmore"><a href="/post/start-plt/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
-      <article class="article">
-        <a href="/post/wx-miniprogram-tips/" class="article-titles">
-          <h2 class="article-title">微信小程序开发训练营</h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>July 29, 2020</time></li>
-          <li class="article-meta-categories">
-            <a href="/categories/software/">
-              <i class="fas fa-folder"></i>
-              software
-            </a>&nbsp;
-          </li>
-        </ul>
-        <div class="article-content">
-          <p>最近参加了腾讯微信小程序开发训练营，记录一些有趣的点。</p>
-        </div>
-        <div class="article-readmore"><a href="/post/wx-miniprogram-tips/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
-      <article class="article">
-        <a href="/post/azure_contianer_cli/" class="article-titles">
-          <h2 class="article-title">Azure CLI to Deploy Containers</h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>May 13, 2020</time></li>
-          <li class="article-meta-categories">
-            <a href="/categories/software/">
-              <i class="fas fa-folder"></i>
-              Software
-            </a>&nbsp;
-          </li>
-        </ul>
-        <div class="article-content">
-          <p>最近因为一些原因在折腾Azure，毕竟不能浪费微软爸爸发的每月150刀额度。</p>
-        </div>
-        <div class="article-readmore"><a href="/post/azure_contianer_cli/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
-      <article class="article">
-        <a href="/post/azure-vm-deployment/" class="article-titles">
-          <h2 class="article-title">Azure CLI VM Deployment</h2>
-          
-        </a>
-        <ul class="article-meta">
-          <li class="article-meta-date"><time>May 13, 2020</time></li>
-          <li class="article-meta-categories">
-            <a href="/categories/software/">
-              <i class="fas fa-folder"></i>
-              Software
-            </a>&nbsp;
-          </li>
-        </ul>
-        <div class="article-content">
-          <p>用Azure CLI快速部署一台实例。</p>
-<p>注意这些操作都可以用Azure门户快速实现，Azure CLI不是唯一选择。</p>
-        </div>
-        <div class="article-readmore"><a href="/post/azure-vm-deployment/">Read more...</a></div>
-        <div class="article-floatclear"></div>
-      </article>
-    </section>
+
+<div>
+	<section>
+		
+		<div>
+			<div class="pb-8">
+	<div class="font-serif font-medium text-xl">
+		<a href="https://luosuu.github.io/post/2020shanghai-b/">
+			2020shanghai B - 缓冲区结算、括号嵌套的递归
+		</a>
+	</div>
+	
+	
+	
+	
+	<div class="flex flex-wrap justify-between pt-1"><div class="md:flex-grow-0 font-light">
+	
+	
+	
+	
+	<a class="post-taxonomy-category text-medium-red-violet-600 hover:text-medium-red-violet-400"
+		href='/categories/sicp'>sicp</a>
+	
+	
+	
+
+	
+
+	
+</div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light"
+			datetime="2020-08-06T11:13:49&#43;08:00">2020-8-6 11:13</time>
+	</div>
+</div>
+		</div>
+		<div>
+			<div class="pb-8">
+	<div class="font-serif font-medium text-xl">
+		<a href="https://luosuu.github.io/post/atabc174-e/">
+			AtABC174 E-二分查找
+		</a>
+	</div>
+	
+	
+	
+	
+	<div class="flex flex-wrap justify-between pt-1"><div class="md:flex-grow-0 font-light">
+	
+	
+	
+	
+	<a class="post-taxonomy-category text-medium-red-violet-600 hover:text-medium-red-violet-400"
+		href='/categories/oj'>OJ</a>
+	
+	
+	
+
+	
+
+	
+</div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light"
+			datetime="2020-08-06T10:04:10&#43;08:00">2020-8-6 10:04</time>
+	</div>
+</div>
+		</div>
+		<div>
+			<div class="pb-8">
+	<div class="font-serif font-medium text-xl">
+		<a href="https://luosuu.github.io/post/cf661-a/">
+			Cf#661 A-输入输出
+		</a>
+	</div>
+	
+	
+	
+	
+	<div class="flex flex-wrap justify-between pt-1"><div class="md:flex-grow-0 font-light">
+	
+	
+	
+	
+	<a class="post-taxonomy-category text-medium-red-violet-600 hover:text-medium-red-violet-400"
+		href='/categories/oj'>OJ</a>
+	
+	
+	
+
+	
+
+	
+</div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light"
+			datetime="2020-08-06T08:41:45&#43;08:00">2020-8-6 08:41</time>
+	</div>
+</div>
+		</div>
+		<div>
+			<div class="pb-8">
+	<div class="font-serif font-medium text-xl">
+		<a href="https://luosuu.github.io/post/acabc174_c/">
+			AcABC174C-模运算
+		</a>
+	</div>
+	
+	
+	
+	
+	<div class="flex flex-wrap justify-between pt-1"><div class="md:flex-grow-0 font-light">
+	
+	
+	
+	
+	<a class="post-taxonomy-category text-medium-red-violet-600 hover:text-medium-red-violet-400"
+		href='/categories/oj'>OJ</a>
+	
+	
+	
+
+	
+
+	
+</div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light"
+			datetime="2020-08-04T17:04:51&#43;08:00">2020-8-4 17:04</time>
+	</div>
+</div>
+		</div>
+		<div>
+			<div class="pb-8">
+	<div class="font-serif font-medium text-xl">
+		<a href="https://luosuu.github.io/post/always-know-what-is-important/">
+			Always Know What Is Important
+		</a>
+	</div>
+	
+	
+	
+	
+	<div class="flex flex-wrap justify-between pt-1"><div class="md:flex-grow-0 font-light">
+	
+	
+	
+	
+	<a class="post-taxonomy-category text-medium-red-violet-600 hover:text-medium-red-violet-400"
+		href='/categories/diary'>Diary</a>
+	
+	
+	
+
+	
+
+	
+</div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light"
+			datetime="2020-03-27T12:00:09&#43;08:00">2020-3-27 12:00</time>
+	</div>
+</div>
+		</div>
+		<div>
+			<div class="pb-8">
+	<div class="font-serif font-medium text-xl">
+		<a href="https://luosuu.github.io/post/arrangement-of-learning-resources/">
+			Arrangement of Learning Resources
+		</a>
+	</div>
+	
+	
+	
+	
+	<div class="flex flex-wrap justify-between pt-1"><div class="md:flex-grow-0 font-light">
+	
+	
+	
+	
+	<a class="post-taxonomy-category text-medium-red-violet-600 hover:text-medium-red-violet-400"
+		href='/categories/resources'>Resources</a>
+	
+	
+	
+
+	
+
+	
+</div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light"
+			datetime="2020-03-16T11:32:11&#43;08:00">2020-3-16 11:32</time>
+	</div>
+</div>
+		</div>
+		
+	</section>
+</div>
+
+		</main>
+		<aside role="contentinfo"
+			class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-4 md:order-3 md:sticky md:bottom-0 self-end max-w-2xl">
+			<div class="md:float-right md:text-right leading-loose tracking-tight md:mb-2">
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="md:max-w-xs  flex flex-col md:items-end pt-2">
+	
+
+<div class="flex flex-wrap-reverse md:justify-end content-end md:content-start justify-start items-start   max-h-16">
+	
+	<a href='https://github.com/Luosuu' target="_blank" class="github icon pl-1 text-eucalyptus-400 hover:text-java-400" title="github link" rel="noopener"
+		aria-label="follow on github——Opens in a new window">
+		
+		<div class="fill-current h-8 w-8">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <g>
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path fill-rule="nonzero" d="M5.883 18.653c-.3-.2-.558-.455-.86-.816a50.32 50.32 0 0 1-.466-.579c-.463-.575-.755-.84-1.057-.949a1 1 0 0 1 .676-1.883c.752.27 1.261.735 1.947 1.588-.094-.117.34.427.433.539.19.227.33.365.44.438.204.137.587.196 1.15.14.023-.382.094-.753.202-1.095C5.38 15.31 3.7 13.396 3.7 9.64c0-1.24.37-2.356 1.058-3.292-.218-.894-.185-1.975.302-3.192a1 1 0 0 1 .63-.582c.081-.024.127-.035.208-.047.803-.123 1.937.17 3.415 1.096A11.731 11.731 0 0 1 12 3.315c.912 0 1.818.104 2.684.308 1.477-.933 2.613-1.226 3.422-1.096.085.013.157.03.218.05a1 1 0 0 1 .616.58c.487 1.216.52 2.297.302 3.19.691.936 1.058 2.045 1.058 3.293 0 3.757-1.674 5.665-4.642 6.392.125.415.19.879.19 1.38a300.492 300.492 0 0 1-.012 2.716 1 1 0 0 1-.019 1.958c-1.139.228-1.983-.532-1.983-1.525l.002-.446.005-.705c.005-.708.007-1.338.007-1.998 0-.697-.183-1.152-.425-1.36-.661-.57-.326-1.655.54-1.752 2.967-.333 4.337-1.482 4.337-4.66 0-.955-.312-1.744-.913-2.404a1 1 0 0 1-.19-1.045c.166-.414.237-.957.096-1.614l-.01.003c-.491.139-1.11.44-1.858.949a1 1 0 0 1-.833.135A9.626 9.626 0 0 0 12 5.315c-.89 0-1.772.119-2.592.35a1 1 0 0 1-.83-.134c-.752-.507-1.374-.807-1.868-.947-.144.653-.073 1.194.092 1.607a1 1 0 0 1-.189 1.045C6.016 7.89 5.7 8.694 5.7 9.64c0 3.172 1.371 4.328 4.322 4.66.865.097 1.201 1.177.544 1.748-.192.168-.429.732-.429 1.364v3.15c0 .986-.835 1.725-1.96 1.528a1 1 0 0 1-.04-1.962v-.99c-.91.061-1.662-.088-2.254-.485z"/>
+    </g>
+</svg>
+
+		</div>
+	</a>
+	
+	<a href='zhluosuu@outlook.com' target="_blank" class="mail icon pl-1 text-eucalyptus-400 hover:text-java-400" title="mail link" rel="noopener"
+		aria-label="follow on mail——Opens in a new window">
+		
+		<div class="fill-current h-8 w-8">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <g>
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path d="M3 3h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm17 4.238l-7.928 7.1L4 7.216V19h16V7.238zM4.511 5l7.55 6.662L19.502 5H4.511z"/>
+    </g>
+</svg>
+		</div>
+	</a>
+	
+</div>
+	<div class="a-gray text-sm text-gray-500 leading-tight">
+		Copyright © 2020
+		<br />
+		Built with Hugo and theme <a 
+			href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>.
+			<br />
+			62 pages, 6186 words in total.
+	</div>
+</div>
+			</div>
+		</aside>
+		<footer class="w-full md:w-3/5 xl:w-1/2 order-3 max-w-3xl md:order-4 pt-2">
+			
+
+
+
+<hr />
+
+
+<ul class="flex justify-between">
     
-<ul class="pagination">
-  <li class="page-item">
-    <a href="/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
-  </li>
-  <li class="page-item disabled">
-    <a  class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
-  </li>
-  <li class="page-item active">
-    <a class="page-link" href="/">1</a>
-  </li>
-  <li class="page-item">
-    <a class="page-link" href="/page/2/">2</a>
-  </li>
-  <li class="page-item">
-    <a class="page-link" href="/page/3/">3</a>
-  </li>
-  <li class="page-item">
-    <a class="page-link" href="/page/4/">4</a>
-  </li>
-  <li class="page-item">
-    <a href="/page/2/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-  </li>
-  <li class="page-item">
-    <a href="/page/4/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
-  </li>
+    <li class="page-item">
+        <a href="/" class="page-link" aria-label="First"><span aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-chevrons-left h-4 w-4 relative -bottom-1">
+                    <polyline points="11 17 6 12 11 7"></polyline>
+                    <polyline points="18 17 13 12 18 7"></polyline>
+                </svg>
+            </span></a>
+    </li>
+    
+    <li class="page-item disabled">
+        <a  class="page-link" aria-label="Previous"><span
+                aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-chevron-left h-4 w-4 relative -bottom-1">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </span></a>
+    </li>
+    <div class="flex-grow-3"></div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li class="page-item active"><a class="page-link" href="/">1</a>
+    </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li class="page-item"><a class="page-link" href="/page/2/">2</a>
+    </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li class="page-item"><a class="page-link" href="/page/3/">3</a>
+    </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li class="page-item"><a class="page-link" href="/page/6/">6</a>
+    </li>
+    
+    
+    <div class="flex-grow-3"></div>
+    <li class="page-item">
+        <a href="/page/2/"  class="page-link" aria-label="Next"><span
+                aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-chevron-right h-4 w-4 relative -bottom-1">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </span></a>
+    </li>
+    
+    <li class="page-item">
+        <a href="/page/6/" class="page-link" aria-label="Last"><span aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-chevrons-right h-4 w-4 relative -bottom-1">
+                    <polyline points="13 17 18 12 13 7"></polyline>
+                    <polyline points="6 17 11 12 6 7"></polyline>
+                </svg>
+            </span></a>
+    </li>
+    
 </ul>
 
 
-  </div>
 
 
-<script src="https://cdn.bootcss.com/highlight.js/9.18.1/highlight.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
+		</footer>
+		
+
+<script src="/dist/app.js"></script>
+
+
+<script src="/lib/fuse.min.js"></script> 
+<script src="/lib/fastsearch.js"></script>
+
+	</div>
 </body>
+
 </html>

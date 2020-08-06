@@ -1,60 +1,154 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Diary on luosuu的小站</title>
-    <link>https://example.com/categories/diary/</link>
-    <description>Recent content in Diary on luosuu的小站</description>
+    <title>Diary on 洛舒luosuu的小站</title>
+    <link>https://luosuu.github.io/categories/diary/</link>
+    <description>Recent content in Diary on 洛舒luosuu的小站</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>&amp;copy; Copyright 2020 luosuu</copyright>
+    <language>zh-cn</language>
+    <copyright>Copyright © 2020</copyright>
     <lastBuildDate>Sat, 28 Mar 2020 16:14:22 +0800</lastBuildDate>
     
-	<atom:link href="https://example.com/categories/diary/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://luosuu.github.io/categories/diary/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Always Know What Is Important</title>
-      <link>https://example.com/post/always-know-what-is-important/</link>
+      <link>https://luosuu.github.io/post/always-know-what-is-important/</link>
       <pubDate>Fri, 27 Mar 2020 12:00:09 +0800</pubDate>
       
-      <guid>https://example.com/post/always-know-what-is-important/</guid>
-      <description>&lt;p&gt;整理心情，重新出发&lt;/p&gt;</description>
+      <guid>https://luosuu.github.io/post/always-know-what-is-important/</guid>
+      <description>&lt;p&gt;整理心情，重新出发&lt;/p&gt;
+&lt;p&gt;我身边的朋友可能知道我最近遭遇了一点小挫折，大学道路陷入了一些迷茫。开下自己的玩笑，就是又“焦虑”了。&lt;/p&gt;
+&lt;p&gt;然而高帆学长应该是在他无意之间，给我了很大的帮助。让我重新认识到我想要从事程序语言（PL）方向的初心，并认识到自己的规划的不合理之处。感谢学长的鞭策。&lt;/p&gt;
+&lt;p&gt;这里我想重新谈一下sicp，当初读sicp是看重了两方面，一方面是想打基础修内功，另一方面是作为MIT的基础课程，上手难度不会太大。王垠前辈有一篇博客，讲的是&lt;a href=&#34;http://www.yinwang.org/blog-cn/2012/08/01/interpreter&#34;&gt;如何构造自己的解释器&lt;/a&gt;。其中sicp的第一二章为先修内容。&lt;/p&gt;
+&lt;p&gt;我曾经过分看重“如何设计一个语言”，“如何构造一个编译器”这种过于“落地”的问题，却忽略了内核，忽略了最开始我入坑的兴趣点。另外，我也太过于容易受旁人的影响，盲目去崇拜龙书、虎书等，并将编译器的工作和PL的工作混淆起来。&lt;/p&gt;
+&lt;p&gt;国内的很多教材重视所谓“前端”，包括龙书在内将parser技术长篇大论。然正如&lt;a href=&#34;http://www.yinwang.org/blog-cn/2015/09/19/parser&#34;&gt;对 Parser 的误解&lt;/a&gt;里王垠所言，语义转化和优化才是精华的内容，才是软件的核心。学习不是为了解决人为制造的困难而显得高级，而是为了理解其中的原理。如此“头重脚轻”，增大了学习的困难，消磨了学习的热情。&lt;/p&gt;
+&lt;p&gt;我在上篇博客整理了下PL相关的学习内容，再结合我“烂尾”的Todo，我学习的优先顺序应该为：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;南京大学《软件分析》课程&lt;/li&gt;
+&lt;li&gt;SICP&lt;/li&gt;
+&lt;li&gt;EOPL&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;这个学期内，能够完成这些内容，可以说是善莫大焉。理解了核心的概念和理念之后，再去看编译器的构造一类，就是工程上的细枝末节和摸索了。&lt;/p&gt;
+&lt;p&gt;最后想谈一下国内PL界的风云人物，有很多人确实是受大佬影响而了解的，但也终要能做出他们的影子，独立的思考与研究，真的找到自己感兴趣的内容和关键点才行，而不是大佬在做什么，我就想了解什么，想学什么。大佬之所以为大佬，是因为他们有由衷的热爱和踏实的努力。最后，还是要靠实力说话的。要看清自己该踏踏实实走的路，也莫要想走什么捷径。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Homogenization and Diversification</title>
-      <link>https://example.com/post/homogenization-and-diversification/</link>
+      <link>https://luosuu.github.io/post/homogenization-and-diversification/</link>
       <pubDate>Sat, 28 Mar 2020 16:14:22 +0800</pubDate>
       
-      <guid>https://example.com/post/homogenization-and-diversification/</guid>
-      <description>&lt;p&gt;记有关“同质化与多样化”一堂课的相关思考。&lt;/p&gt;</description>
+      <guid>https://luosuu.github.io/post/homogenization-and-diversification/</guid>
+      <description>&lt;p&gt;记有关“同质化与多样化”一堂课的相关思考。&lt;/p&gt;
+&lt;h2 id=&#34;专业化的高效和灵活化的强适应&#34;&gt;专业化的高效和灵活化的强适应&lt;/h2&gt;
+&lt;p&gt;在讨论“同质化和多样化之前”，我想先讨论下专业化和灵活化。&lt;/p&gt;
+&lt;p&gt;拿最近武汉应对疫情的例子来说，武汉市在疫情爆发前，是得到表彰的模范城市，夺得多次奖项，但在疫情这种特殊紧急情况爆发的时候，出现了许多问题，并遭到了许多人的批评。从微观上来看，这是因为每一层的负责人在紧急情况下不敢跳出常规、当机立断，选择了最安全的做法，也就是等待上级的决断；而从宏观上来看，是因为科层制体制在长久的发展中已经过于专业化，失去了面对紧急情况需要具有的灵活性的强适应能力。&lt;/p&gt;
+&lt;p&gt;这不是说科层制是错的，相反，科层制是全球普遍使用的，长期实践证明的高效组织管理形式。科层制通过对常规事件的层层流程化和规范化，保证了日常执行的高效和准确。问题在于，当紧急情况出现，超出了日常规范的范围之后，基层管理组织就会陷入混乱和被动，他们为了自保而选择等待上级的判断，而很多灾难是不等人的，就错过了管控和遏制的良机。我国的管理体制当然考虑到了这一点，提出的解决办法就是每一层都要制定所谓的“紧急预案”，在突发情况时给基层提供由常规态转到应急态的方式，这类“紧急预案”在我国统计已有550万份之多，然从这次疫情的情况来看，效果并不理想。&lt;/p&gt;
+&lt;p&gt;那就没有什么好的办法了吗？这里我想提一下有关我国制造业的一个例子。1994年，我国实行分税制改革，革除包干制，地方政府不再”交齐国家的，剩下的就是自己的“，变成了一部分种类的税收归国家所有，剩下的一部分税种归地方政府所有，而建筑类税收就归地方所有，地方还可以拍卖土地使用权获得收入，这极大的促进了房地产和开发区的建设。有很多人称我国为”世界工厂“，是因为我国的城郊有许多“开发区”，在那里有许多许多企业，其中很多是制造类企业，这些制造类企业接受着来自世界各地的订单，生产着各型各样的产品。&lt;/p&gt;
+&lt;p&gt;这些制造类企业通常不会很大，却十分专精，可能只专注于生产于一两个小零件，但是这些小企业可以互相组合，生产出五花八门的产品。&lt;em&gt;每个小企业的专门化保证了生产的效率，而互相组合形成的网络产生了巨大的弹性，表现出了对市场的强适应性&lt;/em&gt;。而恰逢西方国家在20世纪末21世纪初转型进入“创新经济时代”，对产品的迭代速度和更新速度有了极大的要求，而企业很难在拥有一条完全自主的生产线保证高效化的同时保证产品的迭代速度，这导致了很多企业式微（如诺基亚就拥有一条完整的自主生产线，导致产品迭代变化的成本很高，最终渐渐倒塌），也逼迫很多企业将生产环节完全迁出，以避免快速迭代产品的巨大生产成本，自己只负责跟上顶层的产品设计。这和中国的发展开发区和企业园区的需求不谋而合。正所谓时势造英雄，中国就这样产生了制造业的高速发展，也是中国经济腾飞的奥秘。我相信这个例子，还是有很大参考的价值。&lt;/p&gt;
+&lt;h2 id=&#34;同质化与多样化&#34;&gt;同质化与多样化&lt;/h2&gt;
+&lt;p&gt;与“专业化和灵活化”相对应的一个很重要的话题，是“同质化与多样化”。&lt;/p&gt;
+&lt;p&gt;在押井守的著名动画电影《攻壳机动队》（1995）里，一个拥有自我意识的“生命体”诞生于网络中信息的海洋。它非常的清楚自己的缺陷，那就是它虽然可以不断复制，但是缺少了生物的多样性和唯一性，一个计算机病毒就可能将它和它的复制体全部摧毁，为了获得多样性和唯一性，它找上了片中的女主角草薙素子，希望能和她的意识融合。&lt;/p&gt;
+&lt;p&gt;片中多次提及了关于同质化与多样化的内容。素子所在的公安九科全都是义体化非常高的生化人，除了脑组织以外大部分都是义肢，而素子却选择将一个保留了几乎全部肉身的警察陀古萨调到九科任职。当陀古萨问及为什么，素子表示虽然义体化的人机能强大，但是&lt;em&gt;一个组织过于单一必将走向灭亡&lt;/em&gt;，而陀古萨就是用来增加组织的多样性和不确定性的。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://luosuu.github.io/Motoko.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;生物的族群虽然看起来每个个体都十分相似，但是每个人的基因和性状又如此独特而不同，每当灾难来临，虽然可能发生族群大部分的消亡，而经常有因其独特性而坚强活下来的个体，保证了种族的延续。&lt;/p&gt;
+&lt;p&gt;关于这个话题，我想讨论的就是这些了，感谢你的阅读。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Diary 2019 11 3</title>
-      <link>https://example.com/post/diary-2019-11-3/</link>
+      <link>https://luosuu.github.io/post/diary-2019-11-3/</link>
       <pubDate>Thu, 05 Mar 2020 19:27:28 +0800</pubDate>
       
-      <guid>https://example.com/post/diary-2019-11-3/</guid>
-      <description>&lt;p&gt;我能跑多快？&lt;/p&gt;</description>
+      <guid>https://luosuu.github.io/post/diary-2019-11-3/</guid>
+      <description>&lt;p&gt;我能跑多快？&lt;/p&gt;
+&lt;h2 id=&#34;焦虑没有任何产出&#34;&gt;焦虑没有任何产出&lt;/h2&gt;
+&lt;p&gt;找到自己真正喜欢的事情去做，发自内心的想去了解的好奇心才是动力源泉，在发现问题和解决问题的过程中才会得到成长。&lt;/p&gt;
+&lt;p&gt;一味的被焦虑驱赶着想要找个方向或者事情给自己做，以求得心安的做法，不能说毫无收获，只能说效率极低，这是我假期时得到的惨痛教训。&lt;/p&gt;
+&lt;p&gt;当然世界上应该有很多能逼迫自己做好自己不喜欢做的事情的人，只是我正好做不来这样的。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Pycon2019 Chengdu</title>
-      <link>https://example.com/post/pycon2019-chengdu/</link>
+      <link>https://luosuu.github.io/post/pycon2019-chengdu/</link>
       <pubDate>Thu, 05 Mar 2020 19:24:46 +0800</pubDate>
       
-      <guid>https://example.com/post/pycon2019-chengdu/</guid>
-      <description>&lt;p&gt;这里记录一下我参加pycon2019成都站的笔记和体会。&lt;/p&gt;</description>
+      <guid>https://luosuu.github.io/post/pycon2019-chengdu/</guid>
+      <description>&lt;p&gt;这里记录一下我参加pycon2019成都站的笔记和体会。&lt;/p&gt;
+&lt;h2 id=&#34;类型推断静态类型jit&#34;&gt;类型推断，静态类型，JIT&lt;/h2&gt;
+&lt;p&gt;语法树到语法树的函数 我们称之为&lt;strong&gt;宏&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;类型大小本质为将类型看作一个集合，计算集合的大小（取值区间的大小）&lt;/p&gt;
+&lt;p&gt;学习路线：&lt;/p&gt;
+&lt;p&gt;Python的Virtual Machine&lt;/p&gt;
+&lt;p&gt;Stack Machine&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/thautwarm/mapping-high-level-constructs-to-llvm-ir&#34;&gt;LLVM Based Machine&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;dis模块&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://okmij.org/&#34;&gt;okmij.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;编译原理&lt;/p&gt;
+&lt;p&gt;Python字节码&lt;/p&gt;
+&lt;h2 id=&#34;web-api&#34;&gt;WEB API&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Web Application&lt;/strong&gt;是和用户直接交互的。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Web API&lt;/strong&gt;返回纯数据格式的（如XML和JSON），与机器（如Web Application，iOS，Android等）进行交互。&lt;/p&gt;
+&lt;p&gt;RESTful API指符合REST规范的Web API，虽然几乎没有Web API完全符合REST规范。所以大概符合REST风格的现在都叫RESTful API。REST只是一个架构风格，而非强制要求。&lt;/p&gt;
+&lt;p&gt;Flask是一个开发Web API的工具，只提供最基本的功能，有良好的拓展性。选择Flask表示比起Djanro的方便你选择了灵活和更多的可控制性。因此比起&lt;code&gt;Flask+大而全的拓展&lt;/code&gt;更推荐&lt;code&gt;Flask+一组优秀的工具&lt;/code&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;推荐的学习路线&#34;&gt;推荐的学习路线&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;了解Web API设计原则&lt;/li&gt;
+&lt;li&gt;学习Flask原生实现&lt;/li&gt;
+&lt;li&gt;学习其他搭配工具&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;a href=&#34;http://greyli.com/&#34;&gt;李辉的个人网站 greyli.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;网站里有很多python web开发的教程和分享。&lt;/p&gt;
+&lt;h2 id=&#34;nlp&#34;&gt;NLP&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;任何时候都不要忘记“当初你想解决的问题”&lt;/li&gt;
+&lt;li&gt;把问题转化为具体统计问题或者能够使用机器学习解决的问题（不知道该怎么做时可以用EDA把握数据倾向）&lt;/li&gt;
+&lt;li&gt;根据你的时间和预算选择分析方法和合适的模型&lt;/li&gt;
+&lt;li&gt;Just Python&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;其他&#34;&gt;其他&lt;/h2&gt;
+&lt;p&gt;AWS 12要素应用宣言：无需猜测容量，摆脱无差异化工作等&lt;/p&gt;
+&lt;p&gt;AWS云基础设施，&lt;code&gt;Infrastructure is Code&lt;/code&gt;，用面向对象的方式描述和构建基础设施。（上一代为&lt;code&gt;Infrastructure as Code&lt;/code&gt;，用JSON等记录和描述基础设施）。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>MSRA Summercamp</title>
-      <link>https://example.com/post/msra-summercamp/</link>
+      <link>https://luosuu.github.io/post/msra-summercamp/</link>
       <pubDate>Thu, 05 Mar 2020 18:55:03 +0800</pubDate>
       
-      <guid>https://example.com/post/msra-summercamp/</guid>
-      <description>&lt;p&gt;微软学生夏令营记录&lt;/p&gt;</description>
+      <guid>https://luosuu.github.io/post/msra-summercamp/</guid>
+      <description>&lt;p&gt;微软学生夏令营记录&lt;/p&gt;
+&lt;h2 id=&#34;微软文化改革&#34;&gt;微软文化改革&lt;/h2&gt;
+&lt;h3 id=&#34;微软员工要从无所不知到无所不学&#34;&gt;微软员工要从“无所不知”到“无所不学”&lt;/h3&gt;
+&lt;p&gt;工程师文化不应该是高冷的，不应该是一种自负的，而应该时刻保持谦虚，坦诚地给出自己的意见和看法，不断发现和学习别人的长处。我知道这和所谓的“极客精神”有所出入，但是我认为这是一种更好，更融洽的相处方式。&lt;/p&gt;
+&lt;p&gt;微软曾经公司文化崇尚竞争，各部门之间互相竞争，甚至同一个部门的各个团队都要互相竞争，他们有严格的排名制度，并且根据这个排名分配奖金，甚至还有罚金。此时的微软，市值已经蒸发到了顶峰时期的一半，改革势在必行。&lt;/p&gt;
+&lt;p&gt;纳德拉上任后推崇合作，对员工的评判变成了“自己的成就”，“帮助别人完成的成就”，“在别人帮助下完成的成就”。&lt;/p&gt;
+&lt;p&gt;帮助别人，保持一种好奇心，不断虚心的学习和为他们提供帮助，就是每个人的最好的相处方式，这样才能成就更多。&lt;/p&gt;
+&lt;p&gt;有一句名言是“文化能把战略当早餐吃”。纳德拉能够带领微软改革成功，曾坦言“文化改革是整个公司改革的大半”。&lt;/p&gt;
+&lt;p&gt;顺便说一句纳德拉受采访时回答的问题，深得我心。&lt;/p&gt;
+&lt;p&gt;组织领导要：&lt;strong&gt;Listen more, talk less, but be decisive when time comes.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;看重员工：&lt;strong&gt;Do they create clarity, do they create energy.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;领导少说多听具有决断力，员工要“清晰而富有能量”。&lt;/p&gt;
+&lt;h3 id=&#34;予力全球成就不凡&#34;&gt;予力全球，成就不凡&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;empower every person and every organization on the planet to achieve more.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;这包含了微软的人文关怀精神。&lt;/p&gt;
+&lt;p&gt;微软已经不是一家“软件公司”，而是一家“生产力平台公司”。这意味着微软的使命已经发生变化，让人们使用微软的技术去成就不凡已经是微软的目标。&lt;/p&gt;
+&lt;p&gt;我们可以看到盲人也可以在微软成为工程师，达到令人尊敬的成就，并且仍在致力于用AI帮助盲人。&lt;/p&gt;
+&lt;p&gt;微软提供了完整的学习资源平台和方便的工具，每一位开发者都可以构建属于他们的应用，使用AI和云服务去成就更多，实现更多，完成他们的创意和梦想。&lt;/p&gt;
+&lt;h2 id=&#34;开源和geek精神&#34;&gt;开源和“Geek精神”&lt;/h2&gt;
+&lt;p&gt;不要尝试去理解整个大的开源项目是如何运行起来的，即使是资深的软件工程师都很难短时间内搞清楚，做这样的尝试只会令你有挫败感。&lt;/p&gt;
+&lt;p&gt;当我们谈到开源，总会有人去聊一些“极客精神”和一些传奇的故事。然而现在的开源已经变成一项工作，是每个顶级公司必须要做的事情。这意味着开源已经变得工业化，也就会变得有规范。&lt;/p&gt;
+&lt;p&gt;另外，参与开源项目对个人的提升是巨大的，因为参与开源项目本身要求的素质就有很多，代码能力是肯定的，但还包含与别人交流的能力，迅速融入一个社区的能力，以及一定的创造意识和共享精神。&lt;/p&gt;
+&lt;p&gt;开源是趋势，是发展方向，未来开源的市场会越来越大，机会也会越来越多。&lt;/p&gt;
+&lt;p&gt;可以从一些简单的小bug入手，参与开源项目，很多小bug都是故意留下来希望能够吸引更多人能够参与的。&lt;/p&gt;
+&lt;h2 id=&#34;创新的勇气和时机&#34;&gt;创新的勇气和时机&lt;/h2&gt;
+&lt;p&gt;有勇气创新的人不缺乏创造力，抓住时机创新的人成就不凡。&lt;/p&gt;
+&lt;p&gt;我曾经考虑一个东西的时候总是会优先考虑这个事情的可行性，无论是讨论一个流程的策划，还是讨论一个项目的开发。&lt;/p&gt;
+&lt;p&gt;然而在这次微软夏令营的Hackathon中我体会到了这样做只能驻足在平庸之流，仅仅去考虑最终完成度的高低是限制人创造力和生产力的。&lt;/p&gt;
+&lt;p&gt;最开始的时候我们选择了我们比较轻车熟路的路线，并急于立刻进行开发，希望能够在有限的时间中完成一个质量更好的demo。但是在随后的深入讨论中我发现，这不是我想做的，我们可以尝试去做一个更有趣更有价值的方向和idea。&lt;/p&gt;
+&lt;p&gt;幸运的是我的队友和我见解相同，并且她有一个很好的故事。于是我们调整方向，这让我们更加富有热情。&lt;/p&gt;
+&lt;p&gt;令我意外的是，当我调整了方向之后，我的创造力和生产力大大提升，并迅速的完成了框架的开发，我的队友的工作也很快有了进展。虽然我们最后没能拿到“BEST PROJECT”的荣誉，但是这次的比赛经历已经让我收获颇多。&lt;/p&gt;</description>
     </item>
     
   </channel>
