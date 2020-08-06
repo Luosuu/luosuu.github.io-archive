@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; Copyright 2020 luosuu</copyright>
-    <lastBuildDate>Thu, 05 Mar 2020 18:53:26 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 06 Aug 2020 11:13:49 +0800</lastBuildDate>
     
 	<atom:link href="https://example.com/categories/sicp/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>2020shanghai B - 缓冲区结算、括号嵌套的递归</title>
+      <link>https://example.com/post/2020shanghai-b/</link>
+      <pubDate>Thu, 06 Aug 2020 11:13:49 +0800</pubDate>
+      
+      <guid>https://example.com/post/2020shanghai-b/</guid>
+      <description>&lt;p&gt;题面:&lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6871/B&#34;&gt;https://ac.nowcoder.com/acm/contest/6871/B&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Start PLT</title>

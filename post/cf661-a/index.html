@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Cf#661 A-输入输出 - luosuu的小站</title>
+  <meta property="og:title" content="Cf#661 A-输入输出 - luosuu的小站" />
+  <meta name="twitter:title" content="Cf#661 A-输入输出 - luosuu的小站" />
+  <meta name="description" content="题面：https://codeforces.com/contest/1399/problem/A">
+  <meta property="og:description" content="题面：https://codeforces.com/contest/1399/problem/A">
+  <meta name="twitter:description" content="题面：https://codeforces.com/contest/1399/problem/A">
+  <meta name="author" content="luosuu"/>
+  <meta property="og:site_name" content="luosuu的小站" />
+  <meta property="og:url" content="https://example.com/post/cf661-a/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.73.0" />
+
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
+
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">luosuu的小站</a></h1>
+    <ul class="site-navi-items">
+      <li class="site-navi-item-categories"><a href="/categories/" title="Categories">Categories</a></li>
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
+
+  <div class="main" role="main">
+    <article class="article">
+      
+      
+      <h1 class="article-title">Cf#661 A-输入输出</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>August 6, 2020</time></li>
+        <li class="article-meta-categories">
+          <a href="/categories/oj/">
+            <i class="fas fa-folder"></i>
+            OJ
+          </a>&nbsp;
+        </li>
+      </ul>
+      
+<aside class="toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#another">another</a></li>
+        <li><a href="#and-another-one">and another one!</a></li>
+        <li><a href="#one-more-thing">one more thing</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</aside>
+      <p>题面：https://codeforces.com/contest/1399/problem/A</p>
+<p>存储每一例数据，排序，判断相邻的两个之间是否超过1即可。这里要注意的是输入输出的方式。</p>
+<p>以下注释掉的地方也都是可以采用的方式。</p>
+<p>其中一种方式是避免动态数组，使用用提前规定好的最大数组。（虽然这个题用动态数组也过了）</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;stdio.h&#34;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;algorithm&#34;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;iostream&#34;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+<span style="color:#75715e">//int a[1050];
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">solve</span>(){
+    <span style="color:#66d9ef">int</span> n;
+  <span style="color:#75715e">//  scanf(&#34;%d&#34;,&amp;n);
+</span><span style="color:#75715e"></span>    cin <span style="color:#f92672">&gt;&gt;</span> n;
+    <span style="color:#66d9ef">int</span> a[n];
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n; <span style="color:#f92672">++</span>i) {
+  <span style="color:#75715e">//      scanf(&#34;%d&#34;,&amp;a[i]);
+</span><span style="color:#75715e"></span>    cin <span style="color:#f92672">&gt;&gt;</span> a[i];
+    }
+    sort(a,a<span style="color:#f92672">+</span>n);
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;</span> n; <span style="color:#f92672">++</span>i) {
+        <span style="color:#66d9ef">if</span>(a[i]<span style="color:#f92672">-</span>a[i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">1</span>){
+        <span style="color:#75715e">//    puts(&#34;NO&#34;);
+</span><span style="color:#75715e"></span>            cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;NO&#34;</span> <span style="color:#f92672">&lt;&lt;</span>endl;
+            <span style="color:#66d9ef">return</span>;
+        }
+    }
+   <span style="color:#75715e">// puts(&#34;YES&#34;);
+</span><span style="color:#75715e"></span>    cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;YES&#34;</span> <span style="color:#f92672">&lt;&lt;</span> endl;
+}
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+    <span style="color:#66d9ef">int</span> t;
+   <span style="color:#75715e">// scanf(&#34;%d&#34;,&amp;t);
+</span><span style="color:#75715e"></span>    cin <span style="color:#f92672">&gt;&gt;</span> t;
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> t; <span style="color:#f92672">++</span>i) {
+        solve();
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><h3 id="another">another</h3>
+<p>还有一道题也是和输入输出相关的</p>
+<p><strong>题目描述：</strong></p>
+<p>大学的同学来自全国各地，对于远离家乡步入陌生大学校园的大一新生来说，碰到老乡是多么激动的一件事，于是大家都热衷于问身边的同学是否与自己同乡，来自新疆的小赛尤其热衷。但是大家都不告诉小赛他们来自哪里，只是说与谁是不是同乡，从所给的信息中，你能告诉小赛有多少人确定是她的同乡吗？</p>
+<p><strong>输入描述：</strong></p>
+<p>包含多组测试用例。</p>
+<p>对于每组测试用例：</p>
+<p>第一行包括2个整数，N（1 &lt;= N &lt;= 1000），M(0 &lt;= M &lt;= N*(N-1)/2)，代表现有N个人（用1~N编号）和M组关系；</p>
+<p>在接下来的M行里，每行包括3个整数，a，b, c，如果c为1，则代表a跟b是同乡；如果c为0，则代表a跟b不是同乡；</p>
+<p>已知1表示小赛本人。</p>
+<p><strong>输入样例：</strong></p>
+<p>3 1</p>
+<p>2 3 1</p>
+<p>5 4</p>
+<p>1 2 1</p>
+<p>3 4 0</p>
+<p>2 5 1</p>
+<p>3 2 1</p>
+<p>本题的输入部分可以这样写</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+{
+   <span style="color:#66d9ef">int</span> N, M;
+    <span style="color:#75715e">// 每组第一行是2个整数，N和M，至于为啥用while，因为是多组。
+</span><span style="color:#75715e"></span>   <span style="color:#66d9ef">while</span>(scanf(<span style="color:#e6db74">&#34;%d %d&#34;</span>, <span style="color:#f92672">&amp;</span>N, <span style="color:#f92672">&amp;</span>M) <span style="color:#f92672">!=</span> EOF) {
+      printf(<span style="color:#e6db74">&#34;%d %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, N, M);
+      <span style="color:#75715e">// 循环读取“接下来的M行”
+</span><span style="color:#75715e"></span>      <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>M; i<span style="color:#f92672">++</span>) {
+        <span style="color:#66d9ef">int</span> a, b, c;
+        <span style="color:#75715e">// 每行是3个整数，a，b，c。
+</span><span style="color:#75715e"></span>        scanf(<span style="color:#e6db74">&#34;%d %d %d&#34;</span>, <span style="color:#f92672">&amp;</span>a, <span style="color:#f92672">&amp;</span>b, <span style="color:#f92672">&amp;</span>c);
+        printf(<span style="color:#e6db74">&#34;%d %d %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, a, b, c);
+      }
+      <span style="color:#75715e">// M行读取完了，就又要开始下一组了，去while那里。
+</span><span style="color:#75715e"></span>   }
+}
+</code></pre></div><h3 id="and-another-one">and another one!</h3>
+<p>还有一道题是<a href="https://ac.nowcoder.com/acm/contest/6871/C">2020上海高校程序设计竞赛的C题</a></p>
+<p>计算每一例聊天记录里，含<code>2</code>的句子占的比例。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;string&#34;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#66d9ef">int</span> T;
+    cin <span style="color:#f92672">&gt;&gt;</span> T;
+    <span style="color:#66d9ef">double</span> rate[T];
+    <span style="color:#66d9ef">double</span> num[T];
+    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span>T;i<span style="color:#f92672">++</span>){
+        num[i] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+        <span style="color:#66d9ef">int</span> n;
+        cin <span style="color:#f92672">&gt;&gt;</span> n;
+        getchar();
+        <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;j<span style="color:#f92672">&lt;</span>n;j<span style="color:#f92672">++</span>){
+            string in;
+            getline(cin,in);
+
+            <span style="color:#66d9ef">int</span> len <span style="color:#f92672">=</span> in.size();
+            <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> k <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;k<span style="color:#f92672">&lt;</span>len;k<span style="color:#f92672">++</span>){
+                <span style="color:#66d9ef">if</span>(in[k]<span style="color:#f92672">==</span><span style="color:#e6db74">&#39;2&#39;</span>){
+                    num[i]<span style="color:#f92672">++</span>;
+                    <span style="color:#66d9ef">break</span>;
+                }
+            }
+        }
+        rate[i] <span style="color:#f92672">=</span> num[i]<span style="color:#f92672">/</span>(n<span style="color:#f92672">*</span><span style="color:#ae81ff">1.0</span>);
+        cout <span style="color:#f92672">&lt;&lt;</span> rate[i] <span style="color:#f92672">&lt;&lt;</span> endl;
+    }
+
+}
+</code></pre></div><h3 id="one-more-thing">one more thing</h3>
+<p>转载一下<a href="https://blog.csdn.net/m0_38059875/article/details/105205096">CSDN上的OJ之C++输入输出总结</a>。</p>
+<h4 id="不知道输入几组">不知道输入几组</h4>
+<blockquote>
+<p>计算a+b的和</p>
+<p>每行包含两个整数a和b</p>
+<p>对于每行输入对应输出一行a和b的和</p>
+<p>输入</p>
+<p>1 5</p>
+<p>输出</p>
+<p>6</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#66d9ef">int</span> a,b;
+    <span style="color:#66d9ef">while</span>(cin <span style="color:#f92672">&gt;&gt;</span> a <span style="color:#f92672">&gt;&gt;</span> b)<span style="color:#75715e">//注意while处理多个case
+</span><span style="color:#75715e"></span>        cout <span style="color:#f92672">&lt;&lt;</span> a<span style="color:#f92672">+</span>b <span style="color:#f92672">&lt;&lt;</span> endl;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><h4 id="知道输入几组">知道输入几组</h4>
+<p>先输入一个组数n，然后再循环读取n组数据。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#66d9ef">int</span> n; <span style="color:#75715e">// 数据的组数
+</span><span style="color:#75715e"></span>    cin <span style="color:#f92672">&gt;&gt;</span> n; <span style="color:#75715e">// 读取组数
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>n; <span style="color:#f92672">++</span>i){
+        <span style="color:#66d9ef">int</span> a, b;
+        cin <span style="color:#f92672">&gt;&gt;</span> a <span style="color:#f92672">&gt;&gt;</span> b;
+        cout <span style="color:#f92672">&lt;&lt;</span> a<span style="color:#f92672">+</span>b <span style="color:#f92672">&lt;&lt;</span>endl;
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><h4 id="字符串的输入处理">字符串的输入处理</h4>
+<p>因为OJ最终只比较文件，就不用保存所有输入，可以读一组数据计算一组数据。</p>
+<p>当读取字符串的时候需要注意，<code>cin</code>不能读取空白字符，比如空格，如果遇到空格则会直接终止字符串。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+	string s;
+	cin <span style="color:#f92672">&gt;&gt;</span> s; <span style="color:#75715e">// 读到空白就结束当前的字符串
+</span><span style="color:#75715e"></span>	cout <span style="color:#f92672">&lt;&lt;</span> s;
+	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><p>运行的结果：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">abc <span style="color:#ae81ff">123</span>
+abc请按任意键继续. . .
+</code></pre></div><p>如果要读取整行字符串，可以使用<code>getline()</code>和<code>cin.getline()</code>这两个函数，两个函数都是遇到定界符，则结束这行的字符串，定界符默认设置为<strong>回车</strong>。两个函数略有不同的是，<code>getline()</code>操作的对象是string，<code>cin.getline()</code>操作的对象的char数组。详细的定义如下：</p>
+<p><code>getline()</code>，要使用这个函数需要包含头文件&lt;string&gt;，</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">istream<span style="color:#f92672">&amp;</span> getline(istream<span style="color:#f92672">&amp;</span> is, string<span style="color:#f92672">&amp;</span> str, <span style="color:#66d9ef">char</span> delim);
+istream<span style="color:#f92672">&amp;</span> getline(istream<span style="color:#f92672">&amp;</span> is, string<span style="color:#f92672">&amp;</span> str);
+</code></pre></div><ul>
+<li>is：它是istream类的对象，告诉函数从何处读取输入流。</li>
+<li>str：这是一个string字符串对象，从流中读取输入后，将输入存储在此对象中。</li>
+<li>delim：这是定界字符，它告诉函数在达到该字符后停止读取进一步的输入。</li>
+<li>返回值：此函数返回值是与输入参数is相同的输入流。</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+	string s;
+	getline(cin, s);
+	cout <span style="color:#f92672">&lt;&lt;</span> s;	
+	system(<span style="color:#e6db74">&#34;pause&#34;</span>);
+	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}		
+<span style="color:#ae81ff">12345678910</span>
+</code></pre></div><p>运行结果：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">abc <span style="color:#ae81ff">123</span>
+abc 123请按任意键继续. . .
+</code></pre></div><p><code>cin.getline()</code>函数读取至新行结尾或直到达到最大限制的整行文本。函数定义如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">// (buffer, stream_size, delimiter)
+</span><span style="color:#75715e"></span>istream<span style="color:#f92672">&amp;</span> getline(<span style="color:#66d9ef">char</span><span style="color:#f92672">*</span>, <span style="color:#66d9ef">int</span> size, <span style="color:#66d9ef">char</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;\n&#39;</span>)
+
+<span style="color:#75715e">// The delimiter character is considered as &#39;\n&#39;
+</span><span style="color:#75715e"></span>istream<span style="color:#f92672">&amp;</span> getline(<span style="color:#66d9ef">char</span><span style="color:#f92672">*</span>, <span style="color:#66d9ef">int</span> size)
+<span style="color:#ae81ff">12345</span>
+</code></pre></div><ol>
+<li>提取字符直到定界符。</li>
+<li>将字符存储在缓冲区中。</li>
+<li>提取的最大字符数为<code>size-1</code>。</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt; </span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std; 
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() 
+{ 
+    <span style="color:#66d9ef">char</span> str[<span style="color:#ae81ff">20</span>]; 
+    cin.getline(str, <span style="color:#ae81ff">20</span>); 
+    cout <span style="color:#f92672">&lt;&lt;</span> str; 
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>; 
+}
+<span style="color:#ae81ff">123456789</span>
+</code></pre></div><p>运行结果：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">no bug forever
+no bug forever请按任意键继续. . .
+<span style="color:#ae81ff">12</span>
+</code></pre></div><p>例子：</p>
+<p>输入为9个数字，每个数字用<code>逗号,</code>分隔，将数字保存到一个一维数组中。</p>
+<blockquote>
+<p>1,2,3,4,5,6,7,8,9</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test</span>() {
+	string str;
+	cin <span style="color:#f92672">&gt;&gt;</span> str; <span style="color:#75715e">// 获取整行数据
+</span><span style="color:#75715e"></span>	vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> vec; <span style="color:#75715e">// 将数字保存在数组中
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">char</span><span style="color:#f92672">&amp;</span> ch : str) {
+		<span style="color:#66d9ef">if</span> (isdigit(ch)) vec.push_back(ch <span style="color:#f92672">-</span> <span style="color:#e6db74">&#39;0&#39;</span>); <span style="color:#75715e">// 如果是数字才保存，并且需要减去字符0
+</span><span style="color:#75715e"></span>	}
+	<span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span><span style="color:#f92672">&amp;</span> i : vec) {
+		cout <span style="color:#f92672">&lt;&lt;</span> i <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#39; &#39;</span>;
+	}
+}
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+	test();
+	system(<span style="color:#e6db74">&#34;pause&#34;</span>);
+	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+<span style="color:#ae81ff">123456789101112131415161718192021</span>
+</code></pre></div><p>运行结果：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">1,2,3,4,5,6,7,8,9
+<span style="color:#ae81ff">1</span> <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">6</span> <span style="color:#ae81ff">7</span> <span style="color:#ae81ff">8</span> <span style="color:#ae81ff">9</span> 请按任意键继续. . .
+</code></pre></div>
+    </article>
+
+    
+
+
+    <ul class="pager article-pager">
+      <li class="pager-newer">
+          <a href="/post/atabc174-e/" data-toggle="tooltip" data-placement="top" title="AtABC174 E-二分查找">&lt; Newer</a>
+      </li>
+      <li class="pager-older">
+        <a href="/post/acabc174_c/" data-toggle="tooltip" data-placement="top" title="AcABC174C-模运算">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
+
+<script src="https://cdn.bootcss.com/highlight.js/9.18.1/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+</html>

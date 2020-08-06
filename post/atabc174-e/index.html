@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>AtABC174 E-二分查找 - luosuu的小站</title>
+  <meta property="og:title" content="AtABC174 E-二分查找 - luosuu的小站" />
+  <meta name="twitter:title" content="AtABC174 E-二分查找 - luosuu的小站" />
+  <meta name="description" content="题面：https://atcoder.jp/contests/abc174/tasks/abc174_e">
+  <meta property="og:description" content="题面：https://atcoder.jp/contests/abc174/tasks/abc174_e">
+  <meta name="twitter:description" content="题面：https://atcoder.jp/contests/abc174/tasks/abc174_e">
+  <meta name="author" content="luosuu"/>
+  <meta property="og:site_name" content="luosuu的小站" />
+  <meta property="og:url" content="https://example.com/post/atabc174-e/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.73.0" />
+
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
+
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">luosuu的小站</a></h1>
+    <ul class="site-navi-items">
+      <li class="site-navi-item-categories"><a href="/categories/" title="Categories">Categories</a></li>
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-archives"><a href="/archives/" title="Archives">Archives</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About">About</a></li>
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
+
+  <div class="main" role="main">
+    <article class="article">
+      
+      
+      <h1 class="article-title">AtABC174 E-二分查找</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>August 6, 2020</time></li>
+        <li class="article-meta-categories">
+          <a href="/categories/oj/">
+            <i class="fas fa-folder"></i>
+            OJ
+          </a>&nbsp;
+        </li>
+      </ul>
+      
+<aside class="toc">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#分析">分析</a></li>
+  </ul>
+</nav>
+</aside>
+      <p>题面：https://atcoder.jp/contests/abc174/tasks/abc174_e</p>
+<h2 id="分析">分析</h2>
+<p>输入N个有长度<code>A[n]</code>的原木，现在要一共对这些木头切至多K刀，求切K刀后所有木材最长的木材的最短值。即让切K刀后的所有木材的最长值尽量短。</p>
+<p>检验一个木材最长值<code>len</code>是否符合切K刀的条件是简单的，只需要每个原木的长度除以<code>len</code>向上取整再减一，然后取和，就能检验是否符合切K刀的条件。</p>
+<p>这类找出 “最长值的最短”“最小值的最大”一类，也就是<code>max(min(len))</code>或<code>min(max(len))</code>一般是使用二分查找方法的提示。</p>
+<p>在寻找最长木材的最小值的过程中，我们可以先用1做开头，原木中最长值<code>max_len</code>做结尾，然后以这俩为首位进行二分查找。有三种情况</p>
+<ol>
+<li>
+<p>当中值<code>mid</code>的切割次数小于K次，说明<code>mid</code>取的太长了，将<code>mid</code>作为新的结尾；</p>
+</li>
+<li>
+<p>如果<code>mid</code>的切割次数大于K次，说明取的太短了，应该把<code>mid</code>作为新的开头；</p>
+</li>
+<li>
+<p>当<code>mid</code>的切割次数恰好等于K次，说明<code>mid&gt;=最长木材的最小值</code>，应该继续往下探，将<code>mid</code>作为新的结尾。</p>
+</li>
+</ol>
+<p>代码如下</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+<span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span> <span style="color:#a6e22e">cut_times</span>(<span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span> <span style="color:#f92672">*</span>logs, <span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span> cut_len, <span style="color:#66d9ef">int</span> log_num);
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#66d9ef">int</span> N,K;
+    cin <span style="color:#f92672">&gt;&gt;</span> N <span style="color:#f92672">&gt;&gt;</span> K;
+    <span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span> logs[N];
+    <span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span> max_long <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+
+    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span>N;i<span style="color:#f92672">++</span>){
+        cin <span style="color:#f92672">&gt;&gt;</span> logs[i];
+        <span style="color:#66d9ef">if</span>(logs[i] <span style="color:#f92672">&gt;</span> max_long) {
+            max_long <span style="color:#f92672">=</span> logs[i];
+        }
+    }
+    <span style="color:#66d9ef">if</span>(K<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>){
+        cout <span style="color:#f92672">&lt;&lt;</span> max_long;
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+    }
+
+    <span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span> start <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+    <span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span> end <span style="color:#f92672">=</span> max_long;
+    <span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span> mid;
+
+    <span style="color:#75715e">//binary search
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">while</span>(start<span style="color:#f92672">&lt;</span>end){
+        mid <span style="color:#f92672">=</span> (start <span style="color:#f92672">+</span> end)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>;
+        <span style="color:#66d9ef">if</span>(cut_times(logs, mid, N)<span style="color:#f92672">&lt;=</span>K){<span style="color:#75715e">//cut times equals to k, still need to try a smaller one
+</span><span style="color:#75715e"></span>            end <span style="color:#f92672">=</span> mid;
+        }<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(cut_times(logs, mid, N)<span style="color:#f92672">&gt;</span>K){
+            start <span style="color:#f92672">=</span> mid<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>;
+        }
+
+    }
+
+    cout <span style="color:#f92672">&lt;&lt;</span> start;
+
+}
+
+<span style="color:#75715e">// Given max cut length, get needed cut times
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span> <span style="color:#a6e22e">cut_times</span>(<span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span> <span style="color:#f92672">*</span>logs, <span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span> cut_len, <span style="color:#66d9ef">int</span> log_num){
+    <span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span>  need_times <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span>log_num;i<span style="color:#f92672">++</span>){
+        <span style="color:#66d9ef">if</span>(<span style="color:#f92672">*</span>logs<span style="color:#f92672">%</span>cut_len<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>){
+            need_times <span style="color:#f92672">+=</span> <span style="color:#f92672">*</span>logs<span style="color:#f92672">/</span>cut_len<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+        }<span style="color:#66d9ef">else</span>{
+            need_times <span style="color:#f92672">+=</span> <span style="color:#f92672">*</span>logs<span style="color:#f92672">/</span>cut_len;
+        }
+        logs<span style="color:#f92672">++</span>;
+    }
+    <span style="color:#66d9ef">return</span> need_times;
+}
+
+</code></pre></div>
+    </article>
+
+    
+
+
+    <ul class="pager article-pager">
+      <li class="pager-newer">
+          <a href="/post/2020shanghai-b/" data-toggle="tooltip" data-placement="top" title="2020shanghai B - 缓冲区结算、括号嵌套的递归">&lt; Newer</a>
+      </li>
+      <li class="pager-older">
+        <a href="/post/cf661-a/" data-toggle="tooltip" data-placement="top" title="Cf#661 A-输入输出">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
+
+<script src="https://cdn.bootcss.com/highlight.js/9.18.1/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+</html>
