@@ -163,15 +163,7 @@ onload='renderMathInElement(document.body);'></script>
     <hr />
 </summary>
 <div class="inline toc-content">
-    <nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#one-more-thing">one more thing</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
+    
 </div>
 </details>
 
@@ -184,36 +176,46 @@ onload='renderMathInElement(document.body);'></script>
 
 <article>
 	<section class="mx-auto content">
-		<div class="c-rich-text"><p>题面：https://atcoder.jp/contests/abc174/tasks/abc174_c</p>
+		<div class="c-rich-text"><p>题面：<a href="https://atcoder.jp/contests/abc174/tasks/abc174_c">https://atcoder.jp/contests/abc174/tasks/abc174_c</a></p>
+
 <p>本题可以简单化简</p>
-<p>$$
-K<em>a=7</em>\frac{1-10^n}{1-10}
-$$</p>
+
+<p><span  class="math">\[
+K*a=7*\frac{1-10^n}{1-10}
+\]</span></p>
+
 <p>等同于</p>
-<p>$$
-K<em>a</em>9=7*(10^n-1)
-$$</p>
+
+<p><span  class="math">\[
+K*a*9=7*(10^n-1)
+\]</span></p>
+
 <p>a是K的倍数，n为被除数的位数，n即为所求。只要右侧式能够整除9K（a是个整数），那么就满足要求。</p>
+
 <p>于是调试n，用右侧式对左侧进行取模操作即可。</p>
-<p>但计算过程中有$10^n$的限制，可能会超过<code>long long </code>数据的最大值。</p>
+
+<p>但计算过程中有$10^n$的限制，可能会超过<code>long long</code>数据的最大值。</p>
+
 <p>这里要引出取模运算的运算规则</p>
 <pre><code>(a+b)%p=(a%p+b%p)%p
 (a-b)%p=(a%p-b%p)%p
 (a*b%p)=(a%p * b%p)%p
-(a^b)%p=((a%p)^b)%p
-</code></pre><p>观察右侧式，先抛去7这个乘数，它的变化应该是</p>
+(a^b)%p=((a%p)^b)%p</code></pre>
+<p>观察右侧式，先抛去7这个乘数，它的变化应该是</p>
 <pre><code>9
 99
 999
-...
-</code></pre><p>可以表示为</p>
+...</code></pre>
+<p>可以表示为</p>
 <pre><code>d(0)=9
 d(1)=d(0)*10+9
 d(2)=d(1)*10+9
 ...
-d(n)=d(n-1)*10+9
-</code></pre><p>现在要求<code>d(n)</code>能不能整除<code>9K</code>，可以递推式的表达，这样循环中每一次验证都只需要一次计算。</p>
+d(n)=d(n-1)*10+9</code></pre>
+<p>现在要求<code>d(n)</code>能不能整除<code>9K</code>，可以递推式的表达，这样循环中每一次验证都只需要一次计算。</p>
+
 <p>最后考虑停机条件，时间限制为2s，以CPU 1GHz的速度来考虑，保守的可以设置停机条件为2e7。如果2e7位数还没有找到，大概率是没有了。</p>
+
 <p>完整的代码可以写为</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
@@ -236,10 +238,15 @@ d(n)=d(n-1)*10+9
     cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
     <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 }
-</code></pre></div><h3 id="one-more-thing">one more thing</h3>
+</code></pre></div>
+<h3 id="one-more-thing">one more thing</h3>
+
 <p>关于模运算有很多有趣的知识，其中一些在OJ中经常常用，快速幂就是其中一个。</p>
+
 <p>快速幂的全称是“快速计算一个幂式的模（余）”</p>
+
 <p>假如我们要计算<code>a^b mod c</code></p>
+
 <p>如果我们直接算</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">int</span> ans <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
 <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;i<span style="color:#f92672">&lt;=</span>b;i<span style="color:#f92672">++</span>)
@@ -247,8 +254,11 @@ d(n)=d(n-1)*10+9
   ans <span style="color:#f92672">=</span> ans <span style="color:#f92672">*</span> a;
 }
 ans <span style="color:#f92672">=</span> ans <span style="color:#f92672">%</span> c;
-</code></pre></div><p>那么当b比较大的时候，<code>long long </code>也是撑不住的，数据会溢出。</p>
+</code></pre></div>
+<p>那么当b比较大的时候，<code>long long</code>也是撑不住的，数据会溢出。</p>
+
 <p>可以根据模运算的性质<code>(a^b)%p=((a%p)^b)%p</code></p>
+
 <p>在算指数之前先取模，这样可以小一些</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">int</span> ans <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
 a <span style="color:#f92672">=</span> a <span style="color:#f92672">%</span> c;
@@ -257,7 +267,8 @@ a <span style="color:#f92672">=</span> a <span style="color:#f92672">%</span> c;
   ans <span style="color:#f92672">=</span> ans <span style="color:#f92672">*</span> a;
 }
 ans <span style="color:#f92672">=</span> ans <span style="color:#f92672">%</span> c;
-</code></pre></div><p>如果一个因子取余不影响最终结果，那么中间的因子取余应该也是不影响结果的（反正最后都被消掉，可以在计算指数的过程中消掉）</p>
+</code></pre></div>
+<p>如果一个因子取余不影响最终结果，那么中间的因子取余应该也是不影响结果的（反正最后都被消掉，可以在计算指数的过程中消掉）</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">int</span> ans <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
 a <span style="color:#f92672">=</span> a <span style="color:#f92672">%</span> c;
 <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;i<span style="color:#f92672">&lt;=</span>b;i<span style="color:#f92672">++</span>)
@@ -265,19 +276,25 @@ a <span style="color:#f92672">=</span> a <span style="color:#f92672">%</span> c;
   ans <span style="color:#f92672">=</span> (ans <span style="color:#f92672">*</span> a)<span style="color:#f92672">%</span>c;
 }
 ans <span style="color:#f92672">=</span> ans <span style="color:#f92672">%</span> c;
-</code></pre></div><p>现在已经比最开始好很多了，但现在的复杂度式还是<code>O(b)</code>，当b比较大的时候还是有可能超时。</p>
+</code></pre></div>
+<p>现在已经比最开始好很多了，但现在的复杂度式还是<code>O(b)</code>，当b比较大的时候还是有可能超时。</p>
+
 <p>也就是问题出现在求指数的过程中，这里要考虑到如何快速计算幂式，我们可以这样考虑
-$$
+<span  class="math">\(
 2^{1000}=4^{500}
-$$
+\)</span>
 底数做一次平方，运算次数少了一半，如果是奇数
-$$
+<span  class="math">\(
 2^{1001}=4^{500}*2
-$$
+\)</span>
 现在先不考虑幂式求模余的问题，如果单纯要求快速计算<code>a^b</code></p>
+
 <p>方法应该是这样的</p>
+
 <p>当指数b是偶数时，平方底数，指数b自除2；</p>
+
 <p>当指数b是奇数时，先用一个数才收集落单的底数，然后平方底数，b自减1再除2。</p>
+
 <p>最后除到b为1的时候，用于收集落单的底数的数就会乘以最后的底，从而变成最终结果。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">QuickPower</span>(<span style="color:#66d9ef">int</span> a,<span style="color:#66d9ef">int</span> b){
     <span style="color:#66d9ef">int</span> result <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
@@ -290,8 +307,11 @@ $$
         a <span style="color:#f92672">=</span> a <span style="color:#f92672">*</span> a;
     }
 }
-</code></pre></div><p>如何应用在求幂式的模余中呢？应该是很简单的。</p>
+</code></pre></div>
+<p>如何应用在求幂式的模余中呢？应该是很简单的。</p>
+
 <p>当指数b是偶数时，平方底数，指数b自除2；</p>
+
 <p>当指数b是奇数时，先让ans乘以底数a（这里可以对c取模优化），用于收集落单的底数，然后平方底数，b自减1再除2。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">PowerMod</span>(<span style="color:#66d9ef">int</span> a, <span style="color:#66d9ef">int</span> b, <span style="color:#66d9ef">int</span> c)
 {
@@ -397,7 +417,7 @@ $$
 	<div class="text-sm text-gray-500 leading-tight a-gray">
 		Copyright © 2020
 		<br />
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 1202 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 1208 words in this page.
 	</div>
 </div>
 
