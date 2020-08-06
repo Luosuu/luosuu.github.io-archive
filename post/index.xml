@@ -18,14 +18,10 @@
       <pubDate>Thu, 06 Aug 2020 11:13:49 +0800</pubDate>
       
       <guid>https://luosuu.github.io/post/2020shanghai-b/</guid>
-      <description>&lt;p&gt;题面:&lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6871/B&#34;&gt;https://ac.nowcoder.com/acm/contest/6871/B&lt;/a&gt;&lt;/p&gt;
-
+      <description>&lt;p&gt;题面:https://ac.nowcoder.com/acm/contest/6871/B&lt;/p&gt;
 &lt;h2 id=&#34;分析&#34;&gt;分析&lt;/h2&gt;
-
 &lt;p&gt;典型的字符串处理，而且出题人强调了没有括号嵌套（真亚撒西嘤嘤嘤）。&lt;/p&gt;
-
 &lt;p&gt;因为分子式不同部分的计算方式是不一样的，可以用缓冲的思想来解决这个问题。&lt;/p&gt;
-
 &lt;p&gt;在不考虑括号嵌套的情况下&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;#34;string&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
@@ -74,15 +70,10 @@ string a;
     sum&lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt;ans;
     printf(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%lld&amp;#34;&lt;/span&gt;,sum);
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3 id=&#34;用递归的方式处理括号嵌套&#34;&gt;用递归的方式处理括号嵌套&lt;/h3&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;用递归的方式处理括号嵌套&#34;&gt;用递归的方式处理括号嵌套&lt;/h3&gt;
 &lt;p&gt;如果要考虑括号内部的嵌套，就需要用到递归的方法了。&lt;/p&gt;
-
 &lt;p&gt;先说缓冲区的部分，遇到常规字符&lt;code&gt;C&lt;/code&gt;,&lt;code&gt;H&lt;/code&gt;,&lt;code&gt;O&lt;/code&gt;，将缓冲区算入结果，将常规字符的值读入缓冲区，以处理后面可能会出现的数字，括号等情况。&lt;/p&gt;
-
 &lt;p&gt;遇到左括号，也是先将缓冲区算入结果，然后进入下一层函数，计算括号内部的分子式，遇到右括号时内部分子式返回来。如果内部还有括号，同理，会进入再下一层函数。最后将括号内的值读入缓冲区。&lt;/p&gt;
-
 &lt;p&gt;遇到数字，就会继续往下读，直到把整个数字段都读出来（这个过程会转换为具体的数字&lt;code&gt;times&lt;/code&gt;）。然后将缓冲区内的值乘以times算入结果，清空缓冲区（这里清空缓冲区是必要的，虽然读入下一个数据的时候会覆盖它，但是如果已经是最后一个数据，就会跳出循环，执行最后的缓冲区内数据算入结果，如果不清空会多算一次）。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;cstdio&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;#34;string&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
@@ -478,51 +469,41 @@ no bug forever请按任意键继续. . .
     </item>
     
     <item>
-      <title>AcABC174C-模运算</title>
-      <link>https://luosuu.github.io/post/acabc174_c/</link>
+      <title>AtABC174C-模运算</title>
+      <link>https://luosuu.github.io/post/atabc174_c/</link>
       <pubDate>Tue, 04 Aug 2020 17:04:51 +0800</pubDate>
       
-      <guid>https://luosuu.github.io/post/acabc174_c/</guid>
-      <description>&lt;p&gt;题面：&lt;a href=&#34;https://atcoder.jp/contests/abc174/tasks/abc174_c&#34;&gt;https://atcoder.jp/contests/abc174/tasks/abc174_c&lt;/a&gt;&lt;/p&gt;
-
+      <guid>https://luosuu.github.io/post/atabc174_c/</guid>
+      <description>&lt;p&gt;题面：https://atcoder.jp/contests/abc174/tasks/abc174_c&lt;/p&gt;
 &lt;p&gt;本题可以简单化简&lt;/p&gt;
-
-&lt;p&gt;&lt;span  class=&#34;math&#34;&gt;\[
-K*a=7*\frac{1-10^n}{1-10}
-\]&lt;/span&gt;&lt;/p&gt;
-
+&lt;p&gt;$$
+K&lt;em&gt;a=7&lt;/em&gt;\frac{1-10^n}{1-10}
+$$&lt;/p&gt;
 &lt;p&gt;等同于&lt;/p&gt;
-
-&lt;p&gt;&lt;span  class=&#34;math&#34;&gt;\[
-K*a*9=7*(10^n-1)
-\]&lt;/span&gt;&lt;/p&gt;
-
+&lt;p&gt;$$
+K&lt;em&gt;a&lt;/em&gt;9=7*(10^n-1)
+$$&lt;/p&gt;
 &lt;p&gt;a是K的倍数，n为被除数的位数，n即为所求。只要右侧式能够整除9K（a是个整数），那么就满足要求。&lt;/p&gt;
-
 &lt;p&gt;于是调试n，用右侧式对左侧进行取模操作即可。&lt;/p&gt;
-
-&lt;p&gt;但计算过程中有$10^n$的限制，可能会超过&lt;code&gt;long long&lt;/code&gt;数据的最大值。&lt;/p&gt;
-
+&lt;p&gt;但计算过程中有$10^n$的限制，可能会超过&lt;code&gt;long long &lt;/code&gt;数据的最大值。&lt;/p&gt;
 &lt;p&gt;这里要引出取模运算的运算规则&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(a+b)%p=(a%p+b%p)%p
 (a-b)%p=(a%p-b%p)%p
 (a*b%p)=(a%p * b%p)%p
-(a^b)%p=((a%p)^b)%p&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;观察右侧式，先抛去7这个乘数，它的变化应该是&lt;/p&gt;
+(a^b)%p=((a%p)^b)%p
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;观察右侧式，先抛去7这个乘数，它的变化应该是&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;9
 99
 999
-...&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;可以表示为&lt;/p&gt;
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;可以表示为&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;d(0)=9
 d(1)=d(0)*10+9
 d(2)=d(1)*10+9
 ...
-d(n)=d(n-1)*10+9&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;现在要求&lt;code&gt;d(n)&lt;/code&gt;能不能整除&lt;code&gt;9K&lt;/code&gt;，可以递推式的表达，这样循环中每一次验证都只需要一次计算。&lt;/p&gt;
-
+d(n)=d(n-1)*10+9
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;现在要求&lt;code&gt;d(n)&lt;/code&gt;能不能整除&lt;code&gt;9K&lt;/code&gt;，可以递推式的表达，这样循环中每一次验证都只需要一次计算。&lt;/p&gt;
 &lt;p&gt;最后考虑停机条件，时间限制为2s，以CPU 1GHz的速度来考虑，保守的可以设置停机条件为2e7。如果2e7位数还没有找到，大概率是没有了。&lt;/p&gt;
-
 &lt;p&gt;完整的代码可以写为&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-C++&#34; data-lang=&#34;C++&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;namespace&lt;/span&gt; std;
@@ -545,15 +526,10 @@ d(n)=d(n-1)*10+9&lt;/code&gt;&lt;/pre&gt;
     cout &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
     &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3 id=&#34;one-more-thing&#34;&gt;one more thing&lt;/h3&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;one-more-thing&#34;&gt;one more thing&lt;/h3&gt;
 &lt;p&gt;关于模运算有很多有趣的知识，其中一些在OJ中经常常用，快速幂就是其中一个。&lt;/p&gt;
-
 &lt;p&gt;快速幂的全称是“快速计算一个幂式的模（余）”&lt;/p&gt;
-
 &lt;p&gt;假如我们要计算&lt;code&gt;a^b mod c&lt;/code&gt;&lt;/p&gt;
-
 &lt;p&gt;如果我们直接算&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; ans &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
 &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;i&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt;b;i&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;)
@@ -561,11 +537,8 @@ d(n)=d(n-1)*10+9&lt;/code&gt;&lt;/pre&gt;
   ans &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ans &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; a;
 }
 ans &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ans &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; c;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;那么当b比较大的时候，&lt;code&gt;long long&lt;/code&gt;也是撑不住的，数据会溢出。&lt;/p&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;那么当b比较大的时候，&lt;code&gt;long long &lt;/code&gt;也是撑不住的，数据会溢出。&lt;/p&gt;
 &lt;p&gt;可以根据模运算的性质&lt;code&gt;(a^b)%p=((a%p)^b)%p&lt;/code&gt;&lt;/p&gt;
-
 &lt;p&gt;在算指数之前先取模，这样可以小一些&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; ans &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
 a &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; a &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; c;
@@ -574,8 +547,7 @@ a &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; a &lt;span style=&#34
   ans &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ans &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; a;
 }
 ans &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ans &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; c;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;如果一个因子取余不影响最终结果，那么中间的因子取余应该也是不影响结果的（反正最后都被消掉，可以在计算指数的过程中消掉）&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果一个因子取余不影响最终结果，那么中间的因子取余应该也是不影响结果的（反正最后都被消掉，可以在计算指数的过程中消掉）&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; ans &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
 a &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; a &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; c;
 &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;i&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt;b;i&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;)
@@ -583,25 +555,19 @@ a &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; a &lt;span style=&#34
   ans &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (ans &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; a)&lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt;c;
 }
 ans &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ans &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; c;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;现在已经比最开始好很多了，但现在的复杂度式还是&lt;code&gt;O(b)&lt;/code&gt;，当b比较大的时候还是有可能超时。&lt;/p&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;现在已经比最开始好很多了，但现在的复杂度式还是&lt;code&gt;O(b)&lt;/code&gt;，当b比较大的时候还是有可能超时。&lt;/p&gt;
 &lt;p&gt;也就是问题出现在求指数的过程中，这里要考虑到如何快速计算幂式，我们可以这样考虑
-&lt;span  class=&#34;math&#34;&gt;\(
+$$
 2^{1000}=4^{500}
-\)&lt;/span&gt;
+$$
 底数做一次平方，运算次数少了一半，如果是奇数
-&lt;span  class=&#34;math&#34;&gt;\(
+$$
 2^{1001}=4^{500}*2
-\)&lt;/span&gt;
+$$
 现在先不考虑幂式求模余的问题，如果单纯要求快速计算&lt;code&gt;a^b&lt;/code&gt;&lt;/p&gt;
-
 &lt;p&gt;方法应该是这样的&lt;/p&gt;
-
 &lt;p&gt;当指数b是偶数时，平方底数，指数b自除2；&lt;/p&gt;
-
 &lt;p&gt;当指数b是奇数时，先用一个数才收集落单的底数，然后平方底数，b自减1再除2。&lt;/p&gt;
-
 &lt;p&gt;最后除到b为1的时候，用于收集落单的底数的数就会乘以最后的底，从而变成最终结果。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;QuickPower&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; a,&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; b){
     &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; result &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
@@ -614,11 +580,8 @@ ans &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ans &lt;span style=
         a &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; a &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; a;
     }
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;如何应用在求幂式的模余中呢？应该是很简单的。&lt;/p&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如何应用在求幂式的模余中呢？应该是很简单的。&lt;/p&gt;
 &lt;p&gt;当指数b是偶数时，平方底数，指数b自除2；&lt;/p&gt;
-
 &lt;p&gt;当指数b是奇数时，先让ans乘以底数a（这里可以对c取模优化），用于收集落单的底数，然后平方底数，b自减1再除2。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;PowerMod&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; a, &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; b, &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; c)
 {
@@ -2608,8 +2571,8 @@ git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-cask.git
 &lt;/blockquote&gt;
 &lt;h4 id=&#34;blockquote-with-attribution&#34;&gt;Blockquote with attribution&lt;/h4&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Don&amp;rsquo;t communicate by sharing memory, share memory by communicating.&lt;!-- raw HTML omitted --&gt;
-— &lt;!-- raw HTML omitted --&gt;Rob Pike&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;Don&amp;rsquo;t communicate by sharing memory, share memory by communicating.&lt;/p&gt;
+— &lt;cite&gt;Rob Pike&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/cite&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;tables&#34;&gt;Tables&lt;/h2&gt;
 &lt;p&gt;Tables aren&amp;rsquo;t part of the core Markdown spec, but Hugo supports supports them out-of-the-box.&lt;/p&gt;
@@ -2708,11 +2671,11 @@ git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-cask.git
 &lt;li&gt;Second Sub-item&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;other-elements--abbr-sub-sup-kbd-mark&#34;&gt;Other Elements — abbr, sub, sup, kbd, mark&lt;/h2&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;GIF&lt;!-- raw HTML omitted --&gt; is a bitmap image format.&lt;/p&gt;
-&lt;p&gt;H&lt;!-- raw HTML omitted --&gt;2&lt;!-- raw HTML omitted --&gt;O&lt;/p&gt;
-&lt;p&gt;X&lt;!-- raw HTML omitted --&gt;n&lt;!-- raw HTML omitted --&gt; + Y&lt;!-- raw HTML omitted --&gt;n&lt;!-- raw HTML omitted --&gt; = Z&lt;!-- raw HTML omitted --&gt;n&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
-&lt;p&gt;Press &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;CTRL&lt;!-- raw HTML omitted --&gt;+&lt;!-- raw HTML omitted --&gt;ALT&lt;!-- raw HTML omitted --&gt;+&lt;!-- raw HTML omitted --&gt;Delete&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; to end the session.&lt;/p&gt;
-&lt;p&gt;Most &lt;!-- raw HTML omitted --&gt;salamanders&lt;!-- raw HTML omitted --&gt; are nocturnal, and hunt for insects, worms, and other small creatures.&lt;/p&gt;
+&lt;p&gt;&lt;abbr title=&#34;Graphics Interchange Format&#34;&gt;GIF&lt;/abbr&gt; is a bitmap image format.&lt;/p&gt;
+&lt;p&gt;H&lt;sub&gt;2&lt;/sub&gt;O&lt;/p&gt;
+&lt;p&gt;X&lt;sup&gt;n&lt;/sup&gt; + Y&lt;sup&gt;n&lt;/sup&gt; = Z&lt;sup&gt;n&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;Press &lt;kbd&gt;&lt;kbd&gt;CTRL&lt;/kbd&gt;+&lt;kbd&gt;ALT&lt;/kbd&gt;+&lt;kbd&gt;Delete&lt;/kbd&gt;&lt;/kbd&gt; to end the session.&lt;/p&gt;
+&lt;p&gt;Most &lt;mark&gt;salamanders&lt;/mark&gt; are nocturnal, and hunt for insects, worms, and other small creatures.&lt;/p&gt;
 &lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
 &lt;hr&gt;
 &lt;ol&gt;
@@ -2752,7 +2715,7 @@ tractus malis.&lt;/p&gt;
 &lt;li&gt;Quidem et&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h1 id=&#34;vagus-elidunt&#34;&gt;Vagus elidunt&lt;/h1&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;svg class=&#34;canon&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; overflow=&#34;visible&#34; viewBox=&#34;0 0 496 373&#34; height=&#34;373&#34; width=&#34;496&#34;&gt;&lt;g fill=&#34;none&#34;&gt;&lt;path stroke=&#34;#000&#34; stroke-width=&#34;.75&#34; d=&#34;M.599 372.348L495.263 1.206M.312.633l494.95 370.853M.312 372.633L247.643.92M248.502.92l246.76 370.566M330.828 123.869V1.134M330.396 1.134L165.104 124.515&#34;&gt;&lt;/path&gt;&lt;path stroke=&#34;#ED1C24&#34; stroke-width=&#34;.75&#34; d=&#34;M275.73 41.616h166.224v249.05H275.73zM54.478 41.616h166.225v249.052H54.478z&#34;&gt;&lt;/path&gt;&lt;path stroke=&#34;#000&#34; stroke-width=&#34;.75&#34; d=&#34;M.479.375h495v372h-495zM247.979.875v372&#34;&gt;&lt;/path&gt;&lt;ellipse cx=&#34;498.729&#34; cy=&#34;177.625&#34; rx=&#34;.75&#34; ry=&#34;1.25&#34;&gt;&lt;/ellipse&gt;&lt;ellipse cx=&#34;247.229&#34; cy=&#34;377.375&#34; rx=&#34;.75&#34; ry=&#34;1.25&#34;&gt;&lt;/ellipse&gt;&lt;/g&gt;&lt;/svg&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Canons_of_page_construction#Van_de_Graaf_canon&#34;&gt;The Van de Graaf Canon&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;mane-refeci-capiebant-unda-mulcebat&#34;&gt;Mane refeci capiebant unda mulcebat&lt;/h2&gt;
 &lt;p&gt;Victa caducifer, malo vulnere contra
@@ -2764,7 +2727,11 @@ Echionides cornuaque tenent clausit possit. Omnia putatur. Praeteritae refert
 ausus; ferebant e primus lora nutat, vici quae mea ipse. Et iter nil spectatae
 vulnus haerentia iuste et exercebat, sui et.&lt;/p&gt;
 &lt;p&gt;Eurytus Hector, materna ipsumque ut Politen, nec, nate, ignari, vernum cohaesit sequitur. Vel &lt;strong&gt;mitis temploque&lt;/strong&gt; vocatus, inque alis, &lt;em&gt;oculos nomen&lt;/em&gt; non silvis corpore coniunx ne displicet illa. Crescunt non unus, vidit visa quantum inmiti flumina mortis facto sic: undique a alios vincula sunt iactata abdita! Suspenderat ego fuit tendit: luna, ante urbem
-Propoetides &lt;strong&gt;parte&lt;/strong&gt;.&lt;/p&gt;</description>
+Propoetides &lt;strong&gt;parte&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;style&gt;
+.canon { background: white; width: 100%; height: auto;}
+&lt;/style&gt;</description>
     </item>
     
     <item>
@@ -2791,6 +2758,13 @@ Propoetides &lt;strong&gt;parte&lt;/strong&gt;.&lt;/p&gt;</description>
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Use the online reference of &lt;a href=&#34;https://katex.org/docs/supported.html&#34;&gt;Supported TeX Functions&lt;/a&gt;
+
+
+&lt;!-- KaTeX --&gt;
+&lt;link rel=&#34;stylesheet&#34; href=&#34;https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css&#34; integrity=&#34;sha384-dbVIfZGuN1Yq7/1Ocstc1lUEm+AT+/rCkibIcC/OmWo5f0EA48Vf8CytHzGrSwbQ&#34; crossorigin=&#34;anonymous&#34;&gt;
+&lt;script defer src=&#34;https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js&#34; integrity=&#34;sha384-2BKqo+exmr9su6dir+qCw08N2ZKRucY4PrGQPPWU1A7FtlCGjmEGFqXCv5nyM5Ij&#34; crossorigin=&#34;anonymous&#34;&gt;&lt;/script&gt;
+&lt;script defer src=&#34;https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/contrib/auto-render.min.js&#34; integrity=&#34;sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI&#34; crossorigin=&#34;anonymous&#34; onload=&#34;renderMathInElement(document.body);&#34;&gt;&lt;/script&gt;
+
 &lt;/p&gt;
 
 &lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
@@ -2813,13 +2787,28 @@ Propoetides &lt;strong&gt;parte&lt;/strong&gt;.&lt;/p&gt;</description>
       <description>&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;
 &lt;p&gt;The &lt;a href=&#34;https://gohugo.io/functions/emojify/&#34;&gt;&lt;code&gt;emojify&lt;/code&gt;&lt;/a&gt; function can be called directly in templates or &lt;a href=&#34;https://gohugo.io/templates/shortcode-templates/#inline-shortcodes&#34;&gt;Inline Shortcodes&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;To enable emoji globally, set &lt;code&gt;enableEmoji&lt;/code&gt; to &lt;code&gt;true&lt;/code&gt; in your site’s &lt;a href=&#34;https://gohugo.io/getting-started/configuration/&#34;&gt;configuration&lt;/a&gt; and then you can type emoji shorthand codes directly in content files; e.g.&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;span class=&#34;nowrap&#34;&gt;&lt;span class=&#34;emojify&#34;&gt;🙈&lt;/span&gt; &lt;code&gt;:see_no_evil:&lt;/code&gt;&lt;/span&gt;  &lt;span class=&#34;nowrap&#34;&gt;&lt;span class=&#34;emojify&#34;&gt;🙉&lt;/span&gt; &lt;code&gt;:hear_no_evil:&lt;/code&gt;&lt;/span&gt;  &lt;span class=&#34;nowrap&#34;&gt;&lt;span class=&#34;emojify&#34;&gt;🙊&lt;/span&gt; &lt;code&gt;:speak_no_evil:&lt;/code&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;br&gt;
 &lt;p&gt;The &lt;a href=&#34;http://www.emoji-cheat-sheet.com/&#34;&gt;Emoji cheat sheet&lt;/a&gt; is a useful reference for emoji shorthand codes.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;&lt;strong&gt;N.B.&lt;/strong&gt; The above steps enable Unicode Standard emoji characters and sequences in Hugo, however the rendering of these glyphs depends on the browser and the platform. To style the emoji you can either use a third party emoji font or a font stack; e.g.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;.emoji {
 font-family: Apple Color Emoji,Segoe UI Emoji,NotoColorEmoji,Segoe UI Symbol,Android Emoji,EmojiSymbols;
-}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;style&gt;
+.emojify {
+	font-family: Apple Color Emoji,Segoe UI Emoji,NotoColorEmoji,Segoe UI Symbol,Android Emoji,EmojiSymbols;
+	font-size: 2rem;
+	vertical-align: middle;
+}
+@media screen and (max-width:650px) {
+    .nowrap {
+	display: block;
+	margin: 25px 0;
+}
+}
+&lt;/style&gt;</description>
     </item>
     
   </channel>

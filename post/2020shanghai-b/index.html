@@ -146,7 +146,7 @@ onload='renderMathInElement(document.body);'></script>
 	
 	
 	<a class="post-taxonomy-category text-medium-red-violet-600 hover:text-medium-red-violet-400"
-		href='/categories/sicp'>sicp</a>
+		href='/categories/oj'>OJ</a>
 	
 	
 	
@@ -163,7 +163,15 @@ onload='renderMathInElement(document.body);'></script>
     <hr />
 </summary>
 <div class="inline toc-content">
-    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#分析">分析</a>
+      <ul>
+        <li><a href="#用递归的方式处理括号嵌套">用递归的方式处理括号嵌套</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 </div>
 </details>
 
@@ -176,14 +184,10 @@ onload='renderMathInElement(document.body);'></script>
 
 <article>
 	<section class="mx-auto content">
-		<div class="c-rich-text"><p>题面:<a href="https://ac.nowcoder.com/acm/contest/6871/B">https://ac.nowcoder.com/acm/contest/6871/B</a></p>
-
+		<div class="c-rich-text"><p>题面:https://ac.nowcoder.com/acm/contest/6871/B</p>
 <h2 id="分析">分析</h2>
-
 <p>典型的字符串处理，而且出题人强调了没有括号嵌套（真亚撒西嘤嘤嘤）。</p>
-
 <p>因为分子式不同部分的计算方式是不一样的，可以用缓冲的思想来解决这个问题。</p>
-
 <p>在不考虑括号嵌套的情况下</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;string&#34;</span><span style="color:#75715e">
@@ -232,15 +236,10 @@ string a;
     sum<span style="color:#f92672">+=</span>ans;
     printf(<span style="color:#e6db74">&#34;%lld&#34;</span>,sum);
 }
-</code></pre></div>
-<h3 id="用递归的方式处理括号嵌套">用递归的方式处理括号嵌套</h3>
-
+</code></pre></div><h3 id="用递归的方式处理括号嵌套">用递归的方式处理括号嵌套</h3>
 <p>如果要考虑括号内部的嵌套，就需要用到递归的方法了。</p>
-
 <p>先说缓冲区的部分，遇到常规字符<code>C</code>,<code>H</code>,<code>O</code>，将缓冲区算入结果，将常规字符的值读入缓冲区，以处理后面可能会出现的数字，括号等情况。</p>
-
 <p>遇到左括号，也是先将缓冲区算入结果，然后进入下一层函数，计算括号内部的分子式，遇到右括号时内部分子式返回来。如果内部还有括号，同理，会进入再下一层函数。最后将括号内的值读入缓冲区。</p>
-
 <p>遇到数字，就会继续往下读，直到把整个数字段都读出来（这个过程会转换为具体的数字<code>times</code>）。然后将缓冲区内的值乘以times算入结果，清空缓冲区（这里清空缓冲区是必要的，虽然读入下一个数据的时候会覆盖它，但是如果已经是最后一个数据，就会跳出循环，执行最后的缓冲区内数据算入结果，如果不清空会多算一次）。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;string&#34;</span><span style="color:#75715e">
@@ -393,7 +392,7 @@ ll <span style="color:#a6e22e">cal</span>(<span style="color:#66d9ef">int</span>
 	<div class="text-sm text-gray-500 leading-tight a-gray">
 		Copyright © 2020
 		<br />
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 152 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 766 words in this page.
 	</div>
 </div>
 
