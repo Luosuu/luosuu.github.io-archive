@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>C&#43;&#43; on 洛舒luosuu的小站</title>
+    <link>https://luosuu.github.io/tags/c&#43;&#43;/</link>
+    <description>Recent content in C&#43;&#43; on 洛舒luosuu的小站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Copyright © 2020</copyright>
+    <lastBuildDate>Sat, 08 Aug 2020 14:34:53 +0800</lastBuildDate>
+    
+	<atom:link href="https://luosuu.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>STsheet</title>
+      <link>https://luosuu.github.io/post/stsheet/</link>
+      <pubDate>Sat, 08 Aug 2020 14:34:53 +0800</pubDate>
+      
+      <guid>https://luosuu.github.io/post/stsheet/</guid>
+      <description>&lt;p&gt;《浅谈ST表》完整请参考：https://www.luogu.com.cn/blog/zhouziheng666/qian-tan-st-biao&lt;/p&gt;
+&lt;p&gt;核心要素&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;查询操作可以重叠，如max操作&lt;code&gt;max(a,b,c)=max(max(a,b),max(b,c))&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;采用倍增的方法构建，如果用$f(i,j)$代表从第i个数开始，共$2^j$个数的最大值，那么就有：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+f(i,j)=max(f(i,j-1),f(i+2^{j-1},j-1))
+$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;自然，$f(i,0)=a[i]$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;由于查询的时候，查询的长度可能是小于等于N的任何一个整数，设该查询的长度是&lt;code&gt;len&lt;/code&gt;，查询的数组的第一个数是整个数组的第&lt;code&gt;r&lt;/code&gt;个数。我们可以用$max[r,r+len]$来代表被查询的数组的最大值，以上面的函数的定义，可以用
+$$
+f(r,log_{2}(len))
+$$
+来表示。在输入数组总长度N后，我们需要对1到N的所有数求对数，提前存储好所有可能要用的&lt;code&gt;log(len)&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;对于某个从第&lt;code&gt;r&lt;/code&gt;个数开始的被查询的长度为&lt;code&gt;len&lt;/code&gt;数组，$f(r,log_{2}(len))$的实际来源为&lt;/p&gt;
+&lt;p&gt;$$f(r,1)=max(f(r,1-1),f(r+2^{1-1},1-1))$$
+$$f(r,2)=max(f(r,2-1),f(r+2^{2-1},2-1)) $$
+$$f(r,3)=max(f(r,3-1),f(r+2^{3-1},3-1)) $$
+$$&amp;hellip;$$
+$$f(i,log_{2}len)=max(f(r,log_{2}len-1),f(r+2^{log_{2}len-1},log_{2}len-1))$$&lt;/p&gt;
+&lt;p&gt;在获取数组长度和数组内容后，实际上是用所有的$f(i,0)$获得了所有的$f(i,1)$，然后再用$f(i,1)$得到所有的$f(i,2)$（这个过程要保证$i+2^j$不超过N，否则会越界），一直到获得$f(0,log_{2}N)$。这样查询时，对于任意一个$f(r,log_{2}len)$都能立刻查询到，查询的复杂度为$O(1)$。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果查询的数组长&lt;code&gt;len&lt;/code&gt;，$[log_{2}len]$代表&lt;code&gt;len&lt;/code&gt;对2取对数的向下取整，那么一次这种函数的构建最多能包含$2^{[log_{2}len]}$个数，如果&lt;code&gt;len&lt;/code&gt;不是2的倍数，那么就会有数不会被包括进去，所以实际上为了求该数组的最大值，是从左端和右边分别构建一个函数（$2^{[log_{2}len]}$肯定大于$len/2$），取这两个函数的最大值:
+$$
+max[r,r+len]=max(f(r,log(len)), f(r-log(len)+1,log(len)))
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;对于任何可以重叠的查询操作，都可以使用ST表这种方法，无非是从$f(i,0)$开始向上构建时采用的方法不同。但构建逻辑和数据结构是一样的。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

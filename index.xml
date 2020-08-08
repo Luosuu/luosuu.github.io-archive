@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Copyright © 2020</copyright>
-    <lastBuildDate>Thu, 06 Aug 2020 11:13:49 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 08 Aug 2020 14:34:53 +0800</lastBuildDate>
     
 	<atom:link href="https://luosuu.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -474,46 +474,30 @@ no bug forever请按任意键继续. . .
       <pubDate>Tue, 04 Aug 2020 17:04:51 +0800</pubDate>
       
       <guid>https://luosuu.github.io/post/atabc174_c/</guid>
-      <description>&lt;p&gt;题面：&lt;a href=&#34;https://atcoder.jp/contests/abc174/tasks/abc174_c&#34;&gt;https://atcoder.jp/contests/abc174/tasks/abc174_c&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;本题可以简单化简&lt;/p&gt;
-
-&lt;p&gt;&lt;span  class=&#34;math&#34;&gt;\[
-K*a=7*\frac{1-10^n}{1-10}
-\]&lt;/span&gt;&lt;/p&gt;
-
-&lt;p&gt;等同于&lt;/p&gt;
-
-&lt;p&gt;&lt;span  class=&#34;math&#34;&gt;\[
-K*a*9=7*(10^n-1)
-\]&lt;/span&gt;&lt;/p&gt;
-
+      <description>&lt;p&gt;题面：https://atcoder.jp/contests/abc174/tasks/abc174_c&lt;/p&gt;
+&lt;p&gt;本题可以简单化简 $$ K \cdot a=7 \cdot \frac{1-10^n}{1-10} $$&lt;/p&gt;
+&lt;p&gt;等同于 $$ K \cdot a \cdot 9=7 \cdot (10^n-1) $$&lt;/p&gt;
 &lt;p&gt;a是K的倍数，n为被除数的位数，n即为所求。只要右侧式能够整除9K（a是个整数），那么就满足要求。&lt;/p&gt;
-
 &lt;p&gt;于是调试n，用右侧式对左侧进行取模操作即可。&lt;/p&gt;
-
-&lt;p&gt;但计算过程中有$10^n$的限制，可能会超过&lt;code&gt;long long&lt;/code&gt;数据的最大值。&lt;/p&gt;
-
+&lt;p&gt;但计算过程中有$10^n$的限制，可能会超过&lt;code&gt;long long &lt;/code&gt;数据的最大值。&lt;/p&gt;
 &lt;p&gt;这里要引出取模运算的运算规则&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;(a+b)%p=(a%p+b%p)%p
 (a-b)%p=(a%p-b%p)%p
 (a*b%p)=(a%p * b%p)%p
-(a^b)%p=((a%p)^b)%p&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;观察右侧式，先抛去7这个乘数，它的变化应该是&lt;/p&gt;
+(a^b)%p=((a%p)^b)%p
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;观察右侧式，先抛去7这个乘数，它的变化应该是&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;9
 99
 999
-...&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;可以表示为&lt;/p&gt;
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;可以表示为&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;d(0)=9
 d(1)=d(0)*10+9
 d(2)=d(1)*10+9
 ...
-d(n)=d(n-1)*10+9&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;现在要求&lt;code&gt;d(n)&lt;/code&gt;能不能整除&lt;code&gt;9K&lt;/code&gt;，可以递推式的表达，这样循环中每一次验证都只需要一次计算。&lt;/p&gt;
-
+d(n)=d(n-1)*10+9
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;现在要求&lt;code&gt;d(n)&lt;/code&gt;能不能整除&lt;code&gt;9K&lt;/code&gt;，可以递推式的表达，这样循环中每一次验证都只需要一次计算。&lt;/p&gt;
 &lt;p&gt;最后考虑停机条件，时间限制为2s，以CPU 1GHz的速度来考虑，保守的可以设置停机条件为2e7。如果2e7位数还没有找到，大概率是没有了。&lt;/p&gt;
-
 &lt;p&gt;完整的代码可以写为&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-C++&#34; data-lang=&#34;C++&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;namespace&lt;/span&gt; std;
@@ -536,15 +520,10 @@ d(n)=d(n-1)*10+9&lt;/code&gt;&lt;/pre&gt;
     cout &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
     &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3 id=&#34;one-more-thing&#34;&gt;one more thing&lt;/h3&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;one-more-thing&#34;&gt;one more thing&lt;/h3&gt;
 &lt;p&gt;关于模运算有很多有趣的知识，其中一些在OJ中经常常用，快速幂就是其中一个。&lt;/p&gt;
-
 &lt;p&gt;快速幂的全称是“快速计算一个幂式的模（余）”&lt;/p&gt;
-
 &lt;p&gt;假如我们要计算&lt;code&gt;a^b mod c&lt;/code&gt;&lt;/p&gt;
-
 &lt;p&gt;如果我们直接算&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; ans &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
 &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;i&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt;b;i&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;)
@@ -552,11 +531,8 @@ d(n)=d(n-1)*10+9&lt;/code&gt;&lt;/pre&gt;
   ans &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ans &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; a;
 }
 ans &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ans &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; c;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;那么当b比较大的时候，&lt;code&gt;long long&lt;/code&gt;也是撑不住的，数据会溢出。&lt;/p&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;那么当b比较大的时候，&lt;code&gt;long long &lt;/code&gt;也是撑不住的，数据会溢出。&lt;/p&gt;
 &lt;p&gt;可以根据模运算的性质&lt;code&gt;(a^b)%p=((a%p)^b)%p&lt;/code&gt;&lt;/p&gt;
-
 &lt;p&gt;在算指数之前先取模，这样可以小一些&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; ans &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
 a &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; a &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; c;
@@ -565,8 +541,7 @@ a &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; a &lt;span style=&#34
   ans &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ans &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; a;
 }
 ans &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ans &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; c;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;如果一个因子取余不影响最终结果，那么中间的因子取余应该也是不影响结果的（反正最后都被消掉，可以在计算指数的过程中消掉）&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果一个因子取余不影响最终结果，那么中间的因子取余应该也是不影响结果的（反正最后都被消掉，可以在计算指数的过程中消掉）&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; ans &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
 a &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; a &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; c;
 &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;i&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt;b;i&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;)
@@ -574,25 +549,19 @@ a &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; a &lt;span style=&#34
   ans &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (ans &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; a)&lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt;c;
 }
 ans &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ans &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; c;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;现在已经比最开始好很多了，但现在的复杂度式还是&lt;code&gt;O(b)&lt;/code&gt;，当b比较大的时候还是有可能超时。&lt;/p&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;现在已经比最开始好很多了，但现在的复杂度式还是&lt;code&gt;O(b)&lt;/code&gt;，当b比较大的时候还是有可能超时。&lt;/p&gt;
 &lt;p&gt;也就是问题出现在求指数的过程中，这里要考虑到如何快速计算幂式，我们可以这样考虑
-&lt;span  class=&#34;math&#34;&gt;\(
+$$
 2^{1000}=4^{500}
-\)&lt;/span&gt;
+$$
 底数做一次平方，运算次数少了一半，如果是奇数
-&lt;span  class=&#34;math&#34;&gt;\(
+$$
 2^{1001}=4^{500}*2
-\)&lt;/span&gt;
+$$
 现在先不考虑幂式求模余的问题，如果单纯要求快速计算&lt;code&gt;a^b&lt;/code&gt;&lt;/p&gt;
-
 &lt;p&gt;方法应该是这样的&lt;/p&gt;
-
 &lt;p&gt;当指数b是偶数时，平方底数，指数b自除2；&lt;/p&gt;
-
 &lt;p&gt;当指数b是奇数时，先用一个数才收集落单的底数，然后平方底数，b自减1再除2。&lt;/p&gt;
-
 &lt;p&gt;最后除到b为1的时候，用于收集落单的底数的数就会乘以最后的底，从而变成最终结果。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;QuickPower&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; a,&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; b){
     &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; result &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
@@ -605,11 +574,8 @@ ans &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ans &lt;span style=
         a &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; a &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; a;
     }
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;如何应用在求幂式的模余中呢？应该是很简单的。&lt;/p&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如何应用在求幂式的模余中呢？应该是很简单的。&lt;/p&gt;
 &lt;p&gt;当指数b是偶数时，平方底数，指数b自除2；&lt;/p&gt;
-
 &lt;p&gt;当指数b是奇数时，先让ans乘以底数a（这里可以对c取模优化），用于收集落单的底数，然后平方底数，b自减1再除2。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;PowerMod&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; a, &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; b, &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; c)
 {
@@ -1133,7 +1099,7 @@ ans &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ans &lt;span style=
             (&lt;span style=&#34;color:#a6e22e&#34;&gt;a&lt;/span&gt; (+ y (* x x)))
             (&lt;span style=&#34;color:#a6e22e&#34;&gt;b&lt;/span&gt; (- (* x y) x))))
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;其中f就为&lt;/p&gt;
-&lt;p&gt;$$f(x,y)=(x^2+y)&lt;em&gt;(x&lt;/em&gt;y-x)$$&lt;/p&gt;
+&lt;p&gt;$$f(x,y)=(x^2+y)\cdot(x*y-x)$$&lt;/p&gt;
 &lt;p&gt;这个使用方式有一个语法外衣let&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-scheme&#34; data-lang=&#34;scheme&#34;&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;let &lt;/span&gt;((&lt;span style=&#34;color:#a6e22e&#34;&gt;var_1&lt;/span&gt; exp_1)
       &lt;span style=&#34;color:#f92672&#34;&gt;...&lt;/span&gt;
@@ -1262,6 +1228,54 @@ ans &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ans &lt;span style=
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-scheme&#34; data-lang=&#34;scheme&#34;&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;define &lt;/span&gt;x (&lt;span style=&#34;color:#a6e22e&#34;&gt;make-rat&lt;/span&gt; n d))
 (&lt;span style=&#34;color:#a6e22e&#34;&gt;equal-rat?&lt;/span&gt; x (cons (car x) (cdr x)))=true
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;因此我们可以说数据是由满足 &lt;em&gt;使得表达式完整有意义的条件&lt;/em&gt; 的constructor和selector所构建的。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>STsheet</title>
+      <link>https://luosuu.github.io/post/stsheet/</link>
+      <pubDate>Sat, 08 Aug 2020 14:34:53 +0800</pubDate>
+      
+      <guid>https://luosuu.github.io/post/stsheet/</guid>
+      <description>&lt;p&gt;《浅谈ST表》完整请参考：https://www.luogu.com.cn/blog/zhouziheng666/qian-tan-st-biao&lt;/p&gt;
+&lt;p&gt;核心要素&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;查询操作可以重叠，如max操作&lt;code&gt;max(a,b,c)=max(max(a,b),max(b,c))&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;采用倍增的方法构建，如果用$f(i,j)$代表从第i个数开始，共$2^j$个数的最大值，那么就有：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+f(i,j)=max(f(i,j-1),f(i+2^{j-1},j-1))
+$$&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;自然，$f(i,0)=a[i]$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;由于查询的时候，查询的长度可能是小于等于N的任何一个整数，设该查询的长度是&lt;code&gt;len&lt;/code&gt;，查询的数组的第一个数是整个数组的第&lt;code&gt;r&lt;/code&gt;个数。我们可以用$max[r,r+len]$来代表被查询的数组的最大值，以上面的函数的定义，可以用
+$$
+f(r,log_{2}(len))
+$$
+来表示。在输入数组总长度N后，我们需要对1到N的所有数求对数，提前存储好所有可能要用的&lt;code&gt;log(len)&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;对于某个从第&lt;code&gt;r&lt;/code&gt;个数开始的被查询的长度为&lt;code&gt;len&lt;/code&gt;数组，$f(r,log_{2}(len))$的实际来源为&lt;/p&gt;
+&lt;p&gt;$$f(r,1)=max(f(r,1-1),f(r+2^{1-1},1-1))$$
+$$f(r,2)=max(f(r,2-1),f(r+2^{2-1},2-1)) $$
+$$f(r,3)=max(f(r,3-1),f(r+2^{3-1},3-1)) $$
+$$&amp;hellip;$$
+$$f(i,log_{2}len)=max(f(r,log_{2}len-1),f(r+2^{log_{2}len-1},log_{2}len-1))$$&lt;/p&gt;
+&lt;p&gt;在获取数组长度和数组内容后，实际上是用所有的$f(i,0)$获得了所有的$f(i,1)$，然后再用$f(i,1)$得到所有的$f(i,2)$（这个过程要保证$i+2^j$不超过N，否则会越界），一直到获得$f(0,log_{2}N)$。这样查询时，对于任意一个$f(r,log_{2}len)$都能立刻查询到，查询的复杂度为$O(1)$。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果查询的数组长&lt;code&gt;len&lt;/code&gt;，$[log_{2}len]$代表&lt;code&gt;len&lt;/code&gt;对2取对数的向下取整，那么一次这种函数的构建最多能包含$2^{[log_{2}len]}$个数，如果&lt;code&gt;len&lt;/code&gt;不是2的倍数，那么就会有数不会被包括进去，所以实际上为了求该数组的最大值，是从左端和右边分别构建一个函数（$2^{[log_{2}len]}$肯定大于$len/2$），取这两个函数的最大值:
+$$
+max[r,r+len]=max(f(r,log(len)), f(r-log(len)+1,log(len)))
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;对于任何可以重叠的查询操作，都可以使用ST表这种方法，无非是从$f(i,0)$开始向上构建时采用的方法不同。但构建逻辑和数据结构是一样的。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
     </item>
     
     <item>
@@ -2782,50 +2796,6 @@ Propoetides &lt;strong&gt;parte&lt;/strong&gt;.&lt;/p&gt;
 &lt;style&gt;
 .canon { background: white; width: 100%; height: auto;}
 &lt;/style&gt;</description>
-    </item>
-    
-    <item>
-      <title>Math Typesetting</title>
-      <link>https://luosuu.github.io/post/math-typesetting/</link>
-      <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://luosuu.github.io/post/math-typesetting/</guid>
-      <description>&lt;p&gt;Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.&lt;/p&gt;
-
-&lt;p&gt;In this example we will be using &lt;a href=&#34;https://katex.org/&#34;&gt;KaTeX&lt;/a&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Create a partial under &lt;code&gt;/layouts/partials/math.html&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Within this partial reference the &lt;a href=&#34;https://katex.org/docs/autorender.html&#34;&gt;Auto-render Extension&lt;/a&gt; or host these scripts locally.&lt;/li&gt;
-&lt;li&gt;Include the partial in your templates like so:&lt;br&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre&gt;&lt;code&gt;{{ if or .Params.math .Site.Params.math }}
-{{ partial &amp;#34;math.html&amp;#34; . }}
-{{ end }}&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;To enable KaTex globally set the parameter &lt;code&gt;math&lt;/code&gt; to &lt;code&gt;true&lt;/code&gt; in a project&#39;s configuration&lt;/li&gt;
-&lt;li&gt;To enable KaTex on a per page basis include the parameter &lt;code&gt;math: true&lt;/code&gt; in content files.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Use the online reference of &lt;a href=&#34;https://katex.org/docs/supported.html&#34;&gt;Supported TeX Functions&lt;/a&gt;
-
-
-&lt;!-- KaTeX --&gt;
-&lt;link rel=&#34;stylesheet&#34; href=&#34;https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css&#34; integrity=&#34;sha384-dbVIfZGuN1Yq7/1Ocstc1lUEm+AT+/rCkibIcC/OmWo5f0EA48Vf8CytHzGrSwbQ&#34; crossorigin=&#34;anonymous&#34;&gt;
-&lt;script defer src=&#34;https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js&#34; integrity=&#34;sha384-2BKqo+exmr9su6dir+qCw08N2ZKRucY4PrGQPPWU1A7FtlCGjmEGFqXCv5nyM5Ij&#34; crossorigin=&#34;anonymous&#34;&gt;&lt;/script&gt;
-&lt;script defer src=&#34;https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/contrib/auto-render.min.js&#34; integrity=&#34;sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI&#34; crossorigin=&#34;anonymous&#34; onload=&#34;renderMathInElement(document.body);&#34;&gt;&lt;/script&gt;
-
-&lt;/p&gt;
-
-&lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
-
-&lt;p&gt;Inline math: &lt;span  class=&#34;math&#34;&gt;\( \varphi = \dfrac{1+\sqrt5}{2}= 1.6180339887… \)&lt;/span&gt;&lt;/p&gt;
-
-&lt;p&gt;Block math:&lt;/p&gt;
-
-&lt;p&gt;&lt;span  class=&#34;math&#34;&gt;\[
- \varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } } 
-\]&lt;/span&gt;&lt;/p&gt;</description>
     </item>
     
     <item>

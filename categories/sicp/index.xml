@@ -287,7 +287,7 @@
             (&lt;span style=&#34;color:#a6e22e&#34;&gt;a&lt;/span&gt; (+ y (* x x)))
             (&lt;span style=&#34;color:#a6e22e&#34;&gt;b&lt;/span&gt; (- (* x y) x))))
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;其中f就为&lt;/p&gt;
-&lt;p&gt;$$f(x,y)=(x^2+y)&lt;em&gt;(x&lt;/em&gt;y-x)$$&lt;/p&gt;
+&lt;p&gt;$$f(x,y)=(x^2+y)\cdot(x*y-x)$$&lt;/p&gt;
 &lt;p&gt;这个使用方式有一个语法外衣let&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-scheme&#34; data-lang=&#34;scheme&#34;&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;let &lt;/span&gt;((&lt;span style=&#34;color:#a6e22e&#34;&gt;var_1&lt;/span&gt; exp_1)
       &lt;span style=&#34;color:#f92672&#34;&gt;...&lt;/span&gt;
