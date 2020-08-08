@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AtCoder on 洛舒luosuu的小站</title>
+    <link>https://luosuu.github.io/series/atcoder/</link>
+    <description>Recent content in AtCoder on 洛舒luosuu的小站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Copyright © 2020</copyright>
+    <lastBuildDate>Thu, 06 Aug 2020 10:04:10 +0800</lastBuildDate>
+    
+	<atom:link href="https://luosuu.github.io/series/atcoder/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>AtABC174 E-二分查找</title>
+      <link>https://luosuu.github.io/post/atabc174-e/</link>
+      <pubDate>Thu, 06 Aug 2020 10:04:10 +0800</pubDate>
+      
+      <guid>https://luosuu.github.io/post/atabc174-e/</guid>
+      <description>&lt;p&gt;题面：https://atcoder.jp/contests/abc174/tasks/abc174_e&lt;/p&gt;
+&lt;h2 id=&#34;分析&#34;&gt;分析&lt;/h2&gt;
+&lt;p&gt;输入N个有长度&lt;code&gt;A[n]&lt;/code&gt;的原木，现在要一共对这些木头切至多K刀，求切K刀后所有木材最长的木材的最短值。即让切K刀后的所有木材的最长值尽量短。&lt;/p&gt;
+&lt;p&gt;检验一个木材最长值&lt;code&gt;len&lt;/code&gt;是否符合切K刀的条件是简单的，只需要每个原木的长度除以&lt;code&gt;len&lt;/code&gt;向上取整再减一，然后取和，就能检验是否符合切K刀的条件。&lt;/p&gt;
+&lt;p&gt;这类找出 “最长值的最短”“最小值的最大”一类，也就是&lt;code&gt;max(min(len))&lt;/code&gt;或&lt;code&gt;min(max(len))&lt;/code&gt;一般是使用二分查找方法的提示。&lt;/p&gt;
+&lt;p&gt;在寻找最长木材的最小值的过程中，我们可以先用1做开头，原木中最长值&lt;code&gt;max_len&lt;/code&gt;做结尾，然后以这俩为首位进行二分查找。有三种情况&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;当中值&lt;code&gt;mid&lt;/code&gt;的切割次数小于K次，说明&lt;code&gt;mid&lt;/code&gt;取的太长了，将&lt;code&gt;mid&lt;/code&gt;作为新的结尾；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果&lt;code&gt;mid&lt;/code&gt;的切割次数大于K次，说明取的太短了，应该把&lt;code&gt;mid&lt;/code&gt;作为新的开头；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;当&lt;code&gt;mid&lt;/code&gt;的切割次数恰好等于K次，说明&lt;code&gt;mid&amp;gt;=最长木材的最小值&lt;/code&gt;，应该继续往下探，将&lt;code&gt;mid&lt;/code&gt;作为新的结尾。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;代码如下&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;namespace&lt;/span&gt; std;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;long&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;long&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;cut_times&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;long&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;long&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;logs, &lt;span style=&#34;color:#66d9ef&#34;&gt;long&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;long&lt;/span&gt; cut_len, &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; log_num);
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;() {
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; N,K;
+    cin &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; N &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; K;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;long&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;long&lt;/span&gt; logs[N];
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;long&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;long&lt;/span&gt; max_long &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
+
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;i&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;N;i&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;){
+        cin &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; logs[i];
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(logs[i] &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; max_long) {
+            max_long &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; logs[i];
+        }
+    }
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(K&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;){
+        cout &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; max_long;
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
+    }
+
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;long&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;long&lt;/span&gt; start &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;long&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;long&lt;/span&gt; end &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; max_long;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;long&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;long&lt;/span&gt; mid;
+
+    &lt;span style=&#34;color:#75715e&#34;&gt;//binary search
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt;(start&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;end){
+        mid &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (start &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; end)&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;;
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(cut_times(logs, mid, N)&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt;K){&lt;span style=&#34;color:#75715e&#34;&gt;//cut times equals to k, still need to try a smaller one
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;            end &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; mid;
+        }&lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(cut_times(logs, mid, N)&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;K){
+            start &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; mid&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+        }
+
+    }
+
+    cout &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; start;
+
+}
+
+&lt;span style=&#34;color:#75715e&#34;&gt;// Given max cut length, get needed cut times
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;long&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;long&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;cut_times&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;long&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;long&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;logs, &lt;span style=&#34;color:#66d9ef&#34;&gt;long&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;long&lt;/span&gt; cut_len, &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; log_num){
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;long&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;long&lt;/span&gt;  need_times &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;i&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;log_num;i&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;){
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;logs&lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt;cut_len&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;){
+            need_times &lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;logs&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;cut_len&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+        }&lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;{
+            need_times &lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;logs&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;cut_len;
+        }
+        logs&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;;
+    }
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; need_times;
+}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>AtABC174C-模运算</title>
+      <link>https://luosuu.github.io/post/atabc174_c/</link>
+      <pubDate>Tue, 04 Aug 2020 17:04:51 +0800</pubDate>
+      
+      <guid>https://luosuu.github.io/post/atabc174_c/</guid>
+      <description>&lt;p&gt;题面：https://atcoder.jp/contests/abc174/tasks/abc174_c&lt;/p&gt;
+&lt;p&gt;本题可以简单化简 $$ K \cdot a=7 \cdot \frac{1-10^n}{1-10} $$&lt;/p&gt;
+&lt;p&gt;等同于 $$ K \cdot a \cdot 9=7 \cdot (10^n-1) $$&lt;/p&gt;
+&lt;p&gt;a是K的倍数，n为被除数的位数，n即为所求。只要右侧式能够整除9K（a是个整数），那么就满足要求。&lt;/p&gt;
+&lt;p&gt;于是调试n，用右侧式对左侧进行取模操作即可。&lt;/p&gt;
+&lt;p&gt;但计算过程中有$10^n$的限制，可能会超过&lt;code&gt;long long &lt;/code&gt;数据的最大值。&lt;/p&gt;
+&lt;p&gt;这里要引出取模运算的运算规则&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;(a+b)%p=(a%p+b%p)%p
+(a-b)%p=(a%p-b%p)%p
+(a*b%p)=(a%p * b%p)%p
+(a^b)%p=((a%p)^b)%p
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;观察右侧式，先抛去7这个乘数，它的变化应该是&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;9
+99
+999
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;可以表示为&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;d(0)=9
+d(1)=d(0)*10+9
+d(2)=d(1)*10+9
+...
+d(n)=d(n-1)*10+9
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;现在要求&lt;code&gt;d(n)&lt;/code&gt;能不能整除&lt;code&gt;9K&lt;/code&gt;，可以递推式的表达，这样循环中每一次验证都只需要一次计算。&lt;/p&gt;
+&lt;p&gt;最后考虑停机条件，时间限制为2s，以CPU 1GHz的速度来考虑，保守的可以设置停机条件为2e7。如果2e7位数还没有找到，大概率是没有了。&lt;/p&gt;
+&lt;p&gt;完整的代码可以写为&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-C++&#34; data-lang=&#34;C++&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;namespace&lt;/span&gt; std;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;() {
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;long&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; K;
+    cin &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; K;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;long&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; s &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;9&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; K;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(K &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;||&lt;/span&gt; K &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;){
+        cout &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
+    }
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;long&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; d &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;9&lt;/span&gt;;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;long&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;i&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;20000000&lt;/span&gt;;i&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;){
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;((&lt;span style=&#34;color:#ae81ff&#34;&gt;7&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;d)&lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt;s&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;){
+            cout &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; i;
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
+        }
+        d &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (d&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;9&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt;s;
+    }
+    cout &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;one-more-thing&#34;&gt;one more thing&lt;/h3&gt;
+&lt;p&gt;关于模运算有很多有趣的知识，其中一些在OJ中经常常用，快速幂就是其中一个。&lt;/p&gt;
+&lt;p&gt;快速幂的全称是“快速计算一个幂式的模（余）”&lt;/p&gt;
+&lt;p&gt;假如我们要计算&lt;code&gt;a^b mod c&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;如果我们直接算&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; ans &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;i&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt;b;i&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;)
+{
+  ans &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ans &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; a;
+}
+ans &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ans &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; c;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;那么当b比较大的时候，&lt;code&gt;long long &lt;/code&gt;也是撑不住的，数据会溢出。&lt;/p&gt;
+&lt;p&gt;可以根据模运算的性质&lt;code&gt;(a^b)%p=((a%p)^b)%p&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;在算指数之前先取模，这样可以小一些&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; ans &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+a &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; a &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; c;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;i&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt;b;i&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;)
+{
+  ans &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ans &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; a;
+}
+ans &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ans &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; c;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果一个因子取余不影响最终结果，那么中间的因子取余应该也是不影响结果的（反正最后都被消掉，可以在计算指数的过程中消掉）&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; ans &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+a &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; a &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; c;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;i&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt;b;i&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;)
+{
+  ans &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (ans &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; a)&lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt;c;
+}
+ans &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ans &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; c;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;现在已经比最开始好很多了，但现在的复杂度式还是&lt;code&gt;O(b)&lt;/code&gt;，当b比较大的时候还是有可能超时。&lt;/p&gt;
+&lt;p&gt;也就是问题出现在求指数的过程中，这里要考虑到如何快速计算幂式，我们可以这样考虑
+$$
+2^{1000}=4^{500}
+$$
+底数做一次平方，运算次数少了一半，如果是奇数
+$$
+2^{1001}=4^{500}*2
+$$
+现在先不考虑幂式求模余的问题，如果单纯要求快速计算&lt;code&gt;a^b&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;方法应该是这样的&lt;/p&gt;
+&lt;p&gt;当指数b是偶数时，平方底数，指数b自除2；&lt;/p&gt;
+&lt;p&gt;当指数b是奇数时，先用一个数才收集落单的底数，然后平方底数，b自减1再除2。&lt;/p&gt;
+&lt;p&gt;最后除到b为1的时候，用于收集落单的底数的数就会乘以最后的底，从而变成最终结果。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;QuickPower&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; a,&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; b){
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; result &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt;(b&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;){
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(b &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;){
+            result &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; result&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;a;
+            b &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; b &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+        }
+        b &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; b&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;;
+        a &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; a &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; a;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如何应用在求幂式的模余中呢？应该是很简单的。&lt;/p&gt;
+&lt;p&gt;当指数b是偶数时，平方底数，指数b自除2；&lt;/p&gt;
+&lt;p&gt;当指数b是奇数时，先让ans乘以底数a（这里可以对c取模优化），用于收集落单的底数，然后平方底数，b自减1再除2。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;PowerMod&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; a, &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; b, &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; c)
+{
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; ans &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+    a &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; a &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; c;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt;(b&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;) {
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(b &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;){
+            ans &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (ans &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; a) &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; c;
+        }
+      &lt;span style=&#34;color:#75715e&#34;&gt;//由于是整形，不减1直接除二也是可以的
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;        b &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; b&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;;
+     &lt;span style=&#34;color:#75715e&#34;&gt;// 下面这种写法也是可以的，右移操作也是可以实现除二，并且自动舍去了余数（就是对整数这样操作不tidy）
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;     &lt;span style=&#34;color:#75715e&#34;&gt;// b = b &amp;gt;&amp;gt; 1 
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;        a &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (a &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; a) &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; c;
+    }
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; ans;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

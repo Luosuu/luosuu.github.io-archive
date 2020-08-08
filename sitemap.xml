@@ -94,16 +94,41 @@
   
   <url>
     <loc>https://luosuu.github.io/</loc>
-    <lastmod>2020-08-08T14:34:53+08:00</lastmod>
+    <lastmod>2020-08-08T18:05:13+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://luosuu.github.io/tags/c&#43;&#43;/</loc>
-    <lastmod>2020-08-08T14:34:53+08:00</lastmod>
+    <loc>https://luosuu.github.io/tags/capitalism/</loc>
+    <lastmod>2020-08-08T18:05:13+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://luosuu.github.io/categories/</loc>
+    <lastmod>2020-08-08T18:05:13+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://luosuu.github.io/categories/diary/</loc>
+    <lastmod>2020-08-08T18:05:13+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://luosuu.github.io/post/</loc>
+    <lastmod>2020-08-08T18:05:13+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://luosuu.github.io/tags/</loc>
+    <lastmod>2020-08-08T18:05:13+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://luosuu.github.io/post/sangxinbingkuang/</loc>
+    <lastmod>2020-08-08T18:05:13+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://luosuu.github.io/tags/c&#43;&#43;/</loc>
     <lastmod>2020-08-08T14:34:53+08:00</lastmod>
   </url>
   
@@ -118,17 +143,7 @@
   </url>
   
   <url>
-    <loc>https://luosuu.github.io/post/</loc>
-    <lastmod>2020-08-08T14:34:53+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://luosuu.github.io/series/</loc>
-    <lastmod>2020-08-08T14:34:53+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://luosuu.github.io/tags/</loc>
     <lastmod>2020-08-08T14:34:53+08:00</lastmod>
   </url>
   
@@ -138,13 +153,13 @@
   </url>
   
   <url>
-    <loc>https://luosuu.github.io/categories/software/</loc>
-    <lastmod>2020-05-13T12:00:09+08:00</lastmod>
+    <loc>https://luosuu.github.io/series/atcoder/</loc>
+    <lastmod>2020-08-06T10:04:10+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://luosuu.github.io/categories/diary/</loc>
-    <lastmod>2020-03-28T16:14:22+08:00</lastmod>
+    <loc>https://luosuu.github.io/categories/software/</loc>
+    <lastmod>2020-05-13T12:00:09+08:00</lastmod>
   </url>
   
   <url>
@@ -244,6 +259,11 @@
   
   <url>
     <loc>https://luosuu.github.io/categories/sicp/</loc>
+    <lastmod>2020-03-05T18:53:26+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://luosuu.github.io/series/sicp-learning/</loc>
     <lastmod>2020-03-05T18:53:26+08:00</lastmod>
   </url>
   

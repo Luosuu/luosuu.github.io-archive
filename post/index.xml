@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Copyright © 2020</copyright>
-    <lastBuildDate>Sat, 08 Aug 2020 14:34:53 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 08 Aug 2020 18:05:13 +0800</lastBuildDate>
     
 	<atom:link href="https://luosuu.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
@@ -1276,6 +1276,16 @@ $$
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-scheme&#34; data-lang=&#34;scheme&#34;&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;define &lt;/span&gt;x (&lt;span style=&#34;color:#a6e22e&#34;&gt;make-rat&lt;/span&gt; n d))
 (&lt;span style=&#34;color:#a6e22e&#34;&gt;equal-rat?&lt;/span&gt; x (cons (car x) (cdr x)))=true
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;因此我们可以说数据是由满足 &lt;em&gt;使得表达式完整有意义的条件&lt;/em&gt; 的constructor和selector所构建的。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>丧心病狂的争论</title>
+      <link>https://luosuu.github.io/post/sangxinbingkuang/</link>
+      <pubDate>Sat, 08 Aug 2020 18:05:13 +0800</pubDate>
+      
+      <guid>https://luosuu.github.io/post/sangxinbingkuang/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://luosuu.github.io/eee.jpg&#34; alt=&#34;eee&#34;&gt;&lt;/p&gt;
+</description>
     </item>
     
     <item>
