@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
-	<title>洛舒luosuu的小站  | css</title>
+	<title>洛舒luosuu的小站  | AtABC173D-环上的贪心</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
 	<meta name="generator" content="Hugo 0.74.3" />
 	
@@ -24,9 +24,6 @@
 	
 	
 
-	
-	<link rel="alternate" href="/tags/css/index.xml" type="application/rss+xml" title="洛舒luosuu的小站">
-	<link rel="feed" href="/tags/css/index.xml" type="application/rss+xml" title="洛舒luosuu的小站">
 	
 	
 	
@@ -135,16 +132,117 @@ onload='renderMathInElement(document.body);'></script>
 		<header class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-1 md:order-1 max-w-2xl">
 			<div
 				class="z-50 bg-gray-100 bg-opacity-75 bg-opacity-custom lg:min-w-0.7 max-w-xl md:float-right md:text-right leading-loose tracking-tight md:sticky md:top-0 pt-2">
-					<div class="pb-4">
-		<h1 >
-			<a href="https://luosuu.github.io/" title="洛舒luosuu的小站" class="heading font-cursive icon">洛舒luosuu的小站</a>
-		</h1>
-	</div>
+				
+<div>
+	<h2>
+		<a href="https://luosuu.github.io/" title="洛舒luosuu的小站" class="heading font-cursive icon">洛舒luosuu的小站</a>
+	</h2>
+</div>
+<h1 class="pt-2">AtABC173D-环上的贪心</h1>
+
+<h3 class="text-java-700 font-normal leading-relaxed pt-2">简单的环上计数贪心</h3>
+
+<div class="flex flex-wrap justify-end pt-2 "><div class="md:flex-grow-0 font-light">
+	
+	
+	
+	
+	<a class="post-taxonomy-category text-medium-red-violet-600 hover:text-medium-red-violet-400"
+		href='/categories/oj'>OJ</a>
+	
+	
+	
+
+	
+	&nbsp;&nbsp;
+	
+
+	
+	
+	
+	
+	<a class="post-taxonomy-tag text-eucalyptus-500"
+		href='/tags/c&#43;&#43;'>C&#43;&#43;</a>
+	
+	
+	
+</div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light pl-4"
+		datetime="2020-08-08T22:49:34&#43;08:00">2020-8-8 22:49</time>
+</div>
+
+<details class="toc" open>
+<summary>
+    <hr />
+</summary>
+<div class="inline toc-content">
+    <nav id="TableOfContents"></nav>
+</div>
+</details>
+
+<hr />
+
+			</div>
+		</header>
+		<main role="main" class="w-full md:w-3/5 xl:w-1/2 max-w-3xl order-2 md:order-2 min-h-70vh pt-2 pb-4">
+			
+
+<article>
+	<section class="mx-auto content">
+		<div class="c-rich-text"><p>题面：https://atcoder.jp/contests/abc173/tasks/abc173_d</p>
+<p>为了让每个值最大效用化，我们肯定是从大到小的插入，所以首先我们需要对输入的友好值序列排序。</p>
+<p>在插入值的过程中，为了让某个较大的值物尽其用，肯定是在它的顺时针方向旁边插一个，逆时针方向插一个，由于新插入的值肯定小于等于它，所以每个插入的值最多被感受两次友好值。事实上，除了第一个插入的数，都可以被感受两次达到物尽其用。都可以顺时针方向邻接插一个，逆时针方向邻接插一个。</p>
+<p>对于长度为n的友好值序列，会插值n次，也就是感受值序列也是长度为n。</p>
+<p>对于友好值序列</p>
+<pre><code>5 4 3 2 1
+</code></pre><p>它的感受值序列为</p>
+<pre><code>0 5 4 4 3 
+</code></pre><p>那么我们只需要特殊处理第1个和第2个感受值，剩下的在n长度范围内将友好值第二高开始都计算两次，直到计算总次数达到n（包含特殊处理的第一次和第二次）。</p>
+<p>以下是C++代码</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;algorithm&#34;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#66d9ef">int</span> N;
+    cin <span style="color:#f92672">&gt;&gt;</span> N;
+    <span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span> <span style="color:#66d9ef">int</span> A[N];
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> N; <span style="color:#f92672">++</span>i) {
+        cin <span style="color:#f92672">&gt;&gt;</span> A[i];
+    }
+    sort(A,A<span style="color:#f92672">+</span>N);
+
+    <span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span> <span style="color:#66d9ef">int</span> res <span style="color:#f92672">=</span> A[N<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>];
+    <span style="color:#66d9ef">int</span> number <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> N<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>; number<span style="color:#f92672">&lt;</span>N ; i<span style="color:#f92672">--</span> ) {
+        <span style="color:#66d9ef">if</span>(number<span style="color:#f92672">+</span><span style="color:#ae81ff">2</span><span style="color:#f92672">&lt;=</span>N) {
+            res <span style="color:#f92672">=</span> res <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> A[i];
+            number<span style="color:#f92672">+=</span><span style="color:#ae81ff">2</span>;
+        }<span style="color:#66d9ef">else</span>{
+            res <span style="color:#f92672">=</span> res <span style="color:#f92672">+</span> A[i];
+            number<span style="color:#f92672">++</span>;
+        }
+    }
+    cout <span style="color:#f92672">&lt;&lt;</span> res;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+
+}
+</code></pre></div></div>
+	</section>
+
+
+</article>
+
+		</main>
+		<aside role="contentinfo"
+			class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-4 md:order-3 md:sticky md:bottom-0 self-end max-w-2xl">
+			<div class="md:float-right md:text-right leading-loose tracking-tight md:mb-2">
+				
+	<div class="md:max-w-xs  flex flex-col md:items-end">
 	<ul class="font-serif flex-grow-0 flex justify-between flex-wrap md:flex-col">
 	
 	
 	<li class="px-1 md:px-0">
-		<a href="/post/" title="Posts page" >
+		<a href="/post/" title="Posts page" 
+			class="font-medium text-medium-red-violet-600 hover:text-medium-red-violet-400" >
 			Posts
 		</a>
 	</li>
@@ -156,8 +254,7 @@ onload='renderMathInElement(document.body);'></script>
 	</li>
 	
 	<li class="px-1 md:px-0">
-		<a href="/tags/" title="Tags page" 
-			class="font-medium text-medium-red-violet-600 hover:text-medium-red-violet-400" >
+		<a href="/tags/" title="Tags page" >
 			Tags
 		</a>
 	</li>
@@ -175,10 +272,6 @@ onload='renderMathInElement(document.body);'></script>
 	</li>
 	
 	
-	<li>
-		<a href='/tags/css/index.xml'>RSS</a>
-	</li>
-	
 	
 	
 	<div id="fastSearch" class="m-0">
@@ -191,225 +284,6 @@ onload='renderMathInElement(document.body);'></script>
 	</div>
 	
 </ul>
-			</div>
-		</header>
-		<main role="main" class="w-full md:w-3/5 xl:w-1/2 max-w-3xl order-2 md:order-2 min-h-70vh pt-2 pb-4">
-			
-<h1 class="pb-4">
-	css
-</h1>
-<div>
-	<section>
-		
-		<div>
-			<div class="pb-8">
-	<div class="font-serif font-medium text-xl">
-		<a href="https://luosuu.github.io/post/markdown-syntax/">
-			Markdown Syntax Guide
-		</a>
-	</div>
-	
-	
-	
-	
-	<div class="font-serif text-gray-600 font-light pt-1">
-		Sample article showcasing basic Markdown syntax and formatting for HTML elements.</div>
-
-	
-	<div class="flex flex-wrap justify-between pt-1"><div class="md:flex-grow-0 font-light">
-	
-	
-	
-	
-	<a class="post-taxonomy-category text-medium-red-violet-600 hover:text-medium-red-violet-400"
-		href='/categories/themes'>themes</a>&nbsp;&#47;
-	
-	<a class="post-taxonomy-category text-medium-red-violet-600 hover:text-medium-red-violet-400"
-		href='/categories/syntax'>syntax</a>
-	
-	
-	
-
-	
-	&nbsp;&nbsp;
-	
-
-	
-	
-	
-	
-	<a class="post-taxonomy-tag text-eucalyptus-500"
-		href='/tags/markdown'>markdown</a>&nbsp;&#47;
-	
-	<a class="post-taxonomy-tag text-eucalyptus-500"
-		href='/tags/css'>css</a>&nbsp;&#47;
-	
-	<a class="post-taxonomy-tag text-eucalyptus-500"
-		href='/tags/html'>html</a>&nbsp;&#47;
-	
-	<a class="post-taxonomy-tag text-eucalyptus-500"
-		href='/tags/themes'>themes</a>
-	
-	
-	
-</div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light"
-			datetime="2019-03-11T00:00:00Z">2019-3-11 00:00</time>
-	</div>
-</div>
-		</div>
-		
-	</section>
-</div>
-
-		</main>
-		<aside role="contentinfo"
-			class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-4 md:order-3 md:sticky md:bottom-0 self-end max-w-2xl">
-			<div class="md:float-right md:text-right leading-loose tracking-tight md:mb-2">
-				
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="md:max-w-xs  flex flex-col md:items-end pt-2">
 	
 
 <div class="flex flex-wrap-reverse md:justify-end content-end md:content-start justify-start items-start   max-h-16">
@@ -442,25 +316,51 @@ onload='renderMathInElement(document.body);'></script>
 	</a>
 	
 </div>
-	<div class="a-gray text-sm text-gray-500 leading-tight">
+	<div class="text-sm text-gray-500 leading-tight a-gray">
 		Copyright © 2020
 		<br />
-		Built with Hugo and theme <a 
-			href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>.
-			<br />
-			71 pages, 33604 words in total.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 452 words in this page.
 	</div>
 </div>
+
 			</div>
 		</aside>
 		<footer class="w-full md:w-3/5 xl:w-1/2 order-3 max-w-3xl md:order-4 pt-2">
 			
+<hr class="double-line" />
+<div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
+    
+    <a class="flex-grow-0" href="/post/atabc173c/">
+        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+            height="24">
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" /></svg>
+        AtABC173C-状态压缩
+    </a>
+    
+    
+</div>
+<div >
 
 
 
+<div class="font-serif pb-2 flex align-start leading-loose">
+	<span class="heading pr-6 leading-loose">Related</span>
+	<span >
+		
+			<a href="/post/atabc173c/">AtABC173C-状态压缩</a>&nbsp;&nbsp;&#47;&nbsp;
+		
+			<a href="/post/stsheet/">STsheet</a>
+		
+</span>
+</div>
 
-
-
+</div>
+<hr />
+<div class="pb-2">
+    
+</div>
+<hr />
 
 		</footer>
 		

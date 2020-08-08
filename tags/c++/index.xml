@@ -7,10 +7,109 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Copyright © 2020</copyright>
-    <lastBuildDate>Sat, 08 Aug 2020 14:34:53 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 08 Aug 2020 22:49:34 +0800</lastBuildDate>
     
 	<atom:link href="https://luosuu.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>AtABC173D-环上的贪心</title>
+      <link>https://luosuu.github.io/post/atabc173d/</link>
+      <pubDate>Sat, 08 Aug 2020 22:49:34 +0800</pubDate>
+      
+      <guid>https://luosuu.github.io/post/atabc173d/</guid>
+      <description>&lt;p&gt;题面：https://atcoder.jp/contests/abc173/tasks/abc173_d&lt;/p&gt;
+&lt;p&gt;为了让每个值最大效用化，我们肯定是从大到小的插入，所以首先我们需要对输入的友好值序列排序。&lt;/p&gt;
+&lt;p&gt;在插入值的过程中，为了让某个较大的值物尽其用，肯定是在它的顺时针方向旁边插一个，逆时针方向插一个，由于新插入的值肯定小于等于它，所以每个插入的值最多被感受两次友好值。事实上，除了第一个插入的数，都可以被感受两次达到物尽其用。都可以顺时针方向邻接插一个，逆时针方向邻接插一个。&lt;/p&gt;
+&lt;p&gt;对于长度为n的友好值序列，会插值n次，也就是感受值序列也是长度为n。&lt;/p&gt;
+&lt;p&gt;对于友好值序列&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;5 4 3 2 1
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;它的感受值序列为&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;0 5 4 4 3 
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;那么我们只需要特殊处理第1个和第2个感受值，剩下的在n长度范围内将友好值第二高开始都计算两次，直到计算总次数达到n（包含特殊处理的第一次和第二次）。&lt;/p&gt;
+&lt;p&gt;以下是C++代码&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-C++&#34; data-lang=&#34;C++&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;#34;algorithm&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;namespace&lt;/span&gt; std;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;() {
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; N;
+    cin &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; N;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;long&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;long&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; A[N];
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;; i &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; N; &lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;i) {
+        cin &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; A[i];
+    }
+    sort(A,A&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;N);
+
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;long&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;long&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; res &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; A[N&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;];
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; number &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; N&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;; number&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;N ; i&lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt; ) {
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(number&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt;N) {
+            res &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; res &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; A[i];
+            number&lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;;
+        }&lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;{
+            res &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; res &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; A[i];
+            number&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;;
+        }
+    }
+    cout &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; res;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
+
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>AtABC173C-状态压缩</title>
+      <link>https://luosuu.github.io/post/atabc173c/</link>
+      <pubDate>Sat, 08 Aug 2020 20:52:39 +0800</pubDate>
+      
+      <guid>https://luosuu.github.io/post/atabc173c/</guid>
+      <description>&lt;p&gt;题面：https://atcoder.jp/contests/abc173/tasks/abc173_c&lt;/p&gt;
+&lt;p&gt;用题解的方式来理解，对于每一行是否被涂成红色，可以用一个二进制数来表示，假如有三行，以下可以做示例。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;No,No,No&lt;/code&gt;-&lt;code&gt;0,0,0&lt;/code&gt;,&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Yes,No,No&lt;/code&gt;-&lt;code&gt;0,0,1&lt;/code&gt;,&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;No,Yes,No&lt;/code&gt;-&lt;code&gt;0,1,0&lt;/code&gt;,&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Yes,Yes,No&lt;/code&gt;-&lt;code&gt;0,1,1&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;虽然看起来是位置反过来了，其实是说第一行被涂成红色了，那二进制数的第一位就是1。&lt;/p&gt;
+&lt;p&gt;我们就可以枚举所有行和列的状态，对于三行四列来说，行有$2^3$个状态（0-7），列有$2^4$个状态（0-15），共有$2^3 \cdot 2^4=2^{3+4}$个状态。&lt;/p&gt;
+&lt;p&gt;对于每一个状态，我们可以检查黑色区域的数量，对于第i行第j列的区域，我们可以检查这个区域是否被涂成红色的行或列覆盖，与它本身是不是黑色。&lt;/p&gt;
+&lt;p&gt;检查某个区域是不是被涂成红色的行或列覆盖的方法，就是通过将代表行状态的二进制数，右移i位并与1做与运算，判断结果是不是为0，如果是0，说明没有被覆盖。&lt;/p&gt;
+&lt;p&gt;这是因为右移i位后，第i位就变成了第1位，与1做与运算，如果原本第i位是1（该行被涂成红色），结果就会是1，否则就是0。列同理。&lt;/p&gt;
+&lt;p&gt;C++代码如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;#34;string&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;namespace&lt;/span&gt; std;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;() {
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; H,W,K;
+    cin &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; H &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; W &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; K;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;char&lt;/span&gt; map[H][W];
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;; i &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; H; &lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;i) {
+        scanf(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%s&amp;#34;&lt;/span&gt;,map[i]);
+    }
+
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; solutions &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;; i &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; (&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; H) &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;; &lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;i) {
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; j &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;; j &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; (&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; W) &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;; &lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;j) {
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; black &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; k &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;; k &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; H; &lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;k) {
+                &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; l &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;; l &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; W; &lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;l) {
+                    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;( ( (i&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt;k)&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; )&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;((j&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt;l)&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;map[k][l]&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;#&amp;#39;&lt;/span&gt; ){
+                        black&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;;
+                    }
+                }
+            }
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(black&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;K){
+                solutions&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;;
+            }
+        }
+    }
+    cout &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; solutions;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
+}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
     
     <item>
       <title>STsheet</title>
