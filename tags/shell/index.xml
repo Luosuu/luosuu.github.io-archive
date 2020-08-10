@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>shell on 洛舒luosuu的小站</title>
+    <link>https://luosuu.github.io/tags/shell/</link>
+    <description>Recent content in shell on 洛舒luosuu的小站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Copyright © 2020</copyright>
+    <lastBuildDate>Wed, 10 Jul 2019 10:39:35 +0800</lastBuildDate>
+    
+	<atom:link href="https://luosuu.github.io/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Zsh Highlight</title>
+      <link>https://luosuu.github.io/post/zsh-highlight/</link>
+      <pubDate>Wed, 10 Jul 2019 10:39:35 +0800</pubDate>
+      
+      <guid>https://luosuu.github.io/post/zsh-highlight/</guid>
+      <description>&lt;p&gt;为你的zsh终端添加语法高亮&lt;/p&gt;
+&lt;h2 id=&#34;请先下载并配置好zsh&#34;&gt;请先下载并配置好zsh&lt;/h2&gt;
+&lt;p&gt;首先进入到zsh的插件文件夹，我用的是omz，所以要进入omz的插件文件夹&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;cd ~/.oh-my-zsh/custom/plugins
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后下载插件&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后更改&lt;code&gt;.zshrc&lt;/code&gt;里的配置&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;plugins&lt;span style=&#34;color:#f92672&#34;&gt;=(&lt;/span&gt;zsh-syntax-highlighting&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后读取配置即时生效&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;source ~/.zshrc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

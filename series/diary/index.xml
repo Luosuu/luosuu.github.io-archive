@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Diary on 洛舒luosuu的小站</title>
+    <link>https://luosuu.github.io/series/diary/</link>
+    <description>Recent content in Diary on 洛舒luosuu的小站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Copyright © 2020</copyright>
+    <lastBuildDate>Sat, 10 Aug 2019 10:35:20 +0800</lastBuildDate>
+    
+	<atom:link href="https://luosuu.github.io/series/diary/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>计算机是一门实践学科</title>
+      <link>https://luosuu.github.io/post/computerscience-practice/</link>
+      <pubDate>Sat, 10 Aug 2019 10:35:20 +0800</pubDate>
+      
+      <guid>https://luosuu.github.io/post/computerscience-practice/</guid>
+      <description>&lt;h2 id=&#34;论学习能力的不同&#34;&gt;论学习能力的不同&lt;/h2&gt;
+&lt;p&gt;我觉得学习的能力分为两种，一种是研究理论方法的能力，一种是动手实践解决问题的能力。&lt;/p&gt;
+&lt;p&gt;这好比你学习了一种算法，你清楚了它的计算的过程，但是同等重要的是你能自己把代码写出来并且跑通。&lt;/p&gt;
+&lt;p&gt;我认为在计算机系的学生，在本科阶段，虽然要坚固理论基础，但动手实践的能力同样也很重要。当你去实际写代码的时候你才会知道很多细节实际写起来要注意的地方很多，不同语言去实现差距会非常大。&lt;/p&gt;
+&lt;p&gt;举个不恰当的例子，好比做电路的学生，在仿真软件里能跑通，实际自己去接电路的时候可能会毛手毛脚，会因为很多细节导致结果不够理想（比如元器件的引脚，导线的氧化等等）。&lt;/p&gt;
+&lt;p&gt;在这个过程中学习到的，便是 实践的经验 ，这种经验也只能从实践中获得。&lt;/p&gt;
+&lt;p&gt;个人觉得本人的实践能力就不够强，很多项目难以做到圆满的状态，很多都只做了主要的部分，很多细节都没有实现（甚至只有个框架和壳子）。&lt;/p&gt;
+&lt;p&gt;这么转念一想，PLT领域的研究也许就是为了更多的消除这方面的阻力吧（笑），让大家写代码跟舒服一些，并且不会因为一些玄学出bug。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

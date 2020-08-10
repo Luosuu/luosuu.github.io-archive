@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>洛舒luosuu的小站  | 计算机数值的表示与计算</title>
+	<meta name="viewport" content="width=device-width,minimum-scale=1">
+	<meta name="generator" content="Hugo 0.74.3" />
+	
+	
+	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+	
+
+	
+	
+	<link href="/dist/app.css" rel="stylesheet">
+	
+
+	
+
+	
+	
+<link rel="shortcut icon" href="img/logoko-2.png" type="image/png" />
+
+	
+
+	
+	
+	
+	
+
+
+
+<link rel="stylesheet" href='https://luosuu.github.io/lib/katex.min.css' integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+
+
+<script defer src='https://luosuu.github.io/lib/katex.min.js' integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+
+
+<script defer src='https://luosuu.github.io/lib/contrib/auto-render.min.js' integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI"
+crossorigin="anonymous"
+onload='renderMathInElement(document.body);'></script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+
+	
+	
+	
+	<script>
+		(function (u, c) {
+			var d = document,
+				t = 'script',
+				o = d.createElement(t),
+				s = d.getElementsByTagName(t)[0];
+			o.src = u;
+			if (c) {
+				o.addEventListener('load', function (e) {
+					c(e);
+				});
+			}
+			s.parentNode.insertBefore(o, s);
+		})('https:\/\/luosuu.github.io\/lib\/pangu.min.js', function () {
+			pangu.spacingPage();
+		});
+	</script>
+	
+	
+	<style type="text/css" media="screen, print">
+		@font-face {
+			font-family: "FancyTitleFont";
+			font-style: normal;
+			font-display: swap;
+			src: url('https://luosuu.github.io/fonts/exampleFont.woff2') format('woff2'),
+				url('https://luosuu.github.io/fonts/exampleFont.woff') format('woff');
+		}
+
+		 
+		@font-face {
+			font-family: 'Noto Serif CJK SC';
+			font-style: normal;
+			font-weight: 300;
+			font-display: swap;
+			src: local('Noto Serif CJK SC Light'), local('NotoSerifCJK-Light'),
+				url('https://luosuu.github.io/fonts/noto-serif-sc-v7-latin_chinese-simplified-300.woff2') format('woff2'),
+				 
+				url('https://luosuu.github.io/fonts/noto-serif-sc-v7-latin_chinese-simplified-300.woff') format('woff');
+			 
+		}
+
+		 
+		@font-face {
+			font-family: 'Noto Serif CJK SC';
+			font-style: normal;
+			font-weight: 400;
+			font-display: swap;
+			src: local('Noto Serif CJK SC'), local('NotoSerifCJK-Regular'),
+				url('https://luosuu.github.io/fonts/noto-serif-sc-v7-latin_chinese-simplified-regular.woff2') format('woff2'),
+				 
+				url('https://luosuu.github.io/fonts/noto-serif-sc-v7-latin_chinese-simplified-regular.woff') format('woff');
+			 
+		}
+
+		 
+		@font-face {
+			font-family: 'Noto Serif CJK SC';
+			font-style: normal;
+			font-weight: 500;
+			font-display: swap;
+			src: local('Noto Serif CJK SC Medium'), local('NotoSerifCJK-Medium'),
+				url('https://luosuu.github.io/fonts/noto-serif-sc-v7-latin_chinese-simplified-500.woff2') format('woff2'),
+				 
+				url('https://luosuu.github.io/fonts/noto-serif-sc-v7-latin_chinese-simplified-500.woff') format('woff');
+			 
+		}
+	</style>
+	
+	
+</head>
+
+<body class="bg-gray-100 text-gray-700 font-sans">
+	<div class="p-6 sm:p-10 md:p-16 flex flex-wrap">
+		<header class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-1 md:order-1 max-w-2xl">
+			<div
+				class="z-50 bg-gray-100 bg-opacity-75 bg-opacity-custom lg:min-w-0.7 max-w-xl md:float-right md:text-right leading-loose tracking-tight md:sticky md:top-0 pt-2">
+				
+<div>
+	<h2>
+		<a href="https://luosuu.github.io/" title="洛舒luosuu的小站" class="heading font-cursive icon">洛舒luosuu的小站</a>
+	</h2>
+</div>
+<h1 class="pt-2">计算机数值的表示与计算</h1>
+
+<h3 class="text-java-700 font-normal leading-relaxed pt-2">如何用0与1表示与计算数值</h3>
+
+<div class="flex flex-wrap justify-end pt-2 "><div class="md:flex-grow-0 font-light">
+	
+	
+	
+	
+	<a class="post-taxonomy-category text-medium-red-violet-600 hover:text-medium-red-violet-400"
+		href='/categories/notes'>Notes</a>
+	
+	
+	
+
+	
+	&nbsp;&nbsp;
+	
+
+	
+	
+	
+	
+	<a class="post-taxonomy-tag text-eucalyptus-500"
+		href='/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%95%B0%E5%80%BC'>计算机数值</a>
+	
+	
+	
+</div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light pl-4"
+		datetime="2019-08-10T10:26:12&#43;08:00">2019-8-10 10:26</time>
+</div>
+
+<details class="toc" open>
+<summary>
+    <hr />
+</summary>
+<div class="inline toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#进制转换">进制转换</a>
+      <ul>
+        <li><a href="#二进制转十六进制">二进制转十六进制</a></li>
+        <li><a href="#十六进制转二进制">十六进制转二进制</a></li>
+        <li><a href="#二进制转十进制">二进制转十进制</a></li>
+        <li><a href="#十进制转二进制">十进制转二进制</a></li>
+      </ul>
+    </li>
+    <li><a href="#补码制表示二进制数">补码制表示二进制数</a>
+      <ul>
+        <li><a href="#补码运算">补码运算</a></li>
+        <li><a href="#补码制表示规则和性质">补码制表示规则和性质</a></li>
+      </ul>
+    </li>
+    <li><a href="#运算">运算</a>
+      <ul>
+        <li><a href="#加减">加减</a></li>
+        <li><a href="#溢出">溢出</a></li>
+        <li><a href="#乘除">乘除</a></li>
+        <li><a href="#逻辑运算">逻辑运算</a></li>
+      </ul>
+    </li>
+    <li><a href="#浮点数的表示和运算">浮点数的表示和运算</a>
+      <ul>
+        <li><a href="#几个特殊值">几个特殊值</a></li>
+        <li><a href="#浮点数运算">浮点数运算</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+</details>
+
+<hr />
+
+			</div>
+		</header>
+		<main role="main" class="w-full md:w-3/5 xl:w-1/2 max-w-3xl order-2 md:order-2 min-h-70vh pt-2 pb-4">
+			
+
+<article>
+	<section class="mx-auto content">
+		<div class="c-rich-text"><p>简单记录一下在计算机中如何表示数值与简单运算的。</p>
+<h2 id="进制转换">进制转换</h2>
+<p>我们都知道计算机底层数值都是二进制的（由高低电平表示）。而我们生活中常用十进制，同时一些场合下也会用16进制。因此首先我们需要知道进制之间如何转换。</p>
+<h3 id="二进制转十六进制">二进制转十六进制</h3>
+<p>二进制数以小数点为界，整数部分从小数点从左到右数，每4位分为一组，不足四位的时候在左端补0；小数部分从小数点从右往左数，每四位为一组，不足四位则在右端补0。然后每组按照二进制数与十六进制数对应关系转换。因为2的四次方为16，所以十六进制的每单个数都可以用四位二进制数表示出来。</p>
+<h3 id="十六进制转二进制">十六进制转二进制</h3>
+<p>直接每位十六进制数都对应转换为四位二进制数即可。</p>
+<h3 id="二进制转十进制">二进制转十进制</h3>
+<p>$$(101.01)_2=1<em>2^2+0</em>2^1+1<em>2^0+0</em>2^{-1}+1*2^{-2}$$</p>
+<h3 id="十进制转二进制">十进制转二进制</h3>
+<h4 id="十进制整数">十进制整数</h4>
+<p>十进制数不断除二，记录下每一次的余数，直到商为0。先得到的余数是二进制中的低位，后得到的是二进制整数中的高位。</p>
+<h4 id="十进制小数">十进制小数</h4>
+<p>小数位不断乘二，记录下每一次结果的整数位（当然只有0或1），直到小数位为0。先得到的整数位是二进制中的高位，后得到的整数位是二进制中的低位。</p>
+<p>$$ 0.3125\cdot2=0.625 $$
+$$0.625\cdot2=1.25$$
+$$0.25\cdot2=0.5$$
+$$0.5\cdot2=1 $$</p>
+<p>因此记录下来的二进制数为0.0101。即</p>
+<p>$$0.3125=(0.0101)_2$$</p>
+<p>当然存在无法达到小数位为0的情况。视精度进行取舍，假如要求五位精度，求到第六位看第六位是0还是1，如果是0直接舍去，如果是1则在第五位进位。</p>
+<h2 id="补码制表示二进制数">补码制表示二进制数</h2>
+<p>上面我们讨论的二进制数都是<code>无符号数</code>，也就是无法用来表示这个数的正负。容易得知无符号数的表示范围是</p>
+<p>$$[0,2n−1]$$</p>
+<p>我们思考一种简单的标志正负的方式，如果用n位来表示一个数，那么我们用最高位来标志这个数的正负，一般最高位为0代表正数，最高位为1代表负数。此时最高位我们称为<code>符号位</code>,剩余的n-1位称为<code>数值位</code>。带有符号的数我们称之为<code>符号数</code>。</p>
+<p>考虑此时的n位二进制数的表示范围，以四位为例，对正数而言最大为0111，负数的表示范围为1111（-8）到1001（-1），此时0有1000和0000两种表示方法。也就是表示范围为</p>
+<p>$$[−2n−1,2n−1−1]$$</p>
+<p>但是这样做会增加运算逻辑的复杂程度，因为加法器要先检查操作，然后再检查二者的符号：符号相同则将二者数值位相加然后赋给结果相同的符号位；如果符号不同还需要比较二者数值部分的大小，用较大的减去较小的，然后赋给结果较大的操作数的符号。</p>
+<p>因此我们引进<code>补码制</code>来表示符号数。实际中的计算机符号数都是用补码制表示的。所以以后符号数就等同于补码制二进制数。</p>
+<h3 id="补码运算">补码运算</h3>
+<p>我们先来了解一下补码：一个n位二进制数D的补码为</p>
+<p>$$2^n-D_2$$</p>
+<p>求补码的运算我们称之为补码运算。</p>
+<p>补码运算可以变形</p>
+<p>$$2^n−D =(2^n−1−D)+1$$</p>
+<p>而$2^n-1-D$实际就是n位全1二进制数减去D，相当于对D取反。也就是说求D的补码的过程实际可以变成求D的补码然后再加一。这个运算过程对计算机硬件来说比减法容易得多。</p>
+<h3 id="补码制表示规则和性质">补码制表示规则和性质</h3>
+<p>在补码制下同样用最高位表示符号，且0为正，1为负。</p>
+<p>十进制数3的四位补码制二进制数同样为0011，而补码制下的负数为正数的补码。也就是-3表示为</p>
+<p>$$1100_2+1=1101_2$$</p>
+<p>如果你对补码制下的负数再进行补码运算，会得到该数的相反数，也就是变回正数。</p>
+<p>$$0010_2+1=0011_2$$</p>
+<p>这使得在补码制下正数与负数的相互转换非常方便，一对相反数互为对方的补码。</p>
+<p>考虑n位补码制二进制数的表示范围，以4位为例：</p>
+<p>正数最大为0111</p>
+<p>负数可以从 1000（-8）～1111（-1）<em>注意和非补码制的区别</em></p>
+<p>0为0000，且0的补码仍为0000。</p>
+<p>也就是</p>
+<p>$$[−2n−1,2n−1−1]$$</p>
+<h4 id="补码制下的拓展">补码制下的拓展</h4>
+<p>对于无符号数，由于没有符号，从4位二进制数拓展到8位只需要在左端加四个0。称这种拓展方式位<code>零拓展</code></p>
+<p>对于符号数，我们需要考虑它的符号，拓展的规则是直接按照它的符号位进行拓展，也就是1101拓展到8位就表示为了11111101。</p>
+<p>我们可以求一下拓展前后的补码验证一下，前者的补码为0011，也就是3，后者为00000011，也是3。</p>
+<p>对符号数的位数拓展方式我们称为<code>符号拓展</code></p>
+<h2 id="运算">运算</h2>
+<h3 id="加减">加减</h3>
+<p>补码制的提出是为了简化运算。在补码制下运算不需要考虑符号位，符号位直接参与运算即可。并且如果操作为减法，那么就对后面的操作数求补码然后按加法运算即可。而且如果最高位产生了进位直接舍去最高位进位即可。</p>
+<p>$$1110+1010=1000$$</p>
+<h3 id="溢出">溢出</h3>
+<p>运算正确的结果超出了给定的取值范围，就是溢出。这里给出的取值范围就是n位二进制补码表示的范围。</p>
+<p>最高位进位和溢出没有直接关系，可以证明异号相加不会溢出，同号相加才有可能溢出。</p>
+<p>如</p>
+<p>$$0100+0110=1010$$</p>
+<p>正确结果10超出了四位符号数的表示范围。</p>
+<p>判断溢出的方法很简单，如果两个相同符号的数相加，运算结果的符号位变化，那么就可以判断产生了溢出。</p>
+<h3 id="乘除">乘除</h3>
+<p>略</p>
+<h3 id="逻辑运算">逻辑运算</h3>
+<h4 id="移位">移位</h4>
+<p>总位数不变</p>
+<p>左移:右端直接补0，1110左移两位–1000</p>
+<p>逻辑右移：左端直接补0，1110逻辑右移两位–0011</p>
+<p>算术右移：左端根据符号位补，1110算术右移–1111</p>
+<p>左移和算术右移本质为乘2的n次方（不丢有效位1的情况下）</p>
+<h4 id="按位运算">按位运算</h4>
+<p>省</p>
+<h2 id="浮点数的表示和运算">浮点数的表示和运算</h2>
+<p>我们现在开始考虑如何来表示小数。</p>
+<p>首先确定正负，我们还是取最高位为符号位，值用S表示。</p>
+<p>先不考虑小数点在哪里，先将这个值用无符号数的方式表示出来，这个过程中我们需要确定我们要取多少位，也就是有效长度。</p>
+<p>假设我们取a位有效长度，然后用a位的空间存储这个有效值A。</p>
+<p>最后我们通过移位的方式来确定小数点在哪里，实现方法是在后面用n位的长度用补码的方式存一个<code>阶数</code>,小数点从有效值的最右端根据阶数的值E移位。</p>
+<p>根据标准二进制浮点数运算标准IEEE-754，移位应该进行到有效值的最高位的后一位，也就是有效值那里的实际值永远是1.x，也就是在该规则方式下，我们用</p>
+<p>$$(-1)^S<em>1.x</em>2^E$$</p>
+<p>来表示带有小数部分的数。x我们称为尾数部分。</p>
+<p>在实际的存储中，如果尾数部分长度为m，那么a=m+1，因为1是公有的所以不需要特别去表示它，直接表示x的部分就行了，也因此存在一个隐藏位1。</p>
+<p>实际中我们需要经常比较阶数部分，为了方便比较，阶数部分实际存储的值都是<code>阶数E+2^(n-1)-1</code>,阶数部分存储的值我们称为<code>阶码</code>，其范围就变成了[000···000, 111···111]，实际表示的范围<code>[-2^(n-1)+1,2^(n-1)]</code>，这样比较两个浮点数的阶数就很方便了，直接比较的是阶码也就是无符号二进制数。</p>
+<p>根据浮点数标准IEEE-754，有两种浮点数，即单精度浮点数和双精度浮点数。</p>
+<p>二者的符号位都是1位。单精度的阶码位数有8位，尾数有23位；双精度阶码有11位，尾数有52位。</p>
+<h3 id="几个特殊值">几个特殊值</h3>
+<p>浮点数0:尾数全为0，阶码全为0</p>
+<p>无穷：尾数全为0，阶码全为1</p>
+<p>无效操作数：尾数不全为0，但阶码全为1</p>
+<p>因此实际储存中为了正常表示非0浮点数，阶码不能全为1或者0。</p>
+<h3 id="浮点数运算">浮点数运算</h3>
+<ol>
+<li>移位使得两个数的阶码相等，小阶去对等大阶，不要忘记了隐藏位1。</li>
+<li>尾数作运算，为了对应可能产生的进位，需要把隐藏位拓展为两位01。</li>
+<li>将隐藏位恢复为1，化为标准的浮点数</li>
+</ol>
+<p>如果阶码减小到全为0，说明结果的指数太小，出现下溢；如果运算后阶码全变成1，说明结果的指数太大出现上溢。</p>
+</div>
+	</section>
+
+
+</article>
+
+		</main>
+		<aside role="contentinfo"
+			class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-4 md:order-3 md:sticky md:bottom-0 self-end max-w-2xl">
+			<div class="md:float-right md:text-right leading-loose tracking-tight md:mb-2">
+				
+	<div class="md:max-w-xs  flex flex-col md:items-end">
+	<ul class="font-serif flex-grow-0 flex justify-between flex-wrap md:flex-col">
+	
+	
+	<li class="px-1 md:px-0">
+		<a href="/post/" title="Posts page" 
+			class="font-medium text-medium-red-violet-600 hover:text-medium-red-violet-400" >
+			Posts
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/categories/" title="Categories page" >
+			Categories
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/tags/" title="Tags page" >
+			Tags
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/about/" title="About page" >
+			About
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/series/" title="Series page" >
+			Series
+		</a>
+	</li>
+	
+	
+	
+	
+	<div id="fastSearch" class="m-0">
+		<input id="searchInput" type="text" size=10 
+			class="bg-gray-100 focus:outline-none border-b border-gray-100 focus:border-eucalyptus-300 md:text-right
+			placeholder-java-500 min-w-0 max-w-xxxs"
+			placeholder="search" />
+		<ul id="searchResults" class="bg-gray-200 px-2 divide-y divide-gray-400">
+		</ul>
+	</div>
+	
+</ul>
+	
+
+<div class="flex flex-wrap-reverse md:justify-end content-end md:content-start justify-start items-start   max-h-16">
+	
+	<a href='https://github.com/Luosuu' target="_blank" class="github icon pl-1 text-eucalyptus-400 hover:text-java-400" title="github link" rel="noopener"
+		aria-label="follow on github——Opens in a new window">
+		
+		<div class="fill-current h-8 w-8">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <g>
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path fill-rule="nonzero" d="M5.883 18.653c-.3-.2-.558-.455-.86-.816a50.32 50.32 0 0 1-.466-.579c-.463-.575-.755-.84-1.057-.949a1 1 0 0 1 .676-1.883c.752.27 1.261.735 1.947 1.588-.094-.117.34.427.433.539.19.227.33.365.44.438.204.137.587.196 1.15.14.023-.382.094-.753.202-1.095C5.38 15.31 3.7 13.396 3.7 9.64c0-1.24.37-2.356 1.058-3.292-.218-.894-.185-1.975.302-3.192a1 1 0 0 1 .63-.582c.081-.024.127-.035.208-.047.803-.123 1.937.17 3.415 1.096A11.731 11.731 0 0 1 12 3.315c.912 0 1.818.104 2.684.308 1.477-.933 2.613-1.226 3.422-1.096.085.013.157.03.218.05a1 1 0 0 1 .616.58c.487 1.216.52 2.297.302 3.19.691.936 1.058 2.045 1.058 3.293 0 3.757-1.674 5.665-4.642 6.392.125.415.19.879.19 1.38a300.492 300.492 0 0 1-.012 2.716 1 1 0 0 1-.019 1.958c-1.139.228-1.983-.532-1.983-1.525l.002-.446.005-.705c.005-.708.007-1.338.007-1.998 0-.697-.183-1.152-.425-1.36-.661-.57-.326-1.655.54-1.752 2.967-.333 4.337-1.482 4.337-4.66 0-.955-.312-1.744-.913-2.404a1 1 0 0 1-.19-1.045c.166-.414.237-.957.096-1.614l-.01.003c-.491.139-1.11.44-1.858.949a1 1 0 0 1-.833.135A9.626 9.626 0 0 0 12 5.315c-.89 0-1.772.119-2.592.35a1 1 0 0 1-.83-.134c-.752-.507-1.374-.807-1.868-.947-.144.653-.073 1.194.092 1.607a1 1 0 0 1-.189 1.045C6.016 7.89 5.7 8.694 5.7 9.64c0 3.172 1.371 4.328 4.322 4.66.865.097 1.201 1.177.544 1.748-.192.168-.429.732-.429 1.364v3.15c0 .986-.835 1.725-1.96 1.528a1 1 0 0 1-.04-1.962v-.99c-.91.061-1.662-.088-2.254-.485z"/>
+    </g>
+</svg>
+
+		</div>
+	</a>
+	
+	<a href='zhluosuu@outlook.com' target="_blank" class="mail icon pl-1 text-eucalyptus-400 hover:text-java-400" title="mail link" rel="noopener"
+		aria-label="follow on mail——Opens in a new window">
+		
+		<div class="fill-current h-8 w-8">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <g>
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path d="M3 3h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm17 4.238l-7.928 7.1L4 7.216V19h16V7.238zM4.511 5l7.55 6.662L19.502 5H4.511z"/>
+    </g>
+</svg>
+		</div>
+	</a>
+	
+</div>
+	<div class="text-sm text-gray-500 leading-tight a-gray">
+		Copyright © 2020
+		<br />
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 2813 words in this page.
+	</div>
+</div>
+
+			</div>
+		</aside>
+		<footer class="w-full md:w-3/5 xl:w-1/2 order-3 max-w-3xl md:order-4 pt-2">
+			
+<hr class="double-line" />
+<div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
+    
+    <a class="flex-grow-0" href="/post/zsh-highlight/">
+        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+            height="24">
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" /></svg>
+        Zsh Highlight
+    </a>
+    
+    
+    <a class="flex-grow-0" href="/post/computerscience-practice/">
+        计算机是一门实践学科
+        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+            height="24">
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" /></svg></a>
+    
+</div>
+<div >
+
+
+
+</div>
+<hr />
+<div class="pb-2">
+    
+</div>
+<hr />
+
+		</footer>
+		
+
+<script src="/dist/app.js"></script>
+
+
+<script src="/lib/fuse.min.js"></script> 
+<script src="/lib/fastsearch.js"></script>
+
+	</div>
+</body>
+
+</html>

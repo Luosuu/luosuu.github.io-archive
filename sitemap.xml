@@ -58,6 +58,21 @@
   </url>
   
   <url>
+    <loc>https://luosuu.github.io/post/computerscience-practice/</loc>
+    <lastmod>2019-08-10T10:35:20+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://luosuu.github.io/post/value-pre-compute/</loc>
+    <lastmod>2019-08-10T10:26:12+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://luosuu.github.io/post/zsh-highlight/</loc>
+    <lastmod>2019-07-10T10:39:35+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://luosuu.github.io/post/azure_contianer_cli/</loc>
     <lastmod>2020-05-13T12:00:09+08:00</lastmod>
   </url>
@@ -305,6 +320,41 @@
   <url>
     <loc>https://luosuu.github.io/about/</loc>
     <lastmod>2019-10-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://luosuu.github.io/series/diary/</loc>
+    <lastmod>2019-08-10T10:35:20+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://luosuu.github.io/tags/practice/</loc>
+    <lastmod>2019-08-10T10:35:20+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://luosuu.github.io/series/basiccomputerscience/</loc>
+    <lastmod>2019-08-10T10:26:12+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://luosuu.github.io/categories/notes/</loc>
+    <lastmod>2019-08-10T10:26:12+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://luosuu.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%95%B0%E5%80%BC/</loc>
+    <lastmod>2019-08-10T10:26:12+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://luosuu.github.io/series/linux/</loc>
+    <lastmod>2019-07-10T10:39:35+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://luosuu.github.io/tags/shell/</loc>
+    <lastmod>2019-07-10T10:39:35+08:00</lastmod>
   </url>
   
   <url>

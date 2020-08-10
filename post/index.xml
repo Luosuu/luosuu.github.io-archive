@@ -1006,6 +1006,152 @@ $$
     </item>
     
     <item>
+      <title>计算机是一门实践学科</title>
+      <link>https://luosuu.github.io/post/computerscience-practice/</link>
+      <pubDate>Sat, 10 Aug 2019 10:35:20 +0800</pubDate>
+      
+      <guid>https://luosuu.github.io/post/computerscience-practice/</guid>
+      <description>&lt;h2 id=&#34;论学习能力的不同&#34;&gt;论学习能力的不同&lt;/h2&gt;
+&lt;p&gt;我觉得学习的能力分为两种，一种是研究理论方法的能力，一种是动手实践解决问题的能力。&lt;/p&gt;
+&lt;p&gt;这好比你学习了一种算法，你清楚了它的计算的过程，但是同等重要的是你能自己把代码写出来并且跑通。&lt;/p&gt;
+&lt;p&gt;我认为在计算机系的学生，在本科阶段，虽然要坚固理论基础，但动手实践的能力同样也很重要。当你去实际写代码的时候你才会知道很多细节实际写起来要注意的地方很多，不同语言去实现差距会非常大。&lt;/p&gt;
+&lt;p&gt;举个不恰当的例子，好比做电路的学生，在仿真软件里能跑通，实际自己去接电路的时候可能会毛手毛脚，会因为很多细节导致结果不够理想（比如元器件的引脚，导线的氧化等等）。&lt;/p&gt;
+&lt;p&gt;在这个过程中学习到的，便是 实践的经验 ，这种经验也只能从实践中获得。&lt;/p&gt;
+&lt;p&gt;个人觉得本人的实践能力就不够强，很多项目难以做到圆满的状态，很多都只做了主要的部分，很多细节都没有实现（甚至只有个框架和壳子）。&lt;/p&gt;
+&lt;p&gt;这么转念一想，PLT领域的研究也许就是为了更多的消除这方面的阻力吧（笑），让大家写代码跟舒服一些，并且不会因为一些玄学出bug。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>计算机数值的表示与计算</title>
+      <link>https://luosuu.github.io/post/value-pre-compute/</link>
+      <pubDate>Sat, 10 Aug 2019 10:26:12 +0800</pubDate>
+      
+      <guid>https://luosuu.github.io/post/value-pre-compute/</guid>
+      <description>&lt;p&gt;简单记录一下在计算机中如何表示数值与简单运算的。&lt;/p&gt;
+&lt;h2 id=&#34;进制转换&#34;&gt;进制转换&lt;/h2&gt;
+&lt;p&gt;我们都知道计算机底层数值都是二进制的（由高低电平表示）。而我们生活中常用十进制，同时一些场合下也会用16进制。因此首先我们需要知道进制之间如何转换。&lt;/p&gt;
+&lt;h3 id=&#34;二进制转十六进制&#34;&gt;二进制转十六进制&lt;/h3&gt;
+&lt;p&gt;二进制数以小数点为界，整数部分从小数点从左到右数，每4位分为一组，不足四位的时候在左端补0；小数部分从小数点从右往左数，每四位为一组，不足四位则在右端补0。然后每组按照二进制数与十六进制数对应关系转换。因为2的四次方为16，所以十六进制的每单个数都可以用四位二进制数表示出来。&lt;/p&gt;
+&lt;h3 id=&#34;十六进制转二进制&#34;&gt;十六进制转二进制&lt;/h3&gt;
+&lt;p&gt;直接每位十六进制数都对应转换为四位二进制数即可。&lt;/p&gt;
+&lt;h3 id=&#34;二进制转十进制&#34;&gt;二进制转十进制&lt;/h3&gt;
+&lt;p&gt;$$(101.01)_2=1&lt;em&gt;2^2+0&lt;/em&gt;2^1+1&lt;em&gt;2^0+0&lt;/em&gt;2^{-1}+1*2^{-2}$$&lt;/p&gt;
+&lt;h3 id=&#34;十进制转二进制&#34;&gt;十进制转二进制&lt;/h3&gt;
+&lt;h4 id=&#34;十进制整数&#34;&gt;十进制整数&lt;/h4&gt;
+&lt;p&gt;十进制数不断除二，记录下每一次的余数，直到商为0。先得到的余数是二进制中的低位，后得到的是二进制整数中的高位。&lt;/p&gt;
+&lt;h4 id=&#34;十进制小数&#34;&gt;十进制小数&lt;/h4&gt;
+&lt;p&gt;小数位不断乘二，记录下每一次结果的整数位（当然只有0或1），直到小数位为0。先得到的整数位是二进制中的高位，后得到的整数位是二进制中的低位。&lt;/p&gt;
+&lt;p&gt;$$ 0.3125\cdot2=0.625 $$
+$$0.625\cdot2=1.25$$
+$$0.25\cdot2=0.5$$
+$$0.5\cdot2=1 $$&lt;/p&gt;
+&lt;p&gt;因此记录下来的二进制数为0.0101。即&lt;/p&gt;
+&lt;p&gt;$$0.3125=(0.0101)_2$$&lt;/p&gt;
+&lt;p&gt;当然存在无法达到小数位为0的情况。视精度进行取舍，假如要求五位精度，求到第六位看第六位是0还是1，如果是0直接舍去，如果是1则在第五位进位。&lt;/p&gt;
+&lt;h2 id=&#34;补码制表示二进制数&#34;&gt;补码制表示二进制数&lt;/h2&gt;
+&lt;p&gt;上面我们讨论的二进制数都是&lt;code&gt;无符号数&lt;/code&gt;，也就是无法用来表示这个数的正负。容易得知无符号数的表示范围是&lt;/p&gt;
+&lt;p&gt;$$[0,2n−1]$$&lt;/p&gt;
+&lt;p&gt;我们思考一种简单的标志正负的方式，如果用n位来表示一个数，那么我们用最高位来标志这个数的正负，一般最高位为0代表正数，最高位为1代表负数。此时最高位我们称为&lt;code&gt;符号位&lt;/code&gt;,剩余的n-1位称为&lt;code&gt;数值位&lt;/code&gt;。带有符号的数我们称之为&lt;code&gt;符号数&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;考虑此时的n位二进制数的表示范围，以四位为例，对正数而言最大为0111，负数的表示范围为1111（-8）到1001（-1），此时0有1000和0000两种表示方法。也就是表示范围为&lt;/p&gt;
+&lt;p&gt;$$[−2n−1,2n−1−1]$$&lt;/p&gt;
+&lt;p&gt;但是这样做会增加运算逻辑的复杂程度，因为加法器要先检查操作，然后再检查二者的符号：符号相同则将二者数值位相加然后赋给结果相同的符号位；如果符号不同还需要比较二者数值部分的大小，用较大的减去较小的，然后赋给结果较大的操作数的符号。&lt;/p&gt;
+&lt;p&gt;因此我们引进&lt;code&gt;补码制&lt;/code&gt;来表示符号数。实际中的计算机符号数都是用补码制表示的。所以以后符号数就等同于补码制二进制数。&lt;/p&gt;
+&lt;h3 id=&#34;补码运算&#34;&gt;补码运算&lt;/h3&gt;
+&lt;p&gt;我们先来了解一下补码：一个n位二进制数D的补码为&lt;/p&gt;
+&lt;p&gt;$$2^n-D_2$$&lt;/p&gt;
+&lt;p&gt;求补码的运算我们称之为补码运算。&lt;/p&gt;
+&lt;p&gt;补码运算可以变形&lt;/p&gt;
+&lt;p&gt;$$2^n−D =(2^n−1−D)+1$$&lt;/p&gt;
+&lt;p&gt;而$2^n-1-D$实际就是n位全1二进制数减去D，相当于对D取反。也就是说求D的补码的过程实际可以变成求D的补码然后再加一。这个运算过程对计算机硬件来说比减法容易得多。&lt;/p&gt;
+&lt;h3 id=&#34;补码制表示规则和性质&#34;&gt;补码制表示规则和性质&lt;/h3&gt;
+&lt;p&gt;在补码制下同样用最高位表示符号，且0为正，1为负。&lt;/p&gt;
+&lt;p&gt;十进制数3的四位补码制二进制数同样为0011，而补码制下的负数为正数的补码。也就是-3表示为&lt;/p&gt;
+&lt;p&gt;$$1100_2+1=1101_2$$&lt;/p&gt;
+&lt;p&gt;如果你对补码制下的负数再进行补码运算，会得到该数的相反数，也就是变回正数。&lt;/p&gt;
+&lt;p&gt;$$0010_2+1=0011_2$$&lt;/p&gt;
+&lt;p&gt;这使得在补码制下正数与负数的相互转换非常方便，一对相反数互为对方的补码。&lt;/p&gt;
+&lt;p&gt;考虑n位补码制二进制数的表示范围，以4位为例：&lt;/p&gt;
+&lt;p&gt;正数最大为0111&lt;/p&gt;
+&lt;p&gt;负数可以从 1000（-8）～1111（-1）&lt;em&gt;注意和非补码制的区别&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;0为0000，且0的补码仍为0000。&lt;/p&gt;
+&lt;p&gt;也就是&lt;/p&gt;
+&lt;p&gt;$$[−2n−1,2n−1−1]$$&lt;/p&gt;
+&lt;h4 id=&#34;补码制下的拓展&#34;&gt;补码制下的拓展&lt;/h4&gt;
+&lt;p&gt;对于无符号数，由于没有符号，从4位二进制数拓展到8位只需要在左端加四个0。称这种拓展方式位&lt;code&gt;零拓展&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;对于符号数，我们需要考虑它的符号，拓展的规则是直接按照它的符号位进行拓展，也就是1101拓展到8位就表示为了11111101。&lt;/p&gt;
+&lt;p&gt;我们可以求一下拓展前后的补码验证一下，前者的补码为0011，也就是3，后者为00000011，也是3。&lt;/p&gt;
+&lt;p&gt;对符号数的位数拓展方式我们称为&lt;code&gt;符号拓展&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;运算&#34;&gt;运算&lt;/h2&gt;
+&lt;h3 id=&#34;加减&#34;&gt;加减&lt;/h3&gt;
+&lt;p&gt;补码制的提出是为了简化运算。在补码制下运算不需要考虑符号位，符号位直接参与运算即可。并且如果操作为减法，那么就对后面的操作数求补码然后按加法运算即可。而且如果最高位产生了进位直接舍去最高位进位即可。&lt;/p&gt;
+&lt;p&gt;$$1110+1010=1000$$&lt;/p&gt;
+&lt;h3 id=&#34;溢出&#34;&gt;溢出&lt;/h3&gt;
+&lt;p&gt;运算正确的结果超出了给定的取值范围，就是溢出。这里给出的取值范围就是n位二进制补码表示的范围。&lt;/p&gt;
+&lt;p&gt;最高位进位和溢出没有直接关系，可以证明异号相加不会溢出，同号相加才有可能溢出。&lt;/p&gt;
+&lt;p&gt;如&lt;/p&gt;
+&lt;p&gt;$$0100+0110=1010$$&lt;/p&gt;
+&lt;p&gt;正确结果10超出了四位符号数的表示范围。&lt;/p&gt;
+&lt;p&gt;判断溢出的方法很简单，如果两个相同符号的数相加，运算结果的符号位变化，那么就可以判断产生了溢出。&lt;/p&gt;
+&lt;h3 id=&#34;乘除&#34;&gt;乘除&lt;/h3&gt;
+&lt;p&gt;略&lt;/p&gt;
+&lt;h3 id=&#34;逻辑运算&#34;&gt;逻辑运算&lt;/h3&gt;
+&lt;h4 id=&#34;移位&#34;&gt;移位&lt;/h4&gt;
+&lt;p&gt;总位数不变&lt;/p&gt;
+&lt;p&gt;左移:右端直接补0，1110左移两位–1000&lt;/p&gt;
+&lt;p&gt;逻辑右移：左端直接补0，1110逻辑右移两位–0011&lt;/p&gt;
+&lt;p&gt;算术右移：左端根据符号位补，1110算术右移–1111&lt;/p&gt;
+&lt;p&gt;左移和算术右移本质为乘2的n次方（不丢有效位1的情况下）&lt;/p&gt;
+&lt;h4 id=&#34;按位运算&#34;&gt;按位运算&lt;/h4&gt;
+&lt;p&gt;省&lt;/p&gt;
+&lt;h2 id=&#34;浮点数的表示和运算&#34;&gt;浮点数的表示和运算&lt;/h2&gt;
+&lt;p&gt;我们现在开始考虑如何来表示小数。&lt;/p&gt;
+&lt;p&gt;首先确定正负，我们还是取最高位为符号位，值用S表示。&lt;/p&gt;
+&lt;p&gt;先不考虑小数点在哪里，先将这个值用无符号数的方式表示出来，这个过程中我们需要确定我们要取多少位，也就是有效长度。&lt;/p&gt;
+&lt;p&gt;假设我们取a位有效长度，然后用a位的空间存储这个有效值A。&lt;/p&gt;
+&lt;p&gt;最后我们通过移位的方式来确定小数点在哪里，实现方法是在后面用n位的长度用补码的方式存一个&lt;code&gt;阶数&lt;/code&gt;,小数点从有效值的最右端根据阶数的值E移位。&lt;/p&gt;
+&lt;p&gt;根据标准二进制浮点数运算标准IEEE-754，移位应该进行到有效值的最高位的后一位，也就是有效值那里的实际值永远是1.x，也就是在该规则方式下，我们用&lt;/p&gt;
+&lt;p&gt;$$(-1)^S&lt;em&gt;1.x&lt;/em&gt;2^E$$&lt;/p&gt;
+&lt;p&gt;来表示带有小数部分的数。x我们称为尾数部分。&lt;/p&gt;
+&lt;p&gt;在实际的存储中，如果尾数部分长度为m，那么a=m+1，因为1是公有的所以不需要特别去表示它，直接表示x的部分就行了，也因此存在一个隐藏位1。&lt;/p&gt;
+&lt;p&gt;实际中我们需要经常比较阶数部分，为了方便比较，阶数部分实际存储的值都是&lt;code&gt;阶数E+2^(n-1)-1&lt;/code&gt;,阶数部分存储的值我们称为&lt;code&gt;阶码&lt;/code&gt;，其范围就变成了[000···000, 111···111]，实际表示的范围&lt;code&gt;[-2^(n-1)+1,2^(n-1)]&lt;/code&gt;，这样比较两个浮点数的阶数就很方便了，直接比较的是阶码也就是无符号二进制数。&lt;/p&gt;
+&lt;p&gt;根据浮点数标准IEEE-754，有两种浮点数，即单精度浮点数和双精度浮点数。&lt;/p&gt;
+&lt;p&gt;二者的符号位都是1位。单精度的阶码位数有8位，尾数有23位；双精度阶码有11位，尾数有52位。&lt;/p&gt;
+&lt;h3 id=&#34;几个特殊值&#34;&gt;几个特殊值&lt;/h3&gt;
+&lt;p&gt;浮点数0:尾数全为0，阶码全为0&lt;/p&gt;
+&lt;p&gt;无穷：尾数全为0，阶码全为1&lt;/p&gt;
+&lt;p&gt;无效操作数：尾数不全为0，但阶码全为1&lt;/p&gt;
+&lt;p&gt;因此实际储存中为了正常表示非0浮点数，阶码不能全为1或者0。&lt;/p&gt;
+&lt;h3 id=&#34;浮点数运算&#34;&gt;浮点数运算&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;移位使得两个数的阶码相等，小阶去对等大阶，不要忘记了隐藏位1。&lt;/li&gt;
+&lt;li&gt;尾数作运算，为了对应可能产生的进位，需要把隐藏位拓展为两位01。&lt;/li&gt;
+&lt;li&gt;将隐藏位恢复为1，化为标准的浮点数&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;如果阶码减小到全为0，说明结果的指数太小，出现下溢；如果运算后阶码全变成1，说明结果的指数太大出现上溢。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Zsh Highlight</title>
+      <link>https://luosuu.github.io/post/zsh-highlight/</link>
+      <pubDate>Wed, 10 Jul 2019 10:39:35 +0800</pubDate>
+      
+      <guid>https://luosuu.github.io/post/zsh-highlight/</guid>
+      <description>&lt;p&gt;为你的zsh终端添加语法高亮&lt;/p&gt;
+&lt;h2 id=&#34;请先下载并配置好zsh&#34;&gt;请先下载并配置好zsh&lt;/h2&gt;
+&lt;p&gt;首先进入到zsh的插件文件夹，我用的是omz，所以要进入omz的插件文件夹&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;cd ~/.oh-my-zsh/custom/plugins
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后下载插件&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后更改&lt;code&gt;.zshrc&lt;/code&gt;里的配置&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;plugins&lt;span style=&#34;color:#f92672&#34;&gt;=(&lt;/span&gt;zsh-syntax-highlighting&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后读取配置即时生效&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;source ~/.zshrc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    
+    <item>
       <title>Azure CLI to Deploy Containers</title>
       <link>https://luosuu.github.io/post/azure_contianer_cli/</link>
       <pubDate>Wed, 13 May 2020 12:00:09 +0800</pubDate>
