@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>WeChat-MiniProgram on 洛舒luosuu的小站</title>
+    <link>https://luosuu.github.io/tags/wechat-miniprogram/</link>
+    <description>Recent content in WeChat-MiniProgram on 洛舒luosuu的小站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Copyright © 2020</copyright>
+    <lastBuildDate>Wed, 29 Jul 2020 18:53:26 +0800</lastBuildDate>
+    
+	<atom:link href="https://luosuu.github.io/tags/wechat-miniprogram/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>微信小程序开发训练营</title>
+      <link>https://luosuu.github.io/post/wx-miniprogram-tips/</link>
+      <pubDate>Wed, 29 Jul 2020 18:53:26 +0800</pubDate>
+      
+      <guid>https://luosuu.github.io/post/wx-miniprogram-tips/</guid>
+      <description>&lt;p&gt;最近参加了腾讯微信小程序开发训练营，记录一些有趣的点。&lt;/p&gt;
+&lt;p&gt;参考文档：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://cloudbase.net/community/guides/handbook/index.html&#34;&gt;腾讯云开发训练营&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://developers.weixin.qq.com/miniprogram/dev/framework/&#34;&gt;微信小程序开放文档&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;用户登陆&#34;&gt;用户登陆&lt;/h2&gt;
+&lt;p&gt;登陆方式有很多种，可以用&lt;code&gt;wx.login&lt;/code&gt;登陆，也可以使用云函数登陆 。所谓云函数，是在云端运行的代码，由微信私有协议天然鉴权，开发者只需编写业务逻辑代码。如果我们想对不同的用户有不同的记录，区分不同的用户的方式就是获取他们的&lt;code&gt;openid&lt;/code&gt;。由服务器端云函数返回用户&lt;code&gt;openid&lt;/code&gt;是简单的。在创建小程序项目时，选择基于云的小程序，其中的&lt;code&gt;cloudfunctions/login&lt;/code&gt;就是登陆函数。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://luosuu.github.io/image-20200730111044048.png&#34; alt=&#34;image-20200730111044048&#34;&gt;&lt;/p&gt;
+&lt;p&gt;以下是&lt;code&gt;login&lt;/code&gt;云函数的主要内容&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// 云函数模板
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// 部署：在 cloud-functions/login 文件夹右击选择 “上传并部署”
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;cloud&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;require&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;wx-server-sdk&amp;#39;&lt;/span&gt;)
+
+&lt;span style=&#34;color:#75715e&#34;&gt;// 初始化 cloud
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;cloud&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;init&lt;/span&gt;({
+  &lt;span style=&#34;color:#75715e&#34;&gt;// API 调用都保持和云函数当前所在环境一致
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;env&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;cloud&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;DYNAMIC_CURRENT_ENV&lt;/span&gt;
+})
+
+&lt;span style=&#34;color:#75715e&#34;&gt;/**
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; * 这个示例将经自动鉴权过的小程序用户 openid 返回给小程序端
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; * 
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; * event 参数包含小程序端调用传入的 data
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; * 
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; */&lt;/span&gt;
+&lt;span style=&#34;color:#a6e22e&#34;&gt;exports&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;async&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;event&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;context&lt;/span&gt;) =&amp;gt; {
+  &lt;span style=&#34;color:#75715e&#34;&gt;// 可执行其他自定义逻辑
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;// console.log 的内容可以在云开发云函数调用日志查看
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;// 获取 WX Context (微信调用上下文)，包括 OPENID、APPID、及 UNIONID（需满足 UNIONID 获取条件）等信息
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;wxContext&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;cloud&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;getWXContext&lt;/span&gt;()
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;console&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;getWXContext返回的结果&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#a6e22e&#34;&gt;wxContext&lt;/span&gt;)
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; {
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;event&lt;/span&gt;,
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;openid&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;wxContext&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;OPENID&lt;/span&gt;,
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;appid&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;wxContext&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;APPID&lt;/span&gt;,
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;unionid&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;wxContext&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;UNIONID&lt;/span&gt;,
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;env&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;wxContext&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;ENV&lt;/span&gt;,
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;下面是一个使用云函数登陆的示例代码&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;wx&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;cloud&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;callFunction&lt;/span&gt;({
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;login&amp;#39;&lt;/span&gt;,
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;data&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;{},
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;succeess&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;res&lt;/span&gt;=&amp;gt;{
+    &lt;span style=&#34;color:#75715e&#34;&gt;//登陆成功后的处理,其中回调函数的res.result.openid就是云端返回的用户openid
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;//在云端存储用户信息
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;wx&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;cloud&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;callFunction&lt;/span&gt;({
+      &lt;span style=&#34;color:#a6e22e&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;setUserInfo&amp;#39;&lt;/span&gt;
+      &lt;span style=&#34;color:#a6e22e&#34;&gt;data&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;{
+      &lt;span style=&#34;color:#a6e22e&#34;&gt;userid&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;res&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;result&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;openid&lt;/span&gt;
+      &lt;span style=&#34;color:#75715e&#34;&gt;//其他参数
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;      &lt;span style=&#34;color:#75715e&#34;&gt;//....
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;    }
+    })    
+  }
+})
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;文件存储&#34;&gt;文件存储&lt;/h2&gt;
+&lt;p&gt;微信小程序支持本地缓存储存文件，也支持云存储文件。缓存文件只在用户小程序端存在，可以用来缓存用户个人信息等，云存储的文件可以用云开发控制台直接上传，获取&lt;code&gt;cloud://&lt;/code&gt;开头的路径，就可以在小程序中直接使用了。&lt;/p&gt;
+&lt;p&gt;当然我们也可以让用户上传文件，其中一种方式就是将本地的临时文件上传到云端，要使用&lt;code&gt;wx.cloud.uploadFile&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;cloudPath是文件在云端的路径，我们可以指定。&lt;/p&gt;
+&lt;p&gt;filePath是本地临时文件的路径。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;uploadFiles&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;e&lt;/span&gt;) {
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;filePath&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;data&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;files&lt;/span&gt;[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;].&lt;span style=&#34;color:#a6e22e&#34;&gt;src&lt;/span&gt;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;cloudPath&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;`cloudbase/&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;Date.&lt;span style=&#34;color:#a6e22e&#34;&gt;now&lt;/span&gt;()&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;Math.&lt;span style=&#34;color:#a6e22e&#34;&gt;floor&lt;/span&gt;(Math.&lt;span style=&#34;color:#a6e22e&#34;&gt;random&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1000&lt;/span&gt;)&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;filePath&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;match&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;/\.[^.]+?$/&lt;/span&gt;)
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;wx&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;cloud&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;uploadFile&lt;/span&gt;({
+      &lt;span style=&#34;color:#a6e22e&#34;&gt;cloudPath&lt;/span&gt;,&lt;span style=&#34;color:#a6e22e&#34;&gt;filePath&lt;/span&gt;
+    }).&lt;span style=&#34;color:#a6e22e&#34;&gt;then&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;res&lt;/span&gt; =&amp;gt; {
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;setData&lt;/span&gt;({
+        &lt;span style=&#34;color:#a6e22e&#34;&gt;fileID&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;res&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;fileID&lt;/span&gt;
+      })
+    }).&lt;span style=&#34;color:#66d9ef&#34;&gt;catch&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;error&lt;/span&gt; =&amp;gt; {
+      &lt;span style=&#34;color:#a6e22e&#34;&gt;console&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;文件上传失败&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#a6e22e&#34;&gt;error&lt;/span&gt;)
+    })
+  },
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;生命周期&#34;&gt;生命周期&lt;/h2&gt;
+&lt;p&gt;有时候我们需要数据跨页面渲染，我们当然可以全部都存储到云端然后读取、处理，但是也可以使用url带数据的方式将数据传递到下一个页面。&lt;/p&gt;
+&lt;p&gt;对于一个链接来说&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;/ 分隔目录和子目录&lt;/li&gt;
+&lt;li&gt;? 分隔实际的 URL 和参数&lt;/li&gt;
+&lt;li&gt;&amp;amp; URL 中指定的参数间的分隔符&lt;/li&gt;
+&lt;li&gt;= URL 中指定的参数的值&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;以下面这个链接为例&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;navigator&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;url&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;./../home/detail/detail?id={{index}}&amp;amp;name={{movies.name}}&amp;amp;img={{movies.img}}&amp;amp;desc={{movies.desc}}&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;weui-media-box weui-media-box_appmsg&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;hover-class&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;weui-cell_active&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这是一个跳转链接，跳转到&lt;code&gt;home/detail/detail&lt;/code&gt;页面，传递了变量&lt;code&gt;id&lt;/code&gt;,&lt;code&gt;name&lt;/code&gt;,&lt;code&gt;img&lt;/code&gt;,&lt;code&gt;desc&lt;/code&gt;。这些变量的值都在对应的本页面的js文件中定义。&lt;/p&gt;
+&lt;p&gt;然后我们可以在跳转目标页面的js文件里，在&lt;code&gt;onLoad&lt;/code&gt;中获得到这些变量，并赋给需要的地方，比如&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;onLoad&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;options&lt;/span&gt;) {
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;console&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;options&lt;/span&gt;)
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;wx&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;setNavigationBarTitle&lt;/span&gt;({
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;title&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;options&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;name&lt;/span&gt;
+  })
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;setData&lt;/span&gt;({
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;detail&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;options&lt;/span&gt;,
+  })
+},
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;一丢丢心得&#34;&gt;一丢丢心得&lt;/h2&gt;
+&lt;p&gt;微信小程序开发主要还是需要熟悉微信小程序开发的框架与规定（与angularJs框架类似），虽然一个功能逻辑可以有很多种写法，但是有很多既定的推荐写法可以借鉴。&lt;/p&gt;
+&lt;p&gt;云函数的开发要对各种API比较熟悉，不同的小程序之间可以方便的复用。但是我对云函数的调试并不满意，虽然提供了本地调试的选项，用起来也不是特别的方便。最后要吐槽很多功能的表现在电脑的开发者工具上预览的效果与手机实际效果是有不少差距的，debug的时候也很麻烦。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
