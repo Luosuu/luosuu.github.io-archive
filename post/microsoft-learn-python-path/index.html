@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>洛舒luosuu的小站  | Microsoft Learn Python Path</title>
+	<meta name="viewport" content="width=device-width,minimum-scale=1">
+	<meta name="generator" content="Hugo 0.74.3" />
+	
+	
+	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+	
+
+	
+	
+	<link href="/dist/app.css" rel="stylesheet">
+	
+
+	
+
+	
+	
+<link rel="shortcut icon" href="img/logoko-2.png" type="image/png" />
+
+	
+
+	
+	
+	
+	
+
+
+
+<link rel="stylesheet" href='https://luosuu.github.io/lib/katex.min.css' integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+
+
+<script defer src='https://luosuu.github.io/lib/katex.min.js' integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+
+
+<script defer src='https://luosuu.github.io/lib/contrib/auto-render.min.js' integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI"
+crossorigin="anonymous"
+onload='renderMathInElement(document.body);'></script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+
+	
+	
+	
+	<script>
+		(function (u, c) {
+			var d = document,
+				t = 'script',
+				o = d.createElement(t),
+				s = d.getElementsByTagName(t)[0];
+			o.src = u;
+			if (c) {
+				o.addEventListener('load', function (e) {
+					c(e);
+				});
+			}
+			s.parentNode.insertBefore(o, s);
+		})('https:\/\/luosuu.github.io\/lib\/pangu.min.js', function () {
+			pangu.spacingPage();
+		});
+	</script>
+	
+	
+	<style type="text/css" media="screen, print">
+		@font-face {
+			font-family: "FancyTitleFont";
+			font-style: normal;
+			font-display: swap;
+			src: url('https://luosuu.github.io/fonts/exampleFont.woff2') format('woff2'),
+				url('https://luosuu.github.io/fonts/exampleFont.woff') format('woff');
+		}
+
+		 
+		@font-face {
+			font-family: 'Noto Serif CJK SC';
+			font-style: normal;
+			font-weight: 300;
+			font-display: swap;
+			src: local('Noto Serif CJK SC Light'), local('NotoSerifCJK-Light'),
+				url('https://luosuu.github.io/fonts/noto-serif-sc-v7-latin_chinese-simplified-300.woff2') format('woff2'),
+				 
+				url('https://luosuu.github.io/fonts/noto-serif-sc-v7-latin_chinese-simplified-300.woff') format('woff');
+			 
+		}
+
+		 
+		@font-face {
+			font-family: 'Noto Serif CJK SC';
+			font-style: normal;
+			font-weight: 400;
+			font-display: swap;
+			src: local('Noto Serif CJK SC'), local('NotoSerifCJK-Regular'),
+				url('https://luosuu.github.io/fonts/noto-serif-sc-v7-latin_chinese-simplified-regular.woff2') format('woff2'),
+				 
+				url('https://luosuu.github.io/fonts/noto-serif-sc-v7-latin_chinese-simplified-regular.woff') format('woff');
+			 
+		}
+
+		 
+		@font-face {
+			font-family: 'Noto Serif CJK SC';
+			font-style: normal;
+			font-weight: 500;
+			font-display: swap;
+			src: local('Noto Serif CJK SC Medium'), local('NotoSerifCJK-Medium'),
+				url('https://luosuu.github.io/fonts/noto-serif-sc-v7-latin_chinese-simplified-500.woff2') format('woff2'),
+				 
+				url('https://luosuu.github.io/fonts/noto-serif-sc-v7-latin_chinese-simplified-500.woff') format('woff');
+			 
+		}
+	</style>
+	
+	
+</head>
+
+<body class="bg-gray-100 text-gray-700 font-sans">
+	<div class="p-6 sm:p-10 md:p-16 flex flex-wrap">
+		<header class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-1 md:order-1 max-w-2xl">
+			<div
+				class="z-50 bg-gray-100 bg-opacity-75 bg-opacity-custom lg:min-w-0.7 max-w-xl md:float-right md:text-right leading-loose tracking-tight md:sticky md:top-0 pt-2">
+				
+<div>
+	<h2>
+		<a href="https://luosuu.github.io/" title="洛舒luosuu的小站" class="heading font-cursive icon">洛舒luosuu的小站</a>
+	</h2>
+</div>
+<h1 class="pt-2">Microsoft Learn Python Path</h1>
+
+<h3 class="text-java-700 font-normal leading-relaxed pt-2">使用Microsoft Learn入门编程并激发创意</h3>
+
+<div class="flex flex-wrap justify-end pt-2 "><div class="md:flex-grow-0 font-light">
+	
+	
+	
+	
+	<a class="post-taxonomy-category text-medium-red-violet-600 hover:text-medium-red-violet-400"
+		href='/categories/resources'>resources</a>
+	
+	
+	
+
+	
+	&nbsp;&nbsp;
+	
+
+	
+	
+	
+	
+	<a class="post-taxonomy-tag text-eucalyptus-500"
+		href='/tags/python'>python</a>&nbsp;&#47;
+	
+	<a class="post-taxonomy-tag text-eucalyptus-500"
+		href='/tags/microsoft-student-club'>Microsoft Student Club</a>&nbsp;&#47;
+	
+	<a class="post-taxonomy-tag text-eucalyptus-500"
+		href='/tags/microsoft-learning'>Microsoft Learning</a>
+	
+	
+	
+</div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light pl-4"
+		datetime="2020-10-03T23:10:38&#43;08:00">2020-10-3 23:10</time>
+</div>
+
+<details class="toc" open>
+<summary>
+    <hr />
+</summary>
+<div class="inline toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#入门python编程">入门Python编程</a></li>
+    <li><a href="#了解python如何发挥作用">了解Python如何发挥作用</a></li>
+    <li><a href="#开始了解面向数据的python">开始了解面向数据的Python</a>
+      <ul>
+        <li><a href="#关于人工智能的相关概念的入门">关于人工智能的相关概念的入门</a></li>
+        <li><a href="#关于数据科学的入门">关于数据科学的入门</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+</details>
+
+<hr />
+
+			</div>
+		</header>
+		<main role="main" class="w-full md:w-3/5 xl:w-1/2 max-w-3xl order-2 md:order-2 min-h-70vh pt-2 pb-4">
+			
+
+<article>
+	<section class="mx-auto content">
+		<div class="c-rich-text"><p>这里是成电微软学生俱乐部2020年度Python学习Guideline，将主要通过利用Microsoft Learn这个交互式引导学习平台，引导俱乐部新生入门并学习使用Python，甚至掌握一些基础的人工智能及数据科学的概念。</p>
+<p>我们希望你最终能够自己通过python编程实现一些有趣的小功能，并在2020年12月下旬的俱乐部年会做一些集中的展示，我们为你们的每一步都设置了奖励，如果你在年会上展示你自己编写的程序，我们会给你丰厚的奖励。</p>
+<p>在学习过程中的任何问题，随时都十分欢迎在俱乐部大群里讨论交流。</p>
+<h2 id="入门python编程">入门Python编程</h2>
+<p>使用Python迈出第一步</p>
+<p><a href="https://docs.microsoft.com/zh-cn/learn/paths/python-first-steps/?WT.mc_id=learntv-video-learn">https://docs.microsoft.com/zh-cn/learn/paths/python-first-steps/?WT.mc_id=learntv-video-learn</a></p>
+<p>想学习编程语言，但不知从何处着手？ 从此处开始！ 了解使用 Python 构建简单应用程序所需的基本语法和预期过程。</p>
+<p>在此学习路径下，你将：</p>
+<ul>
+<li>编写第一批 Python 代码</li>
+<li>存储和操作数据以修改其类型和外观</li>
+<li>执行代码库中提供的内置功能</li>
+<li>向代码添加逻辑以实现复杂的业务功能</li>
+<li>完成此学习路径后，你将为后续的 Python 学习路径提供坚实的基础。</li>
+</ul>
+<p>建议完成时间：2020/10/08 前</p>
+<h2 id="了解python如何发挥作用">了解Python如何发挥作用</h2>
+<p>了解 Python 在太空探索中扮演的角色</p>
+<p><a href="https://docs.microsoft.com/zh-cn/learn/paths/introduction-python-space-exploration-nasa/">https://docs.microsoft.com/zh-cn/learn/paths/introduction-python-space-exploration-nasa/</a></p>
+<p>此学习路径介绍了 Python 的世界。 但目标不是学习 Python，而是了解 Python 如何在 NASA 创建的创新型解决方案中发挥作用。 该学习路径通过太空探索镜头来激发持之以恒地学习、探索和创建的热情，让你有一天也能帮助我们所有人更多地了解一点外太空。</p>
+<p>通过这些模板，你将：</p>
+<ul>
+<li>了解和安装学习编程所需的工具</li>
+<li>了解核心编程概念并在实际的 NASA 问题中运用它们</li>
+<li>了解机器学习和人工智能等领先技术</li>
+<li>观看真实的 NASA 员工谈论他们的工作并给出建议</li>
+</ul>
+<p>建议完成时间：2020/10/16 前</p>
+<h2 id="开始了解面向数据的python">开始了解面向数据的Python</h2>
+<p>使用 Python 和人工智能对太空岩石进行分类</p>
+<p><a href="https://docs.microsoft.com/zh-cn/learn/paths/classify-space-rocks-artificial-intelligence-nasa/">https://docs.microsoft.com/zh-cn/learn/paths/classify-space-rocks-artificial-intelligence-nasa/</a></p>
+<p>通过此学习路径，你可了解 AI 和太空的世界。 了解如何创建可对随机照片中的太空岩石的类型进行分类的 AI 模型。</p>
+<p>建议完成时间：2020/11/XX/</p>
+<p><strong>Tips</strong>：从这里开始你将学习一些实际的操作，但你可能现在还不太了解面向数据的Python等，我们计划你们开始这部分的学习时做一期Python相关的沙龙，来帮助你们更好的学习后续的内容。不过我们不会讨论Python的一些基础语法，因为这些你都可以在网上轻松的学习到，我们主要会讨论Python的一些常见的小问题，如Python的包管理器（pip和anaconda）并交流你们在学习Python的时候遇到的一些问题，然后在沙龙上我们会带领大家自己通过编写Python来画一个词云（WordCloud）。</p>
+<p>有关词云，可以自己先了解同济子豪兄的教程：</p>
+<p><a href="https://zhuanlan.zhihu.com/p/66931750">https://zhuanlan.zhihu.com/p/66931750</a></p>
+<p>同济的张子豪同学是同济大学微软学生俱乐部的优秀成员，如今已经是一个分享了非常多技术干货的技术网红。</p>
+<p>他的很多文章都很有价值，且有很多新手入门向的教程。他的知乎专栏地址如下：</p>
+<p><a href="https://www.zhihu.com/people/zhang-zi-hao-64-2/posts?page=1">https://www.zhihu.com/people/zhang-zi-hao-64-2/posts?page=1</a></p>
+<p>对人工智能原理感兴趣的同学可以阅读他专栏下的<a href="https://zhuanlan.zhihu.com/p/49184702">“大白话讲解卷积神经网络工作原理”</a></p>
+<p>他对于如何安装和配置Python也有新手向的教程：https://zhuanlan.zhihu.com/p/58790338</p>
+<h3 id="关于人工智能的相关概念的入门">关于人工智能的相关概念的入门</h3>
+<p>Azure上的人工智能入门</p>
+<p><a href="https://docs.microsoft.com/zh-cn/learn/paths/get-started-with-artificial-intelligence-on-azure/">https://docs.microsoft.com/zh-cn/learn/paths/get-started-with-artificial-intelligence-on-azure/</a></p>
+<p><strong>Tips</strong>：你可以只了解人工智能的相关概念，比如什么是机器学习，什么是计算机视觉，什么是自然语言处理等等。但如果条件允许，你也可以通过路径里的链接快速自己尝试一下相关的功能，里面有一些demo展示。</p>
+<p><em>注意路径里的链接里多了个中文句号，访问的时候把这个句号删掉就可以了，否则你可能会得到一个空白页或404 Not Found</em>。</p>
+<h3 id="关于数据科学的入门">关于数据科学的入门</h3>
+<p>数据科学基础知识</p>
+<p><a href="https://docs.microsoft.com/zh-cn/learn/paths/foundations-data-science/">https://docs.microsoft.com/zh-cn/learn/paths/foundations-data-science/</a></p>
+<p>加州大学伯克利分校的数据科学基础课程将三个方面结合在了一起：推理思维、计算思维和实际相关性。 假设数据来自某种实际现象，如何分析该数据才能了解该现象？ 本课程教授计算机编程和统计推理的重要概念和技能，并结合对实际数据集的动手分析，其中包括经济数据、文档集合、地理数据和社交网络。 该课程会深入研究有关数据分析的社交问题，例如隐私和设计。</p>
+<p>与加州大学伯克利分校联合制作 - Ani Adhikari 和 John Denero，同时还有 David Wagner 参与编写<a href="https://www.inferentialthinking.com/chapters/intro.html">计算思维和推理思维</a>。</p>
+<p><strong>Tips</strong>：这是一个较为系统讲解如何学习数据科学的相关基础概念、方法以及使用Python实操的路径，内容较多，但也配备了完整的教材。学习完这个路径后你会掌握一些基础但非常实用的Python数据处理的能力，并建立数据科学的概念。</p>
+</div>
+	</section>
+
+
+</article>
+
+		</main>
+		<aside role="contentinfo"
+			class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-4 md:order-3 md:sticky md:bottom-0 self-end max-w-2xl">
+			<div class="md:float-right md:text-right leading-loose tracking-tight md:mb-2">
+				
+	<div class="md:max-w-xs  flex flex-col md:items-end">
+	<ul class="font-serif flex-grow-0 flex justify-between flex-wrap md:flex-col">
+	
+	
+	<li class="px-1 md:px-0">
+		<a href="/post/" title="Posts page" 
+			class="font-medium text-medium-red-violet-600 hover:text-medium-red-violet-400" >
+			Posts
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/categories/" title="Categories page" >
+			Categories
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/tags/" title="Tags page" >
+			Tags
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/about/" title="About page" >
+			About
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/series/" title="Series page" >
+			Series
+		</a>
+	</li>
+	
+	
+	
+	
+	<div id="fastSearch" class="m-0">
+		<input id="searchInput" type="text" size=10 
+			class="bg-gray-100 focus:outline-none border-b border-gray-100 focus:border-eucalyptus-300 md:text-right
+			placeholder-java-500 min-w-0 max-w-xxxs"
+			placeholder="search" />
+		<ul id="searchResults" class="bg-gray-200 px-2 divide-y divide-gray-400">
+		</ul>
+	</div>
+	
+</ul>
+	
+
+<div class="flex flex-wrap-reverse md:justify-end content-end md:content-start justify-start items-start   max-h-16">
+	
+	<a href='https://github.com/Luosuu' target="_blank" class="github icon pl-1 text-eucalyptus-400 hover:text-java-400" title="github link" rel="noopener"
+		aria-label="follow on github——Opens in a new window">
+		
+		<div class="fill-current h-8 w-8">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <g>
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path fill-rule="nonzero" d="M5.883 18.653c-.3-.2-.558-.455-.86-.816a50.32 50.32 0 0 1-.466-.579c-.463-.575-.755-.84-1.057-.949a1 1 0 0 1 .676-1.883c.752.27 1.261.735 1.947 1.588-.094-.117.34.427.433.539.19.227.33.365.44.438.204.137.587.196 1.15.14.023-.382.094-.753.202-1.095C5.38 15.31 3.7 13.396 3.7 9.64c0-1.24.37-2.356 1.058-3.292-.218-.894-.185-1.975.302-3.192a1 1 0 0 1 .63-.582c.081-.024.127-.035.208-.047.803-.123 1.937.17 3.415 1.096A11.731 11.731 0 0 1 12 3.315c.912 0 1.818.104 2.684.308 1.477-.933 2.613-1.226 3.422-1.096.085.013.157.03.218.05a1 1 0 0 1 .616.58c.487 1.216.52 2.297.302 3.19.691.936 1.058 2.045 1.058 3.293 0 3.757-1.674 5.665-4.642 6.392.125.415.19.879.19 1.38a300.492 300.492 0 0 1-.012 2.716 1 1 0 0 1-.019 1.958c-1.139.228-1.983-.532-1.983-1.525l.002-.446.005-.705c.005-.708.007-1.338.007-1.998 0-.697-.183-1.152-.425-1.36-.661-.57-.326-1.655.54-1.752 2.967-.333 4.337-1.482 4.337-4.66 0-.955-.312-1.744-.913-2.404a1 1 0 0 1-.19-1.045c.166-.414.237-.957.096-1.614l-.01.003c-.491.139-1.11.44-1.858.949a1 1 0 0 1-.833.135A9.626 9.626 0 0 0 12 5.315c-.89 0-1.772.119-2.592.35a1 1 0 0 1-.83-.134c-.752-.507-1.374-.807-1.868-.947-.144.653-.073 1.194.092 1.607a1 1 0 0 1-.189 1.045C6.016 7.89 5.7 8.694 5.7 9.64c0 3.172 1.371 4.328 4.322 4.66.865.097 1.201 1.177.544 1.748-.192.168-.429.732-.429 1.364v3.15c0 .986-.835 1.725-1.96 1.528a1 1 0 0 1-.04-1.962v-.99c-.91.061-1.662-.088-2.254-.485z"/>
+    </g>
+</svg>
+
+		</div>
+	</a>
+	
+	<a href='zhluosuu@outlook.com' target="_blank" class="mail icon pl-1 text-eucalyptus-400 hover:text-java-400" title="mail link" rel="noopener"
+		aria-label="follow on mail——Opens in a new window">
+		
+		<div class="fill-current h-8 w-8">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <g>
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path d="M3 3h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm17 4.238l-7.928 7.1L4 7.216V19h16V7.238zM4.511 5l7.55 6.662L19.502 5H4.511z"/>
+    </g>
+</svg>
+		</div>
+	</a>
+	
+</div>
+	<div class="text-sm text-gray-500 leading-tight a-gray">
+		Copyright © 2020
+		<br />
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 1753 words in this page.
+	</div>
+</div>
+
+			</div>
+		</aside>
+		<footer class="w-full md:w-3/5 xl:w-1/2 order-3 max-w-3xl md:order-4 pt-2">
+			
+<hr class="double-line" />
+<div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
+    
+    <a class="flex-grow-0" href="/post/atabc173d/">
+        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+            height="24">
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" /></svg>
+        AtABC173D-环上的贪心
+    </a>
+    
+    
+</div>
+<div >
+
+
+
+</div>
+<hr />
+<div class="pb-2">
+    
+</div>
+<hr />
+
+		</footer>
+		
+
+<script src="/dist/app.js"></script>
+
+
+<script src="/lib/fuse.min.js"></script> 
+<script src="/lib/fastsearch.js"></script>
+
+	</div>
+</body>
+
+</html>

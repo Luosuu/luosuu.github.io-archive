@@ -7,10 +7,71 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Copyright © 2020</copyright>
-    <lastBuildDate>Sat, 08 Aug 2020 22:49:34 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 03 Oct 2020 23:10:38 +0800</lastBuildDate>
     
 	<atom:link href="https://luosuu.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Microsoft Learn Python Path</title>
+      <link>https://luosuu.github.io/post/microsoft-learn-python-path/</link>
+      <pubDate>Sat, 03 Oct 2020 23:10:38 +0800</pubDate>
+      
+      <guid>https://luosuu.github.io/post/microsoft-learn-python-path/</guid>
+      <description>&lt;p&gt;这里是成电微软学生俱乐部2020年度Python学习Guideline，将主要通过利用Microsoft Learn这个交互式引导学习平台，引导俱乐部新生入门并学习使用Python，甚至掌握一些基础的人工智能及数据科学的概念。&lt;/p&gt;
+&lt;p&gt;我们希望你最终能够自己通过python编程实现一些有趣的小功能，并在2020年12月下旬的俱乐部年会做一些集中的展示，我们为你们的每一步都设置了奖励，如果你在年会上展示你自己编写的程序，我们会给你丰厚的奖励。&lt;/p&gt;
+&lt;p&gt;在学习过程中的任何问题，随时都十分欢迎在俱乐部大群里讨论交流。&lt;/p&gt;
+&lt;h2 id=&#34;入门python编程&#34;&gt;入门Python编程&lt;/h2&gt;
+&lt;p&gt;使用Python迈出第一步&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.microsoft.com/zh-cn/learn/paths/python-first-steps/?WT.mc_id=learntv-video-learn&#34;&gt;https://docs.microsoft.com/zh-cn/learn/paths/python-first-steps/?WT.mc_id=learntv-video-learn&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;想学习编程语言，但不知从何处着手？ 从此处开始！ 了解使用 Python 构建简单应用程序所需的基本语法和预期过程。&lt;/p&gt;
+&lt;p&gt;在此学习路径下，你将：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;编写第一批 Python 代码&lt;/li&gt;
+&lt;li&gt;存储和操作数据以修改其类型和外观&lt;/li&gt;
+&lt;li&gt;执行代码库中提供的内置功能&lt;/li&gt;
+&lt;li&gt;向代码添加逻辑以实现复杂的业务功能&lt;/li&gt;
+&lt;li&gt;完成此学习路径后，你将为后续的 Python 学习路径提供坚实的基础。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;建议完成时间：2020/10/08 前&lt;/p&gt;
+&lt;h2 id=&#34;了解python如何发挥作用&#34;&gt;了解Python如何发挥作用&lt;/h2&gt;
+&lt;p&gt;了解 Python 在太空探索中扮演的角色&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.microsoft.com/zh-cn/learn/paths/introduction-python-space-exploration-nasa/&#34;&gt;https://docs.microsoft.com/zh-cn/learn/paths/introduction-python-space-exploration-nasa/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;此学习路径介绍了 Python 的世界。 但目标不是学习 Python，而是了解 Python 如何在 NASA 创建的创新型解决方案中发挥作用。 该学习路径通过太空探索镜头来激发持之以恒地学习、探索和创建的热情，让你有一天也能帮助我们所有人更多地了解一点外太空。&lt;/p&gt;
+&lt;p&gt;通过这些模板，你将：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;了解和安装学习编程所需的工具&lt;/li&gt;
+&lt;li&gt;了解核心编程概念并在实际的 NASA 问题中运用它们&lt;/li&gt;
+&lt;li&gt;了解机器学习和人工智能等领先技术&lt;/li&gt;
+&lt;li&gt;观看真实的 NASA 员工谈论他们的工作并给出建议&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;建议完成时间：2020/10/16 前&lt;/p&gt;
+&lt;h2 id=&#34;开始了解面向数据的python&#34;&gt;开始了解面向数据的Python&lt;/h2&gt;
+&lt;p&gt;使用 Python 和人工智能对太空岩石进行分类&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.microsoft.com/zh-cn/learn/paths/classify-space-rocks-artificial-intelligence-nasa/&#34;&gt;https://docs.microsoft.com/zh-cn/learn/paths/classify-space-rocks-artificial-intelligence-nasa/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;通过此学习路径，你可了解 AI 和太空的世界。 了解如何创建可对随机照片中的太空岩石的类型进行分类的 AI 模型。&lt;/p&gt;
+&lt;p&gt;建议完成时间：2020/11/XX/&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Tips&lt;/strong&gt;：从这里开始你将学习一些实际的操作，但你可能现在还不太了解面向数据的Python等，我们计划你们开始这部分的学习时做一期Python相关的沙龙，来帮助你们更好的学习后续的内容。不过我们不会讨论Python的一些基础语法，因为这些你都可以在网上轻松的学习到，我们主要会讨论Python的一些常见的小问题，如Python的包管理器（pip和anaconda）并交流你们在学习Python的时候遇到的一些问题，然后在沙龙上我们会带领大家自己通过编写Python来画一个词云（WordCloud）。&lt;/p&gt;
+&lt;p&gt;有关词云，可以自己先了解同济子豪兄的教程：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/66931750&#34;&gt;https://zhuanlan.zhihu.com/p/66931750&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;同济的张子豪同学是同济大学微软学生俱乐部的优秀成员，如今已经是一个分享了非常多技术干货的技术网红。&lt;/p&gt;
+&lt;p&gt;他的很多文章都很有价值，且有很多新手入门向的教程。他的知乎专栏地址如下：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.zhihu.com/people/zhang-zi-hao-64-2/posts?page=1&#34;&gt;https://www.zhihu.com/people/zhang-zi-hao-64-2/posts?page=1&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;对人工智能原理感兴趣的同学可以阅读他专栏下的&lt;a href=&#34;https://zhuanlan.zhihu.com/p/49184702&#34;&gt;“大白话讲解卷积神经网络工作原理”&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;他对于如何安装和配置Python也有新手向的教程：https://zhuanlan.zhihu.com/p/58790338&lt;/p&gt;
+&lt;h3 id=&#34;关于人工智能的相关概念的入门&#34;&gt;关于人工智能的相关概念的入门&lt;/h3&gt;
+&lt;p&gt;Azure上的人工智能入门&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.microsoft.com/zh-cn/learn/paths/get-started-with-artificial-intelligence-on-azure/&#34;&gt;https://docs.microsoft.com/zh-cn/learn/paths/get-started-with-artificial-intelligence-on-azure/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Tips&lt;/strong&gt;：你可以只了解人工智能的相关概念，比如什么是机器学习，什么是计算机视觉，什么是自然语言处理等等。但如果条件允许，你也可以通过路径里的链接快速自己尝试一下相关的功能，里面有一些demo展示。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;注意路径里的链接里多了个中文句号，访问的时候把这个句号删掉就可以了，否则你可能会得到一个空白页或404 Not Found&lt;/em&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;关于数据科学的入门&#34;&gt;关于数据科学的入门&lt;/h3&gt;
+&lt;p&gt;数据科学基础知识&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.microsoft.com/zh-cn/learn/paths/foundations-data-science/&#34;&gt;https://docs.microsoft.com/zh-cn/learn/paths/foundations-data-science/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;加州大学伯克利分校的数据科学基础课程将三个方面结合在了一起：推理思维、计算思维和实际相关性。 假设数据来自某种实际现象，如何分析该数据才能了解该现象？ 本课程教授计算机编程和统计推理的重要概念和技能，并结合对实际数据集的动手分析，其中包括经济数据、文档集合、地理数据和社交网络。 该课程会深入研究有关数据分析的社交问题，例如隐私和设计。&lt;/p&gt;
+&lt;p&gt;与加州大学伯克利分校联合制作 - Ani Adhikari 和 John Denero，同时还有 David Wagner 参与编写&lt;a href=&#34;https://www.inferentialthinking.com/chapters/intro.html&#34;&gt;计算思维和推理思维&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Tips&lt;/strong&gt;：这是一个较为系统讲解如何学习数据科学的相关基础概念、方法以及使用Python实操的路径，内容较多，但也配备了完整的教材。学习完这个路径后你会掌握一些基础但非常实用的Python数据处理的能力，并建立数据科学的概念。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>AtABC173D-环上的贪心</title>
