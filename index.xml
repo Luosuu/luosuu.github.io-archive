@@ -7,10 +7,70 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Copyright © 2020</copyright>
-    <lastBuildDate>Sat, 03 Oct 2020 23:10:38 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 07 Oct 2020 14:46:45 +0800</lastBuildDate>
     
 	<atom:link href="https://luosuu.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Use Git to Collaborate</title>
+      <link>https://luosuu.github.io/post/use-git-to-collaborate/</link>
+      <pubDate>Wed, 07 Oct 2020 14:46:45 +0800</pubDate>
+      
+      <guid>https://luosuu.github.io/post/use-git-to-collaborate/</guid>
+      <description>&lt;p&gt;在项目开发的过程中，合作是必不可少的，许多开发人员会同时开发一个项目，这意味着他们需要一个合适的方法来帮助他们协作，Git与GitHub就是世界上最常用的版本控制软件。你会在下面的Microsoft Learn路径了解版本控制的必要性，与git和GitHub的基础使用方法，并顺便学会Markdown这一非常常用的标记语言工具。&lt;/p&gt;
+&lt;p&gt;俱乐部有一些新生也可以积极参与的项目，学习git和GitHub是参与其中的必要一步。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Tips&lt;/strong&gt;：Git与GitHub只是一种工具，你可以边参与开发边学习如何使用它，就像你从未系统学习过如何使用Microsoft Word，每次你需要使用到它的一些功能时你都会现查现学，本质是需要用起来学。不过跟随Microsoft Learn的路径进行互动式学习先了解一下也不失为一种好方法。&lt;/p&gt;
+&lt;h2 id=&#34;了解并使用git&#34;&gt;了解并使用Git&lt;/h2&gt;
+&lt;p&gt;有关版本控制与 Git 结合使用的简介&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.microsoft.com/zh-cn/learn/paths/intro-to-vc-git/&#34;&gt;https://docs.microsoft.com/zh-cn/learn/paths/intro-to-vc-git/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Git 是领先的版本控制工具，对开发人员至关重要。 了解如何利用 Git 跟踪自己的更改并与他人协作。&lt;/p&gt;
+&lt;h2 id=&#34;markdown与github-pages&#34;&gt;Markdown与Github pages&lt;/h2&gt;
+&lt;p&gt;使用 Markdown 和 GitHub Pages 与他人协作&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.microsoft.com/zh-cn/learn/paths/collaborate-markdown-github-pages/&#34;&gt;https://docs.microsoft.com/zh-cn/learn/paths/collaborate-markdown-github-pages/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;了解如何使用 Markdown 就 GitHub 问题、拉取请求、评论和文档有效地与他人协作。 然后，学习如何使用 GitHub Pages 构建项目网站和博客文章来推广你的项目。&lt;/p&gt;
+&lt;p&gt;在此学习路径下，你将学习如何：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使用 Markdown 通过代码、图像、列表和表格来整理你的想法。&lt;/li&gt;
+&lt;li&gt;使用 GitHub 风格的 Markdown (GFM) 来突出显示常用编程语言的语法并关联找到问题、拉取请求和提交内容。&lt;/li&gt;
+&lt;li&gt;使用 GitHub Pages 创建包含自定义主题的项目页面和博客文章。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Tips&lt;/strong&gt;：你需要注册一个GitHub账户&lt;/p&gt;
+&lt;h2 id=&#34;源代码管理&#34;&gt;源代码管理&lt;/h2&gt;
+&lt;p&gt;在GitHub的使用过程中，一个核心的步骤是合并代码并解决冲突。&lt;/p&gt;
+&lt;p&gt;在 GitHub 上使用合并冲突解决来解决竞争提交&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.microsoft.com/zh-cn/learn/modules/resolve-merge-conflicts-github/&#34;&gt;https://docs.microsoft.com/zh-cn/learn/modules/resolve-merge-conflicts-github/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;了解如何使用合并冲突解决来解决分支中的重叠提交。&lt;/p&gt;
+&lt;p&gt;学习目标
+在本模块中，你将学习以下内容：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;了解合并的发生方式以及导致合并冲突的原因&lt;/li&gt;
+&lt;li&gt;轻松解决简单和复杂的合并冲突&lt;/li&gt;
+&lt;li&gt;与团队共享最佳做法以减少合并冲突&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;github自动化&#34;&gt;Github自动化&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;这个部分并不是必要的，但自动工作流是一个很强大的工具，可以省去很多重复性的工作，如果你在GitHub pages上发布自己的博客，那么学习GitHub Actions可以让你每次更新博客时少一些本地操作的步骤&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;使用 GitHub Actions 自动执行工作流&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.microsoft.com/zh-cn/learn/paths/automate-workflow-github-actions/&#34;&gt;https://docs.microsoft.com/zh-cn/learn/paths/automate-workflow-github-actions/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;在此学习路径下，你将：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;GitHub Actions 工作流将软件开发生命周期自动化。&lt;/li&gt;
+&lt;li&gt;使用 GitHub Actions 自动构建应用程序。&lt;/li&gt;
+&lt;li&gt;使用 GitHub Actions 实现到 Microsoft Azure 的部署。&lt;/li&gt;
+&lt;li&gt;使用 GitHub 脚本与 GitHub API 交互。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Tips：部署到Azure的相关部分可以不看&lt;/p&gt;
+&lt;h2 id=&#34;其他资料&#34;&gt;其他资料&lt;/h2&gt;
+&lt;p&gt;实际上Github官网有QuickStart教程&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/quickstart&#34;&gt;https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/quickstart&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;也有Git教程&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.github.com/en/free-pro-team@latest/github/using-git&#34;&gt;https://docs.github.com/en/free-pro-team@latest/github/using-git&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;GitHub pages教程&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages&#34;&gt;https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;在仓库中管理文件&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.github.com/en/free-pro-team@latest/github/managing-files-in-a-repository&#34;&gt;https://docs.github.com/en/free-pro-team@latest/github/managing-files-in-a-repository&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Microsoft Learn Python Path</title>

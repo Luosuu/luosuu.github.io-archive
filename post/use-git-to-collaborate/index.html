@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>洛舒luosuu的小站  | Use Git to Collaborate</title>
+	<meta name="viewport" content="width=device-width,minimum-scale=1">
+	<meta name="generator" content="Hugo 0.74.3" />
+	
+	
+	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+	
+
+	
+	
+	<link href="/dist/app.css" rel="stylesheet">
+	
+
+	
+
+	
+	
+<link rel="shortcut icon" href="img/logoko-2.png" type="image/png" />
+
+	
+
+	
+	
+	
+	
+
+
+
+<link rel="stylesheet" href='https://luosuu.github.io/lib/katex.min.css' integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+
+
+<script defer src='https://luosuu.github.io/lib/katex.min.js' integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+
+
+<script defer src='https://luosuu.github.io/lib/contrib/auto-render.min.js' integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI"
+crossorigin="anonymous"
+onload='renderMathInElement(document.body);'></script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+
+	
+	
+	
+	<script>
+		(function (u, c) {
+			var d = document,
+				t = 'script',
+				o = d.createElement(t),
+				s = d.getElementsByTagName(t)[0];
+			o.src = u;
+			if (c) {
+				o.addEventListener('load', function (e) {
+					c(e);
+				});
+			}
+			s.parentNode.insertBefore(o, s);
+		})('https:\/\/luosuu.github.io\/lib\/pangu.min.js', function () {
+			pangu.spacingPage();
+		});
+	</script>
+	
+	
+	<style type="text/css" media="screen, print">
+		@font-face {
+			font-family: "FancyTitleFont";
+			font-style: normal;
+			font-display: swap;
+			src: url('https://luosuu.github.io/fonts/exampleFont.woff2') format('woff2'),
+				url('https://luosuu.github.io/fonts/exampleFont.woff') format('woff');
+		}
+
+		 
+		@font-face {
+			font-family: 'Noto Serif CJK SC';
+			font-style: normal;
+			font-weight: 300;
+			font-display: swap;
+			src: local('Noto Serif CJK SC Light'), local('NotoSerifCJK-Light'),
+				url('https://luosuu.github.io/fonts/noto-serif-sc-v7-latin_chinese-simplified-300.woff2') format('woff2'),
+				 
+				url('https://luosuu.github.io/fonts/noto-serif-sc-v7-latin_chinese-simplified-300.woff') format('woff');
+			 
+		}
+
+		 
+		@font-face {
+			font-family: 'Noto Serif CJK SC';
+			font-style: normal;
+			font-weight: 400;
+			font-display: swap;
+			src: local('Noto Serif CJK SC'), local('NotoSerifCJK-Regular'),
+				url('https://luosuu.github.io/fonts/noto-serif-sc-v7-latin_chinese-simplified-regular.woff2') format('woff2'),
+				 
+				url('https://luosuu.github.io/fonts/noto-serif-sc-v7-latin_chinese-simplified-regular.woff') format('woff');
+			 
+		}
+
+		 
+		@font-face {
+			font-family: 'Noto Serif CJK SC';
+			font-style: normal;
+			font-weight: 500;
+			font-display: swap;
+			src: local('Noto Serif CJK SC Medium'), local('NotoSerifCJK-Medium'),
+				url('https://luosuu.github.io/fonts/noto-serif-sc-v7-latin_chinese-simplified-500.woff2') format('woff2'),
+				 
+				url('https://luosuu.github.io/fonts/noto-serif-sc-v7-latin_chinese-simplified-500.woff') format('woff');
+			 
+		}
+	</style>
+	
+	
+</head>
+
+<body class="bg-gray-100 text-gray-700 font-sans">
+	<div class="p-6 sm:p-10 md:p-16 flex flex-wrap">
+		<header class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-1 md:order-1 max-w-2xl">
+			<div
+				class="z-50 bg-gray-100 bg-opacity-75 bg-opacity-custom lg:min-w-0.7 max-w-xl md:float-right md:text-right leading-loose tracking-tight md:sticky md:top-0 pt-2">
+				
+<div>
+	<h2>
+		<a href="https://luosuu.github.io/" title="洛舒luosuu的小站" class="heading font-cursive icon">洛舒luosuu的小站</a>
+	</h2>
+</div>
+<h1 class="pt-2">Use Git to Collaborate</h1>
+
+<h3 class="text-java-700 font-normal leading-relaxed pt-2">学会使用Git和Github与他人合作参与项目</h3>
+
+<div class="flex flex-wrap justify-end pt-2 "><div class="md:flex-grow-0 font-light">
+	
+	
+	
+	
+	<a class="post-taxonomy-category text-medium-red-violet-600 hover:text-medium-red-violet-400"
+		href='/categories/resources'>resources</a>
+	
+	
+	
+
+	
+	&nbsp;&nbsp;
+	
+
+	
+	
+	
+	
+	<a class="post-taxonomy-tag text-eucalyptus-500"
+		href='/tags/git'>git</a>&nbsp;&#47;
+	
+	<a class="post-taxonomy-tag text-eucalyptus-500"
+		href='/tags/github'>github</a>&nbsp;&#47;
+	
+	<a class="post-taxonomy-tag text-eucalyptus-500"
+		href='/tags/microsoft-learn'>Microsoft Learn</a>&nbsp;&#47;
+	
+	<a class="post-taxonomy-tag text-eucalyptus-500"
+		href='/tags/microsoft-student-club'>Microsoft Student Club</a>
+	
+	
+	
+</div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light pl-4"
+		datetime="2020-10-07T14:46:45&#43;08:00">2020-10-7 14:46</time>
+</div>
+
+<details class="toc" open>
+<summary>
+    <hr />
+</summary>
+<div class="inline toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#了解并使用git">了解并使用Git</a></li>
+    <li><a href="#markdown与github-pages">Markdown与Github pages</a></li>
+    <li><a href="#源代码管理">源代码管理</a></li>
+    <li><a href="#github自动化">Github自动化</a></li>
+    <li><a href="#其他资料">其他资料</a></li>
+  </ul>
+</nav>
+</div>
+</details>
+
+<hr />
+
+			</div>
+		</header>
+		<main role="main" class="w-full md:w-3/5 xl:w-1/2 max-w-3xl order-2 md:order-2 min-h-70vh pt-2 pb-4">
+			
+
+<article>
+	<section class="mx-auto content">
+		<div class="c-rich-text"><p>在项目开发的过程中，合作是必不可少的，许多开发人员会同时开发一个项目，这意味着他们需要一个合适的方法来帮助他们协作，Git与GitHub就是世界上最常用的版本控制软件。你会在下面的Microsoft Learn路径了解版本控制的必要性，与git和GitHub的基础使用方法，并顺便学会Markdown这一非常常用的标记语言工具。</p>
+<p>俱乐部有一些新生也可以积极参与的项目，学习git和GitHub是参与其中的必要一步。</p>
+<p><strong>Tips</strong>：Git与GitHub只是一种工具，你可以边参与开发边学习如何使用它，就像你从未系统学习过如何使用Microsoft Word，每次你需要使用到它的一些功能时你都会现查现学，本质是需要用起来学。不过跟随Microsoft Learn的路径进行互动式学习先了解一下也不失为一种好方法。</p>
+<h2 id="了解并使用git">了解并使用Git</h2>
+<p>有关版本控制与 Git 结合使用的简介</p>
+<p><a href="https://docs.microsoft.com/zh-cn/learn/paths/intro-to-vc-git/">https://docs.microsoft.com/zh-cn/learn/paths/intro-to-vc-git/</a></p>
+<p>Git 是领先的版本控制工具，对开发人员至关重要。 了解如何利用 Git 跟踪自己的更改并与他人协作。</p>
+<h2 id="markdown与github-pages">Markdown与Github pages</h2>
+<p>使用 Markdown 和 GitHub Pages 与他人协作</p>
+<p><a href="https://docs.microsoft.com/zh-cn/learn/paths/collaborate-markdown-github-pages/">https://docs.microsoft.com/zh-cn/learn/paths/collaborate-markdown-github-pages/</a></p>
+<p>了解如何使用 Markdown 就 GitHub 问题、拉取请求、评论和文档有效地与他人协作。 然后，学习如何使用 GitHub Pages 构建项目网站和博客文章来推广你的项目。</p>
+<p>在此学习路径下，你将学习如何：</p>
+<ul>
+<li>使用 Markdown 通过代码、图像、列表和表格来整理你的想法。</li>
+<li>使用 GitHub 风格的 Markdown (GFM) 来突出显示常用编程语言的语法并关联找到问题、拉取请求和提交内容。</li>
+<li>使用 GitHub Pages 创建包含自定义主题的项目页面和博客文章。</li>
+</ul>
+<p><strong>Tips</strong>：你需要注册一个GitHub账户</p>
+<h2 id="源代码管理">源代码管理</h2>
+<p>在GitHub的使用过程中，一个核心的步骤是合并代码并解决冲突。</p>
+<p>在 GitHub 上使用合并冲突解决来解决竞争提交</p>
+<p><a href="https://docs.microsoft.com/zh-cn/learn/modules/resolve-merge-conflicts-github/">https://docs.microsoft.com/zh-cn/learn/modules/resolve-merge-conflicts-github/</a></p>
+<p>了解如何使用合并冲突解决来解决分支中的重叠提交。</p>
+<p>学习目标
+在本模块中，你将学习以下内容：</p>
+<ul>
+<li>了解合并的发生方式以及导致合并冲突的原因</li>
+<li>轻松解决简单和复杂的合并冲突</li>
+<li>与团队共享最佳做法以减少合并冲突</li>
+</ul>
+<h2 id="github自动化">Github自动化</h2>
+<p><em>这个部分并不是必要的，但自动工作流是一个很强大的工具，可以省去很多重复性的工作，如果你在GitHub pages上发布自己的博客，那么学习GitHub Actions可以让你每次更新博客时少一些本地操作的步骤</em></p>
+<p>使用 GitHub Actions 自动执行工作流</p>
+<p><a href="https://docs.microsoft.com/zh-cn/learn/paths/automate-workflow-github-actions/">https://docs.microsoft.com/zh-cn/learn/paths/automate-workflow-github-actions/</a></p>
+<p>在此学习路径下，你将：</p>
+<ul>
+<li>GitHub Actions 工作流将软件开发生命周期自动化。</li>
+<li>使用 GitHub Actions 自动构建应用程序。</li>
+<li>使用 GitHub Actions 实现到 Microsoft Azure 的部署。</li>
+<li>使用 GitHub 脚本与 GitHub API 交互。</li>
+</ul>
+<p>Tips：部署到Azure的相关部分可以不看</p>
+<h2 id="其他资料">其他资料</h2>
+<p>实际上Github官网有QuickStart教程</p>
+<p><a href="https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/quickstart">https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/quickstart</a></p>
+<p>也有Git教程</p>
+<p><a href="https://docs.github.com/en/free-pro-team@latest/github/using-git">https://docs.github.com/en/free-pro-team@latest/github/using-git</a></p>
+<p>GitHub pages教程</p>
+<p><a href="https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages">https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages</a></p>
+<p>在仓库中管理文件</p>
+<p><a href="https://docs.github.com/en/free-pro-team@latest/github/managing-files-in-a-repository">https://docs.github.com/en/free-pro-team@latest/github/managing-files-in-a-repository</a></p>
+</div>
+	</section>
+
+
+</article>
+
+		</main>
+		<aside role="contentinfo"
+			class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-4 md:order-3 md:sticky md:bottom-0 self-end max-w-2xl">
+			<div class="md:float-right md:text-right leading-loose tracking-tight md:mb-2">
+				
+	<div class="md:max-w-xs  flex flex-col md:items-end">
+	<ul class="font-serif flex-grow-0 flex justify-between flex-wrap md:flex-col">
+	
+	
+	<li class="px-1 md:px-0">
+		<a href="/post/" title="Posts page" 
+			class="font-medium text-medium-red-violet-600 hover:text-medium-red-violet-400" >
+			Posts
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/categories/" title="Categories page" >
+			Categories
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/tags/" title="Tags page" >
+			Tags
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/about/" title="About page" >
+			About
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/series/" title="Series page" >
+			Series
+		</a>
+	</li>
+	
+	
+	
+	
+	<div id="fastSearch" class="m-0">
+		<input id="searchInput" type="text" size=10 
+			class="bg-gray-100 focus:outline-none border-b border-gray-100 focus:border-eucalyptus-300 md:text-right
+			placeholder-java-500 min-w-0 max-w-xxxs"
+			placeholder="search" />
+		<ul id="searchResults" class="bg-gray-200 px-2 divide-y divide-gray-400">
+		</ul>
+	</div>
+	
+</ul>
+	
+
+<div class="flex flex-wrap-reverse md:justify-end content-end md:content-start justify-start items-start   max-h-16">
+	
+	<a href='https://github.com/Luosuu' target="_blank" class="github icon pl-1 text-eucalyptus-400 hover:text-java-400" title="github link" rel="noopener"
+		aria-label="follow on github——Opens in a new window">
+		
+		<div class="fill-current h-8 w-8">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <g>
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path fill-rule="nonzero" d="M5.883 18.653c-.3-.2-.558-.455-.86-.816a50.32 50.32 0 0 1-.466-.579c-.463-.575-.755-.84-1.057-.949a1 1 0 0 1 .676-1.883c.752.27 1.261.735 1.947 1.588-.094-.117.34.427.433.539.19.227.33.365.44.438.204.137.587.196 1.15.14.023-.382.094-.753.202-1.095C5.38 15.31 3.7 13.396 3.7 9.64c0-1.24.37-2.356 1.058-3.292-.218-.894-.185-1.975.302-3.192a1 1 0 0 1 .63-.582c.081-.024.127-.035.208-.047.803-.123 1.937.17 3.415 1.096A11.731 11.731 0 0 1 12 3.315c.912 0 1.818.104 2.684.308 1.477-.933 2.613-1.226 3.422-1.096.085.013.157.03.218.05a1 1 0 0 1 .616.58c.487 1.216.52 2.297.302 3.19.691.936 1.058 2.045 1.058 3.293 0 3.757-1.674 5.665-4.642 6.392.125.415.19.879.19 1.38a300.492 300.492 0 0 1-.012 2.716 1 1 0 0 1-.019 1.958c-1.139.228-1.983-.532-1.983-1.525l.002-.446.005-.705c.005-.708.007-1.338.007-1.998 0-.697-.183-1.152-.425-1.36-.661-.57-.326-1.655.54-1.752 2.967-.333 4.337-1.482 4.337-4.66 0-.955-.312-1.744-.913-2.404a1 1 0 0 1-.19-1.045c.166-.414.237-.957.096-1.614l-.01.003c-.491.139-1.11.44-1.858.949a1 1 0 0 1-.833.135A9.626 9.626 0 0 0 12 5.315c-.89 0-1.772.119-2.592.35a1 1 0 0 1-.83-.134c-.752-.507-1.374-.807-1.868-.947-.144.653-.073 1.194.092 1.607a1 1 0 0 1-.189 1.045C6.016 7.89 5.7 8.694 5.7 9.64c0 3.172 1.371 4.328 4.322 4.66.865.097 1.201 1.177.544 1.748-.192.168-.429.732-.429 1.364v3.15c0 .986-.835 1.725-1.96 1.528a1 1 0 0 1-.04-1.962v-.99c-.91.061-1.662-.088-2.254-.485z"/>
+    </g>
+</svg>
+
+		</div>
+	</a>
+	
+	<a href='zhluosuu@outlook.com' target="_blank" class="mail icon pl-1 text-eucalyptus-400 hover:text-java-400" title="mail link" rel="noopener"
+		aria-label="follow on mail——Opens in a new window">
+		
+		<div class="fill-current h-8 w-8">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <g>
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path d="M3 3h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm17 4.238l-7.928 7.1L4 7.216V19h16V7.238zM4.511 5l7.55 6.662L19.502 5H4.511z"/>
+    </g>
+</svg>
+		</div>
+	</a>
+	
+</div>
+	<div class="text-sm text-gray-500 leading-tight a-gray">
+		Copyright © 2020
+		<br />
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 1042 words in this page.
+	</div>
+</div>
+
+			</div>
+		</aside>
+		<footer class="w-full md:w-3/5 xl:w-1/2 order-3 max-w-3xl md:order-4 pt-2">
+			
+<hr class="double-line" />
+<div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
+    
+    <a class="flex-grow-0" href="/post/microsoft-learn-python-path/">
+        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+            height="24">
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" /></svg>
+        Microsoft Learn Python Path
+    </a>
+    
+    
+</div>
+<div >
+
+
+
+<div class="font-serif pb-2 flex align-start leading-loose">
+	<span class="heading pr-6 leading-loose">Related</span>
+	<span >
+		
+			<a href="/post/microsoft-learn-python-path/">Microsoft Learn Python Path</a>
+		
+</span>
+</div>
+
+</div>
+<hr />
+<div class="pb-2">
+    
+</div>
+<hr />
+
+		</footer>
+		
+
+<script src="/dist/app.js"></script>
+
+
+<script src="/lib/fuse.min.js"></script> 
+<script src="/lib/fastsearch.js"></script>
+
+	</div>
+</body>
+
+</html>
