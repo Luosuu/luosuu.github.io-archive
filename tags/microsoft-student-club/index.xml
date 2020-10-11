@@ -18,7 +18,7 @@
       <pubDate>Wed, 07 Oct 2020 14:46:45 +0800</pubDate>
       
       <guid>https://luosuu.github.io/post/use-git-to-collaborate/</guid>
-      <description>&lt;p&gt;在项目开发的过程中，合作是必不可少的，许多开发人员会同时开发一个项目，这意味着他们需要一个合适的方法来帮助他们协作，Git与GitHub就是世界上最常用的版本控制软件。你会在下面的Microsoft Learn路径了解版本控制的必要性，与git和GitHub的基础使用方法，并顺便学会Markdown这一非常常用的标记语言工具。&lt;/p&gt;
+      <description>&lt;p&gt;在项目开发的过程中，合作是必不可少的，许多开发人员会同时开发一个项目，这意味着他们需要一个合适的方法来帮助他们协作，Git就是世界上最常用的版本控制软件,Github是世界上最大的代码托管平台。你会在下面的Microsoft Learn路径了解版本控制的必要性，与git和GitHub的基础使用方法，并顺便学会Markdown这一非常常用的标记语言工具。&lt;/p&gt;
 &lt;p&gt;俱乐部有一些新生也可以积极参与的项目，学习git和GitHub是参与其中的必要一步。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Tips&lt;/strong&gt;：Git与GitHub只是一种工具，你可以边参与开发边学习如何使用它，就像你从未系统学习过如何使用Microsoft Word，每次你需要使用到它的一些功能时你都会现查现学，本质是需要用起来学。不过跟随Microsoft Learn的路径进行互动式学习先了解一下也不失为一种好方法。&lt;/p&gt;
 &lt;h2 id=&#34;了解并使用git&#34;&gt;了解并使用Git&lt;/h2&gt;
@@ -48,6 +48,9 @@
 &lt;li&gt;轻松解决简单和复杂的合并冲突&lt;/li&gt;
 &lt;li&gt;与团队共享最佳做法以减少合并冲突&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h2 id=&#34;实践一下&#34;&gt;实践一下&lt;/h2&gt;
+&lt;p&gt;访问俱乐部组织下的名字为“2020-mebmers”的仓库，fork并clone到本地，按照提示修改内容，然后提交pull request。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/uestc-msc/2020-members&#34;&gt;https://github.com/uestc-msc/2020-members&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;github自动化&#34;&gt;Github自动化&lt;/h2&gt;
 &lt;p&gt;&lt;em&gt;这个部分并不是必要的，但自动工作流是一个很强大的工具，可以省去很多重复性的工作，如果你在GitHub pages上发布自己的博客，那么学习GitHub Actions可以让你每次更新博客时少一些本地操作的步骤&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;使用 GitHub Actions 自动执行工作流&lt;/p&gt;
