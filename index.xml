@@ -51,6 +51,7 @@
 &lt;h2 id=&#34;实践一下&#34;&gt;实践一下&lt;/h2&gt;
 &lt;p&gt;访问俱乐部组织下的名字为“2020-mebmers”的仓库，fork并clone到本地，按照提示修改内容，然后提交pull request。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/uestc-msc/2020-members&#34;&gt;https://github.com/uestc-msc/2020-members&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;可以私聊我然后拉你进GitHub的俱乐部组织。&lt;/p&gt;
 &lt;h2 id=&#34;github自动化&#34;&gt;Github自动化&lt;/h2&gt;
 &lt;p&gt;&lt;em&gt;这个部分并不是必要的，但自动工作流是一个很强大的工具，可以省去很多重复性的工作，如果你在GitHub pages上发布自己的博客，那么学习GitHub Actions可以让你每次更新博客时少一些本地操作的步骤&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;使用 GitHub Actions 自动执行工作流&lt;/p&gt;
